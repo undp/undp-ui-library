@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+Hebrew:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, :before, :after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	border-color: #e5e7eb
+}
+
+:before, :after {
+	--tw-content: ""
+}
+
+html, :host {
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	font-family: ProximaNova, proxima-nova, Helvetica Neue, Roboto, sans-serif;
+	font-feature-settings: normal;
+	font-variation-settings: normal;
+	-webkit-tap-highlight-color: transparent
+}
+
+body {
+	margin: 0;
+	line-height: inherit
+}
+
+hr {
+	height: 0;
+	color: inherit;
+	border-top-width: 1px
+}
+
+abbr:where([title]) {
+	-webkit-text-decoration: underline dotted;
+	text-decoration: underline dotted
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit
+}
+
+small {
+	font-size: 80%
+}
+
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline
+}
+
+sub {
+	bottom: -.25em
+}
+
+sup {
+	top: -.5em
+}
+
+table {
+	text-indent: 0;
+	border-color: inherit;
+	border-collapse: collapse
+}
+
+button, input, optgroup, select, textarea {
+	font-family: inherit;
+	font-feature-settings: inherit;
+	font-variation-settings: inherit;
+	font-size: 100%;
+	font-weight: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	color: inherit;
+	margin: 0;
+	padding: 0
+}
+
+button, select {
+	text-transform: none
+}
+
+button, input:where([type="button"]), input:where([type="reset"]), input:where([type="submit"]) {
+	-webkit-appearance: button;
+	background-color: transparent;
+	background-image: none
+}
+
+:-moz-focusring {
+	outline: auto
+}
+
+:-moz-ui-invalid {
+	box-shadow: none
+}
+
+progress {
+	vertical-align: baseline
+}
+
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+	height: auto
+}
+
+[type=search] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px
+}
+
+::-webkit-search-decoration {
+	-webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit
+}
+
+summary {
+	display: list-item
+}
+
+fieldset {
+	margin: 0;
+	padding: 0
+}
+
+legend {
+	padding: 0
+}
+
+ol, ul, menu {
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+
+dialog {
+	padding: 0
+}
+
+textarea {
+	resize: vertical
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+	opacity: 1;
+	color: #9ca3af
+}
+
+input::placeholder, textarea::placeholder {
+	opacity: 1;
+	color: #9ca3af
+}
+
+button, [role=button] {
+	cursor: pointer
+}
+
+:disabled {
+	cursor: default
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+	display: block;
+	vertical-align: middle
+}
+
+img, video {
+	max-width: 100%;
+	height: auto
+}
+
+[hidden]:where(:not([hidden="until-found"])) {
+	display: none
+}
+
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #232E3D;
+    --card: #FFFFFF;
+    --card-foreground: #FAFAFA;
+    --popover: #FFFFFF;
+    --popover-foreground: #000000;
+    --primary: #232E3D;
+    --primary-foreground: #FAFAFA;
+    --secondary: #F7F7F7;
+    --secondary-foreground: #232E3D;
+    --muted: #F7F7F7;
+    --muted-foreground: #55606E;
+    --accent: #F7F7F7;
+    --accent-foreground: #232E3D;
+    --destructive: #55606E;
+    --destructive-foreground: #FAFAFA;
+    --border: #EDEFF0;
+    --input: #EDEFF0;
+    --ring: #000000;
+    --blue-100: #B5D5F5;
+    --blue-200: #94C4F5;
+    --blue-300: #6BABEB;
+    --blue-400: #4F95DD;
+    --blue-500: #3288CE;
+    --blue-600: #0468B1;
+    --blue-700: #1F5A95;
+    --white: #FFFFFF;
+    --gray-100: #FAFAFA;
+    --gray-200: #F7F7F7;
+    --gray-300: #EDEFF0;
+    --gray-400: #D4D6D8;
+    --gray-500: #A9B1B7;
+    --gray-550: #879099;
+    --gray-600: #55606E;
+    --gray-700: #232E3D;
+    --black: #000000;
+    --light-yellow: #FFEB00;
+    --yellow: #FFEB00;
+    --dark-yellow: #FBC412;
+    --light-red: #FFBCB7;
+    --red: #EE402D;
+    --dark-red: #D12800;
+    --light-green: #B8ECB6;
+    --green: #6DE354;
+    --dark-green: #59BA47;
+    --light-azure: #A2DAF3;
+    --azure: #60D4F2;
+    --dark-azure: #00C1FF;
+    --sdg-1: #E5243B;
+    --sdg-2: #DDA63A;
+    --sdg-3: #4C9F38;
+    --sdg-4: #C5192D;
+    --sdg-5: #FF3A21;
+    --sdg-6: #26BDE2;
+    --sdg-7: #FCC30B;
+    --sdg-8: #A21942;
+    --sdg-9: #FD6925;
+    --sdg-10: #DD1367;
+    --sdg-11: #FD9D24;
+    --sdg-12: #BF8B2E;
+    --sdg-13: #3F7E44;
+    --sdg-14: #0A97D9;
+    --sdg-15: #56C02B;
+    --sdg-16: #00689D;
+    --sdg-17: #19486A;
+  }
+  .dark {
+    --background: #000000;
+    --foreground: #FAFAFA;
+    --card: #000000;
+    --card-foreground: #FAFAFA;
+    --popover: #000000;
+    --popover-foreground: #FAFAFA;
+    --primary: #FAFAFA;
+    --primary-foreground: #232E3D;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: #FAFAFA;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: #FAFAFA;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: #FAFAFA;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+
+
+.undp-button.button-arrow::after {
+	transition: .2s ease;
+	content: "";
+	height: 20px;
+	margin-left: 0.75rem;
+	width: 13px
+}
+
+.undp-button.button-arrow:not(.disabled):hover::after {
+	transform: translate(70%, 0)
+}
+
+.button-arrow.white-arrow::after {
+	background: url(https://design.undp.org/static/media/chevron-right-white.c14d1d86.svg) no-repeat left center;
+}
+
+.button-arrow.black-arrow::after {
+	background: url(https://design.undp.org/static/media/chevron-right-black.f618eac3.svg) no-repeat left center;
+}
+
+.button-arrow.red-arrow::after {
+	background: url(https://design.undp.org/icons/chevron-right.svg) no-repeat left center;
+}
+
+@keyframes lineLoop-animation-for-links {
+  0% {
+    background-position: 100% 100%, -30px 100%;
+    background-size: 100% 2px, 0 2px;
+  }
+  to {
+    background-position: calc(100% + 30px) 100%, 0 100%;
+    background-size: 0 2px, 100% 2px;
+  }
+}
+
+.undp-link {
+  background-position: 100% 100%, -30px 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 2px, 0 1px;
+
+}
+
+.undp-link.light {
+  background-image: linear-gradient(var(--dark-red), var(--dark-red)), linear-gradient(var(--dark-red), var(--dark-red));
+}
+
+.undp-link.dark {
+  background-image: linear-gradient(var(--white), var(--white)), linear-gradient(var(--white), var(--white));
+}
+
+.undp-link:hover {
+  animation: lineLoop-animation-for-links 2s linear infinite;
+}
+
+
+.undp-scrollbar {
+  overflow-x: auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+.undp-scrollbar::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+.undp-scrollbar::-webkit-scrollbar-track {
+  background: var(--black);
+  background-clip: padding-box;
+  border: 2px solid rgba(255,255,255,0);
+}
+.undp-scrollbar::-webkit-scrollbar-corner {
+  display: none;
+}
+.undp-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--black);
+}

@@ -2,19 +2,41 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import eslint from 'vite-plugin-eslint';
+import path from 'path';
+import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), eslint()],
+  plugins: [dts({ rollupTypes: true }), react(), eslint()],
+  /*
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  },
+  */
   build: {
-    outDir: 'build',
     cssCodeSplit: false,
+    lib: {
+      entry: 'src/index.ts',
+      name: 'undpDesignSystem',
+      fileName: format => {
+        if (format === 'es') return 'index.js'; // ES Module
+        if (format === 'cjs') return 'index.cjs'; // CommonJS Module
+        return 'index.umd.js'; // UMD Module
+      },
+      formats: ['es', 'cjs', 'umd'],
+    },
     rollupOptions: {
+      // Externalize deps that shouldn't be bundled into the library.
+      external: ['react', 'react-dom'],
       output: {
-        entryFileNames: '[name].js',
-        assetFileNames: '[name].[ext]',
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
       },
     },
+    sourcemap: true,
+    emptyOutDir: true,
   },
   server: {
     cors: {
@@ -22,6 +44,11 @@ export default defineConfig({
       methods: ['GET'],
       preflightContinue: false,
       optionsSuccessStatus: 204,
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });
