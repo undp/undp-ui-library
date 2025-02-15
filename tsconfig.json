@@ -24,7 +24,8 @@
   "include": [
     ".eslintrc.json",
     "vite.config.ts",
-    "src"
+    "src",
+    "tailwind.config.js"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
