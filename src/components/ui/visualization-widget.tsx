@@ -168,7 +168,7 @@ const VisualizationWidgetBodyContent = React.forwardRef<
   return (
     <div
       className={cn(
-        'flex flex-wrap undp-scrollbar grow bg-primary-white max-h-none md:max-h-[80vh]',
+        'flex flex-wrap undp-scrollbar flex-1 bg-primary-white max-h-none md:max-h-[80vh]',
         className,
       )}
       ref={ref}

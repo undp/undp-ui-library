@@ -1,24 +1,10 @@
-import { GrapeIcon } from 'lucide-react';
-import {
-  Banner,
-  BannerBody,
-  BannerBodyContent,
-  BannerBodySidebar,
-} from './components/ui/banner';
-import { H1, P } from './components/ui/typography';
-import {
-  VisualizationWidget,
-  VisualizationWidgetHeader,
-  VisualizationWidgetHeaderItem,
-  VisualizationWidgetBody,
-  VisualizationWidgetBodySidebar,
-  VisualizationWidgetBodyContent,
-} from './components/ui/visualization-widget';
-import { Pagination } from './components/ui/Pagination';
-
 function App() {
-  return (
-    <>
+  return <div />;
+}
+
+export default App;
+
+/*
       <Pagination
         total={100}
         pageSize={10}
@@ -83,13 +69,6 @@ function App() {
           </BannerBodyContent>
         </BannerBody>
       </Banner>
-    </>
-  );
-}
-
-export default App;
-
-/*
       <VisualizationWidget>
         <VisualizationWidgetHeader
           onChange={d => {
