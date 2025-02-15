@@ -57,9 +57,12 @@ function PaginationPrevious({
     <PaginationLink
       {...props}
       aria-label='Go to previous page'
-      className={cn('p-2 bg-primary-black rounded-full', className)}
+      className={cn(
+        'p-2 bg-primary-gray-300 rounded-full hover:bg-primary-gray-400',
+        className,
+      )}
     >
-      <ChevronLeft className='h-6 w-6 stroke-primary-white' />
+      <ChevronLeft className='h-6 w-6 stroke-primary-gray-700' />
     </PaginationLink>
   );
 }
@@ -73,9 +76,12 @@ function PaginationNext({
     <PaginationLink
       {...props}
       aria-label='Go to next page'
-      className={cn('p-2 bg-primary-black rounded-full', className)}
+      className={cn(
+        'p-2 bg-primary-gray-300 rounded-full hover:bg-primary-gray-400',
+        className,
+      )}
     >
-      <ChevronRight className='h-6 w-6 stroke-primary-white' />
+      <ChevronRight className='h-6 w-6 stroke-primary-gray-700' />
     </PaginationLink>
   );
 }

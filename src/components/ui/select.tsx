@@ -4,12 +4,12 @@ import { CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 import { Label } from './label';
 
-export interface OptionType {
+interface OptionType {
   value: string | number;
   label: string;
 }
 // Extend the props of react-select
-export interface SelectPropsDataType {
+interface SelectPropsDataType {
   label?: string;
   labelClassName?: string;
   selectClassName?: string;

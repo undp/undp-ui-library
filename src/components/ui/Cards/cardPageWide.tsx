@@ -19,7 +19,7 @@ const cardVariants = cva('flex flex-col items-stretch w-full', {
   },
 });
 
-export interface CardProps
+interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
   border?: boolean;

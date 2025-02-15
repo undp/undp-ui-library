@@ -72,7 +72,8 @@ function Pagination(props: PaginationProps) {
             }}
             className={cn(
               'cursor-pointer',
-              currentPage <= 1 && 'pointer-events-none opacity-25',
+              currentPage <= 1 &&
+                'cursor-not-allowed pointer-events-none opacity-35',
             )}
           />
         </PaginationItem>
@@ -109,7 +110,8 @@ function Pagination(props: PaginationProps) {
             }}
             className={cn(
               'cursor-pointer',
-              currentPage >= totalPages && 'pointer-events-none opacity-25',
+              currentPage >= totalPages &&
+                'cursor-not-allowed pointer-events-none opacity-35',
             )}
           />
         </PaginationItem>

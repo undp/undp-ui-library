@@ -10,6 +10,12 @@ export {
 } from './components/ui/accordion';
 export { Badge } from './components/ui/badge';
 export {
+  Banner,
+  BannerBody,
+  BannerBodySidebar,
+  BannerBodyContent,
+} from './components/ui/banner';
+export {
   Breadcrumb,
   BreadcrumbList,
   BreadcrumbItem,
@@ -41,6 +47,10 @@ export {
 } from './components/ui/Cards/cardPageWide';
 export { Carousel, CarouselCard } from './components/ui/carousel';
 export { Checkbox } from './components/ui/checkbox';
+export {
+  CheckboxGroup,
+  CheckboxGroupItem,
+} from './components/ui/checkbox-group';
 export { Container } from './components/ui/container';
 export {
   DropdownMenu,
@@ -90,6 +100,7 @@ export { RadioGroup, RadioGroupItem } from './components/ui/radio-group';
 export { SegmentedControl } from './components/ui/segmentedControl';
 export { SdgBorder } from './components/ui/sdgBorder';
 export { Separator } from './components/ui/separator';
+export { Sidebar, SidebarItem } from './components/ui/sidebar-nav';
 export { SliderUI } from './components/ui/slider';
 export { Spacer } from './components/ui/spacer';
 export { Spinner } from './components/ui/spinner';
@@ -117,5 +128,13 @@ export {
   P,
   A,
 } from './components/ui/typography';
+export {
+  VisualizationWidget,
+  VisualizationWidgetHeader,
+  VisualizationWidgetHeaderItem,
+  VisualizationWidgetBody,
+  VisualizationWidgetBodySidebar,
+  VisualizationWidgetBodyContent,
+} from './components/ui/visualization-widget';
 
 export { cn } from './lib/utils';
