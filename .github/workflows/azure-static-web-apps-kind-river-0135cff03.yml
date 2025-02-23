@@ -25,6 +25,8 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm install
+      - name: Build TypeScript (Generate `.d.ts`)
+        run: npm run build  # Ensure this generates `dist/index.d.ts`
       - name: Build Storybook
         run: npm run build-storybook
       - name: Build And Deploy
