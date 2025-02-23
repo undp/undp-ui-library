@@ -121,7 +121,7 @@ function Code({ children, className, ...props }: HeadingProps) {
     <code
       {...props}
       className={cn(
-        'mt-0 text-base bg-primary-gray-200 px-1 pb-1 text-primary-black uppercase',
+        'mt-0 text-base bg-primary-gray-200 px-2 pb-2 text-primary-black',
         className,
       )}
     >

@@ -109,7 +109,7 @@ const VisualizationWidgetHeaderItem = React.forwardRef<
       {...props}
       onClick={() => onValueChange(value)}
       className={cn(
-        'flex border-0 flex-col gap-1 items-center justify-center p-3 font-medium bg-primary-gray-100 text-primary-gray-500 text-sm font-medium border-r border-r-primary-gray-400',
+        'flex border-0 flex-col grow gap-1 items-center justify-center p-3 font-medium bg-primary-gray-100 text-primary-gray-500 text-sm font-medium border-r border-r-primary-gray-400',
         `hover:${hoverItemClass || 'bg-primary-white'}`,
         selectedValue === value
           ? activeItemClass || 'bg-primary-white text-primary-blue-600'

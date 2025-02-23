@@ -8,11 +8,12 @@ import { cn } from '@/lib/utils';
 const accordionVariants = cva('', {
   variants: {
     variant: {
-      primary: 'bg-primary-gray-200 text-primary mb-4 p-2',
+      primary: 'bg-primary-gray-200 text-primary mb-4 px-4 py-1',
       secondary:
-        'bg-primary-gray-200 text-primary mb-0 p-2 border-b border-b-primary-gray-400',
+        'bg-primary-gray-200 text-primary mb-0 px-4 py-1 border-b border-b-primary-gray-400',
       tertiary:
         'bg-transparent text-primary mb-0 py-2 px-0 border-b border-b-primary-gray-400',
+      quaternary: 'bg-transparent text-primary mb-0 py-0 px-0',
     },
   },
   defaultVariants: {
@@ -20,42 +21,54 @@ const accordionVariants = cva('', {
   },
 });
 
-const accordionTitleVariants = cva('', {
-  variants: {
-    variant: {
-      primary: 'text-primary font-semibold text-2xl',
-      secondary: 'uppercase font-semibold text-base',
-      tertiary: 'uppercase text-2xl',
+const accordionTitleVariants = cva(
+  'flex flex-1 items-center py-1 transition-all text-left [&[data-state=open]>svg]:rotate-180',
+  {
+    variants: {
+      variant: {
+        primary: 'text-primary font-normal text-2xl justify-between',
+        secondary: 'uppercase font-normal text-base justify-between',
+        tertiary: 'uppercase font-normal text-2xl justify-between',
+        quaternary: 'uppercase font-bold text-base gap-3',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
     },
   },
-  defaultVariants: {
-    variant: 'primary',
-  },
-});
+);
 
-const accordionContentVariants = cva('', {
-  variants: {
-    variant: {
-      primary: 'text-primary text-base my-3.5',
-      secondary: 'text-primary text-base my-3.5',
-      tertiary: 'text-primary text-base my-3.5 px-3.5',
+const accordionContentVariants = cva(
+  'overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+  {
+    variants: {
+      variant: {
+        primary: 'text-primary text-base my-3.5',
+        secondary: 'text-primary text-base my-3.5',
+        tertiary: 'text-primary text-base my-3.5 px-3.5',
+        quaternary: 'text-primary text-base my-3.5 p-0',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
     },
   },
-  defaultVariants: {
-    variant: 'primary',
-  },
-});
+);
 
 const AccordionContext = React.createContext<{
-  variant: 'primary' | 'secondary' | 'tertiary' | null | undefined;
+  variant:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'quaternary'
+    | null
+    | undefined;
 } | null>(null);
 
 type AccordionProps = React.ComponentPropsWithoutRef<
   typeof AccordionPrimitive.Root
 > &
-  VariantProps<typeof accordionVariants> & {
-    asChild?: boolean;
-  };
+  VariantProps<typeof accordionVariants>;
 
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
@@ -97,21 +110,27 @@ const AccordionTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => {
   const context = React.useContext(AccordionContext);
-
-  const combinedClasses = cn(
-    accordionTitleVariants({ variant: context?.variant }),
-    'flex flex-1 items-center justify-between py-1 transition-all text-left [&[data-state=open]>svg]:rotate-180',
-    className,
-  );
   return (
     <AccordionPrimitive.Header className='flex'>
       <AccordionPrimitive.Trigger
         {...props}
         ref={ref}
-        className={combinedClasses}
+        className={cn(
+          accordionTitleVariants({ variant: context?.variant }),
+          className,
+        )}
       >
-        {children}
-        <ChevronDown className='h-6 w-6 shrink-0 text-muted-foreground stroke-accent-red transition-transform duration-200' />
+        {context?.variant === 'quaternary' ? (
+          <>
+            <ChevronDown className='h-6 w-6 shrink-0 text-muted-foreground stroke-accent-red transition-transform duration-200' />
+            {children}
+          </>
+        ) : (
+          <>
+            {children}
+            <ChevronDown className='h-6 w-6 shrink-0 text-muted-foreground stroke-accent-red transition-transform duration-200' />
+          </>
+        )}
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
@@ -123,17 +142,14 @@ const AccordionContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => {
   const context = React.useContext(AccordionContext);
-
-  const combinedClasses = cn(
-    accordionContentVariants({ variant: context?.variant }),
-    'overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
-    className,
-  );
   return (
     <AccordionPrimitive.Content
       {...props}
       ref={ref}
-      className={combinedClasses}
+      className={cn(
+        accordionContentVariants({ variant: context?.variant }),
+        className,
+      )}
     >
       <div className={className}>{children}</div>
     </AccordionPrimitive.Content>
@@ -141,10 +157,4 @@ const AccordionContent = React.forwardRef<
 });
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
-export {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-  accordionVariants,
-};
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

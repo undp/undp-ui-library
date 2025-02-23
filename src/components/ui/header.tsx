@@ -12,7 +12,7 @@ function Header({ className, children, ...props }: HeaderProps) {
     <header
       {...props}
       className={cn(
-        'bg-primary-gray-100 h-header shadow-header left-0 fixed top-0 w-full z-9 relative h-[75px] md:h-header',
+        'bg-primary-gray-100 shadow-header left-0 fixed top-0 w-full z-9 relative h-[75px] md:h-header',
         className,
       )}
     >
@@ -27,18 +27,20 @@ interface HeaderLogoUnitProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   siteSubName?: string;
   siteName: string;
+  hyperlink?: string;
 }
 
 function HeaderLogoUnit({
   className,
   siteName,
   siteSubName,
+  hyperlink,
   ...props
 }: HeaderLogoUnitProps) {
   return (
     <div {...props} className={cn('flex items-center', className)}>
       <a
-        href='./'
+        href={hyperlink || './'}
         style={{ textDecoration: 'none' }}
         className='logo-sub-head flex gap-4 items-center sm:gap-3'
       >
@@ -121,7 +123,7 @@ function HeaderMenuUnit({
     <div
       {...props}
       className={cn(
-        'grid gap-4 md:flex grow md:justify-center md:gap-8 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600',
+        'grid gap-4 md:flex grow items-center md:justify-center md:gap-8 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600',
         className,
       )}
     >
@@ -139,7 +141,10 @@ function HeaderActions({ className, children, ...props }: HeaderActionsProps) {
   return (
     <div
       {...props}
-      className={cn('flex justify-center gap-8 items-center', className)}
+      className={cn(
+        'flex mt-6 md:mt-0 md:justify-center gap-8 items-center',
+        className,
+      )}
     >
       {children}
     </div>

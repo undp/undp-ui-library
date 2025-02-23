@@ -9,7 +9,7 @@ const bannerVariants = cva('', {
       transparent: 'bg-primary-transparent',
       white: 'bg-primary-white',
       gray: 'bg-primary-gray-200',
-      darkGray: 'bg-primary-gray-600',
+      'dark-gray': 'bg-primary-gray-600',
       black: 'bg-primary-black',
       blue: 'bg-primary-blue-600',
       azure: 'bg-accent-azure',
@@ -23,10 +23,10 @@ const bannerVariants = cva('', {
       xs: 'py-24 px-2',
       sm: 'py-24 px-3',
       base: 'py-24 px-4',
-      md: 'py-24 px-5',
-      lg: 'py-24 px-6',
-      xl: 'py-24 px-7',
-      '2xl': 'py-24 px-8',
+      lg: 'py-24 px-5',
+      xl: 'py-24 px-6',
+      '2xl': 'py-24 px-7',
+      '3xl': 'py-24 px-8',
     },
   },
   defaultVariants: {
@@ -37,43 +37,148 @@ const bannerVariants = cva('', {
 
 const bodyVariants = cva('flex flex-row items-stretch flex-wrap w-full', {
   variants: {
-    maxWidth: {
+    bodyMaxWidth: {
       xs: 'max-w-[1024px] mx-auto',
       sm: 'max-w-[1272px] mx-auto',
-      md: 'max-w-[1440px] mx-auto',
+      base: 'max-w-[1440px] mx-auto',
       lg: 'max-w-[1600px] mx-auto',
       xl: 'max-w-[1980px] mx-auto',
       full: 'max-w-none',
     },
-    gap: {
+    bodyGap: {
       none: 'gap-0',
       '2xs': 'gap-1',
       xs: 'gap-2',
       sm: 'gap-3',
       base: 'gap-4',
-      md: 'gap-5',
-      lg: 'gap-6',
-      xl: 'gap-7',
-      '2xl': 'gap-8',
+      lg: 'gap-5',
+      xl: 'gap-6',
+      '2xl': 'gap-7',
+      '3xl': 'gap-8',
     },
   },
   defaultVariants: {
-    gap: 'base',
-    maxWidth: 'full',
+    bodyGap: 'base',
+    bodyMaxWidth: 'full',
   },
 });
 
+const sidebarVariants = cva('w-full', {
+  variants: {
+    sidebarWidth: {
+      sm: 'sm:w-1/4',
+      base: 'sm:w-1/3',
+      lg: 'sm:w-1/2',
+      full: '',
+    },
+  },
+  defaultVariants: {
+    sidebarWidth: 'base',
+  },
+});
+
+const BannerContext = React.createContext<{
+  backgroundColor:
+    | 'transparent'
+    | 'white'
+    | 'gray'
+    | 'dark-gray'
+    | 'black'
+    | 'blue'
+    | 'azure'
+    | 'yellow'
+    | 'red'
+    | 'green'
+    | null
+    | undefined;
+  padding:
+    | 'none'
+    | '2xs'
+    | 'xs'
+    | 'sm'
+    | 'base'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | null
+    | undefined;
+  bodyMaxWidth: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full' | null | undefined;
+  bodyGap:
+    | 'none'
+    | '2xs'
+    | 'xs'
+    | 'sm'
+    | 'base'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | null
+    | undefined;
+  sidebarWidth: 'sm' | 'base' | 'lg' | 'full' | null | undefined;
+} | null>(null);
+
 const Banner = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bannerVariants>
->(({ className, backgroundColor, padding, ...props }, ref) => {
+  React.HTMLAttributes<HTMLDivElement> &
+    VariantProps<typeof bannerVariants> &
+    VariantProps<typeof bodyVariants> &
+    VariantProps<typeof sidebarVariants>
+>(
+  (
+    {
+      className,
+      backgroundColor,
+      sidebarWidth,
+      bodyGap,
+      bodyMaxWidth,
+      padding,
+      ...props
+    },
+    ref,
+  ) => {
+    const contextValue = React.useMemo(
+      () => ({
+        backgroundColor,
+        sidebarWidth,
+        bodyGap,
+        bodyMaxWidth,
+        padding,
+      }),
+      [backgroundColor, sidebarWidth, bodyGap, bodyMaxWidth, padding],
+    );
+    return (
+      <BannerContext.Provider value={contextValue}>
+        <div
+          {...props}
+          className={cn(
+            bannerVariants({
+              backgroundColor,
+              padding,
+            }),
+            className,
+          )}
+          ref={ref}
+        />
+      </BannerContext.Provider>
+    );
+  },
+);
+Banner.displayName = 'Banner';
+
+const BannerBody = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const context = React.useContext(BannerContext);
   return (
     <div
       {...props}
       className={cn(
-        bannerVariants({
-          backgroundColor,
-          padding,
+        bodyVariants({
+          bodyMaxWidth: context?.bodyMaxWidth,
+          bodyGap: context?.bodyGap,
         }),
         className,
       )}
@@ -81,45 +186,20 @@ const Banner = React.forwardRef<
     />
   );
 });
-Banner.displayName = 'Banner';
-
-const BannerBody = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bodyVariants>
->(({ className, maxWidth, gap, ...props }, ref) => {
-  return (
-    <div
-      {...props}
-      className={cn(bodyVariants({ maxWidth, gap }), className)}
-      ref={ref}
-    />
-  );
-});
 BannerBody.displayName = 'BannerBody';
-
-const bodySidebarVariants = cva('w-full', {
-  variants: {
-    width: {
-      sm: 'sm:w-1/4',
-      md: 'sm:w-1/3',
-      lg: 'sm:w-1/2',
-      full: '',
-    },
-  },
-  defaultVariants: {
-    width: 'md',
-  },
-});
 
 const BannerBodySidebar = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> &
-    VariantProps<typeof bodySidebarVariants>
->(({ className, width, ...props }, ref) => {
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const context = React.useContext(BannerContext);
   return (
     <div
       {...props}
-      className={cn(bodySidebarVariants({ width }), className)}
+      className={cn(
+        sidebarVariants({ sidebarWidth: context?.sidebarWidth }),
+        className,
+      )}
       ref={ref}
     />
   );

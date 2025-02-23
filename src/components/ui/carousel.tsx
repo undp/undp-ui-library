@@ -57,9 +57,9 @@ const cardVariants = cva('shrink-0 min-w-[320px] snap-start', {
     size: {
       xs: 'w-1/4',
       sm: 'w-1/3',
-      l: 'w-1/2',
-      xl: 'w-2/3',
-      '2xl': 'w-[calc(100%-80px)]',
+      base: 'w-1/2',
+      lg: 'w-2/3',
+      xl: 'w-[calc(100%-80px)]',
       full: 'w-full',
     },
   },

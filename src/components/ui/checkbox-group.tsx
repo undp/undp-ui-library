@@ -6,12 +6,12 @@ import { cn } from '@/lib/utils';
 import { Label } from './label';
 
 interface CheckboxGroupProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange'> {
   label?: string;
   labelClassName?: string;
-  checkboxClassName?: string;
+  defaultValue?: string[];
   value?: string[];
-  onChange?: (value: string[]) => void;
+  onValueChange?: (value: string[]) => void;
 }
 
 // Context for sharing state between CheckboxGroup and CheckboxGroupItem
@@ -28,17 +28,19 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
     {
       className,
       labelClassName,
-      checkboxClassName,
       label,
       children,
       value,
-      onChange,
+      onValueChange,
+      defaultValue,
       ...props
     },
     ref,
   ) => {
     // Internal state for uncontrolled usage
-    const [internalValue, setInternalValue] = React.useState<string[]>([]);
+    const [internalValue, setInternalValue] = React.useState<string[]>(
+      defaultValue || [],
+    );
 
     // Use either controlled or uncontrolled value
     const selectedValues = value !== undefined ? value : internalValue;
@@ -55,10 +57,10 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
           setInternalValue(newValue);
         }
 
-        // Call onChange handler if provided
-        onChange?.(newValue);
+        // Call onValueChange handler if provided
+        onValueChange?.(newValue);
       },
-      [selectedValues, value, onChange],
+      [selectedValues, value, onValueChange],
     );
 
     // Context to pass down the handler and selected values
@@ -78,12 +80,7 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
           {...props}
         >
           {label ? <Label className={labelClassName}>{label}</Label> : null}
-          <div
-            className={cn(
-              'flex gap-x-4 gap-y-2 flex-row flex-wrap',
-              checkboxClassName,
-            )}
-          >
+          <div className='flex gap-x-4 gap-y-2 flex-row flex-wrap'>
             {children}
           </div>
         </div>
@@ -150,7 +147,7 @@ const CheckboxGroupItem = React.forwardRef<
             />
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
-        <Label className={labelClassName} htmlFor={id}>
+        <Label className={cn('mt-0.5', labelClassName)} htmlFor={id}>
           {label || value}
         </Label>
       </div>

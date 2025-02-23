@@ -6,7 +6,6 @@ export {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-  accordionVariants,
 } from './components/ui/accordion';
 export { Badge } from './components/ui/badge';
 export {
@@ -88,6 +87,7 @@ export {
 export { Search } from './components/ui/input-search';
 export { Input } from './components/ui/input';
 export { Label } from './components/ui/label';
+export { UNDPLogo } from './components/ui/logo.tsx';
 export { Modal } from './components/ui/modal';
 export { Pagination } from './components/ui/Pagination';
 export {
@@ -97,8 +97,9 @@ export {
   PopoverAnchor,
 } from './components/ui/popover';
 export { RadioGroup, RadioGroupItem } from './components/ui/radio-group';
-export { SegmentedControl } from './components/ui/segmentedControl';
 export { SdgBorder } from './components/ui/sdgBorder';
+export { SDGIcons } from './components/ui/sdgIcons.tsx';
+export { SegmentedControl } from './components/ui/segmentedControl';
 export { Separator } from './components/ui/separator';
 export { Sidebar, SidebarItem } from './components/ui/sidebar-nav';
 export { SliderUI } from './components/ui/slider';
@@ -109,6 +110,7 @@ export { Switch } from './components/ui/switch';
 export { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui/tabs';
 export { Textarea } from './components/ui/textarea';
 export { Toaster } from './components/ui/toaster';
+export { useToast, toast } from './hooks/use-toast.ts';
 export {
   Tooltip,
   TooltipTrigger,

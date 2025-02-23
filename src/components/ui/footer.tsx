@@ -37,7 +37,7 @@ function FooterLogoUnit({
     <div
       {...props}
       className={cn(
-        'flex justify-between mb-8 flex-wrap pt-0 px-3 pb-12 border-b-primary-white border-b',
+        'flex justify-between mb-8 flex-wrap pt-0 px-3 pb-12 border-b-primary-white border-b items-center',
         className,
       )}
     >
@@ -88,12 +88,16 @@ function FooterCopyrightUnit({
   ...props
 }: FooterCopyrightUnitProps) {
   return (
-    <div {...props} className={cn('flex justify-between flex-wrap', className)}>
-      <div>
-        <P className='mt-4 mb-0 py-0 px-3 text-base'>
-          © United Nations Development Programme
-        </P>
-      </div>
+    <div
+      {...props}
+      className={cn(
+        'flex justify-between flex-wrap items-center mt-6',
+        className,
+      )}
+    >
+      <P className='m-0 md:m-0 py-0 px-0 text-base'>
+        © United Nations Development Programme
+      </P>
       <div>{children}</div>
     </div>
   );

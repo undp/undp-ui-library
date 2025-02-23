@@ -23,7 +23,7 @@ interface SidebarProps
   defaultValue?: string;
   activeItemClass?: string;
   hoverItemClass?: string;
-  onChange?: (value: string) => void;
+  onValueChange?: (value: string) => void;
 }
 
 const SidebarContext = React.createContext<{
@@ -47,7 +47,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       defaultValue,
       activeItemClass,
       hoverItemClass,
-      onChange,
+      onValueChange,
       ...props
     },
     ref,
@@ -63,9 +63,9 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         setSelectedValue(itemValue);
 
         // Call onChange handler if provided
-        onChange?.(itemValue);
+        onValueChange?.(itemValue);
       },
-      [onChange],
+      [onValueChange],
     );
 
     // Context to pass down the handler and selected values
@@ -95,7 +95,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
 Sidebar.displayName = 'Sidebar';
 
 interface SidebarItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: string;
+  value?: string;
 }
 
 const SidebarItem = React.forwardRef<HTMLDivElement, SidebarItemProps>(
@@ -114,7 +114,11 @@ const SidebarItem = React.forwardRef<HTMLDivElement, SidebarItemProps>(
             : '',
           className,
         )}
-        onClick={() => onValueChange(value)}
+        onClick={() => {
+          if (value) {
+            onValueChange(value);
+          }
+        }}
       >
         {children}
       </div>

@@ -53,7 +53,7 @@ const RadioGroupItem = React.forwardRef<
           <Circle className='h-2.5 w-2.5 fill-primary-blue-600 stroke-0' />
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
-      <Label className={labelClassName} htmlFor={id}>
+      <Label className={cn('mt-0.5', labelClassName)} htmlFor={id}>
         {label}
       </Label>
     </div>

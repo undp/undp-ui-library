@@ -14,12 +14,15 @@ function SdgBorder({ sdgList, barClassName, ...props }: Props) {
     >
       {(
         sdgList || [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-      ).map((d, i) => (
-        <div
-          key={i}
-          className={cn(`h-4 flex-grow bg-sdgColors-sdg-${d}`, barClassName)}
-        />
-      ))}
+      ).map((d, i) => {
+        return (
+          <div
+            key={i}
+            style={{ backgroundColor: `var(--sdg-${d})` }}
+            className={cn('h-4 flex-grow', barClassName)}
+          />
+        );
+      })}
     </div>
   );
 }

@@ -8,7 +8,7 @@ const spacerVariants = cva('h-0 w-full', {
     size: {
       xs: 'py-px',
       sm: 'py-[2px]',
-      md: 'py-1',
+      base: 'py-1',
       lg: 'py-1.5',
       xl: 'py-2',
       '2xl': 'py-3',
@@ -22,7 +22,7 @@ const spacerVariants = cva('h-0 w-full', {
     },
   },
   defaultVariants: {
-    size: 'md',
+    size: 'base',
   },
 });
 

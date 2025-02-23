@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Select from 'react-select';
+import Select, {
+  components,
+  MultiValue,
+  SingleValue,
+  ActionMeta,
+} from 'react-select';
 import { CSSProperties } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { Label } from './label';
 
@@ -8,82 +15,112 @@ interface OptionType {
   value: string | number;
   label: string;
 }
-// Extend the props of react-select
+
+const selectVariants = cva('text-sm rounded-none', {
+  variants: {
+    variant: {
+      light: 'border-2 border-primary-gray-400',
+      normal: 'border-2 border-primary-black',
+    },
+    size: {
+      sm: 'p-0 min-h-[40px]',
+      base: 'min-h-[48px] px-0 py-0.5',
+    },
+  },
+  defaultVariants: {
+    variant: 'normal',
+    size: 'base',
+  },
+});
+
 interface SelectPropsDataType {
   label?: string;
   labelClassName?: string;
   selectClassName?: string;
   truncateLabel?: boolean;
-  // Data
-  options?: OptionType[]; // The options available in the dropdown
-  value?: OptionType | null; // The currently selected option
-  defaultValue?: OptionType | null; // The default selected value
-  isMulti?: boolean; // Enable multi-select
-  isClearable?: boolean; // Show a clear button (X) to remove selection
-  isSearchable?: boolean; // Allow the user to search/filter the options
-  isDisabled?: boolean; // Disable the entire select component
-  isLoading?: boolean; // Show a loading indicator
+  options?: OptionType[];
+  value?: OptionType | null;
+  defaultValue?: OptionType | null;
+  isMulti?: boolean;
+  isClearable?: boolean;
+  isSearchable?: boolean;
+  isDisabled?: boolean;
+  isLoading?: boolean;
 
-  // Callbacks
   onChange?: (
-    newValue: OptionType | null | OptionType[],
-    actionMeta: any,
-  ) => void; // Called when value changes
-  onInputChange?: (inputValue: string, actionMeta: any) => void; // Called when the input value changes
-  onFocus?: () => void; // Called when the select is focused
-  onBlur?: () => void; // Called when the select loses focus
-  onMenuOpen?: () => void; // Called when the menu is opened
-  onMenuClose?: () => void; // Called when the menu is closed
+    newValue: MultiValue<OptionType> | SingleValue<OptionType>,
+    actionMeta: ActionMeta<OptionType>,
+  ) => void;
+  onInputChange?: (inputValue: string, actionMeta: any) => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  onMenuOpen?: () => void;
+  onMenuClose?: () => void;
 
-  // Styling
-  className?: string; // CSS class applied to the container
-  classNamePrefix?: string; // Prefix for inner CSS classes
+  className?: string;
+  classNamePrefix?: string;
   styles?: {
     [key: string]: (base: CSSProperties, state: any) => CSSProperties;
-  }; // Custom styles for components
-  theme?: (theme: any) => any; // Custom theme function
+  };
+  theme?: (theme: any) => any;
 
-  // Dropdown/Menu
-  menuIsOpen?: boolean; // Control the menu's open state
-  menuPlacement?: 'auto' | 'top' | 'bottom'; // Where to place the menu
-  menuPosition?: 'absolute' | 'fixed'; // The positioning strategy for the menu
-  menuPortalTarget?: HTMLElement; // Portal target for the menu
-  maxMenuHeight?: number; // Max height of the menu
+  menuIsOpen?: boolean;
+  menuPlacement?: 'auto' | 'top' | 'bottom';
+  menuPosition?: 'absolute' | 'fixed';
+  menuPortalTarget?: HTMLElement;
+  maxMenuHeight?: number;
 
-  // Input
-  placeholder?: string; // Placeholder for the input
-  inputValue?: string; // Manually control the input value
-  backspaceRemovesValue?: boolean; // Remove values on backspace
+  placeholder?: string;
+  inputValue?: string;
+  backspaceRemovesValue?: boolean;
 
-  // Accessibility
-  ariaLiveMessages?: { [key: string]: (props: any) => string }; // Custom ARIA live region messages
-  isRtl?: boolean; // Right-to-left support
+  ariaLiveMessages?: { [key: string]: (props: any) => string };
+  isRtl?: boolean;
 
-  // Custom Rendering
   components?: {
     [key: string]: React.ComponentType<any>;
-  }; // Override components like `Option`, `Control`, etc.
+  };
   formatOptionLabel?: (
     data: OptionType,
     meta: { context: 'menu' | 'value' },
-  ) => React.ReactNode; // Custom formatting for options
+  ) => React.ReactNode;
 
-  // Others
-  blurInputOnSelect?: boolean; // Blur the input when an option is selected
-  closeMenuOnSelect?: boolean; // Close the menu when an option is selected
-  captureMenuScroll?: boolean; // Capture scroll events when menu is open
-  escapeClearsValue?: boolean; // Clear value when pressing `Escape`
-  loadingMessage?: () => string | null; // Message when options are loading
-  noOptionsMessage?: () => string | null; // Message when no options are available
-  getOptionLabel?: (option: OptionType) => string; // Custom label extractor
-  getOptionValue?: (option: OptionType) => string; // Custom value extractor
+  blurInputOnSelect?: boolean;
+  closeMenuOnSelect?: boolean;
+  captureMenuScroll?: boolean;
+  escapeClearsValue?: boolean;
+  loadingMessage?: () => string | null;
+  noOptionsMessage?: () => string | null;
+  getOptionLabel?: (option: OptionType) => string;
+  getOptionValue?: (option: OptionType) => string;
+  variant?: 'light' | 'normal';
+  size?: 'sm' | 'base';
 }
+
+function CustomDropdownIndicator(props: any) {
+  const { selectProps } = props;
+  return (
+    <components.DropdownIndicator {...props}>
+      {selectProps.menuIsOpen ? (
+        <ChevronUp className='h-6 w-6 stroke-accent-red' />
+      ) : (
+        <ChevronDown className='h-6 w-6 stroke-accent-red' />
+      )}
+    </components.DropdownIndicator>
+  );
+}
+
+const customComponents = {
+  DropdownIndicator: CustomDropdownIndicator,
+};
 
 function DropdownSelect({
   label,
   labelClassName,
   className,
   selectClassName,
+  variant,
+  size,
   truncateLabel,
   ...props
 }: SelectPropsDataType): JSX.Element {
@@ -95,10 +132,7 @@ function DropdownSelect({
           {...props}
           classNames={{
             control: () =>
-              cn(
-                'min-h-[48px] border-2 border-primary-black text-sm rounded-none px-0 py-0.5',
-                selectClassName,
-              ),
+              cn(selectVariants({ variant, size }), selectClassName),
             singleValue: () => 'text-medium text-primary-black text-base',
             placeholder: () => 'text-primary-gray-500 text-base',
             groupHeading: () => 'font-bold',
@@ -121,6 +155,7 @@ function DropdownSelect({
             menu: () => 'rounded-none mt-1 border-0 shadow-lg',
             menuList: () => 'undp-scrollbar',
           }}
+          components={customComponents}
         />
       </div>
     </div>

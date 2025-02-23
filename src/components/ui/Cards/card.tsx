@@ -21,9 +21,9 @@ const cardVariants = cva('flex flex-col justify-between items-stretch', {
     size: {
       xs: 'w-1/4',
       sm: 'w-1/3',
-      l: 'w-1/2',
-      xl: 'w-2/3',
-      '2xl': 'w-3/4',
+      base: 'w-1/2',
+      lg: 'w-2/3',
+      xl: 'w-3/4',
       full: 'w-full',
     },
   },
@@ -34,7 +34,7 @@ const cardVariants = cva('flex flex-col justify-between items-stretch', {
   },
 });
 
-interface CardProps
+export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
   border?: boolean;
@@ -76,47 +76,31 @@ const CardTag = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ children, className, ...props }) => (
-  <h6
+  <div
     className={cn(
-      'card-tag mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-base font-bold leading-[1.15] text-primary-black uppercase',
+      'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-base font-bold leading-[1.15] text-primary-black uppercase',
       className,
     )}
     {...props}
   >
     {children}
-  </h6>
+  </div>
 ));
 CardTag.displayName = 'CardTag';
 
-const cardTitleVariants = cva(
-  'm-0 pl-6 pr-6 pt-4 pb-6 text-primary-black leading-[1.15]',
-  {
-    variants: {
-      weight: {
-        bold: 'font-bold',
-        medium: 'font-medium',
-        normal: 'font-normal',
-      },
-      size: {
-        normal: 'text-[1.25rem] md:text-[1.563rem]',
-        large: 'text-[1.563rem] md:text-[2.188rem]',
-      },
-    },
-    defaultVariants: {
-      size: 'normal',
-      weight: 'normal',
-    },
-  },
-);
-
 const CardTitle = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement> &
-    VariantProps<typeof cardTitleVariants>
->(({ children, weight, size, className, ...props }) => (
-  <h5 className={cn(cardTitleVariants({ size, weight }), className)} {...props}>
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ children, className, ...props }) => (
+  <div
+    className={cn(
+      'm-0 pl-6 pr-6 pt-4 pb-6 text-primary-black leading-[1.15] flex gap-2 font-normal text-[1.25rem] md:text-[1.563rem]',
+      className,
+    )}
+    {...props}
+  >
     {children}
-  </h5>
+  </div>
 ));
 CardTitle.displayName = 'CardTitle';
 
@@ -124,7 +108,7 @@ const CardDescription = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ children, className, ...props }) => (
-  <p
+  <div
     className={cn(
       `pl-6 pr-6 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl`,
       className,
@@ -132,7 +116,7 @@ const CardDescription = React.forwardRef<
     {...props}
   >
     {children}
-  </p>
+  </div>
 ));
 CardDescription.displayName = 'CardDescription';
 

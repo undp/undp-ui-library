@@ -1,0 +1,75 @@
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ChartBar } from 'lucide-react';
+import {
+  VisualizationWidget,
+  VisualizationWidgetHeader,
+  VisualizationWidgetHeaderItem,
+  VisualizationWidgetBody,
+  VisualizationWidgetBodySidebar,
+  VisualizationWidgetBodyContent,
+} from '@/index';
+
+type PagePropsAndCustomArgs = React.ComponentProps<
+  typeof VisualizationWidgetHeader
+>;
+
+const meta: Meta<PagePropsAndCustomArgs> = {
+  title: 'UI/Visualization Widget',
+  component: VisualizationWidgetHeader,
+  tags: ['autodocs'],
+  args: {
+    defaultValue: 'chart 1',
+  },
+  argTypes: {
+    defaultValue: {
+      control: { type: 'text' },
+      defaultValue: '',
+    },
+    activeItemClass: {
+      control: { type: 'text' },
+      defaultValue: '',
+    },
+    hoverItemClass: {
+      control: { type: 'text' },
+      defaultValue: '',
+    },
+  },
+  render: ({ ...args }) => (
+    <VisualizationWidget>
+      <VisualizationWidgetHeader
+        onChange={d => {
+          console.log(d);
+        }}
+        {...args}
+      >
+        <VisualizationWidgetHeaderItem value='chart 1'>
+          <ChartBar />
+          Chart 1
+        </VisualizationWidgetHeaderItem>
+        <VisualizationWidgetHeaderItem value='chart 2'>
+          <ChartBar />
+          Chart 2
+        </VisualizationWidgetHeaderItem>
+        <VisualizationWidgetHeaderItem value='chart 3'>
+          <ChartBar />
+          Chart 3
+        </VisualizationWidgetHeaderItem>
+      </VisualizationWidgetHeader>
+      <VisualizationWidgetBody>
+        <VisualizationWidgetBodySidebar>
+          <div className='bg-primary-blue-100' />
+        </VisualizationWidgetBodySidebar>
+        <VisualizationWidgetBodyContent>
+          <div className='h-96 bg-primary-gray-300 w-full' />
+        </VisualizationWidgetBodyContent>
+      </VisualizationWidgetBody>
+    </VisualizationWidget>
+  ),
+};
+
+export default meta;
+
+type Story = StoryObj<typeof VisualizationWidget>;
+
+export const Default: Story = {};

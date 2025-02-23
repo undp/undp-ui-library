@@ -30,7 +30,7 @@ function SliderUI(sliderProps: SliderProps) {
     handleClassName,
     label,
     labelClassName,
-    showHandleValue,
+    showHandleValue = false,
   } = sliderProps;
   return (
     <div className='w-full py-6 px-4'>
@@ -44,7 +44,6 @@ function SliderUI(sliderProps: SliderProps) {
         {label ? <Label className={labelClassName}>{label}</Label> : null}
         <Slider
           {...sliderProps}
-          range
           min={min}
           max={max}
           handleRender={(node, handleProps) => {

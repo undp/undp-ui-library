@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "allowImportingTsExtensions": true,
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
@@ -23,7 +24,6 @@
   "files": [],
   "include": [
     ".eslintrc.json",
-    "vite.config.ts",
     "src",
     "tailwind.config.js"
   ],

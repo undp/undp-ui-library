@@ -1,0 +1,44 @@
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/index';
+
+type PagePropsAndCustomArgs = React.ComponentProps<typeof Tabs>;
+
+const meta: Meta<PagePropsAndCustomArgs> = {
+  title: 'Components/Tabs',
+  component: Tabs,
+  tags: ['autodocs'],
+  argTypes: {
+    defaultValue: {
+      control: { type: 'text' },
+      defaultValue: '',
+    },
+  },
+  args: {
+    defaultValue: 'tab 1',
+  },
+  render: ({ ...args }) => (
+    <Tabs {...args}>
+      <TabsList>
+        <TabsTrigger value='tab 1'>Tab 1</TabsTrigger>
+        <TabsTrigger value='tab 2'>Tab 2</TabsTrigger>
+        <TabsTrigger value='tab 3'>Tab 3</TabsTrigger>
+      </TabsList>
+      <TabsContent value='tab 1'>
+        <div>Tab 1 content</div>
+      </TabsContent>
+      <TabsContent value='tab 2'>
+        <div>Tab 2 content</div>
+      </TabsContent>
+      <TabsContent value='tab 3'>
+        <div>Tab 3 content</div>
+      </TabsContent>
+    </Tabs>
+  ),
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Tabs>;
+
+export const Default: Story = {};

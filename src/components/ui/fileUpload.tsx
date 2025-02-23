@@ -7,10 +7,10 @@ import { P } from './typography';
 import { Label } from './label';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-  fileChange?: (_d: File[]) => void;
+  onFileChange?: (_d: File[]) => void;
 }
 
-function FileUpload({ fileChange, children, ...props }: Props) {
+function FileUpload({ onFileChange, children, ...props }: Props) {
   const idForHtml = props.id || generateRandomId();
   const [files, setFiles] = useState<File[]>([]);
 
@@ -21,13 +21,13 @@ function FileUpload({ fileChange, children, ...props }: Props) {
         updatedFiles = [...files, ...Array.from(event.target.files)];
       }
       setFiles(updatedFiles);
-      fileChange?.(updatedFiles);
+      onFileChange?.(updatedFiles);
     }
   };
   const handleRemoveFile = (index: number) => {
     const updatedFiles = files.filter((_, i) => i !== index);
     setFiles(updatedFiles);
-    fileChange?.(updatedFiles);
+    onFileChange?.(updatedFiles);
   };
 
   return (

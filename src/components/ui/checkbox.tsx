@@ -50,7 +50,7 @@ const Checkbox = React.forwardRef<
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
         {label ? (
-          <Label className={labelClassName} htmlFor={id}>
+          <Label className={cn('mt-0.5', labelClassName)} htmlFor={id}>
             {label}
           </Label>
         ) : null}

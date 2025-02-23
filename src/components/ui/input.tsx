@@ -1,18 +1,35 @@
 import * as React from 'react';
-
+import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { Label } from './label';
 
+const inputVariants = cva(
+  'w-full border-2 border-primary-black bg-transparent text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-25',
+  {
+    variants: {
+      size: {
+        sm: 'px-2.5 py-1',
+        base: 'p-2.5 ',
+      },
+    },
+    defaultVariants: {
+      size: 'base',
+    },
+  },
+);
+
 const Input = React.forwardRef<
   HTMLInputElement,
-  React.ComponentProps<'input'> & {
-    label?: string;
-    labelClassName?: string;
-    inputClassName?: string;
-  }
+  React.InputHTMLAttributes<HTMLInputElement> &
+    VariantProps<typeof inputVariants> & {
+      label?: string;
+      labelClassName?: string;
+      inputClassName?: string;
+      size?: 'sm' | 'base';
+    }
 >(
   (
-    { className, type, label, labelClassName, inputClassName, ...props },
+    { className, size, label, labelClassName, inputClassName, ...props },
     ref,
   ) => {
     return (
@@ -20,12 +37,8 @@ const Input = React.forwardRef<
         {label ? <Label className={labelClassName}>{label}</Label> : null}
         <input
           {...props}
-          type={type}
           ref={ref}
-          className={cn(
-            'w-full border-2 border-primary-black bg-transparent p-2.5 text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-25',
-            inputClassName,
-          )}
+          className={cn(inputVariants({ size }), inputClassName)}
         />
       </div>
     );
