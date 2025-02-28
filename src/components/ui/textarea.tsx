@@ -1,28 +1,36 @@
 import * as React from 'react';
 
+import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { Label } from './label';
 
+const inputVariants = cva(
+  'flex w-full min-h-[60px] text-normal text-base bg-primary-white dark:bg-primary-gray-700 text-primary-black dark:text-primary-white bg-transparent p-2.5 text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-foreground dark:file:text-primary-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+  {
+    variants: {
+      variant: {
+        light:
+          'border border-primary-gray-400 dark:border-primary-gray-200 placeholder:text-primary-gray-400 dark:placeholder:text-primary-gray-550',
+        normal:
+          'border-2 border-primary-black dark:border-primary-gray-100 placeholder:text-muted-foreground dark:placeholder:text-primary-gray-550',
+      },
+    },
+    defaultVariants: {
+      variant: 'normal',
+    },
+  },
+);
 const Textarea = React.forwardRef<
   HTMLTextAreaElement,
-  React.ComponentProps<'textarea'> & {
-    label?: string;
-    labelClassName?: string;
-    textAreaClassName?: string;
-  }
->(({ className, label, labelClassName, textAreaClassName, ...props }, ref) => {
+  React.TextareaHTMLAttributes<HTMLTextAreaElement> &
+    VariantProps<typeof inputVariants>
+>(({ className, variant, placeholder, ...props }, ref) => {
   return (
-    <div className={cn('flex flex-col gap-1.5', className)}>
-      {label ? <Label className={labelClassName}>{label}</Label> : null}
-      <textarea
-        {...props}
-        className={cn(
-          'flex min-h-[60px] border-2 border-primary-black bg-transparent p-2.5 text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
-          textAreaClassName,
-        )}
-        ref={ref}
-      />
-    </div>
+    <textarea
+      {...props}
+      placeholder={placeholder || 'Text here...'}
+      className={cn(inputVariants({ variant }), className)}
+      ref={ref}
+    />
   );
 });
 Textarea.displayName = 'Textarea';

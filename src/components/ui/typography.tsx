@@ -1,14 +1,66 @@
 import * as React from 'react';
+import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   className?: string;
 }
-function P({ children, className, ...props }: ParagraphProps) {
+
+const paragraphVariant = cva('mt-0 ml-0 mr-0', {
+  variants: {
+    size: {
+      xs: 'text-xs',
+      sm: 'text-sm',
+      base: 'text-base md:text-xl',
+      lg: 'text-lg',
+      xl: 'text-xl',
+    },
+    leading: {
+      none: 'leading-none',
+      xs: 'leading-tight',
+      sm: 'leading-snug',
+      base: 'leading-[1.4]',
+      lg: 'leading-relaxed',
+      xl: 'leading-loose',
+    },
+    marginBottom: {
+      none: 'mb-0',
+      xs: 'mb-2',
+      sm: 'mb-3',
+      base: 'mb-5',
+      lg: 'mb-6',
+      xl: 'mb-7',
+    },
+    fontType: {
+      heading: 'font-heading',
+      body: 'font-sans',
+      ar: 'font-sans-ar',
+      he: 'font-sans-he',
+    },
+  },
+  defaultVariants: {
+    size: 'base',
+    leading: 'base',
+    marginBottom: 'base',
+    fontType: 'body',
+  },
+});
+function P({
+  children,
+  className,
+  size,
+  leading,
+  marginBottom,
+  fontType,
+  ...props
+}: ParagraphProps & VariantProps<typeof paragraphVariant>) {
   return (
     <p
       {...props}
-      className={cn(`mt-0 text-base leading-[1.4] md:text-xl`, className)}
+      className={cn(
+        paragraphVariant({ size, leading, marginBottom, fontType }),
+        className,
+      )}
     >
       {children}
     </p>
@@ -18,26 +70,83 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: string;
 }
 
-function H1({ children, className, ...props }: HeadingProps) {
+const heading1Variant = cva(
+  'mt-0 ml-0 mr-0 p-0 text-[2.938rem] md:text-[5.125rem] lg:text-[6.25rem] font-bold tracking-[0.06rem] leading-[1.08] uppercase',
+  {
+    variants: {
+      marginBottom: {
+        none: 'mb-0',
+        xs: 'mb-1',
+        sm: 'mb-2',
+        base: 'mb-3 md:mb-4',
+        lg: 'mb-5',
+        xl: 'mb-6',
+      },
+      fontType: {
+        heading: 'font-heading',
+        body: 'font-sans',
+        ar: 'font-sans-ar',
+        he: 'font-sans-he',
+      },
+    },
+    defaultVariants: {
+      marginBottom: 'base',
+      fontType: 'heading',
+    },
+  },
+);
+function H1({
+  children,
+  className,
+  marginBottom,
+  fontType,
+  ...props
+}: HeadingProps & VariantProps<typeof heading1Variant>) {
   return (
     <h1
       {...props}
-      className={cn(
-        'mt-0 mb-3 p-0 md:mb-4 text-[2.938rem] md:text-[5.125rem] lg:text-[6.25rem] font-bold tracking-[0.06rem] leading-[1.08] uppercase font-heading text-primary-black',
-        className,
-      )}
+      className={cn(heading1Variant({ marginBottom, fontType }), className)}
     >
       {children}
     </h1>
   );
 }
 
-function H2({ children, className, ...props }: HeadingProps) {
+const headingVariant = cva('mt-0 ml-0 mr-0 p-0', {
+  variants: {
+    marginBottom: {
+      none: 'mb-0',
+      xs: 'mb-1',
+      sm: 'mb-2',
+      base: 'mb-3 md:mb-4',
+      lg: 'mb-5',
+      xl: 'mb-6',
+    },
+    fontType: {
+      heading: 'font-heading',
+      body: 'font-sans',
+      ar: 'font-sans-ar',
+      he: 'font-sans-he',
+    },
+  },
+  defaultVariants: {
+    marginBottom: 'base',
+    fontType: 'body',
+  },
+});
+function H2({
+  children,
+  className,
+  marginBottom,
+  fontType,
+  ...props
+}: HeadingProps & VariantProps<typeof headingVariant>) {
   return (
     <h2
       {...props}
       className={cn(
-        'mt-0 mb-3 p-0 md:mb-4 text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] font-bold leading-[1.1] text-primary-black',
+        'text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] font-bold leading-[1.1]',
+        headingVariant({ marginBottom, fontType }),
         className,
       )}
     >
@@ -46,12 +155,19 @@ function H2({ children, className, ...props }: HeadingProps) {
   );
 }
 
-function H3({ children, className, ...props }: HeadingProps) {
+function H3({
+  children,
+  className,
+  marginBottom,
+  fontType,
+  ...props
+}: HeadingProps & VariantProps<typeof headingVariant>) {
   return (
     <h3
       {...props}
       className={cn(
-        'mt-0 mb-3 p-0 md:mb-4 text-[1.875rem] md:text-[2.188rem] font-semibold leading-[1.15] text-primary-black',
+        'text-[1.875rem] md:text-[2.188rem] font-semibold leading-[1.15]',
+        headingVariant({ marginBottom, fontType }),
         className,
       )}
     >
@@ -60,12 +176,19 @@ function H3({ children, className, ...props }: HeadingProps) {
   );
 }
 
-function H4({ children, className, ...props }: HeadingProps) {
+function H4({
+  children,
+  className,
+  marginBottom,
+  fontType,
+  ...props
+}: HeadingProps & VariantProps<typeof headingVariant>) {
   return (
     <h4
       {...props}
       className={cn(
-        'mt-0 mb-3 p-0 md:mb-4 text-[1.563rem] md:text-[2.188rem] font-normal leading-[1.15] text-primary-black',
+        'text-[1.563rem] md:text-[2.188rem] font-normal leading-[1.15]',
+        headingVariant({ marginBottom, fontType }),
         className,
       )}
     >
@@ -74,12 +197,19 @@ function H4({ children, className, ...props }: HeadingProps) {
   );
 }
 
-function H5({ children, className, ...props }: HeadingProps) {
+function H5({
+  children,
+  className,
+  marginBottom,
+  fontType,
+  ...props
+}: HeadingProps & VariantProps<typeof headingVariant>) {
   return (
     <h5
       {...props}
       className={cn(
-        'mt-0 mb-3 p-0 md:mb-4 text-[1.25rem] md:text-[1.563rem] font-normal leading-[1.15] text-primary-black',
+        'text-[1.25rem] md:text-[1.563rem] font-normal leading-[1.15]',
+        headingVariant({ marginBottom, fontType }),
         className,
       )}
     >
@@ -88,12 +218,19 @@ function H5({ children, className, ...props }: HeadingProps) {
   );
 }
 
-function H6({ children, className, ...props }: HeadingProps) {
+function H6({
+  children,
+  className,
+  marginBottom,
+  fontType,
+  ...props
+}: HeadingProps & VariantProps<typeof headingVariant>) {
   return (
     <h6
       {...props}
       className={cn(
-        'mt-0 mb-3 p-0 md:mb-4 text-base font-bold leading-[1.15] text-primary-black uppercase',
+        'text-base font-bold leading-[1.15] uppercase',
+        headingVariant({ marginBottom, fontType }),
         className,
       )}
     >
@@ -102,12 +239,19 @@ function H6({ children, className, ...props }: HeadingProps) {
   );
 }
 
-function Cite({ children, className, ...props }: HeadingProps) {
+function Cite({
+  children,
+  className,
+  marginBottom,
+  fontType,
+  ...props
+}: HeadingProps & VariantProps<typeof headingVariant>) {
   return (
     <cite
       {...props}
       className={cn(
-        'mt-0 mb-3 p-0 md:mb-4 text-xl md:text-2xl leading-[1.1] block font-normal mt-4.5 text-primary-black',
+        'text-xl md:text-2xl leading-[1.1] block font-normal',
+        headingVariant({ marginBottom, fontType }),
         className,
       )}
     >
@@ -121,7 +265,7 @@ function Code({ children, className, ...props }: HeadingProps) {
     <code
       {...props}
       className={cn(
-        'mt-0 text-base bg-primary-gray-200 px-2 pb-2 text-primary-black',
+        'font-mono mt-0 text-base bg-primary-gray-200 dark:bg-primary-gray-600 px-2 pb-2 text-primary-black dark:text-primary-white',
         className,
       )}
     >
@@ -130,12 +274,19 @@ function Code({ children, className, ...props }: HeadingProps) {
   );
 }
 
-function Blockquote({ children, className, ...props }: HeadingProps) {
+function Blockquote({
+  children,
+  className,
+  marginBottom,
+  fontType,
+  ...props
+}: HeadingProps & VariantProps<typeof headingVariant>) {
   return (
     <code
       {...props}
       className={cn(
-        'font-mono mt-0 text-[1.625rem] md:text-[2.188rem] font-semibold leading-[1.1] md:leading-[1.25] m-0',
+        'text-[1.625rem] md:text-[2.188rem] font-semibold leading-[1.1] md:leading-[1.25]',
+        headingVariant({ marginBottom, fontType }),
         className,
       )}
     >
@@ -146,18 +297,15 @@ function Blockquote({ children, className, ...props }: HeadingProps) {
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   className?: string;
-  variant?: 'dark' | 'light';
 }
 
-function A({ children, className, variant = 'light', ...props }: LinkProps) {
+function A({ children, className, ...props }: LinkProps) {
   return (
     <a
       {...props}
       className={cn(
-        variant === 'light'
-          ? 'undp-link light text-primary-black'
-          : 'undp-link dark text-primary-white',
-        'cursor-pointer no-underline focus-visible:outline-none focus-visible:shadow-[0_0_4px_#0468b1]',
+        'undp-link light text-primary-black dark:text-primary-white dark:text-primary-white bg-double-red dark:bg-double-white',
+        'cursor-pointer no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_#0468b1]',
         className,
       )}
     >

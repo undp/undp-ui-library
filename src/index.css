@@ -222,6 +222,7 @@ img, video {
     --gray-500: #A9B1B7;
     --gray-550: #879099;
     --gray-600: #55606E;
+    --gray-650: #3b4859;
     --gray-700: #232E3D;
     --black: #000000;
     --light-yellow: #FFEB00;
@@ -253,27 +254,6 @@ img, video {
     --sdg-15: #56C02B;
     --sdg-16: #00689D;
     --sdg-17: #19486A;
-  }
-  .dark {
-    --background: #000000;
-    --foreground: #FAFAFA;
-    --card: #000000;
-    --card-foreground: #FAFAFA;
-    --popover: #000000;
-    --popover-foreground: #FAFAFA;
-    --primary: #FAFAFA;
-    --primary-foreground: #232E3D;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: #FAFAFA;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: #FAFAFA;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: #FAFAFA;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
   }
 }
 
@@ -321,14 +301,6 @@ img, video {
 
 }
 
-.undp-link.light {
-  background-image: linear-gradient(var(--dark-red), var(--dark-red)), linear-gradient(var(--dark-red), var(--dark-red));
-}
-
-.undp-link.dark {
-  background-image: linear-gradient(var(--white), var(--white)), linear-gradient(var(--white), var(--white));
-}
-
 .undp-link:hover {
   animation: lineLoop-animation-for-links 2s linear infinite;
 }
@@ -353,4 +325,14 @@ img, video {
 }
 .undp-scrollbar::-webkit-scrollbar-thumb {
   background: var(--black);
+}
+
+.dark .undp-scrollbar::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  background-clip: padding-box;
+  border: 2px solid rgba(0,0,0,0);
+}
+
+.dark .undp-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--gray-100);
 }

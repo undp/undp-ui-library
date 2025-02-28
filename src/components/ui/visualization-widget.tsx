@@ -7,7 +7,10 @@ const VisualizationWidget = React.forwardRef<
 >(({ className, children, ...props }, ref) => {
   return (
     <div
-      className={cn('border border-primary-gray-300 w-full', className)}
+      className={cn(
+        'border border-primary-gray-300 dark:border-primary-gray-600 w-full',
+        className,
+      )}
       ref={ref}
       {...props}
     >
@@ -79,7 +82,10 @@ const VisualizationWidgetHeader = React.forwardRef<
     return (
       <VisualizationWidgetHeaderContext.Provider value={contextValue}>
         <div
-          className={cn('flex gap-0 w-full bg-primary-gray-300', className)}
+          className={cn(
+            'flex gap-0 w-full bg-primary-gray-300 dark:bg-primary-gray-600',
+            className,
+          )}
           ref={ref}
           {...props}
         >
@@ -109,11 +115,14 @@ const VisualizationWidgetHeaderItem = React.forwardRef<
       {...props}
       onClick={() => onValueChange(value)}
       className={cn(
-        'flex border-0 flex-col grow gap-1 items-center justify-center p-3 font-medium bg-primary-gray-100 text-primary-gray-500 text-sm font-medium border-r border-r-primary-gray-400',
-        `hover:${hoverItemClass || 'bg-primary-white'}`,
+        'flex border-0 flex-col grow gap-1 items-center justify-center p-3 font-medium bg-primary-gray-100 dark:bg-primary-gray-650 text-primary-gray-500 dark:text-primary-white text-sm font-medium border-r border-r-primary-gray-400 dark:border-r-primary-gray-550 last:border-r-0',
         selectedValue === value
-          ? activeItemClass || 'bg-primary-white text-primary-blue-600'
+          ? activeItemClass ||
+              'bg-primary-white text-primary-blue-600 dark:bg-primary-gray-700'
           : '',
+        hoverItemClass
+          ? `hover:${hoverItemClass} dark:hover:${hoverItemClass}`
+          : 'hover:bg-primary-white dark:hover:bg-primary-gray-700',
         className,
       )}
     >
@@ -149,7 +158,7 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
   return (
     <div
       className={cn(
-        'flex flex-wrap undp-scrollbar max-h-none md:max-h-[80vh] w-full md:w-1/3 xl:w-1/4 2xl:w-1/5 bg-primary-gray-100 border-r border-r-primary-gray-400 p-4',
+        'flex flex-wrap undp-scrollbar max-h-none md:max-h-[80vh] w-full md:w-1/3 xl:w-1/4 2xl:w-1/5 bg-primary-gray-100 dark:bg-primary-gray-650 border-r border-r-primary-gray-400 dark:border-r-primary-gray-600 p-4',
         className,
       )}
       ref={ref}
@@ -168,7 +177,7 @@ const VisualizationWidgetBodyContent = React.forwardRef<
   return (
     <div
       className={cn(
-        'flex flex-wrap undp-scrollbar flex-1 bg-primary-white max-h-none md:max-h-[80vh]',
+        'flex flex-wrap undp-scrollbar flex-1 bg-primary-white dark:bg-primary-gray-700 max-h-none md:max-h-[80vh]',
         className,
       )}
       ref={ref}

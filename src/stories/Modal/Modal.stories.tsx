@@ -49,11 +49,19 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     footer: <P>This is footer</P>,
   },
-  render: ({ ...args }) => (
-    <Modal {...args}>
-      <P>Modal content as ReactNode</P>
-    </Modal>
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Modal {...args}>
+          <P>Modal content as ReactNode</P>
+        </Modal>
+      </div>
+    );
+  },
 };
 
 export default meta;

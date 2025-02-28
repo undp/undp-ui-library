@@ -60,22 +60,31 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     bodyGap: 'base',
     sidebarWidth: 'base',
   },
-  render: ({ ...args }) => (
-    <Banner {...args}>
-      <BannerBody>
-        <BannerBodySidebar>
-          <H3>Title</H3>
-        </BannerBodySidebar>
-        <BannerBodyContent>
-          <P>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            blandit augue eu sagittis facilisis. Class aptent taciti sociosqu ad
-            litora torquent per conubia nostra, per inceptos himenaeos.
-          </P>
-        </BannerBodyContent>
-      </BannerBody>
-    </Banner>
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Banner {...args}>
+          <BannerBody>
+            <BannerBodySidebar>
+              <H3>Title</H3>
+            </BannerBodySidebar>
+            <BannerBodyContent>
+              <P>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                blandit augue eu sagittis facilisis. Class aptent taciti
+                sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos.
+              </P>
+            </BannerBodyContent>
+          </BannerBody>
+        </Banner>
+      </div>
+    );
+  },
 };
 
 export default meta;

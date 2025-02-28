@@ -30,19 +30,27 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   args: {
     variant: 'background',
   },
-  render: ({ ...args }) => (
-    <Sidebar
-      {...args}
-      defaultValue='item 1'
-      onValueChange={d => {
-        console.log(d);
-      }}
-    >
-      <SidebarItem value='item 1'>Item 1</SidebarItem>
-      <SidebarItem value='item 2'>Item 2</SidebarItem>
-      <SidebarItem value='item 3'>Item 3</SidebarItem>
-    </Sidebar>
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Sidebar
+          {...args}
+          defaultValue='item 1'
+          onValueChange={d => {
+            console.log(d);
+          }}
+        >
+          <SidebarItem value='item 1'>Item 1</SidebarItem>
+          <SidebarItem value='item 2'>Item 2</SidebarItem>
+          <SidebarItem value='item 3'>Item 3</SidebarItem>
+        </Sidebar>
+      </div>
+    );
+  },
 };
 
 export default meta;

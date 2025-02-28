@@ -2,14 +2,13 @@ import * as React from 'react';
 
 import { SearchIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Label } from './label';
 import { Button } from './button';
+import { Input } from './input';
 
 const Search = React.forwardRef<
   HTMLInputElement,
   React.ComponentProps<'input'> & {
-    label?: string;
-    labelClassName?: string;
+    inputVariant?: 'light' | 'normal';
     inputClassName?: string;
     buttonClassName?: string;
     buttonVariant?:
@@ -18,11 +17,11 @@ const Search = React.forwardRef<
       | 'secondary'
       | 'secondary-without-icon'
       | 'tertiary'
-      | 'tertiary-without-icon'
       | 'link'
       | 'link-without-icon'
       | 'outline'
       | 'icon';
+    showSearchButton?: boolean;
     searchOnlyOnClick?: boolean;
     buttonChildren?: React.ReactNode;
     size?: 'sm' | 'base';
@@ -32,8 +31,6 @@ const Search = React.forwardRef<
   (
     {
       className,
-      label,
-      labelClassName,
       inputClassName,
       buttonClassName,
       onSearch,
@@ -41,36 +38,37 @@ const Search = React.forwardRef<
       searchOnlyOnClick,
       buttonVariant,
       buttonChildren,
+      showSearchButton,
+      inputVariant,
+      placeholder,
       ...props
     },
     ref,
   ) => {
     const [query, setQuery] = React.useState<string | undefined>(undefined);
     return (
-      <div className={cn('flex flex-col gap-1.5', className)}>
-        {label ? <Label className={labelClassName}>{label}</Label> : null}
-        <div className='flex gap-0'>
-          <input
-            {...props}
-            ref={ref}
-            type='text'
-            className={cn(
-              'w-full border-2 grow border-primary-black bg-transparent text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-25',
-              size === 'sm' ? 'px-2.5 py-1' : 'p-2.5',
-              inputClassName,
-            )}
-            onChange={d => {
-              setQuery(d.target.value);
-              if (!searchOnlyOnClick) {
-                onSearch?.(d.target.value);
-              }
-            }}
-            onKeyDown={event => {
-              if (event.key === 'Enter') {
-                onSearch?.(query);
-              }
-            }}
-          />
+      <div className={cn('flex gap-0', className)}>
+        <Input
+          {...props}
+          variant={inputVariant}
+          placeholder={placeholder || 'Search...'}
+          ref={ref}
+          type='text'
+          className={inputClassName}
+          onChange={d => {
+            setQuery(d.target.value);
+            if (!searchOnlyOnClick) {
+              onSearch?.(d.target.value);
+            }
+          }}
+          size={size}
+          onKeyDown={event => {
+            if (event.key === 'Enter') {
+              onSearch?.(query);
+            }
+          }}
+        />
+        {showSearchButton === false ? null : (
           <Button
             variant={buttonVariant || 'secondary-without-icon'}
             className={buttonClassName}
@@ -85,7 +83,7 @@ const Search = React.forwardRef<
               />
             )}
           </Button>
-        </div>
+        )}
       </div>
     );
   },

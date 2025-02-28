@@ -9,18 +9,26 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/File Upload Button',
   component: FileUpload,
   tags: ['autodocs'],
-  render: () => (
-    <FileUpload
-      onFileChange={d => {
-        console.log(d);
-      }}
-    >
-      <div className='flex flex-col gap-4 justify-center items-center w-full bg-primary-gray-200 border border-primary-gray-300 p-4'>
-        <UploadIcon />
-        Upload files
+  render: (_args, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <FileUpload
+          onFileChange={d => {
+            console.log(d);
+          }}
+        >
+          <div className='flex flex-col gap-4 justify-center items-center w-full bg-primary-gray-200 border border-primary-gray-300 p-4'>
+            <UploadIcon />
+            Upload files
+          </div>
+        </FileUpload>
       </div>
-    </FileUpload>
-  ),
+    );
+  },
 };
 
 export default meta;

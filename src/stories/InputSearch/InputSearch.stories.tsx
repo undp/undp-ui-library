@@ -9,14 +9,6 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Search,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    labelClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
     inputClassName: {
       control: { type: 'text' },
       defaultValue: '',
@@ -28,6 +20,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     size: {
       control: { type: 'inline-radio' },
       options: ['sm', 'base'],
+      defaultValue: 'base',
+    },
+    inputVariant: {
+      control: { type: 'inline-radio' },
+      options: ['light', 'normal'],
       defaultValue: 'base',
     },
     buttonVariant: {
@@ -50,20 +47,32 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'boolean' },
       defaultValue: false,
     },
+    showSearchButton: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+    },
   },
   args: {
-    label: 'Search by',
     buttonVariant: 'secondary-without-icon',
     searchOnlyOnClick: false,
+    showSearchButton: true,
   },
-  render: ({ ...args }) => (
-    <Search
-      {...args}
-      onSearch={d => {
-        console.log(d);
-      }}
-    />
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Search
+          {...args}
+          onSearch={d => {
+            console.log(d);
+          }}
+        />
+      </div>
+    );
+  },
 };
 
 export default meta;

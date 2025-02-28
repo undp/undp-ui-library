@@ -9,13 +9,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: { type: 'text' },
-      defaultValue: 'Checkbox',
-    },
-    labelClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
+    variant: {
+      control: { type: 'inline-radio' },
+      type: 'string',
+      options: ['red', 'blue', 'black'],
+      defaultValue: 'red',
     },
     checkBoxClassName: {
       control: { type: 'text' },
@@ -29,14 +27,22 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   args: {
     label: 'Checkbox',
   },
-  render: ({ ...args }) => (
-    <Checkbox
-      {...args}
-      onCheckedChange={d => {
-        console.log(d);
-      }}
-    />
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Checkbox
+          {...args}
+          onCheckedChange={d => {
+            console.log(d);
+          }}
+        />
+      </div>
+    );
+  },
 };
 
 export default meta;

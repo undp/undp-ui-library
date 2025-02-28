@@ -46,16 +46,24 @@ const meta: Meta<typeof Button> = {
       source: 'auto',
     },
   },
-  render: ({ ...args }) => (
-    <Button
-      {...args}
-      onClick={() => {
-        console.log('Hello world');
-      }}
-    >
-      Click Me
-    </Button>
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Button
+          {...args}
+          onClick={() => {
+            console.log('Hello world');
+          }}
+        >
+          Click Me
+        </Button>
+      </div>
+    );
+  },
 };
 export default meta;
 

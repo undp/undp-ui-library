@@ -12,7 +12,7 @@ function Header({ className, children, ...props }: HeaderProps) {
     <header
       {...props}
       className={cn(
-        'bg-primary-gray-100 shadow-header left-0 fixed top-0 w-full z-9 relative h-[75px] md:h-header',
+        'bg-primary-gray-100 dark:bg-primary-gray-650 shadow-header left-0 fixed top-0 w-full z-9 relative h-[75px] md:h-header',
         className,
       )}
     >
@@ -51,11 +51,11 @@ function HeaderLogoUnit({
         />
         <div>
           {siteSubName ? (
-            <div className='uppercase text-primary-gray-600 pb-px mx-0 mt-0 mb-1 text-xs leading-none inline-block no-underline'>
+            <div className='uppercase text-primary-gray-600 dark:text-primary-gray-200 pb-px mx-0 mt-0 mb-1 text-xs leading-none inline-block no-underline'>
               {siteSubName}
             </div>
           ) : null}
-          <div className='text-primary-black p-0 m-0 no-underline'>
+          <div className='text-primary-black dark:text-primary-white p-0 m-0 no-underline'>
             {siteName}
           </div>
         </div>
@@ -100,7 +100,7 @@ function HeaderMainNavUnit({
           )}
         </button>
         {showMenu ? (
-          <div className='box-border h-[calc(100vh-75px)] left-0 m-0 overflow-y-auto p-[5.625rem_1.5rem_3.75rem] absolute top-full w-full backdrop-blur-[18px] bg-[rgba(247,247,247,0.8)]'>
+          <div className='box-border h-[calc(100vh-75px)] left-0 m-0 overflow-y-auto p-[5.625rem_1.5rem_3.75rem] absolute top-full w-full backdrop-blur-[18px] bg-[rgba(247,247,247,0.8)] dark:bg-[rgba(59,72,89,0.8)]'>
             {children}
           </div>
         ) : null}
@@ -123,7 +123,7 @@ function HeaderMenuUnit({
     <div
       {...props}
       className={cn(
-        'grid gap-4 md:flex grow items-center md:justify-center md:gap-8 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600',
+        'grid gap-4 text-primary-black dark:text-primary-gray-200 md:flex grow items-center md:justify-center md:gap-8 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black dark:[&>a]:text-primary-gray-200 md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600 dark:[&>a:hover]:text-primary-gray-100',
         className,
       )}
     >

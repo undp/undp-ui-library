@@ -35,36 +35,44 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  render: ({ ...args }) => (
-    <VisualizationWidget>
-      <VisualizationWidgetHeader
-        onChange={d => {
-          console.log(d);
-        }}
-        {...args}
-      >
-        <VisualizationWidgetHeaderItem value='chart 1'>
-          <ChartBar />
-          Chart 1
-        </VisualizationWidgetHeaderItem>
-        <VisualizationWidgetHeaderItem value='chart 2'>
-          <ChartBar />
-          Chart 2
-        </VisualizationWidgetHeaderItem>
-        <VisualizationWidgetHeaderItem value='chart 3'>
-          <ChartBar />
-          Chart 3
-        </VisualizationWidgetHeaderItem>
-      </VisualizationWidgetHeader>
-      <VisualizationWidgetBody>
-        <VisualizationWidgetBodySidebar>
-          <div className='bg-primary-blue-100' />
-        </VisualizationWidgetBodySidebar>
-        <VisualizationWidgetBodyContent>
-          <div className='h-96 bg-primary-gray-300 w-full' />
-        </VisualizationWidgetBodyContent>
-      </VisualizationWidgetBody>
-    </VisualizationWidget>
+  render: ({ ...args }, { globals: { theme } }) => (
+    <div
+      className={`p-4 ${theme} ${
+        theme === 'dark'
+          ? 'bg-primary-gray-700 text-primary-white'
+          : 'bg-primary-white'
+      }`}
+    >
+      <VisualizationWidget>
+        <VisualizationWidgetHeader
+          onChange={d => {
+            console.log(d);
+          }}
+          {...args}
+        >
+          <VisualizationWidgetHeaderItem value='chart 1'>
+            <ChartBar />
+            Chart 1
+          </VisualizationWidgetHeaderItem>
+          <VisualizationWidgetHeaderItem value='chart 2'>
+            <ChartBar />
+            Chart 2
+          </VisualizationWidgetHeaderItem>
+          <VisualizationWidgetHeaderItem value='chart 3'>
+            <ChartBar />
+            Chart 3
+          </VisualizationWidgetHeaderItem>
+        </VisualizationWidgetHeader>
+        <VisualizationWidgetBody>
+          <VisualizationWidgetBodySidebar>
+            <div className='bg-primary-blue-100' />
+          </VisualizationWidgetBodySidebar>
+          <VisualizationWidgetBodyContent>
+            <div className='h-96 bg-primary-gray-300 w-full dark:bg-primary-gray-700' />
+          </VisualizationWidgetBodyContent>
+        </VisualizationWidgetBody>
+      </VisualizationWidget>
+    </div>
   ),
 };
 

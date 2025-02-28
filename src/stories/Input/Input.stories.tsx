@@ -9,15 +9,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Input,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    labelClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    inputClassName: {
+    className: {
       control: { type: 'text' },
       defaultValue: '',
     },
@@ -26,18 +18,29 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       options: ['sm', 'base'],
       defaultValue: 'base',
     },
+    variant: {
+      control: { type: 'inline-radio' },
+      options: ['light', 'normal'],
+      defaultValue: 'normal',
+    },
   },
-  args: {
-    label: 'Input by',
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Input
+          {...args}
+          placeholder='Text here...'
+          onChange={d => {
+            console.log(d.target.value);
+          }}
+        />
+      </div>
+    );
   },
-  render: ({ ...args }) => (
-    <Input
-      {...args}
-      onChange={d => {
-        console.log(d.target.value);
-      }}
-    />
-  ),
 };
 
 export default meta;

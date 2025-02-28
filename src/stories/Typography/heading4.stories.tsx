@@ -9,12 +9,38 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: H4,
   tags: ['autodocs'],
   argTypes: {
+    marginBottom: {
+      control: { type: 'select' },
+      options: ['none', 'xs', 'sm', 'base', 'lg', 'xl'],
+      defaultValue: 'primary',
+    },
+    fontType: {
+      control: { type: 'select' },
+      options: ['heading', 'body', 'ar', 'he'],
+      defaultValue: 'body',
+    },
     className: {
       control: { type: 'text' },
       defaultValue: '',
     },
   },
-  render: ({ ...args }) => <H4 {...args}>Heading 4</H4>,
+  args: {
+    marginBottom: 'base',
+    fontType: 'body',
+  },
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark'
+            ? 'bg-primary-gray-700 text-primary-white'
+            : 'bg-primary-white'
+        }`}
+      >
+        <H4 {...args}>Heading 4</H4>
+      </div>
+    );
+  },
 };
 
 export default meta;

@@ -13,7 +13,10 @@ const DropdownMenuTrigger = React.forwardRef<
   <DropdownMenuPrimitive.Trigger
     {...props}
     ref={ref}
-    className={cn('focus:outline-none', className)}
+    className={cn(
+      'focus:outline-none text-primary-black dark:text-primary-gray-100',
+      className,
+    )}
   >
     {children}
   </DropdownMenuPrimitive.Trigger>
@@ -56,7 +59,7 @@ const DropdownMenuSubContent = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'z-50 min-w-[8rem] overflow-hidden rounded-none border bg-primary-gray-100 p-1 text-primary-black shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+      'z-50 min-w-[8rem] overflow-hidden rounded-none border bg-primary-gray-100 dark:bg-primary-gray-650 p-1 text-primary-black dark:text-primary-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
       className,
     )}
   />
@@ -74,7 +77,7 @@ const DropdownMenuContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        'z-50 min-w-[8rem] overflow-hidden rounded-none border bg-primary-gray-100 p-1 text-primary-black shadow-md',
+        'z-50 min-w-[8rem] overflow-hidden rounded-none border bg-primary-gray-100 dark:bg-primary-gray-650 p-1 text-primary-black dark:text-primary-white shadow-md',
         'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
         className,
       )}
@@ -93,7 +96,7 @@ const DropdownMenuItem = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center gap-2 rounded-none px-2 py-1.5 text-base outline-none transition-colors focus:bg-primary-gray-300 data-[disabled]:pointer-events-none data-[disabled]:opacity-25 [&>svg]:size-4 [&>svg]:shrink-0',
+      'relative flex cursor-default select-none items-center gap-2 rounded-none px-2 py-1.5 text-base outline-none transition-colors focus:bg-primary-gray-300 dark:focus:bg-primary-gray-550 data-[disabled]:pointer-events-none data-[disabled]:opacity-25 [&>svg]:size-4 [&>svg]:shrink-0',
       inset && 'pl-8',
       className,
     )}
@@ -111,7 +114,7 @@ const DropdownMenuLabel = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'px-2 py-1.5 text-base uppercase font-semibold',
+      'px-2 py-1.5 text-base uppercase font-semibold dark:text-primary-white',
       inset && 'pl-8',
       className,
     )}
@@ -126,7 +129,10 @@ const DropdownMenuSeparator = React.forwardRef<
   <DropdownMenuPrimitive.Separator
     {...props}
     ref={ref}
-    className={cn('-mx-1 my-1 h-px bg-primary-gray-400', className)}
+    className={cn(
+      '-mx-1 my-1 h-px bg-primary-gray-400 dark:bg-primary-gray-500',
+      className,
+    )}
   />
 ));
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;

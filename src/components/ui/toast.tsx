@@ -27,17 +27,17 @@ const ToastViewport = React.forwardRef<
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
 
 const toastVariants = cva(
-  'group pointer-events-auto relative shadow-sm flex w-full items-center justify-between space-x-2 overflow-hidden rounded-sm border p-2 pr-6 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full',
+  'group pointer-events-auto relative shadow-sm bg-primary-white dark:bg-primary-gray-650 flex w-full text-primary-black dark:text-primary-white items-center justify-between space-x-2 overflow-hidden rounded-sm border p-2 pr-6 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full',
   {
     variants: {
       variant: {
-        default: 'border bg-background text-foreground',
+        default: 'border border-primary-gray-400 dark:border-0',
         success:
-          'border-t-4 border-t-accent-dark-green bg-primary-white text-foreground',
+          'border-t-4 border-t-accent-dark-green dark:border-b-0 dark:border-l-0 dark:border-r-0',
         warning:
-          'border-t-4 border-accent-dark-yellow bg-primary-white text-foreground',
+          'border-t-4 border-accent-dark-yellow dark:border-b-0 dark:border-l-0 dark:border-r-0',
         destructive:
-          'border-t-4 border-accent-dark-red bg-primary-white text-foreground',
+          'border-t-4 border-accent-dark-red dark:border-b-0 dark:border-l-0 dark:border-r-0',
       },
     },
     defaultVariants: {
@@ -49,7 +49,7 @@ const toastVariants = cva(
 const toastTitleVariants = cva('', {
   variants: {
     variant: {
-      default: 'text-foreground',
+      default: 'text-primary-black dark:text-primary-white',
       success: 'text-accent-dark-green',
       warning: 'text-accent-dark-yellow',
       destructive: 'text-accent-dark-red',
@@ -165,7 +165,7 @@ const ToastDescription = React.forwardRef<
   <ToastPrimitives.Description
     {...props}
     ref={ref}
-    className={cn('text-base opacity-90', className)}
+    className={cn('text-base opacity-90 dark:text-primary-white', className)}
   />
 ));
 ToastDescription.displayName = ToastPrimitives.Description.displayName;

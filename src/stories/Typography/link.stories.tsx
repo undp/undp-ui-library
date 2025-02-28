@@ -9,25 +9,25 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: A,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: { type: 'inline-radio' },
-      options: ['light', 'dark'],
-      defaultValue: 'light',
-    },
     className: {
       control: { type: 'text' },
       defaultValue: '',
     },
   },
-  args: {
-    variant: 'light',
-  },
-  render: ({ ...args }) => (
-    <A {...args}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit
-      augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora
-      torquent per conubia nostra, per inceptos himenaeos.
-    </A>
+  render: ({ ...args }, { globals: { theme } }) => (
+    <div
+      className={`p-4 ${theme} ${
+        theme === 'dark'
+          ? 'bg-primary-gray-700 text-primary-white'
+          : 'bg-primary-white'
+      }`}
+    >
+      <A {...args}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit
+        augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos.
+      </A>
+    </div>
   ),
 };
 

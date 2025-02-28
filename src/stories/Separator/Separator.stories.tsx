@@ -24,7 +24,17 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     variant: 'dark',
     orientation: 'horizontal',
   },
-  render: ({ ...args }) => <Separator {...args} />,
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Separator {...args} />
+      </div>
+    );
+  },
 };
 
 export default meta;

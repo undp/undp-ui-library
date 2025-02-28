@@ -13,15 +13,23 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'UI/Footer',
   component: Footer,
   tags: ['autodocs'],
-  render: () => (
-    <Footer>
-      <FooterLogoUnit>subscribe to email</FooterLogoUnit>
-      <FooterMainNavUnit>
-        <div>Navigation unit comes here</div>
-      </FooterMainNavUnit>
-      <FooterCopyrightUnit>Footnote can be added here</FooterCopyrightUnit>
-    </Footer>
-  ),
+  render: (_args, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Footer>
+          <FooterLogoUnit>subscribe to email</FooterLogoUnit>
+          <FooterMainNavUnit>
+            <div>Navigation unit comes here</div>
+          </FooterMainNavUnit>
+          <FooterCopyrightUnit>Footnote can be added here</FooterCopyrightUnit>
+        </Footer>
+      </div>
+    );
+  },
 };
 
 export default meta;

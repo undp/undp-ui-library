@@ -9,14 +9,6 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: SegmentedControl,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    labelClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
     defaultValue: {
       control: { type: 'text' },
       defaultValue: '',
@@ -31,31 +23,38 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {
-    label: 'Segmented control',
     defaultValue: 'option 1',
   },
-  render: ({ ...args }) => (
-    <SegmentedControl
-      {...args}
-      onValueChange={d => {
-        console.log(d);
-      }}
-      options={[
-        {
-          label: 'Option 1',
-          value: 'option 1',
-        },
-        {
-          label: 'Option 2',
-          value: 'option 2',
-        },
-        {
-          label: 'Option 3',
-          value: 'option 3',
-        },
-      ]}
-    />
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <SegmentedControl
+          {...args}
+          onValueChange={d => {
+            console.log(d);
+          }}
+          options={[
+            {
+              label: 'Option 1',
+              value: 'option 1',
+            },
+            {
+              label: 'Option 2',
+              value: 'option 2',
+            },
+            {
+              label: 'Option 3',
+              value: 'option 3',
+            },
+          ]}
+        />
+      </div>
+    );
+  },
 };
 
 export default meta;

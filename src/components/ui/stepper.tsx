@@ -28,7 +28,7 @@ function Stepper({
     <ol
       {...props}
       className={cn(
-        'flex items-center w-full text-base font-medium text-center text-primary-gray-700 justify-between gap-3',
+        'flex items-center w-full text-base text-center text-primary-gray-700 dark:text-primary-white justify-between gap-3',
         className,
       )}
     >
@@ -50,20 +50,20 @@ function Stepper({
               className={cn(
                 'w-8 h-8 rounded-full flex items-center justify-center shrink-0',
                 i + 1 < currentStep
-                  ? 'bg-primary-blue-600'
+                  ? 'bg-primary-blue-600 dark:bg-primary-blue-300'
                   : i + 1 === currentStep
-                  ? 'bg-primary-gray-600'
-                  : 'bg-primary-gray-400',
+                  ? 'bg-primary-gray-600 dark:bg-primary-gray-550'
+                  : 'bg-primary-gray-300 dark:bg-primary-gray-650',
               )}
             >
               {i + 1 < currentStep ? (
-                <CheckIcon className='h-4 w-4 shrink-0 text-muted-foreground stroke-primary-white' />
+                <CheckIcon className='h-4 w-4 shrink-0 stroke-primary-white dark:stroke-primary-gray-700' />
               ) : (
                 <div
                   className={
                     i + 1 === currentStep
                       ? 'text-sm text-primary-white'
-                      : 'text-sm text-primary-gray-700'
+                      : 'text-sm text-primary-gray-700 dark:text-primary-white'
                   }
                 >
                   {i + 1}
@@ -73,11 +73,10 @@ function Stepper({
             <div className='flex flex-col shrink-0'>
               <div
                 className={cn(
-                  'text-base text-left',
-                  i + 1 === currentStep ? 'font-bold' : 'font-medium',
+                  'text-base text-left font-normal',
                   i + 1 < currentStep
-                    ? 'text-primary-blue-600'
-                    : 'text-primary-black',
+                    ? 'text-primary-blue-600 dark:text-primary-blue-300'
+                    : 'text-primary-gray-700 dark:text-primary-white',
                 )}
               >
                 {d.title}
@@ -85,7 +84,7 @@ function Stepper({
               {d.description ? (
                 <div
                   className={cn(
-                    'text-sm text-primary-gray-500 font-medium text-left',
+                    'text-sm text-primary-gray-400 text-left dark:text-primary-gray-500',
                   )}
                 >
                   {d.description}
@@ -93,7 +92,7 @@ function Stepper({
               ) : null}
             </div>
             {i === steps.length - 1 ? null : (
-              <div className='h-px bg-primary-black grow w-full' />
+              <div className='h-px bg-primary-gray-400 grow w-full dark:bg-primary-gray-550' />
             )}
           </div>
         </li>

@@ -9,33 +9,37 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: { type: 'text' },
-      defaultValue: 'Radio group',
-    },
-    labelClassName: {
+    className: {
       control: { type: 'text' },
       defaultValue: '',
     },
-    radioClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
+    variant: {
+      control: { type: 'inline-radio' },
+      type: 'string',
+      options: ['red', 'blue', 'black'],
+      defaultValue: 'red',
     },
   },
-  args: {
-    label: 'Radio group',
+  args: {},
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <RadioGroup
+          {...args}
+          onValueChange={d => {
+            console.log(d);
+          }}
+        >
+          <RadioGroupItem label='Radio 1' value='Radio_1' />
+          <RadioGroupItem label='Radio 2' value='Radio_2' />
+        </RadioGroup>
+      </div>
+    );
   },
-  render: ({ ...args }) => (
-    <RadioGroup
-      {...args}
-      onValueChange={d => {
-        console.log(d);
-      }}
-    >
-      <RadioGroupItem label='Radio 1' value='Radio_1' />
-      <RadioGroupItem label='Radio 2' value='Radio_2' />
-    </RadioGroup>
-  ),
 };
 
 export default meta;

@@ -19,7 +19,7 @@ const DialogOverlay = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 backdrop-blur-[18px] bg-[#f7f7f7]/[.9] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'fixed inset-0 z-50 backdrop-blur-[18px] bg-[#f7f7f7]/[.9] dark:bg-[#55606E]/[.9] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className,
     )}
   />
@@ -85,7 +85,7 @@ const DialogTitle = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'mb-0 p-0 text-[1.563rem] md:text-[2.188rem] font-normal leading-[1.15] text-primary-black',
+      'mb-0 p-0 text-[1.563rem] md:text-[2.188rem] font-normal leading-[1.15] text-primary-black dark:text-primary-white',
       className,
     )}
   />
@@ -99,7 +99,10 @@ const DialogDescription = React.forwardRef<
   <DialogPrimitive.Description
     {...props}
     ref={ref}
-    className={cn('text-sm text-primary-gray-600 m-0', className)}
+    className={cn(
+      'text-sm text-primary-gray-600 dark:text-primary-gray-300 m-0',
+      className,
+    )}
   />
 ));
 DialogDescription.displayName = DialogPrimitive.Description.displayName;

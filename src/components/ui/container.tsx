@@ -6,15 +6,19 @@ import { cn } from '@/lib/utils';
 const containerVariants = cva('', {
   variants: {
     backgroundColor: {
-      transparent: 'bg-primary-transparent',
-      white: 'bg-primary-white',
-      gray: 'bg-primary-gray-200',
-      'dark-gray': 'bg-primary-gray-600',
-      black: 'bg-primary-black',
-      blue: 'bg-primary-blue-600',
+      transparent:
+        'bg-primary-transparent text-primary-black dark:text-primary-white',
+      white:
+        'bg-primary-white dark:bg-primary-gray-700 text-primary-black dark:text-primary-white',
+      gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 text-primary-black dark:text-primary-white',
+      'dark-gray':
+        'bg-primary-gray-600 dark:bg-primary-gray-300 text-primary-white dark:text-primary-black',
+      black:
+        'bg-primary-gray-700 dark:bg-primary-gray-100 text-primary-white dark:text-primary-black',
+      blue: 'bg-primary-blue-600 dark:bg-primary-blue-500 text-primary-white',
       azure: 'bg-accent-azure',
       yellow: 'bg-accent-yellow',
-      red: 'bg-accent-red',
+      red: 'bg-accent-red text-primary-white',
       green: 'bg-accent-green',
     },
     layout: {

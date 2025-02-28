@@ -42,7 +42,14 @@ function PaginationLink({
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     // eslint-disable-next-line jsx-a11y/anchor-has-content
-    <button {...props} type='button' className={cn('p-4 text-base', className)}>
+    <button
+      {...props}
+      type='button'
+      className={cn(
+        'p-4 text-base text-primary-black dark:text-primary-gray-100 hover:dark:bg-primary-gray-600',
+        className,
+      )}
+    >
       {children}
     </button>
   );
@@ -58,11 +65,11 @@ function PaginationPrevious({
       {...props}
       aria-label='Go to previous page'
       className={cn(
-        'p-2 bg-primary-gray-300 rounded-full hover:bg-primary-gray-400',
+        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rounded-full hover:bg-primary-gray-400 hover:dark:bg-primary-gray-550',
         className,
       )}
     >
-      <ChevronLeft className='h-6 w-6 stroke-primary-gray-700' />
+      <ChevronLeft className='h-6 w-6 stroke-primary-gray-700 dark:stroke-primary-gray-100' />
     </PaginationLink>
   );
 }
@@ -77,11 +84,11 @@ function PaginationNext({
       {...props}
       aria-label='Go to next page'
       className={cn(
-        'p-2 bg-primary-gray-300 rounded-full hover:bg-primary-gray-400',
+        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rounded-full hover:bg-primary-gray-400 hover:dark:bg-primary-gray-550',
         className,
       )}
     >
-      <ChevronRight className='h-6 w-6 stroke-primary-gray-700' />
+      <ChevronRight className='h-6 w-6 stroke-primary-gray-700 dark:stroke-primary-gray-100' />
     </PaginationLink>
   );
 }
@@ -97,7 +104,7 @@ function PaginationEllipsis({
       aria-hidden
       className={cn('flex h-9 w-9 items-center justify-center', className)}
     >
-      <MoreHorizontal className='h-4 w-4' />
+      <MoreHorizontal className='h-4 w-4 text-primary-gray-700 dark:text-primary-gray-100' />
       <span className='sr-only'>More pages</span>
     </span>
   );

@@ -9,34 +9,34 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Switch,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: { type: 'text' },
-      defaultValue: 'Switch label',
+    variant: {
+      control: { type: 'inline-radio' },
+      type: 'string',
+      options: ['red', 'blue', 'black'],
+      defaultValue: 'red',
     },
     className: {
       control: { type: 'text' },
       defaultValue: '',
     },
-    labelClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    switchClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
   },
-  args: {
-    label: 'Switch label',
+  args: {},
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Switch
+          {...args}
+          onChange={d => {
+            console.log(d);
+          }}
+        />
+      </div>
+    );
   },
-  render: ({ ...args }) => (
-    <Switch
-      {...args}
-      onChange={d => {
-        console.log(d);
-      }}
-    />
-  ),
 };
 
 export default meta;

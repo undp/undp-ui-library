@@ -9,6 +9,12 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: SliderUI,
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: { type: 'inline-radio' },
+      type: 'string',
+      options: ['red', 'blue', 'black'],
+      defaultValue: 'red',
+    },
     min: {
       control: { type: 'number' },
       defaultValue: 1,
@@ -22,14 +28,6 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: 1,
     },
     className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    label: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    labelClassName: {
       control: { type: 'text' },
       defaultValue: '',
     },
@@ -67,20 +65,27 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     max: 100,
     step: 1,
     showHandleValue: false,
-    label: 'Slider label',
     range: false,
   },
-  render: ({ ...args }) => (
-    <SliderUI
-      {...args}
-      onChange={d => {
-        console.log('Change:', d);
-      }}
-      onChangeComplete={d => {
-        console.log('Change completed:', d);
-      }}
-    />
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <SliderUI
+          {...args}
+          onChange={d => {
+            console.log('Change:', d);
+          }}
+          onChangeComplete={d => {
+            console.log('Change completed:', d);
+          }}
+        />
+      </div>
+    );
+  },
 };
 
 export default meta;

@@ -14,13 +14,23 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  render: ({ ...args }) => (
-    <Blockquote {...args}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit
-      augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora
-      torquent per conubia nostra, per inceptos himenaeos.
-    </Blockquote>
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark'
+            ? 'bg-primary-gray-700 text-primary-white'
+            : 'bg-primary-white'
+        }`}
+      >
+        <Blockquote {...args}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit
+          augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora
+          torquent per conubia nostra, per inceptos himenaeos.
+        </Blockquote>
+      </div>
+    );
+  },
 };
 
 export default meta;

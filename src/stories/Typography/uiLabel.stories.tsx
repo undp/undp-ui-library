@@ -14,7 +14,19 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  render: ({ ...args }) => <Label {...args}>UI Label</Label>,
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark'
+            ? 'bg-primary-gray-700 text-primary-white'
+            : 'bg-primary-white'
+        }`}
+      >
+        <Label {...args}>UI Label</Label>
+      </div>
+    );
+  },
 };
 
 export default meta;

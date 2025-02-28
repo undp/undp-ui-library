@@ -12,6 +12,7 @@ const meta: Meta<typeof Badge> = {
       options: [
         'light-gray',
         'gray',
+        'dark-gray',
         'blue',
         'yellow',
         'green',
@@ -32,7 +33,17 @@ const meta: Meta<typeof Badge> = {
     variant: 'light-gray',
     size: 'base',
   },
-  render: ({ ...args }) => <Badge {...args}>Badge</Badge>,
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Badge {...args}>Badge</Badge>
+      </div>
+    );
+  },
 };
 export default meta;
 

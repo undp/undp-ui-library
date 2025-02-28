@@ -31,7 +31,9 @@ const PageWideCard = React.forwardRef<HTMLDivElement, CardProps>(
       ref={ref}
       className={cn(
         cardVariants({ imageWidth }),
-        border === false ? '' : 'border-t-2 border-primary-black',
+        border === false
+          ? ''
+          : 'border-t-2 border-primary-black dark:border-primary-gray-100',
         className,
       )}
       {...props}
@@ -76,7 +78,10 @@ const PageWideCardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn('pt-4 pb-2 flex flex-wrap gap-4', className)}
+    className={cn(
+      'pt-4 pb-2 flex flex-wrap gap-4 text-primary-black dark:text-primary-white',
+      className,
+    )}
     {...props}
   />
 ));
@@ -88,7 +93,7 @@ const PageWideCardTag = React.forwardRef<
 >(({ children, className, ...props }) => (
   <div
     className={cn(
-      'flex gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 pb-4 md:mb-0 text-base font-bold leading-[1.15] text-primary-black uppercase',
+      'flex gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 pb-4 md:mb-0 text-base font-bold leading-[1.15] text-primary-black dark:text-primary-white uppercase',
       className,
     )}
     {...props}
@@ -104,7 +109,7 @@ const PageWideCardTitle = React.forwardRef<
 >(({ children, className, ...props }) => (
   <div
     className={cn(
-      'flex gap-2 m-0 pl-0 pr-0 pt-12 pb-8 hello text-primary-black leading-[1.15] font-normal text-[1.563rem] md:text-[2.188rem]',
+      'flex gap-2 m-0 pl-0 pr-0 pt-12 pb-8 text-primary-black dark:text-primary-white leading-[1.15] font-normal text-[1.563rem] md:text-[2.188rem]',
       className,
     )}
     {...props}
@@ -120,7 +125,7 @@ const PageWideCardDescription = React.forwardRef<
 >(({ children, className, ...props }) => (
   <div
     className={cn(
-      `pl-0 pr-0 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl flex flex-col gap-2`,
+      `pl-0 pr-0 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl flex flex-col gap-2 text-primary-black dark:text-primary-white`,
       className,
     )}
     {...props}

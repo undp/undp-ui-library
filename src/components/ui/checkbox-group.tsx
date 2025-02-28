@@ -1,36 +1,35 @@
 import * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { Check } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { Label } from './label';
+import { Checkbox } from './checkbox';
 
 interface CheckboxGroupProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange'> {
-  label?: string;
-  labelClassName?: string;
   defaultValue?: string[];
   value?: string[];
   onValueChange?: (value: string[]) => void;
+  variant?: 'blue' | 'red' | 'black' | null | undefined;
 }
 
 // Context for sharing state between CheckboxGroup and CheckboxGroupItem
 const CheckboxGroupContext = React.createContext<{
   selectedValues: string[];
   onValueChange: (value: string, checked: boolean) => void;
+  variant?: 'blue' | 'red' | 'black' | null | undefined;
 }>({
   selectedValues: [],
   onValueChange: () => {},
+  variant: null,
 });
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
   (
     {
       className,
-      labelClassName,
-      label,
       children,
       value,
+      variant,
       onValueChange,
       defaultValue,
       ...props
@@ -67,22 +66,20 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
     const contextValue = React.useMemo(
       () => ({
         selectedValues,
+        variant,
         onValueChange: handleValueChange,
       }),
-      [selectedValues, handleValueChange],
+      [selectedValues, handleValueChange, variant],
     );
 
     return (
       <CheckboxGroupContext.Provider value={contextValue}>
         <div
-          className={cn('flex flex-col gap-1.5', className)}
-          ref={ref}
           {...props}
+          className={cn('flex gap-x-4 gap-y-2 flex-row flex-wrap', className)}
+          ref={ref}
         >
-          {label ? <Label className={labelClassName}>{label}</Label> : null}
-          <div className='flex gap-x-4 gap-y-2 flex-row flex-wrap'>
-            {children}
-          </div>
+          {children}
         </div>
       </CheckboxGroupContext.Provider>
     );
@@ -105,55 +102,20 @@ interface CheckboxGroupItemProps
 const CheckboxGroupItem = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxGroupItemProps
->(
-  (
-    {
-      className,
-      labelClassName,
-      checkBoxClassName,
-      checkIconClassName,
-      label,
-      value,
-      ...props
-    },
-    ref,
-  ) => {
-    const id = props.id || `checkbox-${Math.random().toString(36).slice(2)}`;
-    const { selectedValues, onValueChange } =
-      React.useContext(CheckboxGroupContext);
+>(({ value, ...props }) => {
+  const { selectedValues, onValueChange, variant } =
+    React.useContext(CheckboxGroupContext);
 
-    return (
-      <div className={cn('flex flex-row gap-1 items-center', className)}>
-        <CheckboxPrimitive.Root
-          {...props}
-          ref={ref}
-          className={cn(
-            'peer h-4 w-4 shrink-0 rounded-0 border-2 bg-transparent border-primary-blue-600 shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 hover:bg-primary-blue-100',
-            checkBoxClassName,
-          )}
-          id={id}
-          checked={selectedValues.includes(value)}
-          onCheckedChange={checked => onValueChange(value, checked === true)}
-        >
-          <CheckboxPrimitive.Indicator
-            className={cn('flex items-center justify-center text-current')}
-          >
-            <Check
-              className={cn(
-                'h-4 w-4 -mt-0.5 stroke-primary-blue-600',
-                checkIconClassName,
-              )}
-              strokeWidth={4}
-            />
-          </CheckboxPrimitive.Indicator>
-        </CheckboxPrimitive.Root>
-        <Label className={cn('mt-0.5', labelClassName)} htmlFor={id}>
-          {label || value}
-        </Label>
-      </div>
-    );
-  },
-);
+  return (
+    <Checkbox
+      {...props}
+      value={value}
+      variant={variant || undefined}
+      checked={selectedValues.includes(value)}
+      onCheckedChange={checked => onValueChange(value, checked === true)}
+    />
+  );
+});
 CheckboxGroupItem.displayName = 'CheckboxGroupItem';
 
 export { CheckboxGroup, CheckboxGroupItem };

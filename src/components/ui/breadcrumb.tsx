@@ -1,35 +1,14 @@
 import * as React from 'react';
 import { MoreHorizontal } from 'lucide-react';
 
-import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-
-const breadcrumbsVariants = cva('', {
-  variants: {
-    variant: {
-      dark: 'transition-colors text-accent-dark-red hover:text-accent-light-red',
-      light: 'transition-colors text-primary-white hover:text-primary-gray-200',
-    },
-  },
-  defaultVariants: {
-    variant: 'dark',
-  },
-});
-
-const BreadcrumbCtx = React.createContext<{
-  variant: 'dark' | 'light' | null | undefined;
-} | null>(null);
 
 const Breadcrumb = React.forwardRef<
   HTMLElement,
-  React.ComponentPropsWithoutRef<'nav'> & {
-    variant?: 'dark' | 'light' | null | undefined;
-  }
->(({ variant, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<'nav'>
+>(({ ...props }, ref) => (
   // eslint-disable-next-line react/jsx-no-constructed-context-values
-  <BreadcrumbCtx.Provider value={{ variant }}>
-    <nav ref={ref} aria-label='breadcrumb' {...props} />
-  </BreadcrumbCtx.Provider>
+  <nav ref={ref} aria-label='breadcrumb' {...props} />
 ));
 Breadcrumb.displayName = 'Breadcrumb';
 
@@ -41,7 +20,7 @@ const BreadcrumbList = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'flex flex-wrap items-center gap-1.5 break-words font-semibold text-xs uppercase text-muted-foreground sm:gap-2.5',
+      'flex flex-wrap items-center gap-1.5 break-words font-semibold text-xs uppercase sm:gap-2.5',
       className,
     )}
   />
@@ -65,10 +44,9 @@ const BreadcrumbLink = React.forwardRef<
   React.ComponentPropsWithoutRef<'a'>
 >(({ className, ...props }, ref) => {
   const Comp = 'a';
-  const context = React.useContext(BreadcrumbCtx);
 
   const combinedClasses = cn(
-    breadcrumbsVariants({ variant: context?.variant }),
+    'transition-colors text-accent-dark-red hover:text-accent-light-red dark:text-primary-white dark:hover:text-primary-gray-500',
     className,
   );
 
@@ -80,7 +58,6 @@ const BreadcrumbPage = React.forwardRef<
   HTMLSpanElement,
   React.ComponentPropsWithoutRef<'span'>
 >(({ className, ...props }, ref) => {
-  const context = React.useContext(BreadcrumbCtx);
   return (
     <span
       {...props}
@@ -89,9 +66,7 @@ const BreadcrumbPage = React.forwardRef<
       aria-disabled='true'
       aria-current='page'
       className={cn(
-        context?.variant === 'dark'
-          ? 'text-primary-white text-xs'
-          : 'text-foreground text-xs',
+        'text-primary-gray-700 text-xs dark:text-primary-white',
         className,
       )}
     />
@@ -100,18 +75,9 @@ const BreadcrumbPage = React.forwardRef<
 BreadcrumbPage.displayName = 'BreadcrumbPage';
 
 function BreadcrumbSeparator() {
-  const context = React.useContext(BreadcrumbCtx);
   return (
     <li role='presentation' aria-hidden='true'>
-      <div
-        className={
-          context?.variant === 'dark'
-            ? 'text-primary-white'
-            : 'text-accent-dark-red'
-        }
-      >
-        /
-      </div>
+      <div className='text-accent-dark-red dark:text-primary-white'>/</div>
     </li>
   );
 }
@@ -121,7 +87,6 @@ function BreadcrumbEllipsis({
   className,
   ...props
 }: React.ComponentProps<'span'>) {
-  const context = React.useContext(BreadcrumbCtx);
   return (
     <span
       {...props}
@@ -129,11 +94,7 @@ function BreadcrumbEllipsis({
       aria-hidden='true'
       className={cn('flex h-9 w-9 items-center justify-center', className)}
     >
-      <MoreHorizontal
-        className={
-          context?.variant === 'dark' ? 'h-4 w-4 text-white' : 'h-4 w-4'
-        }
-      />
+      <MoreHorizontal className='h-4 w-4 text-primary-gray-700 dark:text-white' />
       <span className='sr-only'>More</span>
     </span>
   );

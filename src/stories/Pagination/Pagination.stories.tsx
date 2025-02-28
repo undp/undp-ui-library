@@ -27,14 +27,22 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     total: 100,
     pageSize: 10,
   },
-  render: ({ ...args }) => (
-    <Pagination
-      {...args}
-      onChange={d => {
-        console.log(d);
-      }}
-    />
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Pagination
+          {...args}
+          onChange={d => {
+            console.log(d);
+          }}
+        />
+      </div>
+    );
+  },
 };
 
 export default meta;

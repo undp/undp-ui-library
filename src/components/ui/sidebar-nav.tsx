@@ -9,8 +9,9 @@ const sidebarVariants = cva('w-full sm:w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5', {
   variants: {
     variant: {
       noEffect: '',
-      background: 'bg-primary-gray-100',
-      border: 'border-r border-r-primary-gray-300',
+      background: 'bg-primary-gray-100 dark:bg-primary-gray-650',
+      border:
+        'border-r border-r-primary-gray-300 dark:border-r-primary-gray-600',
     },
   },
   defaultVariants: {
@@ -107,11 +108,14 @@ const SidebarItem = React.forwardRef<HTMLDivElement, SidebarItemProps>(
         {...props}
         ref={ref}
         className={cn(
-          'text-primary-black text-base bg-transparent p-4 flex gap-2 items-center cursor-pointer',
-          `hover:${hoverItemClass || 'bg-primary-gray-300'}`,
+          'text-primary-black dark:text-primary-white text-base bg-transparent p-4 flex gap-2 items-center cursor-pointer',
           selectedValue === value
-            ? activeItemClass || 'bg-primary-gray-300 font-bold'
+            ? activeItemClass ||
+                'bg-primary-gray-300 font-bold dark:bg-primary-gray-600'
             : '',
+          hoverItemClass
+            ? `hover:${hoverItemClass} dark:hover:${hoverItemClass}`
+            : 'hover:bg-primary-gray-300 dark:hover:bg-primary-gray-600',
           className,
         )}
         onClick={() => {

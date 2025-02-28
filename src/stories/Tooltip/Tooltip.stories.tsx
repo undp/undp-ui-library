@@ -15,18 +15,26 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
-  render: () => (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button>Hover</Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <P className='m-0 p-0 md:m-0 md:p-0'>Add to library</P>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  ),
+  render: (_args, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button>Hover</Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <P className='m-0 p-0 md:m-0 md:p-0'>Add to library</P>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
+    );
+  },
 };
 
 export default meta;

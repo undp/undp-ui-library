@@ -53,16 +53,24 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     gap: 'none',
     width: 'full',
   },
-  render: ({ ...args }) => (
-    <Container {...args}>
-      <H4>Heading</H4>
-      <P>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit
-        augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora
-        torquent per conubia nostra, per inceptos himenaeos.
-      </P>
-    </Container>
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Container {...args}>
+          <H4>Heading</H4>
+          <P>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            blandit augue eu sagittis facilisis. Class aptent taciti sociosqu ad
+            litora torquent per conubia nostra, per inceptos himenaeos.
+          </P>
+        </Container>
+      </div>
+    );
+  },
 };
 
 export default meta;

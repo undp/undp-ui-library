@@ -18,22 +18,30 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   args: {
     size: 'sm',
   },
-  render: ({ ...args }) => (
-    <Carousel>
-      <CarouselCard {...args}>
-        <div className='h-96 bg-primary-gray-300' />
-      </CarouselCard>
-      <CarouselCard {...args}>
-        <div className='h-96 bg-primary-gray-300' />
-      </CarouselCard>
-      <CarouselCard {...args}>
-        <div className='h-96 bg-primary-gray-300' />
-      </CarouselCard>
-      <CarouselCard {...args}>
-        <div className='h-96 bg-primary-gray-300' />
-      </CarouselCard>
-    </Carousel>
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Carousel>
+          <CarouselCard {...args}>
+            <div className='h-96 bg-primary-gray-300' />
+          </CarouselCard>
+          <CarouselCard {...args}>
+            <div className='h-96 bg-primary-gray-300' />
+          </CarouselCard>
+          <CarouselCard {...args}>
+            <div className='h-96 bg-primary-gray-300' />
+          </CarouselCard>
+          <CarouselCard {...args}>
+            <div className='h-96 bg-primary-gray-300' />
+          </CarouselCard>
+        </Carousel>
+      </div>
+    );
+  },
 };
 
 export default meta;

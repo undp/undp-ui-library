@@ -16,35 +16,36 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: { type: 'inline-radio' },
-      options: ['dark', 'light'],
-      defaultValue: 'dark',
-    },
+  args: {},
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Breadcrumb {...args}>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href='/docs/components'>
+                Components
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbEllipsis />
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+    );
   },
-  args: {
-    variant: 'dark',
-  },
-  render: ({ ...args }) => (
-    <Breadcrumb {...args}>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink href='/docs/components'>Components</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbEllipsis />
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
-  ),
 };
 
 export default meta;

@@ -33,24 +33,32 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   args: {
     currentStep: 1,
   },
-  render: ({ ...args }) => (
-    <Stepper
-      {...args}
-      steps={[
-        {
-          title: 'Step 1',
-          description: 'Step 1 description',
-        },
-        {
-          title: 'Step 2',
-          description: 'Step 2 description',
-        },
-        {
-          title: 'Step 3',
-        },
-      ]}
-    />
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <Stepper
+          {...args}
+          steps={[
+            {
+              title: 'Step 1',
+              description: 'Step 1 description',
+            },
+            {
+              title: 'Step 2',
+              description: 'Step 2 description',
+            },
+            {
+              title: 'Step 3',
+            },
+          ]}
+        />
+      </div>
+    );
+  },
 };
 
 export default meta;

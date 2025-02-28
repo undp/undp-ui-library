@@ -9,29 +9,29 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Textarea,
   tags: ['autodocs'],
   argTypes: {
-    label: {
+    className: {
       control: { type: 'text' },
       defaultValue: '',
     },
-    labelClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    textAreaClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
+    variant: {
+      control: { type: 'inline-radio' },
+      options: ['light', 'normal'],
+      defaultValue: 'normal',
     },
   },
-  args: {
-    label: 'Text area label',
-  },
-  render: ({ ...args }) => (
-    <Textarea
-      {...args}
-      onChange={d => {
-        console.log(d.target.value);
-      }}
-    />
+  render: ({ ...args }, { globals: { theme } }) => (
+    <div
+      className={`p-4 ${theme} ${
+        theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+      }`}
+    >
+      <Textarea
+        {...args}
+        onChange={d => {
+          console.log(d.target.value);
+        }}
+      />
+    </div>
   ),
 };
 

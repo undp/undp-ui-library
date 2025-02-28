@@ -33,28 +33,37 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     imageWidth: 'base',
     border: true,
   },
-  render: ({ ...args }) => (
-    <PageWideCard {...args}>
-      <PageWideCardTag>Tag here</PageWideCardTag>
-      <PageWideCardContainer>
-        <PageWideCardContent>
-          <PageWideCardHeader>
-            <PageWideCardTitle>Card Title</PageWideCardTitle>
-            <PageWideCardDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              blandit augue eu sagittis facilisis. Class aptent taciti sociosqu
-              ad litora torquent per conubia nostra, per inceptos himenaeos.
-            </PageWideCardDescription>
-          </PageWideCardHeader>
-          <PageWideCardFooter>Footer</PageWideCardFooter>
-        </PageWideCardContent>
-        <PagWideCardImage
-          className='h-96'
-          src='https://plus.unsplash.com/premium_photo-1738857914575-3d3b2fb7064e?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-        />
-      </PageWideCardContainer>
-    </PageWideCard>
-  ),
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <PageWideCard {...args}>
+          <PageWideCardTag>Tag here</PageWideCardTag>
+          <PageWideCardContainer>
+            <PageWideCardContent>
+              <PageWideCardHeader>
+                <PageWideCardTitle>Card Title</PageWideCardTitle>
+                <PageWideCardDescription>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                  blandit augue eu sagittis facilisis. Class aptent taciti
+                  sociosqu ad litora torquent per conubia nostra, per inceptos
+                  himenaeos.
+                </PageWideCardDescription>
+              </PageWideCardHeader>
+              <PageWideCardFooter>Footer</PageWideCardFooter>
+            </PageWideCardContent>
+            <PagWideCardImage
+              className='h-96'
+              src='https://plus.unsplash.com/premium_photo-1738857914575-3d3b2fb7064e?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            />
+          </PageWideCardContainer>
+        </PageWideCard>
+      </div>
+    );
+  },
 };
 
 export default meta;

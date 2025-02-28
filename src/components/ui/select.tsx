@@ -9,7 +9,6 @@ import { CSSProperties } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { Label } from './label';
 
 interface OptionType {
   value: string | number;
@@ -19,8 +18,8 @@ interface OptionType {
 const selectVariants = cva('text-sm rounded-none', {
   variants: {
     variant: {
-      light: 'border-2 border-primary-gray-400',
-      normal: 'border-2 border-primary-black',
+      light: 'border-2 border-primary-gray-400 dark:border-primary-gray-500',
+      normal: 'border-2 border-primary-black dark:border-primary-gray-100',
     },
     size: {
       sm: 'p-0 min-h-[40px]',
@@ -34,9 +33,6 @@ const selectVariants = cva('text-sm rounded-none', {
 });
 
 interface SelectPropsDataType {
-  label?: string;
-  labelClassName?: string;
-  selectClassName?: string;
   truncateLabel?: boolean;
   options?: OptionType[];
   value?: OptionType | null;
@@ -115,50 +111,43 @@ const customComponents = {
 };
 
 function DropdownSelect({
-  label,
-  labelClassName,
   className,
-  selectClassName,
   variant,
   size,
   truncateLabel,
   ...props
 }: SelectPropsDataType): JSX.Element {
   return (
-    <div className='w-full'>
-      <div className={cn('flex flex-col gap-1.5', className)}>
-        {label ? <Label className={labelClassName}>{label}</Label> : null}
-        <Select
-          {...props}
-          classNames={{
-            control: () =>
-              cn(selectVariants({ variant, size }), selectClassName),
-            singleValue: () => 'text-medium text-primary-black text-base',
-            placeholder: () => 'text-primary-gray-500 text-base',
-            groupHeading: () => 'font-bold',
-            input: () => 'text-base',
-            multiValue: () =>
-              'bg-primary-gray-300 font-medium text-primary-black rounded-sm border border-primary-gray-400',
-            multiValueLabel: () =>
-              `px-1.5 py-1 text-sm ${
-                truncateLabel ? ' max-w-[72px] truncate' : ''
-              }`,
-            multiValueRemove: () => 'hover:bg-primary-gray-400',
-            valueContainer: () => 'px-1',
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            option: (state: any) =>
-              `${'p-1 text-base hover:bg-primary-blue-100 hover:font-bold hover:text-primary-black '}${
-                state.isSelected
-                  ? 'bg-primary-blue-600 text-primary-white'
-                  : 'bg-primary-white text-primary-black'
-              }`,
-            menu: () => 'rounded-none mt-1 border-0 shadow-lg',
-            menuList: () => 'undp-scrollbar',
-          }}
-          components={customComponents}
-        />
-      </div>
-    </div>
+    <Select
+      {...props}
+      classNames={{
+        control: () => cn(selectVariants({ variant, size }), className),
+        singleValue: () =>
+          'text-medium text-primary-black dark:text-primary-white text-base',
+        placeholder: () =>
+          'text-primary-gray-600 dark:text-primary-400 text-base',
+        groupHeading: () => 'font-bold',
+        input: () => 'text-base',
+        multiValue: () =>
+          'bg-primary-gray-300 dark:bg-primary-gray-550 font-medium text-primary-black dark:text-primary-white rounded-sm border border-primary-gray-400 dark:border-primary-gray-500',
+        multiValueLabel: () =>
+          `px-1.5 py-1 text-sm ${
+            truncateLabel ? ' max-w-[72px] truncate' : ''
+          }`,
+        multiValueRemove: () => 'hover:bg-primary-gray-400',
+        valueContainer: () => 'px-1',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        option: (state: any) =>
+          `${'p-1 text-base hover:bg-primary-blue-100 hover:dark:bg-primary-blue-600 hover:font-bold hover:text-primary-black hover:dark:text-primary-white'}${
+            state.isSelected
+              ? 'bg-primary-blue-600 text-primary-white'
+              : 'bg-primary-white text-primary-black dark:bg-primary-gray-650 dark:text-primary-white'
+          }`,
+        menu: () => 'rounded-none mt-1 border-0 shadow-lg',
+        menuList: () => 'undp-scrollbar',
+      }}
+      components={customComponents}
+    />
   );
 }
 

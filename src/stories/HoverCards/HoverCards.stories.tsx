@@ -8,12 +8,22 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/Hover card',
   component: HoverCard,
   tags: ['autodocs'],
-  render: () => (
-    <HoverCard>
-      <HoverCardTrigger>Hover here</HoverCardTrigger>
-      <HoverCardContent>This is docs for UNDP design system</HoverCardContent>
-    </HoverCard>
-  ),
+  render: (_args, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <HoverCard>
+          <HoverCardTrigger>Hover here</HoverCardTrigger>
+          <HoverCardContent>
+            This is docs for UNDP design system
+          </HoverCardContent>
+        </HoverCard>
+      </div>
+    );
+  },
 };
 
 export default meta;

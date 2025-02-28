@@ -5,6 +5,12 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
   theme: {
     extend: {
+      backgroundImage: {
+        'double-red':
+          'linear-gradient(var(--dark-red), var(--dark-red)), linear-gradient(var(--dark-red), var(--dark-red))',
+        'double-white':
+          'linear-gradient(var(--white), var(--white)), linear-gradient(var(--white), var(--white))',
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
@@ -25,6 +31,7 @@ export default {
           'gray-500': 'var(--gray-500)',
           'gray-550': 'var(--gray-550)',
           'gray-600': 'var(--gray-600)',
+          'gray-650': 'var(--gray-650)',
           'gray-700': 'var(--gray-700)',
           black: 'var(--black)',
         },
@@ -117,6 +124,10 @@ export default {
       },
       height: {
         header: '7.1875rem',
+        inherit: 'inherit',
+      },
+      lineHeight: {
+        0: '0',
       },
     },
   },
@@ -173,7 +184,9 @@ export default {
       'auto',
       'screen',
       'none',
+      '[240px]',
       '[320px]',
+      '[360px]',
       '[480px]',
       '[600px]',
       '[720px]',
@@ -297,9 +310,13 @@ export default {
 
     const gapSizes = [
       '0',
+      '0.5',
       '1',
+      '1.5',
       '2',
+      '2.5',
       '3',
+      '3.5',
       '4',
       '5',
       '6',
@@ -377,6 +394,7 @@ export default {
       'primary-gray-500',
       'primary-gray-550',
       'primary-gray-600',
+      'primary-gray-650',
       'primary-gray-700',
       'primary-black',
       'accent-light-yellow',
@@ -411,7 +429,7 @@ export default {
     ];
     const colorProperties = ['bg', 'text', 'border', 'fill', 'stroke'];
     const colorClasses = [...colorProperties].flatMap(prop =>
-      colors.map(size => `${prop}-${size}`),
+      colors.map(color => `${prop}-${color}`),
     );
 
     const fontClasses = [
@@ -430,6 +448,7 @@ export default {
       'font-sans-he',
       'font-heading',
       'font-mono',
+      'text-[10px]',
       'text-xs',
       'text-sm',
       'text-base',
@@ -443,8 +462,8 @@ export default {
       'text-7xl',
       'text-8xl',
       'text-9xl',
-      'italics',
-      'not-italics',
+      'italic',
+      'not-italic',
       'uppercase',
       'lowercase',
       'capitalize',
@@ -505,12 +524,23 @@ export default {
       '-px-px',
       '-py-px',
 
+      // leading
+      'leading-0',
+      'leading-none',
+      'leading-[1.5]',
+      'leading-tight',
+      'leading-snug',
+      'leading-normal',
+      'leading-relaxed',
+      'leading-loose',
+
       // Height Classes
       'h-full',
       'h-screen',
       'h-min',
       'h-max',
       'h-fit',
+      'h-inherit',
 
       // Width Classes
       'w-screen',
@@ -546,11 +576,36 @@ export default {
       'justify-between',
       'justify-around',
       'justify-evenly',
+      'justify-self-auto',
+      'justify-self-start',
+      'justify-self-end',
+      'justify-self-center',
+      'justify-self-stretch',
+      'justify-items-start',
+      'justify-items-end',
+      'justify-items-center',
+      'justify-items-stretch',
+      'justify-items-normal',
+      'content-normal',
+      'content-center',
+      'content-start',
+      'content-end',
+      'content-between',
+      'content-around',
+      'content-evenly',
+      'content-baseline',
+      'content-stretch',
       'items-start',
       'items-end',
       'items-center',
       'items-baseline',
       'items-stretch',
+      'self-auto',
+      'self-start',
+      'self-end',
+      'self-center',
+      'self-baseline',
+      'self-stretch',
 
       'flex-1',
       'flex-2',
@@ -574,16 +629,16 @@ export default {
       'flex-initial',
       'flex-none',
       // Flex Grow
-      'flex-grow',
-      'flex-grow-0',
-      'flex-grow-2',
-      'flex-grow-3',
+      'grow',
+      'grow-0',
+      'grow-2',
+      'grow-3',
 
       // Flex Shrink
-      'flex-shrink',
-      'flex-shrink-0',
-      'flex-shrink-2',
-      'flex-shrink-3',
+      'shrink',
+      'shrink-0',
+      'shrink-2',
+      'shrink-3',
 
       // Transparent Bg
       'bg-transparent',
@@ -628,6 +683,13 @@ export default {
       'text-start',
       'text-end',
 
+      // Whitespace
+      'whitespace-normal',
+      'whitespace-nowrap',
+      'whitespace-pre',
+      'whitespace-pre-wrap',
+      'whitespace-pre-line',
+
       // Display classes
       'block',
       'inline-block',
@@ -647,6 +709,7 @@ export default {
       'border-dotted',
       'border-double',
       'rounded-none',
+      'rounded-xs',
       'rounded-sm',
       'rounded',
       'rounded-md',
@@ -655,6 +718,9 @@ export default {
       'rounded-2xl',
       'rounded-3xl',
       'rounded-full',
+
+      'bottom-0',
+      'top-0',
 
       // Object Classes
       'object-cover',
@@ -699,13 +765,61 @@ export default {
       'fixed',
       'static',
       'absolute',
+
+      // pointer-events
+      'pointer-events-none',
+      'pointer-events-auto',
+
+      // Z index
+      'z-0',
+      'z-[5]',
+      'z-10',
+      'z-20',
+      'z-30',
+      'z-40',
+      'z-50',
+      'z-[1000]',
+
+      // Overflow
+      'overflow-hidden',
+      'overflow-auto',
+      'overflow-visible',
+      'overflow-scroll',
+      'overflow-x-hidden',
+      'overflow-x-auto',
+      'overflow-x-scroll',
+      'overflow-y-hidden',
+      'overflow-y-auto',
+      'overflow-y-scroll',
+
+      // Text decoration
+      'underline',
+      'line-through',
+      'overline',
+      'no-underline',
     ];
-    const responsiveClasses = breakpoints.flatMap(bp =>
+    const classesWithImportant = ['', '!'].flatMap(prop =>
       [
         ...spacingClasses,
         ...sizeClasses,
         ...gapClasses,
         ...colorClasses,
+        ...otherClasses,
+        ...borderSizeClasses,
+        ...shadowClasses,
+        ...opacityClasses,
+        ...fontClasses,
+        ...fractionClasses,
+      ].map(color => `${prop}${color}`),
+    );
+    const colorClassesForMode = ['dark:', 'dark:!'].flatMap(prop =>
+      colorClasses.map(color => `${prop}${color}`),
+    );
+    const responsiveClasses = breakpoints.flatMap(bp =>
+      [
+        ...spacingClasses,
+        ...sizeClasses,
+        ...gapClasses,
         ...otherClasses,
         ...borderSizeClasses,
         ...fontClasses,
@@ -715,7 +829,7 @@ export default {
     );
     const utilitiesClasses = states.flatMap(bp =>
       [
-        ...colorClasses,
+        ...colorClassesForMode,
         ...borderSizeClasses,
         ...fontClasses,
         ...shadowClasses,
@@ -723,21 +837,12 @@ export default {
       ].map(cls => `${bp}:${cls}`),
     );
     return [
-      ...spacingClasses,
-      ...sizeClasses,
-      ...gapClasses,
-      ...colorClasses,
-      ...otherClasses,
-      ...borderSizeClasses,
-      ...shadowClasses,
-      ...opacityClasses,
-      ...fontClasses,
-      ...fractionClasses,
+      ...classesWithImportant,
+      ...colorClassesForMode,
       ...responsiveClasses,
       ...utilitiesClasses,
     ];
   },
-  important: true,
   plugins: [require('tailwindcss-animate')],
   corePlugins: {
     preflight: false, // Disables Tailwind's Preflight

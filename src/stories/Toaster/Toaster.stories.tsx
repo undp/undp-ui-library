@@ -47,11 +47,15 @@ type Story = StoryObj<typeof ToastButton>;
 export const Default: Story = {};
 
 export const ConfigurableToast: Story = {
-  render: (args: any) => {
+  render: (args, { globals: { theme } }) => {
     const { toast } = useToast();
 
     return (
-      <div className='p-4'>
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
         <Button
           /* 
             define 'toast' as  const { toast } = useToast();
@@ -66,10 +70,10 @@ export const ConfigurableToast: Story = {
           */
           onClick={() => {
             toast({
-              title: args.title,
-              description: args.description,
-              variant: args.variant,
-              duration: args.duration,
+              title: (args as any).title,
+              description: (args as any).description,
+              variant: (args as any).variant,
+              duration: (args as any).duration,
             });
           }}
         >

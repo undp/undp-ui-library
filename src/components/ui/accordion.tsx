@@ -8,12 +8,14 @@ import { cn } from '@/lib/utils';
 const accordionVariants = cva('', {
   variants: {
     variant: {
-      primary: 'bg-primary-gray-200 text-primary mb-4 px-4 py-1',
+      primary:
+        'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary dark:text-primary-white mb-4 px-4 py-1',
       secondary:
-        'bg-primary-gray-200 text-primary mb-0 px-4 py-1 border-b border-b-primary-gray-400',
+        'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary dark:text-primary-white mb-0 px-4 py-1 border-b border-b-primary-gray-400 dark:border-b-primary-gray-550',
       tertiary:
-        'bg-transparent text-primary mb-0 py-2 px-0 border-b border-b-primary-gray-400',
-      quaternary: 'bg-transparent text-primary mb-0 py-0 px-0',
+        'bg-transparent text-primary dark:text-primary-white mb-0 py-2 px-0 border-b border-b-primary-gray-400 dark:border-b-primary-gray-500',
+      quaternary:
+        'bg-transparent text-primary dark:text-primary-white mb-0 py-0 px-0',
     },
   },
   defaultVariants: {
@@ -22,14 +24,14 @@ const accordionVariants = cva('', {
 });
 
 const accordionTitleVariants = cva(
-  'flex flex-1 items-center py-1 transition-all text-left [&[data-state=open]>svg]:rotate-180',
+  'flex flex-1 items-center py-1 transition-all text-left text-primary dark:text-primary-white [&[data-state=open]>svg]:rotate-180',
   {
     variants: {
       variant: {
-        primary: 'text-primary font-normal text-2xl justify-between',
-        secondary: 'uppercase font-normal text-base justify-between',
-        tertiary: 'uppercase font-normal text-2xl justify-between',
-        quaternary: 'uppercase font-bold text-base gap-3',
+        primary: 'font-normal text-2xl justify-between',
+        secondary: 'uppercase  font-normal text-base justify-between',
+        tertiary: 'uppercase  font-normal text-2xl justify-between',
+        quaternary: 'uppercase  font-bold text-base gap-3',
       },
     },
     defaultVariants: {
@@ -39,14 +41,14 @@ const accordionTitleVariants = cva(
 );
 
 const accordionContentVariants = cva(
-  'overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+  'overflow-hidden text-primary dark:text-primary-white text-base data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
   {
     variants: {
       variant: {
-        primary: 'text-primary text-base my-3.5',
-        secondary: 'text-primary text-base my-3.5',
-        tertiary: 'text-primary text-base my-3.5 px-3.5',
-        quaternary: 'text-primary text-base my-3.5 p-0',
+        primary: 'my-3.5',
+        secondary: 'my-3.5',
+        tertiary: 'my-3.5 px-3.5',
+        quaternary: 'my-3.5 p-0',
       },
     },
     defaultVariants: {
@@ -122,13 +124,13 @@ const AccordionTrigger = React.forwardRef<
       >
         {context?.variant === 'quaternary' ? (
           <>
-            <ChevronDown className='h-6 w-6 shrink-0 text-muted-foreground stroke-accent-red transition-transform duration-200' />
+            <ChevronDown className='h-6 w-6 shrink-0 text-accent-red dark:text-primary-white transition-transform duration-200' />
             {children}
           </>
         ) : (
           <>
             {children}
-            <ChevronDown className='h-6 w-6 shrink-0 text-muted-foreground stroke-accent-red transition-transform duration-200' />
+            <ChevronDown className='h-6 w-6 shrink-0 text-accent-red dark:text-primary-white transition-transform duration-200' />
           </>
         )}
       </AccordionPrimitive.Trigger>

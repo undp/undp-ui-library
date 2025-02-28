@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'undp-button inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded-none text-lg font-bold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'undp-button !m-0 inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded-none text-lg font-bold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -17,19 +17,19 @@ const buttonVariants = cva(
         'secondary-without-icon':
           'bg-primary-blue-600 text-primary-white hover:bg-primary-blue-400',
         tertiary:
-          'bg-primary-gray-300 text-primary red-arrow hover:bg-primary-gray-400',
-        'tertiary-without-icon':
-          'bg-primary-gray-300 text-primary hover:bg-primary-gray-400',
-        link: 'text-primary red-arrow button-arrow hover:bg-accent-red',
-        'link-without-icon': 'text-primary hover:bg-accent-red',
-        outline: 'bg-transparent text-primary border border-primary-gray-300',
-        icon: 'bg-transparent',
+          'bg-primary-gray-300 text-primary dark:bg-primary-gray-600 dark:text-primary-white red-arrow hover:bg-primary-gray-400 dark:hover:bg-primary-gray-550',
+        link: 'text-primary dark:text-primary-white red-arrow button-arrow hover:bg-accent-red',
+        'link-without-icon':
+          'text-primary dark:text-primary-white hover:bg-accent-red',
+        outline:
+          'bg-transparent text-primary-black dark:text-primary-white border-2 border-primary-gray-700 dark:border-primary-gray-100',
+        icon: 'bg-transparent dark:text-primary-gray-100 text-primary-gray-700 dark:hover:text-primary-gray-500 hover:text-primary-gray-500',
       },
       size: {
-        base: 'text-base',
-        xs: 'text-xs',
-        sm: 'text-sm',
-        xl: 'text-xl',
+        base: '!text-base',
+        xs: '!text-xs',
+        sm: '!text-sm',
+        xl: '!text-xl',
       },
       padding: {
         base: 'py-4 px-6',

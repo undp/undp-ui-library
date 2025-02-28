@@ -9,29 +9,33 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: CheckboxGroup,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: { type: 'text' },
-      defaultValue: 'Checkbox group',
-    },
-    labelClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
+    variant: {
+      control: { type: 'inline-radio' },
+      type: 'string',
+      options: ['red', 'blue', 'black'],
+      defaultValue: 'red',
     },
   },
-  args: {
-    label: 'Checkbox group',
+  args: {},
+  render: ({ ...args }, { globals: { theme } }) => {
+    return (
+      <div
+        className={`p-4 ${theme} ${
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        }`}
+      >
+        <CheckboxGroup
+          {...args}
+          onValueChange={d => {
+            console.log(d);
+          }}
+        >
+          <CheckboxGroupItem value='Value 1' label='label 1' />
+          <CheckboxGroupItem value='Value 2' label='label 2' />
+        </CheckboxGroup>
+      </div>
+    );
   },
-  render: ({ ...args }) => (
-    <CheckboxGroup
-      {...args}
-      onValueChange={d => {
-        console.log(d);
-      }}
-    >
-      <CheckboxGroupItem value='Value 1' label='label 1' />
-      <CheckboxGroupItem value='Value 2' label='label 2' />
-    </CheckboxGroup>
-  ),
 };
 
 export default meta;
