@@ -29,6 +29,8 @@ const cardVariants = cva(
         red: 'bg-accent-light-red hover:bg-accent-red dark:bg-accent-dark-red hover:dark:bg-accent-red text-primary-black dark:text-primary-white',
         green:
           'bg-accent-light-green hover:bg-accent-green dark:bg-accent-dark-green hover:dark:bg-accent-green text-primary-black dark:text-primary-white',
+        custom:
+          'bg-custom-color-200 hover:bg-custom-color-300 text-custom-foreground',
       },
       size: {
         xs: 'w-1/4',

@@ -9,18 +9,21 @@ interface CheckboxGroupProps
   defaultValue?: string[];
   value?: string[];
   onValueChange?: (value: string[]) => void;
-  variant?: 'blue' | 'red' | 'black' | null | undefined;
+  color?: 'blue' | 'red' | 'black' | 'custom' | undefined;
+  variant?: 'light' | 'normal' | undefined;
 }
 
 // Context for sharing state between CheckboxGroup and CheckboxGroupItem
 const CheckboxGroupContext = React.createContext<{
   selectedValues: string[];
   onValueChange: (value: string, checked: boolean) => void;
-  variant?: 'blue' | 'red' | 'black' | null | undefined;
+  color?: 'blue' | 'red' | 'black' | 'custom' | undefined;
+  variant?: 'light' | 'normal' | undefined;
 }>({
   selectedValues: [],
   onValueChange: () => {},
-  variant: null,
+  color: undefined,
+  variant: undefined,
 });
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
@@ -30,6 +33,7 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
       children,
       value,
       variant,
+      color,
       onValueChange,
       defaultValue,
       ...props
@@ -66,10 +70,11 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
     const contextValue = React.useMemo(
       () => ({
         selectedValues,
+        color,
         variant,
         onValueChange: handleValueChange,
       }),
-      [selectedValues, handleValueChange, variant],
+      [selectedValues, handleValueChange, color, variant],
     );
 
     return (
@@ -103,14 +108,15 @@ const CheckboxGroupItem = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxGroupItemProps
 >(({ value, ...props }) => {
-  const { selectedValues, onValueChange, variant } =
+  const { selectedValues, onValueChange, color, variant } =
     React.useContext(CheckboxGroupContext);
 
   return (
     <Checkbox
       {...props}
       value={value}
-      variant={variant || undefined}
+      color={color}
+      variant={variant}
       checked={selectedValues.includes(value)}
       onCheckedChange={checked => onValueChange(value, checked === true)}
     />

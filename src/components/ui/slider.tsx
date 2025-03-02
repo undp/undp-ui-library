@@ -14,7 +14,7 @@ interface SliderProps extends React.ComponentPropsWithoutRef<typeof Slider> {
   railClassName?: string;
   handleClassName?: string;
   showHandleValue?: boolean;
-  variant?: 'blue' | 'red' | 'black' | null | undefined;
+  variant?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
 }
 
 const trackVariants = cva('h-1', {
@@ -23,6 +23,7 @@ const trackVariants = cva('h-1', {
       red: '!bg-accent-red',
       blue: '!bg-primary-blue-400',
       black: '!bg-primary-gray-600 dark:!bg-primary-gray-200',
+      custom: '!bg-custom-color-400',
     },
   },
   defaultVariants: {
@@ -37,6 +38,7 @@ const handleVariants = cva('rounded-full border-2 !opacity-100', {
       blue: '!border-primary-blue-600 !bg-primary-blue-600',
       black:
         '!border-primary-gray-600 !bg-primary-gray-600 dark:!border-primary-gray-200 dark:!bg-primary-gray-200',
+      custom: '!bg-custom-color-600 !border-custom-color-600',
     },
   },
   defaultVariants: {

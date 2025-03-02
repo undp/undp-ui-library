@@ -14,6 +14,14 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        'custom-color-100': 'var(--custom-color-100)',
+        'custom-color-200': 'var(--custom-color-200)',
+        'custom-color-300': 'var(--custom-color-300)',
+        'custom-color-400': 'var(--custom-color-400)',
+        'custom-color-500': 'var(--custom-color-500)',
+        'custom-color-600': 'var(--custom-color-600)',
+        'custom-color-700': 'var(--custom-color-700)',
+        'custom-foreground': 'var(--custom-foreground)',
         primary: {
           DEFAULT: 'var(--black)',
           'blue-100': 'var(--blue-100)',

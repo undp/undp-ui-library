@@ -8,36 +8,37 @@ const tabVariants = cva(
   'inline-flex text-base uppercase font-bold justify-center whitespace-nowrap border-b-2 border-primary-gray-300 dark:border-primary-gray-650 dark:text-primary-white p-0 pb-2 mt-3 mr-6 -mb-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
-      variant: {
+      color: {
         red: 'data-[state=active]:border-accent-dark-red  dark:data-[state=active]:border-accent-red',
         blue: 'data-[state=active]:border-primary-blue-600 dark:data-[state=active]:border-primary-blue-300',
         black:
           'data-[state=active]:border-primary-gray-700 dark:data-[state=active]:border-primary-gray-100',
+        custom: 'data-[state=active]:border-custom-color-600',
       },
     },
     defaultVariants: {
-      variant: 'red',
+      color: 'red',
     },
   },
 );
 
 const TabContext = React.createContext<{
-  variant?: 'blue' | 'red' | 'black' | undefined;
+  color?: 'blue' | 'red' | 'black' | 'custom' | undefined;
 }>({
-  variant: undefined,
+  color: undefined,
 });
 
 const Tabs = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> & {
-    variant: 'blue' | 'red' | 'black' | undefined;
+    color: 'blue' | 'red' | 'black' | 'custom' | undefined;
   }
->(({ variant, ...props }, ref) => {
+>(({ color, ...props }, ref) => {
   const contextValue = React.useMemo(
     () => ({
-      variant,
+      color,
     }),
-    [variant],
+    [color],
   );
   return (
     <TabContext.Provider value={contextValue}>
@@ -66,12 +67,12 @@ const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
 >(({ className, ...props }, ref) => {
-  const { variant } = React.useContext(TabContext);
+  const { color } = React.useContext(TabContext);
   return (
     <TabsPrimitive.Trigger
       {...props}
       ref={ref}
-      className={cn(tabVariants({ variant }), className)}
+      className={cn(tabVariants({ color }), className)}
     />
   );
 });

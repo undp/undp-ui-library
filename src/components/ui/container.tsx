@@ -20,6 +20,7 @@ const containerVariants = cva('', {
       yellow: 'bg-accent-yellow',
       red: 'bg-accent-red text-primary-white',
       green: 'bg-accent-green',
+      custom: 'bg-custom-color-600 text-custom-foreground',
     },
     layout: {
       flex: 'flex flex-row items-stretch flex-wrap',

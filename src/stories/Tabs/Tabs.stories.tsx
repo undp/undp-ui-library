@@ -9,10 +9,10 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
+    color: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['red', 'blue', 'black'],
+      options: ['red', 'blue', 'black', 'custom'],
       defaultValue: 'red',
     },
     defaultValue: {

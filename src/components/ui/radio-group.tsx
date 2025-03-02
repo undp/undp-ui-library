@@ -7,52 +7,68 @@ import { cn, generateRandomId } from '@/lib/utils';
 import { Label } from './label';
 
 const radioVariants = cva(
-  'aspect-square h-4 w-4 bg-transparent rounded-full border-2 text-primary dark:text-primary-white shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+  'aspect-square h-4 w-4 bg-primary-white dark:bg-primary-gray-650 rounded-full text-primary-gray-700 dark:text-primary-white shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
-      variant: {
+      color: {
         blue: 'border-primary-blue-600 hover:bg-primary-blue-100 dark:border-primary-blue-400 dark:hover:bg-primary-blue-200',
         red: 'border-accent-dark-red hover:bg-accent-light-red dark:border-accent-red dark:hover:bg-accent-light-red',
         black:
           'border-primary-gray-700 hover:bg-primary-gray-400 dark:border-primary-gray-100 dark:hover:bg-primary-gray-550',
+        custom: 'border-custom-color-600 hover:bg-custom-color-100',
+      },
+      variant: {
+        light: 'border',
+        normal: 'border-2',
       },
     },
     defaultVariants: {
-      variant: 'red',
+      color: 'red',
+      variant: 'normal',
     },
   },
 );
 
-const radioCheckVariants = cva('h-2.5 w-2.5 stroke-0', {
+const radioCheckVariants = cva('stroke-0', {
   variants: {
-    variant: {
+    color: {
       blue: 'fill-primary-blue-600 dark:fill-primary-blue-400',
       red: 'fill-accent-dark-red dark:fill-accent-red',
       black: 'fill-primary-gray-700 dark:fill-primary-gray-100',
+      custom: 'fill-custom-color-600',
+    },
+    variant: {
+      light: 'h-1.5 w-1.5',
+      normal: 'h-2.5 w-2.5',
     },
   },
   defaultVariants: {
-    variant: 'red',
+    color: 'red',
+    variant: 'normal',
   },
 });
 
 const RadioGroupContext = React.createContext<{
-  variant?: 'blue' | 'red' | 'black' | null | undefined;
+  color?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
+  variant?: 'light' | 'normal' | null | undefined;
 }>({
+  color: null,
   variant: null,
 });
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> & {
-    variant: 'blue' | 'red' | 'black' | null | undefined;
+    color: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
+    variant: 'light' | 'normal' | null | undefined;
   }
->(({ className, variant, ...props }, ref) => {
+>(({ className, color, variant, ...props }, ref) => {
   const contextValue = React.useMemo(
     () => ({
+      color,
       variant,
     }),
-    [variant],
+    [color, variant],
   );
   return (
     <RadioGroupContext.Provider value={contextValue}>
@@ -75,17 +91,17 @@ const RadioGroupItem = React.forwardRef<
   }
 >(({ className, radioClassName, labelClassName, label, ...props }, ref) => {
   const id = props.id || generateRandomId();
-  const { variant } = React.useContext(RadioGroupContext);
+  const { color, variant } = React.useContext(RadioGroupContext);
   return (
     <div className={cn('flex flex-row gap-2 items-center', className)}>
       <RadioGroupPrimitive.Item
         {...props}
         ref={ref}
-        className={cn(radioVariants({ variant }), radioClassName)}
+        className={cn(radioVariants({ color, variant }), radioClassName)}
         id={id}
       >
         <RadioGroupPrimitive.Indicator className='flex items-center justify-center'>
-          <Circle className={radioCheckVariants({ variant })} />
+          <Circle className={radioCheckVariants({ color, variant })} />
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
       <Label className={cn('mt-0.5 !text-base', labelClassName)} htmlFor={id}>

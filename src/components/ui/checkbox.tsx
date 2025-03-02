@@ -2,48 +2,60 @@ import * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { Check } from 'lucide-react';
 
-import { cva } from 'class-variance-authority';
+import { cva, VariantProps } from 'class-variance-authority';
 import { cn, generateRandomId } from '@/lib/utils';
 import { Label } from './label';
 
 const checkBoxVariants = cva(
-  'peer h-4 w-4 shrink-0 rounded-0 border-2 bg-transparent shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+  'peer h-4 w-4 shrink-0 rounded-0 shadow bg-primary-white dark:bg-primary-gray-650 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
-      variant: {
+      color: {
         blue: 'border-primary-blue-600 hover:bg-primary-blue-100 dark:border-primary-blue-400 dark:hover:bg-primary-blue-200',
         red: 'border-accent-dark-red hover:bg-accent-light-red dark:border-accent-red dark:hover:bg-accent-light-red',
         black:
           'border-primary-gray-700 hover:bg-primary-gray-400 dark:border-primary-gray-100 dark:hover:bg-primary-gray-550',
+        custom: 'border-custom-color-600 hover:bg-custom-color-100',
+      },
+      variant: {
+        light: 'border',
+        normal: 'border-2',
       },
     },
     defaultVariants: {
-      variant: 'red',
+      color: 'red',
+      variant: 'normal',
     },
   },
 );
 
 const checkVariants = cva('h-4 w-4 -mt-0.5 ', {
   variants: {
-    variant: {
+    color: {
       blue: 'stroke-primary-blue-600 dark:stroke-primary-blue-400',
       red: 'stroke-accent-dark-red dark:stroke-accent-red',
       black: 'stroke-primary-gray-700 dark:stroke-primary-gray-100',
+      custom: 'stroke-custom-color-700',
+    },
+    variant: {
+      light: 'stroke',
+      normal: 'stroke-2',
     },
   },
   defaultVariants: {
-    variant: 'red',
+    color: 'red',
+    variant: 'normal',
   },
 });
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & {
-    label?: string;
-    labelClassName?: string;
-    checkBoxClassName?: string;
-    checkIconClassName?: string;
-    variant?: 'blue' | 'red' | 'black';
-  }
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
+    VariantProps<typeof checkBoxVariants> & {
+      label?: string;
+      labelClassName?: string;
+      checkBoxClassName?: string;
+      checkIconClassName?: string;
+    }
 >(
   (
     {
@@ -52,6 +64,7 @@ const Checkbox = React.forwardRef<
       checkBoxClassName,
       checkIconClassName,
       label,
+      color,
       variant,
       ...props
     },
@@ -63,14 +76,20 @@ const Checkbox = React.forwardRef<
         <CheckboxPrimitive.Root
           {...props}
           ref={ref}
-          className={cn(checkBoxVariants({ variant }), checkBoxClassName)}
+          className={cn(
+            checkBoxVariants({ color, variant }),
+            checkBoxClassName,
+          )}
           id={id}
         >
           <CheckboxPrimitive.Indicator
             className={cn('flex items-center justify-center text-current')}
           >
             <Check
-              className={cn(checkVariants({ variant }), checkIconClassName)}
+              className={cn(
+                checkVariants({ color, variant }),
+                checkIconClassName,
+              )}
               strokeWidth={4}
             />
           </CheckboxPrimitive.Indicator>

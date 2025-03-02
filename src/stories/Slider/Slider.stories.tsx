@@ -12,7 +12,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     variant: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['red', 'blue', 'black'],
+      options: ['red', 'blue', 'black', 'custom'],
       defaultValue: 'red',
     },
     min: {

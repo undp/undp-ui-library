@@ -9,13 +9,13 @@ const accordionVariants = cva('', {
   variants: {
     variant: {
       primary:
-        'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary dark:text-primary-white mb-4 px-4 py-1',
+        'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary-gray-700 dark:text-primary-white mb-4 px-4 py-1',
       secondary:
-        'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary dark:text-primary-white mb-0 px-4 py-1 border-b border-b-primary-gray-400 dark:border-b-primary-gray-550',
+        'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary-gray-700 dark:text-primary-white mb-0 px-4 py-1 border-b border-b-primary-gray-400 dark:border-b-primary-gray-550',
       tertiary:
-        'bg-transparent text-primary dark:text-primary-white mb-0 py-2 px-0 border-b border-b-primary-gray-400 dark:border-b-primary-gray-500',
+        'bg-transparent text-primary-gray-700 dark:text-primary-white mb-0 py-2 px-0 border-b border-b-primary-gray-400 dark:border-b-primary-gray-500',
       quaternary:
-        'bg-transparent text-primary dark:text-primary-white mb-0 py-0 px-0',
+        'bg-transparent text-primary-gray-700 dark:text-primary-white mb-0 py-0 px-0',
     },
   },
   defaultVariants: {
@@ -24,7 +24,7 @@ const accordionVariants = cva('', {
 });
 
 const accordionTitleVariants = cva(
-  'flex flex-1 items-center py-1 transition-all text-left text-primary dark:text-primary-white [&[data-state=open]>svg]:rotate-180',
+  'flex flex-1 items-center py-1 transition-all text-left text-primary-gray-700 dark:text-primary-white [&[data-state=open]>svg]:rotate-180',
   {
     variants: {
       variant: {
@@ -41,7 +41,7 @@ const accordionTitleVariants = cva(
 );
 
 const accordionContentVariants = cva(
-  'overflow-hidden text-primary dark:text-primary-white text-base data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+  'overflow-hidden text-primary-gray-700 dark:text-primary-white text-base data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
   {
     variants: {
       variant: {

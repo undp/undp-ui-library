@@ -61,7 +61,7 @@ function Modal(props: ModalProps) {
             onClick={() => {
               onOpenChange?.();
             }}
-            className='absolute right-6 top-6 p-2 bg-primary-gray-200 dark:bg-primary-gray-600 rounded-full ring-offset-background transition-opacity hover:bg-primary-gray-300 hover:dark:bg-primary-gray-500 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground'
+            className='absolute right-6 top-6 p-2 bg-primary-gray-200 dark:bg-primary-gray-600 rounded-full ring-offset-background transition-opacity hover:bg-primary-gray-300 hover:dark:bg-primary-gray-500 disabled:pointer-events-none data-[state=open]:bg-primary-gray-200 dark:data-[state=open]:bg-primary-gray-600 data-[state=open]:text-primary-gray-600'
           >
             <X className='h-6 w-6 stroke-primary-black dark:stroke-primary-gray-100' />
           </button>

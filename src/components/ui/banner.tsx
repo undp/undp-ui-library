@@ -20,6 +20,7 @@ const bannerVariants = cva('', {
       yellow: 'bg-accent-yellow',
       red: 'bg-accent-red text-primary-white',
       green: 'bg-accent-green',
+      custom: 'bg-custom-color-600 text-custom-foreground',
     },
     padding: {
       none: 'py-24 px-0',
@@ -93,6 +94,7 @@ const BannerContext = React.createContext<{
     | 'yellow'
     | 'red'
     | 'green'
+    | 'custom'
     | null
     | undefined;
   padding:

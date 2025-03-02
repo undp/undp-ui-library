@@ -4,13 +4,14 @@ import { Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const loaderVariants = cva(
-  'animate-spin text-primary dark:text-primary-white',
+  'animate-spin text-primary-gray-700 dark:text-primary-white',
   {
     variants: {
       variant: {
         red: 'stroke-accent-dark-red dark:!stroke-accent-red',
         blue: 'stroke-primary-blue-600 dark:!stroke-primary-blue-500',
         black: 'stroke-primary-gray-600 dark:!stroke-primary-gray-200',
+        custom: 'stroke-custom-color-600',
       },
       size: {
         sm: 'size-6',
@@ -28,7 +29,7 @@ const loaderVariants = cva(
 interface SpinnerContentProps extends VariantProps<typeof loaderVariants> {
   show?: boolean;
   className?: string;
-  variant?: 'blue' | 'red' | 'black' | null | undefined;
+  variant?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
   size?: 'sm' | 'base' | 'lg';
   children?: React.ReactNode;
 }

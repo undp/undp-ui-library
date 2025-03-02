@@ -91,7 +91,7 @@ function Pagination(props: PaginationProps) {
                 className={cn(
                   'cursor-pointer w-[32px] h-[32px] flex items-center justify-center rounded-full hover:bg-primary-gray-300',
                   page === currentPage &&
-                    'bg-primary-blue-600 hover:bg-primary-blue-700 dark:bg-primary-blue-500 dark:hover:bg-primary-blue-400 hover:text-primary-foreground text-primary-white',
+                    'bg-primary-blue-600 hover:bg-primary-blue-700 dark:bg-primary-blue-500 dark:hover:bg-primary-blue-400 hover:text-primary-wite text-primary-white',
                 )}
               >
                 {page}

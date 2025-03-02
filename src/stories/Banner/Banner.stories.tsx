@@ -29,6 +29,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'yellow',
         'red',
         'green',
+        'custom',
       ],
       defaultValue: 'transparent',
     },
