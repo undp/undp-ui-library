@@ -15,7 +15,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
           theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}
       >
-        <HoverCard>
+        <HoverCard openDelay={0}>
           <HoverCardTrigger>Hover here</HoverCardTrigger>
           <HoverCardContent>
             This is docs for UNDP design system

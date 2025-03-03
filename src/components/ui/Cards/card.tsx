@@ -95,7 +95,7 @@ const CardTag = React.forwardRef<
 >(({ children, className, ...props }) => (
   <div
     className={cn(
-      'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-base font-bold leading-[1.15] uppercase',
+      'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-xs font-bold leading-[1.15] uppercase',
       className,
     )}
     {...props}

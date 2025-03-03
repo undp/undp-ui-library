@@ -93,7 +93,7 @@ const PageWideCardTag = React.forwardRef<
 >(({ children, className, ...props }) => (
   <div
     className={cn(
-      'flex gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 pb-4 md:mb-0 text-base font-bold leading-[1.15] text-primary-black dark:text-primary-white uppercase',
+      'flex gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 pb-4 md:mb-0 text-xs font-bold leading-[1.15] text-primary-black dark:text-primary-white uppercase',
       className,
     )}
     {...props}

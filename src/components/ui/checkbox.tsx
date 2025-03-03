@@ -7,7 +7,7 @@ import { cn, generateRandomId } from '@/lib/utils';
 import { Label } from './label';
 
 const checkBoxVariants = cva(
-  'peer h-4 w-4 shrink-0 rounded-0 shadow bg-primary-white dark:bg-primary-gray-650 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+  'peer h-4 w-4 shrink-0 rounded-0 bg-primary-white dark:bg-primary-gray-650 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       color: {
@@ -29,7 +29,7 @@ const checkBoxVariants = cva(
   },
 );
 
-const checkVariants = cva('h-4 w-4 -mt-0.5 ', {
+const checkVariants = cva('h-4 w-4', {
   variants: {
     color: {
       blue: 'stroke-primary-blue-600 dark:stroke-primary-blue-400',
@@ -38,8 +38,8 @@ const checkVariants = cva('h-4 w-4 -mt-0.5 ', {
       custom: 'stroke-custom-color-700',
     },
     variant: {
-      light: 'stroke',
-      normal: 'stroke-2',
+      light: '-mt-px',
+      normal: '-mt-0.5',
     },
   },
   defaultVariants: {
@@ -90,7 +90,7 @@ const Checkbox = React.forwardRef<
                 checkVariants({ color, variant }),
                 checkIconClassName,
               )}
-              strokeWidth={4}
+              strokeWidth={variant === 'light' ? 2 : 4}
             />
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>

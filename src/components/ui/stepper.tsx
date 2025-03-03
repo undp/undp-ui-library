@@ -84,7 +84,7 @@ function Stepper({
               {d.description ? (
                 <div
                   className={cn(
-                    'text-sm text-primary-gray-400 text-left dark:text-primary-gray-500',
+                    'text-sm text-primary-gray-500 text-left dark:text-primary-gray-400',
                   )}
                 >
                   {d.description}

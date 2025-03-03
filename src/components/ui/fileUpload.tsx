@@ -49,7 +49,7 @@ function FileUpload({ onFileChange, children, ...props }: Props) {
         {/* Custom Upload Button */}
         <label htmlFor={idForHtml} className='flex w-full'>
           {children || (
-            <div className='flex flex-col w-full bg-primary-gray-200 dark:bg-primary-gray-600 p-4 items-center gap-3 border border-primary-gray-300 dark:border-primary-gray-550'>
+            <div className='flex flex-col w-full bg-primary-gray-200 dark:bg-primary-gray-600 px-4 py-6 items-center gap-2 border border-primary-gray-300 dark:border-primary-gray-550'>
               <Upload className='w-7 h-7 stroke-1 stroke-primary-gray-500 dark:stroke-primary-gray-400' />
               <P className='text-primary-gray-550 dark:text-primary-gray-300 text-sm md:text-sm'>
                 Click on this area to upload

@@ -21,7 +21,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             console.log(d);
           }}
         >
-          <div className='flex flex-col gap-4 justify-center items-center w-full bg-primary-gray-200 border border-primary-gray-300 p-4'>
+          <div className='flex flex-col px-4 py-6 gap-2 justify-center items-center w-full bg-primary-gray-200 border border-primary-gray-300'>
             <UploadIcon />
             Upload files
           </div>

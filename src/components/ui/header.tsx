@@ -12,11 +12,11 @@ function Header({ className, children, ...props }: HeaderProps) {
     <header
       {...props}
       className={cn(
-        'bg-primary-gray-100 dark:bg-primary-gray-650 shadow-header left-0 fixed top-0 w-full z-9 relative h-[75px] md:h-header',
+        'bg-primary-gray-100 dark:bg-primary-gray-650 shadow-header left-0 fixed top-0 w-full z-10 relative h-[75px] md:h-header',
         className,
       )}
     >
-      <div className='max-w-full flex py-0 px-3 gap-4 justify-between items-center'>
+      <div className='max-w-full flex py-0 px-6 gap-4 justify-between items-center'>
         {children}
       </div>
     </header>
@@ -42,7 +42,7 @@ function HeaderLogoUnit({
       <a
         href={hyperlink || './'}
         style={{ textDecoration: 'none' }}
-        className='logo-sub-head flex gap-4 items-center sm:gap-3'
+        className='logo-sub-head flex gap-6 items-center'
       >
         <img
           src='https://design.undp.org/static/media/undp-logo-blue.4f32e17f.svg'
@@ -51,11 +51,11 @@ function HeaderLogoUnit({
         />
         <div>
           {siteSubName ? (
-            <div className='uppercase text-primary-gray-600 dark:text-primary-gray-200 pb-px mx-0 mt-0 mb-1 text-xs leading-none inline-block no-underline'>
+            <div className='leading-none uppercase font-semibold text-primary-gray-600 dark:text-primary-gray-200 pb-px mx-0 mt-0 mb-1 text-xs leading-none inline-block no-underline'>
               {siteSubName}
             </div>
           ) : null}
-          <div className='text-primary-black dark:text-primary-white p-0 m-0 no-underline'>
+          <div className='text-primary-black dark:text-primary-white p-0 m-0 no-underline text-xl font-semibold leading-none'>
             {siteName}
           </div>
         </div>

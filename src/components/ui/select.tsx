@@ -142,7 +142,7 @@ function DropdownSelect({
         singleValue: () =>
           'text-primary-black dark:text-primary-white text-base',
         placeholder: () =>
-          'text-primary-gray-600 dark:text-primary-400 text-base',
+          'text-primary-gray-550 dark:text-primary-400 text-base',
         groupHeading: () => 'font-bold',
         input: () => 'text-base',
         multiValue: () =>
