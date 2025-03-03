@@ -79,7 +79,10 @@ function HeaderMainNavUnit({
     <>
       <div
         {...props}
-        className={cn('grow justify-between gap-8 hidden md:flex', className)}
+        className={cn(
+          'grow justify-between gap-8 hidden text-sm uppercase md:flex',
+          className,
+        )}
       >
         {children}
       </div>
