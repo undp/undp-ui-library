@@ -29,7 +29,7 @@ const preview: Preview = {
         title: 'Direction',
         icon: 'mirror',
         // Array of plain string values or MenuItem shape (see below)
-        items: ['rtl', 'ltr'],
+        items: ['ltr', 'rtl' ],
         // Change title based on selected value
         dynamicTitle: true,
         default: 'ltr'
@@ -42,7 +42,7 @@ const preview: Preview = {
         title: 'Language',
         icon: 'globe',
         // Array of plain string values or MenuItem shape (see below)
-        items: ['en', 'ar', 'mm', 'ua', 'jp'],
+        items: ['ar', 'ch-traditional', 'ch-simplified', 'en', 'jp', 'mm', 'ua'],
         // Change title based on selected value
         dynamicTitle: true,
         default: 'en'

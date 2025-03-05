@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+Hebrew:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Myanmar:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+Hebrew:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Myanmar:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -270,6 +270,13 @@ img, video {
 .jp {
   @apply font-sans-jp;
 }
+.ch-traditional {
+  @apply font-sans-ch-traditional;
+}
+.ch-simplified {
+  @apply font-sans-ch-simplified;
+}
+
 h1 {
   @apply font-heading;   
 }
@@ -284,6 +291,12 @@ h1 {
 }
 .jp h1 {
   @apply font-sans-jp;
+}
+.ch-traditional h1 {
+  @apply font-sans-ch-traditional;
+}
+.ch-simplified h1 {
+  @apply font-sans-ch-simplified;
 }
 
 [hidden]:where(:not([hidden="until-found"])) {

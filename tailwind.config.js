@@ -120,6 +120,8 @@ export default {
         'sans-he': ['Noto Sans Hebrew', 'sans-serif'],
         'sans-jp': ['Noto Sans JP', 'sans-serif'],
         'sans-mm': ['Noto Sans Myanmar', 'sans-serif'],
+        'sans-ch-traditional': ['Noto Sans TC', 'sans-serif'],
+        'sans-ch-simplified': ['Noto Sans SC', 'sans-serif'],
         serif: ['serif'],
         heading: [
           'SohneBreit',
