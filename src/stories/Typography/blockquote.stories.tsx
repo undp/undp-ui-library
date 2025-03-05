@@ -14,13 +14,12 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  render: ({ ...args }, { globals: { theme } }) => {
+  render: ({ ...args }, { globals: { theme, direction } }) => {
     return (
       <div
+        dir={direction}
         className={`p-4 ${theme} ${
-          theme === 'dark'
-            ? 'bg-primary-gray-700 text-primary-white'
-            : 'bg-primary-white'
+          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}
       >
         <Blockquote {...args}>

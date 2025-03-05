@@ -22,6 +22,18 @@ const preview: Preview = {
         dynamicTitle: true,
       },
     },
+    direction: {
+      description: 'Set direction',
+      toolbar: {
+        // The label to show for this toolbar item
+        title: 'Direction',
+        icon: 'globe',
+        // Array of plain string values or MenuItem shape (see below)
+        items: ['rtl', 'ltr'],
+        // Change title based on selected value
+        dynamicTitle: true,
+      },
+    }
   },
   initialGlobals: {
     theme: 'light',

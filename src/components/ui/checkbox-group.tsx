@@ -107,12 +107,13 @@ interface CheckboxGroupItemProps
 const CheckboxGroupItem = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxGroupItemProps
->(({ value, ...props }) => {
+>(({ value, ...props }, ref) => {
   const { selectedValues, onValueChange, color, variant } =
     React.useContext(CheckboxGroupContext);
 
   return (
     <Checkbox
+      ref={ref}
       {...props}
       value={value}
       color={color}

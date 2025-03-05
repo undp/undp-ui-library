@@ -19,8 +19,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: 'normal',
     },
   },
-  render: ({ ...args }, { globals: { theme } }) => (
+  render: ({ ...args }, { globals: { theme, direction } }) => (
     <div
+      dir={direction}
       className={`p-4 ${theme} ${
         theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
       }`}

@@ -17,7 +17,16 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   args: {
     sdgList: undefined,
   },
-  render: ({ ...args }) => <SdgBorder {...args} />,
+  render: ({ ...args }, { globals: { theme, direction } }) => (
+    <div
+      dir={direction}
+      className={`p-4 ${theme} ${
+        theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+      }`}
+    >
+      <SdgBorder {...args} />
+    </div>
+  ),
 };
 
 export default meta;

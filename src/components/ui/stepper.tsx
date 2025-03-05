@@ -73,7 +73,7 @@ function Stepper({
             <div className='flex flex-col shrink-0'>
               <div
                 className={cn(
-                  'text-base text-left font-normal',
+                  'text-base text-left rtl:text-right font-normal',
                   i + 1 < currentStep
                     ? 'text-primary-blue-600 dark:text-primary-blue-300'
                     : 'text-primary-gray-700 dark:text-primary-white',
@@ -84,7 +84,7 @@ function Stepper({
               {d.description ? (
                 <div
                   className={cn(
-                    'text-sm text-primary-gray-500 text-left dark:text-primary-gray-400',
+                    'text-sm text-primary-gray-500 text-left rtl:text-right dark:text-primary-gray-400',
                   )}
                 >
                   {d.description}

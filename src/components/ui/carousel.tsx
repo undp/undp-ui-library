@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 const Carousel = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }) => {
+>(({ className, children, ...props }, ref) => {
   const WrapperRef = React.useRef<HTMLDivElement>(null);
   const [cursor, setCursor] = React.useState(
     'url(https://design.undp.org/static/media/arrow-right.125a0586.svg)',
@@ -40,6 +40,7 @@ const Carousel = React.forwardRef<
       }}
     >
       <div
+        ref={ref}
         className='flex gap-4 items-stretch'
         style={{
           cursor: `${cursor}, auto`,

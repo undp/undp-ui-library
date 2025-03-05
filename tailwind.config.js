@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable global-require */
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -137,6 +139,7 @@ export default {
       lineHeight: {
         0: '0',
       },
+      textAlign: ['rtl'],
     },
   },
   safelist: () => {
@@ -805,6 +808,12 @@ export default {
       'line-through',
       'overline',
       'no-underline',
+
+      // Direction
+      '[direction:rtl]',
+      'rtl',
+      '[direction:ltr]',
+      'ltr',
     ];
     const classesWithImportant = ['', '!'].flatMap(prop =>
       [

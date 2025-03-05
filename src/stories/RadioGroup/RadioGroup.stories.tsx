@@ -27,22 +27,25 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {},
-  render: ({ ...args }, { globals: { theme } }) => {
+  render: ({ ...args }, { globals: { theme, direction } }) => {
     return (
       <div
+        dir={direction}
         className={`p-4 ${theme} ${
           theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}
       >
-        <RadioGroup
-          {...args}
-          onValueChange={d => {
-            console.log(d);
-          }}
-        >
-          <RadioGroupItem label='Radio 1' value='Radio_1' />
-          <RadioGroupItem label='Radio 2' value='Radio_2' />
-        </RadioGroup>
+        <div dir='ltr'>
+          <RadioGroup
+            {...args}
+            onValueChange={d => {
+              console.log(d);
+            }}
+          >
+            <RadioGroupItem label='Radio 1' value='Radio_1' />
+            <RadioGroupItem label='Radio 2' value='Radio_2' />
+          </RadioGroup>
+        </div>
       </div>
     );
   },

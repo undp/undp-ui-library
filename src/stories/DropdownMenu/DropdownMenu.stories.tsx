@@ -20,9 +20,10 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/Dropdown Menu',
   component: DropdownMenu,
   tags: ['autodocs'],
-  render: ({ ...args }, { globals: { theme } }) => {
+  render: ({ ...args }, { globals: { theme, direction } }) => {
     return (
       <div
+        dir={direction}
         className={`p-4 ${theme} ${
           theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}

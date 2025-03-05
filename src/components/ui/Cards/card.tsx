@@ -92,8 +92,9 @@ CardFooter.displayName = 'CardFooter';
 const CardTag = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }) => (
+>(({ children, className, ...props }, ref) => (
   <div
+    ref={ref}
     className={cn(
       'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-xs font-bold leading-[1.15] uppercase',
       className,
@@ -108,8 +109,9 @@ CardTag.displayName = 'CardTag';
 const CardTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }) => (
+>(({ children, className, ...props }, ref) => (
   <div
+    ref={ref}
     className={cn(
       'm-0 pl-6 pr-6 pt-4 pb-6 leading-[1.15] flex gap-2 font-normal text-[1.25rem] md:text-[1.563rem]',
       className,
@@ -124,8 +126,9 @@ CardTitle.displayName = 'CardTitle';
 const CardDescription = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }) => (
+>(({ children, className, ...props }, ref) => (
   <div
+    ref={ref}
     className={cn(
       `pl-6 pr-6 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl`,
       className,

@@ -28,12 +28,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     marginBottom: 'base',
     fontType: 'heading',
   },
-  render: ({ ...args }, { globals: { theme } }) => (
+  render: ({ ...args }, { globals: { theme, direction } }) => (
     <div
+      dir={direction}
       className={`p-4 ${theme} ${
-        theme === 'dark'
-          ? 'bg-primary-gray-700 text-primary-white'
-          : 'bg-primary-white'
+        theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
       }`}
     >
       <H1 {...args}>Heading 1</H1>

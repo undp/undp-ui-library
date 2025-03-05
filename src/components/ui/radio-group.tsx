@@ -62,7 +62,8 @@ const RadioGroup = React.forwardRef<
     color: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
     variant: 'light' | 'normal' | null | undefined;
   }
->(({ className, color, variant, ...props }, ref) => {
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+>(({ className, color, variant, dir, ...props }, ref) => {
   const contextValue = React.useMemo(
     () => ({
       color,
@@ -74,7 +75,10 @@ const RadioGroup = React.forwardRef<
     <RadioGroupContext.Provider value={contextValue}>
       <RadioGroupPrimitive.Root
         {...props}
-        className={cn('flex gap-x-4 gap-y-2 flex-row flex-wrap', className)}
+        className={cn(
+          'flex gap-x-4 gap-y-2 flex-row flex-wrap rtl:[direction:rtl]',
+          className,
+        )}
         ref={ref}
       />
     </RadioGroupContext.Provider>

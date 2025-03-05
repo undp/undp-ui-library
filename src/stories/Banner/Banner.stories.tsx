@@ -61,9 +61,10 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     bodyGap: 'base',
     sidebarWidth: 'base',
   },
-  render: ({ ...args }, { globals: { theme } }) => {
+  render: ({ ...args }, { globals: { theme, direction } }) => {
     return (
       <div
+        dir={direction}
         className={`p-4 ${theme} ${
           theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}

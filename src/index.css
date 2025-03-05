@@ -16,6 +16,70 @@
 	--tw-content: ""
 }
 
+
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #232E3D;
+    --custom-color-100: #B5D5F5;
+    --custom-color-200: #94C4F5;
+    --custom-color-300: #6BABEB;
+    --custom-color-400: #4F95DD;
+    --custom-color-500: #3288CE;
+    --custom-color-600: #0468B1;
+    --custom-color-700: #1F5A95;
+    --custom-foreground: #232E3D;
+    --ring: #B5D5F5;
+    --blue-100: #B5D5F5;
+    --blue-200: #94C4F5;
+    --blue-300: #6BABEB;
+    --blue-400: #4F95DD;
+    --blue-500: #3288CE;
+    --blue-600: #0468B1;
+    --blue-700: #1F5A95;
+    --white: #FFFFFF;
+    --gray-100: #FAFAFA;
+    --gray-200: #F7F7F7;
+    --gray-300: #EDEFF0;
+    --gray-400: #D4D6D8;
+    --gray-500: #A9B1B7;
+    --gray-550: #879099;
+    --gray-600: #55606E;
+    --gray-650: #3b4859;
+    --gray-700: #232E3D;
+    --black: #000000;
+    --light-yellow: #FFEB00;
+    --yellow: #FFEB00;
+    --dark-yellow: #FBC412;
+    --light-red: #FFBCB7;
+    --red: #EE402D;
+    --dark-red: #D12800;
+    --light-green: #B8ECB6;
+    --green: #6DE354;
+    --dark-green: #59BA47;
+    --light-azure: #A2DAF3;
+    --azure: #60D4F2;
+    --dark-azure: #00C1FF;
+    --sdg-1: #E5243B;
+    --sdg-2: #DDA63A;
+    --sdg-3: #4C9F38;
+    --sdg-4: #C5192D;
+    --sdg-5: #FF3A21;
+    --sdg-6: #26BDE2;
+    --sdg-7: #FCC30B;
+    --sdg-8: #A21942;
+    --sdg-9: #FD6925;
+    --sdg-10: #DD1367;
+    --sdg-11: #FD9D24;
+    --sdg-12: #BF8B2E;
+    --sdg-13: #3F7E44;
+    --sdg-14: #0A97D9;
+    --sdg-15: #56C02B;
+    --sdg-16: #00689D;
+    --sdg-17: #19486A;
+  }
+}
+
 html, :host {
 	line-height: 1.5;
 	-webkit-text-size-adjust: 100%;
@@ -30,7 +94,12 @@ html, :host {
 
 body {
 	margin: 0;
-	line-height: inherit
+	line-height: inherit;
+  color: var(--black);
+}
+
+.dark {
+  color: var(--white);
 }
 
 hr {
@@ -186,69 +255,6 @@ img, video {
 	display: none
 }
 
-@layer base {
-  :root {
-    --background: #FFFFFF;
-    --foreground: #232E3D;
-    --custom-color-100: #B5D5F5;
-    --custom-color-200: #94C4F5;
-    --custom-color-300: #6BABEB;
-    --custom-color-400: #4F95DD;
-    --custom-color-500: #3288CE;
-    --custom-color-600: #0468B1;
-    --custom-color-700: #1F5A95;
-    --custom-foreground: #232E3D;
-    --ring: #B5D5F5;
-    --blue-100: #B5D5F5;
-    --blue-200: #94C4F5;
-    --blue-300: #6BABEB;
-    --blue-400: #4F95DD;
-    --blue-500: #3288CE;
-    --blue-600: #0468B1;
-    --blue-700: #1F5A95;
-    --white: #FFFFFF;
-    --gray-100: #FAFAFA;
-    --gray-200: #F7F7F7;
-    --gray-300: #EDEFF0;
-    --gray-400: #D4D6D8;
-    --gray-500: #A9B1B7;
-    --gray-550: #879099;
-    --gray-600: #55606E;
-    --gray-650: #3b4859;
-    --gray-700: #232E3D;
-    --black: #000000;
-    --light-yellow: #FFEB00;
-    --yellow: #FFEB00;
-    --dark-yellow: #FBC412;
-    --light-red: #FFBCB7;
-    --red: #EE402D;
-    --dark-red: #D12800;
-    --light-green: #B8ECB6;
-    --green: #6DE354;
-    --dark-green: #59BA47;
-    --light-azure: #A2DAF3;
-    --azure: #60D4F2;
-    --dark-azure: #00C1FF;
-    --sdg-1: #E5243B;
-    --sdg-2: #DDA63A;
-    --sdg-3: #4C9F38;
-    --sdg-4: #C5192D;
-    --sdg-5: #FF3A21;
-    --sdg-6: #26BDE2;
-    --sdg-7: #FCC30B;
-    --sdg-8: #A21942;
-    --sdg-9: #FD6925;
-    --sdg-10: #DD1367;
-    --sdg-11: #FD9D24;
-    --sdg-12: #BF8B2E;
-    --sdg-13: #3F7E44;
-    --sdg-14: #0A97D9;
-    --sdg-15: #56C02B;
-    --sdg-16: #00689D;
-    --sdg-17: #19486A;
-  }
-}
-
 
 
 .undp-button.button-arrow::after {
@@ -275,6 +281,22 @@ img, video {
 	background: url(https://design.undp.org/icons/chevron-right.svg) no-repeat left center;
 }
 
+[dir=rtl] .button-arrow.white-arrow::after {
+	background: url(https://raw.githubusercontent.com/undp/design-system-assets/refs/heads/main/images/chevron-left-white.svg) no-repeat left center;
+}
+
+[dir=rtl] .button-arrow.black-arrow::after {
+	background: url(https://design.undp.org/static/media/chevron-right-black.f618eac3.svg) no-repeat left center;
+}
+
+[dir=rtl] .button-arrow.red-arrow::after {
+	background: url(https://design.undp.org/icons/chevron-left.svg) no-repeat left center;
+}
+
+[dir=rtl] .undp-button.button-arrow:not(.disabled):hover::after {
+	transform: translate(-70%, 0)
+}
+
 @keyframes lineLoop-animation-for-links {
   0% {
     background-position: 100% 100%, -30px 100%;
@@ -283,6 +305,16 @@ img, video {
   to {
     background-position: calc(100% + 30px) 100%, 0 100%;
     background-size: 0 2px, 100% 2px;
+  }
+}
+@keyframes lineLoop-animation-for-links-rtl {
+  0% {
+    background-position: calc(100% + 30px) 100%, 0 100%;
+    background-size: 0 2px, 100% 2px;
+  }
+  to {
+    background-position: 100% 100%, -30px 100%;
+    background-size: 100% 2px, 0 2px;
   }
 }
 
@@ -295,6 +327,10 @@ img, video {
 
 .undp-link:hover {
   animation: lineLoop-animation-for-links 2s linear infinite;
+}
+
+[dir=rtl] .undp-link:hover {
+  animation: lineLoop-animation-for-links-rtl 2s linear infinite;
 }
 
 

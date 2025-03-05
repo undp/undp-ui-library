@@ -37,7 +37,7 @@ const Switch = React.forwardRef<
     className={cn(switchVariants({ color, variant }), className)}
     ref={ref}
   >
-    <SwitchPrimitives.Thumb className='bg-primary-white pointer-events-none block h-[22px] w-[22px] rounded-full shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-[32px] data-[state=unchecked]:translate-x-0' />
+    <SwitchPrimitives.Thumb className='bg-primary-white pointer-events-none block h-[22px] w-[22px] rounded-full shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-[32px] rtl:data-[state=checked]:translate-x-[-32px] data-[state=unchecked]:translate-x-0' />
   </SwitchPrimitives.Root>
 ));
 Switch.displayName = SwitchPrimitives.Root.displayName;

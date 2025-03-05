@@ -65,7 +65,7 @@ function PaginationPrevious({
       {...props}
       aria-label='Go to previous page'
       className={cn(
-        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rounded-full hover:bg-primary-gray-400 hover:dark:bg-primary-gray-550',
+        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rtl:scale-x-[-1] rounded-full hover:bg-primary-gray-400 hover:dark:bg-primary-gray-550',
         className,
       )}
     >
@@ -84,7 +84,7 @@ function PaginationNext({
       {...props}
       aria-label='Go to next page'
       className={cn(
-        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rounded-full hover:bg-primary-gray-400 hover:dark:bg-primary-gray-550',
+        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rtl:scale-x-[-1] rounded-full hover:bg-primary-gray-400 hover:dark:bg-primary-gray-550',
         className,
       )}
     >

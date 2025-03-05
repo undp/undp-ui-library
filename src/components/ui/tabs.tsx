@@ -5,7 +5,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const tabVariants = cva(
-  'inline-flex text-base uppercase font-bold justify-center whitespace-nowrap border-b-2 border-primary-gray-300 dark:border-primary-gray-650 dark:text-primary-white p-0 pb-2 mt-3 mr-6 -mb-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex text-base rtl:[direction:rtl] uppercase font-bold justify-center whitespace-nowrap border-b-2 border-primary-gray-300 dark:border-primary-gray-650 dark:text-primary-white p-0 pb-2 mt-3 mr-6 -mb-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       color: {
@@ -33,7 +33,7 @@ const Tabs = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> & {
     color: 'blue' | 'red' | 'black' | 'custom' | undefined;
   }
->(({ color, ...props }, ref) => {
+>(({ color, className, ...props }, ref) => {
   const contextValue = React.useMemo(
     () => ({
       color,
@@ -42,7 +42,11 @@ const Tabs = React.forwardRef<
   );
   return (
     <TabContext.Provider value={contextValue}>
-      <TabsPrimitive.Root {...props} ref={ref} />
+      <TabsPrimitive.Root
+        className={cn('rtl:[direction:rtl]', className)}
+        {...props}
+        ref={ref}
+      />
     </TabContext.Provider>
   );
 });
@@ -56,7 +60,7 @@ const TabsList = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'pl-12 inline-flex items-center border-b-2 border-primary-gray-300 mb-10 w-full dark:border-primary-gray-650',
+      'pl-12 rtl:[direction:rtl] inline-flex items-center border-b-2 border-primary-gray-300 mb-10 w-full dark:border-primary-gray-650',
       className,
     )}
   />

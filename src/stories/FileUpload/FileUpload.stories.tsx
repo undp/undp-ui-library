@@ -9,9 +9,10 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/File Upload Button',
   component: FileUpload,
   tags: ['autodocs'],
-  render: (_args, { globals: { theme } }) => {
+  render: (_args, { globals: { theme, direction } }) => {
     return (
       <div
+        dir={direction}
         className={`p-4 ${theme} ${
           theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}
