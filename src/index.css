@@ -282,21 +282,32 @@ img, video {
 }
 
 [dir=rtl] .button-arrow.white-arrow::after {
+  margin-left: 0;
+	margin-right: 0.75rem;
 	background: url(https://raw.githubusercontent.com/undp/design-system-assets/refs/heads/main/images/chevron-left-white.svg) no-repeat left center;
 }
 
 [dir=rtl] .button-arrow.black-arrow::after {
 	background: url(https://design.undp.org/static/media/chevron-right-black.f618eac3.svg) no-repeat left center;
+  transform: scaleX(-1);
+  margin-left: 0;
+	margin-right: 0.75rem;
 }
 
 [dir=rtl] .button-arrow.red-arrow::after {
 	background: url(https://design.undp.org/icons/chevron-left.svg) no-repeat left center;
+  margin-left: 0;
+	margin-right: 0.75rem;
 }
 
 [dir=rtl] .undp-button.button-arrow:not(.disabled):hover::after {
-	transform: translate(-70%, 0)
+	transform: translate(-70%, 0);
 }
 
+
+[dir=rtl] .undp-button.button-arrow.black-arrow:not(.disabled):hover::after {
+	transform: translate(-70%, 0) scaleX(-1);
+}
 @keyframes lineLoop-animation-for-links {
   0% {
     background-position: 100% 100%, -30px 100%;

@@ -15,7 +15,6 @@ const meta: Meta<typeof Button> = {
         'secondary',
         'secondary-without-icon',
         'tertiary',
-        'tertiary-without-icon',
         'link',
         'link-without-icon',
         'outline',
