@@ -23,15 +23,29 @@ const preview: Preview = {
       },
     },
     direction: {
-      description: 'Set direction',
+      description: 'Direction',
       toolbar: {
         // The label to show for this toolbar item
         title: 'Direction',
-        icon: 'globe',
+        icon: 'mirror',
         // Array of plain string values or MenuItem shape (see below)
         items: ['rtl', 'ltr'],
         // Change title based on selected value
         dynamicTitle: true,
+        default: 'ltr'
+      },
+    },
+    language: {
+      description: 'Language',
+      toolbar: {
+        // The label to show for this toolbar item
+        title: 'Language',
+        icon: 'globe',
+        // Array of plain string values or MenuItem shape (see below)
+        items: ['en', 'ar', 'mm', 'ua', 'jp'],
+        // Change title based on selected value
+        dynamicTitle: true,
+        default: 'en'
       },
     }
   },

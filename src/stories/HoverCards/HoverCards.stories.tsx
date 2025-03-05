@@ -8,11 +8,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/Hover card',
   component: HoverCard,
   tags: ['autodocs'],
-  render: (_args, { globals: { theme, direction } }) => {
+  render: (_args, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
-        className={`p-4 ${theme} ${
+        className={`p-4 ${theme} ${language} ${
           theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}
       >

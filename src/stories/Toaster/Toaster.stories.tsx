@@ -47,13 +47,13 @@ type Story = StoryObj<typeof ToastButton>;
 export const Default: Story = {};
 
 export const ConfigurableToast: Story = {
-  render: (args, { globals: { theme, direction } }) => {
+  render: (args, { globals: { theme, direction, language } }) => {
     const { toast } = useToast();
 
     return (
       <div
         dir={direction}
-        className={`p-4 ${theme} ${
+        className={`p-4 ${theme} ${language} ${
           theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}
       >

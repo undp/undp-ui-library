@@ -118,6 +118,8 @@ export default {
         ],
         'sans-ar': ['Noto Sans Arabic', 'sans-serif'],
         'sans-he': ['Noto Sans Hebrew', 'sans-serif'],
+        'sans-jp': ['Noto Sans JP', 'sans-serif'],
+        'sans-mm': ['Noto Sans Myanmar', 'sans-serif'],
         serif: ['serif'],
         heading: [
           'SohneBreit',
@@ -457,6 +459,8 @@ export default {
       'font-serif',
       'font-sans-ar',
       'font-sans-he',
+      'font-sans-mm',
+      'font-sans-jp',
       'font-heading',
       'font-mono',
       'text-[10px]',

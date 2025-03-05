@@ -33,11 +33,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   args: {
     currentStep: 1,
   },
-  render: ({ ...args }, { globals: { theme, direction } }) => {
+  render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
-        className={`p-4 ${theme} ${
+        className={`p-4 ${theme} ${language} ${
           theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
         }`}
       >

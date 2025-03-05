@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+Hebrew:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+Hebrew:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Myanmar:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -249,6 +249,41 @@ img, svg, video, canvas, audio, iframe, embed, object {
 img, video {
 	max-width: 100%;
 	height: auto
+}
+
+
+.en {
+  @apply font-sans;
+}
+.ar {
+  @apply font-sans-ar;
+}
+.he {
+  @apply font-sans-he;
+}
+.mm {
+  @apply font-sans-mm;
+}
+.ua {
+  @apply font-sans;
+}
+.jp {
+  @apply font-sans-jp;
+}
+h1 {
+  @apply font-heading;   
+}
+.ar h1 {
+  @apply font-sans-ar;
+}
+.he h1 {
+  @apply font-sans-he;
+}
+.mm h1 {
+  @apply font-sans-mm;
+}
+.jp h1 {
+  @apply font-sans-jp;
 }
 
 [hidden]:where(:not([hidden="until-found"])) {
