@@ -52,6 +52,8 @@ interface SelectPropsDataType {
   isSearchable?: boolean;
   isDisabled?: boolean;
   isLoading?: boolean;
+  controlShouldRenderValue?: boolean;
+  hideSelectedOptions?: boolean;
 
   onChange?: (
     newValue: MultiValue<OptionType> | SingleValue<OptionType>,

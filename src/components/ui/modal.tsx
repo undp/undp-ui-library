@@ -16,7 +16,7 @@ interface ModalProps {
   children?: React.ReactNode;
   footer?: React.ReactNode;
   open?: boolean;
-  onOpenChange?: () => void;
+  onClose?: () => void;
   className?: string;
   showCloseButton?: boolean;
   titleClassName?: string;
@@ -31,7 +31,7 @@ function Modal(props: ModalProps) {
     children,
     footer,
     open,
-    onOpenChange,
+    onClose,
     className,
     titleClassName,
     footerClassName,
@@ -41,7 +41,7 @@ function Modal(props: ModalProps) {
   const descriptionId = React.useId();
   const titleId = React.useId();
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open}>
       <DialogContent
         className={cn(
           'rounded-none p-16 max-w-screen-xl undp-scrollbar',
@@ -51,7 +51,6 @@ function Modal(props: ModalProps) {
           'data-[state=closed]:slide-out-to-top-[2%] data-[state=open]:slide-in-from-top-[2%]',
           className,
         )}
-        onOpenChange={onOpenChange}
         aria-describedby={description ? descriptionId : undefined}
         aria-labelledby={title ? titleId : undefined}
       >
@@ -59,7 +58,7 @@ function Modal(props: ModalProps) {
           <button
             type='button'
             onClick={() => {
-              onOpenChange?.();
+              onClose?.();
             }}
             className='absolute right-6 top-6 p-2 bg-primary-gray-200 dark:bg-primary-gray-600 rounded-full ring-offset-background transition-opacity hover:bg-primary-gray-300 hover:dark:bg-primary-gray-500 disabled:pointer-events-none data-[state=open]:bg-primary-gray-200 dark:data-[state=open]:bg-primary-gray-600 data-[state=open]:text-primary-gray-600'
           >

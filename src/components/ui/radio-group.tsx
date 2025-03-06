@@ -59,8 +59,8 @@ const RadioGroupContext = React.createContext<{
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> & {
-    color: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
-    variant: 'light' | 'normal' | null | undefined;
+    color?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
+    variant?: 'light' | 'normal' | null | undefined;
   }
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 >(({ className, color, variant, dir, ...props }, ref) => {
