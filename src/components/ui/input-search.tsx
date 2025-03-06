@@ -73,15 +73,11 @@ const Search = React.forwardRef<
             variant={buttonVariant || 'secondary-without-icon'}
             className={buttonClassName}
             padding={size}
+            onClick={() => {
+              onSearch?.(query);
+            }}
           >
-            {buttonChildren || (
-              <SearchIcon
-                className='stroke-2'
-                onClick={() => {
-                  onSearch?.(query);
-                }}
-              />
-            )}
+            {buttonChildren || <SearchIcon className='stroke-2' />}
           </Button>
         )}
       </div>
