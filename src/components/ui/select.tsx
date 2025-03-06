@@ -11,6 +11,7 @@ import Select, {
   FormatOptionLabelMeta,
   GetOptionLabel,
   GetOptionValue,
+  FilterOptionOption,
 } from 'react-select';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import { cva } from 'class-variance-authority';
@@ -91,6 +92,9 @@ interface SelectPropsDataType {
   closeMenuOnSelect?: boolean;
   captureMenuScroll?: boolean;
   escapeClearsValue?: boolean;
+  filterOption?:
+    | ((option: FilterOptionOption<OptionType>, inputValue: string) => boolean)
+    | null;
   loadingMessage?: () => string | null;
   noOptionsMessage?: () => string | null;
   getOptionLabel?: GetOptionLabel<OptionType> | undefined;
