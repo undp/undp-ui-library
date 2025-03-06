@@ -41,7 +41,12 @@ function Modal(props: ModalProps) {
   const descriptionId = React.useId();
   const titleId = React.useId();
   return (
-    <Dialog open={open}>
+    <Dialog
+      open={open}
+      onOpenChange={state => {
+        if (!state) onClose?.();
+      }}
+    >
       <DialogContent
         className={cn(
           'rounded-none p-16 max-w-screen-xl undp-scrollbar',
@@ -51,6 +56,9 @@ function Modal(props: ModalProps) {
           'data-[state=closed]:slide-out-to-top-[2%] data-[state=open]:slide-in-from-top-[2%]',
           className,
         )}
+        onOpenChange={state => {
+          if (!state) onClose?.();
+        }}
         aria-describedby={description ? descriptionId : undefined}
         aria-labelledby={title ? titleId : undefined}
       >
