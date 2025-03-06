@@ -64,7 +64,7 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
 } from './components/ui/dropdown-menu';
-export { DropdownSelect } from './components/ui/select';
+export { DropdownSelect, createFilter } from './components/ui/select';
 export { FileUpload } from './components/ui/fileUpload';
 export {
   Footer,

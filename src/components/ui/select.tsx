@@ -4,15 +4,21 @@ import Select, {
   MultiValue,
   SingleValue,
   ActionMeta,
+  createFilter,
+  OptionsOrGroups,
+  GroupBase,
+  PropsValue,
+  FormatOptionLabelMeta,
+  GetOptionLabel,
+  GetOptionValue,
 } from 'react-select';
-import { CSSProperties } from 'react';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 interface OptionType {
-  value: string | number;
-  label: string;
+  value: string | number | (string | number)[];
+  label: string | number;
 }
 
 const selectVariants = cva(
@@ -37,9 +43,9 @@ const selectVariants = cva(
 
 interface SelectPropsDataType {
   truncateLabel?: boolean;
-  options?: OptionType[];
-  value?: OptionType | null;
-  defaultValue?: OptionType | null;
+  options?: OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined;
+  value?: PropsValue<OptionType> | undefined;
+  defaultValue?: PropsValue<OptionType> | undefined;
   isMulti?: boolean;
   isClearable?: boolean;
   isSearchable?: boolean;
@@ -58,9 +64,6 @@ interface SelectPropsDataType {
 
   className?: string;
   classNamePrefix?: string;
-  styles?: {
-    [key: string]: (base: CSSProperties, state: any) => CSSProperties;
-  };
   theme?: (theme: any) => any;
 
   menuIsOpen?: boolean;
@@ -81,7 +84,7 @@ interface SelectPropsDataType {
   };
   formatOptionLabel?: (
     data: OptionType,
-    meta: { context: 'menu' | 'value' },
+    formatOptionLabelMeta: FormatOptionLabelMeta<OptionType>,
   ) => React.ReactNode;
 
   blurInputOnSelect?: boolean;
@@ -90,8 +93,8 @@ interface SelectPropsDataType {
   escapeClearsValue?: boolean;
   loadingMessage?: () => string | null;
   noOptionsMessage?: () => string | null;
-  getOptionLabel?: (option: OptionType) => string;
-  getOptionValue?: (option: OptionType) => string;
+  getOptionLabel?: GetOptionLabel<OptionType> | undefined;
+  getOptionValue?: GetOptionValue<OptionType> | undefined;
   variant?: 'light' | 'normal';
   size?: 'sm' | 'base';
 }
@@ -169,4 +172,4 @@ function DropdownSelect({
   );
 }
 
-export { DropdownSelect };
+export { DropdownSelect, createFilter };
