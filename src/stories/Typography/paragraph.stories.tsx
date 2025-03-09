@@ -11,7 +11,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   argTypes: {
     size: {
       control: { type: 'select' },
-      options: ['xs', 'sm', 'base', 'lg', 'xl'],
+      options: ['xs', 'sm', 'base', 'base-responsive', 'lg', 'xl'],
       defaultValue: 'base',
     },
     leading: {
@@ -21,7 +21,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
     marginBottom: {
       control: { type: 'select' },
-      options: ['none', 'xs', 'sm', 'base', 'lg', 'xl'],
+      options: ['none', '3xs', '2xs', 'xs', 'sm', 'base', 'lg', 'xl'],
       defaultValue: 'primary',
     },
     className: {
@@ -30,7 +30,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {
-    size: 'base',
+    size: 'base-responsive',
     leading: 'base',
     marginBottom: 'base',
   },

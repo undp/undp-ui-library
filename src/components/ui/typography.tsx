@@ -11,7 +11,8 @@ const paragraphVariant = cva('mt-0 ml-0 mr-0', {
     size: {
       xs: 'text-xs',
       sm: 'text-sm',
-      base: 'text-base md:text-xl',
+      base: 'text-base',
+      'base-responsive': 'text-base md:text-xl',
       lg: 'text-lg',
       xl: 'text-xl',
     },
@@ -25,15 +26,17 @@ const paragraphVariant = cva('mt-0 ml-0 mr-0', {
     },
     marginBottom: {
       none: 'mb-0',
-      xs: 'mb-2',
-      sm: 'mb-3',
+      '3xs': 'mb-1',
+      '2xs': 'mb-2',
+      xs: 'mb-3',
+      sm: 'mb-4',
       base: 'mb-5',
       lg: 'mb-6',
       xl: 'mb-7',
     },
   },
   defaultVariants: {
-    size: 'base',
+    size: 'base-responsive',
     leading: 'base',
     marginBottom: 'base',
   },
@@ -66,9 +69,11 @@ const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 font-bold uppercase', {
   variants: {
     marginBottom: {
       none: 'mb-0',
-      xs: 'mb-1',
-      sm: 'mb-2',
-      base: 'mb-3 md:mb-4',
+      '2xs': 'mb-1',
+      xs: 'mb-2',
+      sm: 'mb-3',
+      'base-responsive': 'mb-3 md:mb-4',
+      base: 'mb-4',
       lg: 'mb-5',
       xl: 'mb-6',
     },
@@ -78,7 +83,7 @@ const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 font-bold uppercase', {
     },
   },
   defaultVariants: {
-    marginBottom: 'base',
+    marginBottom: 'base-responsive',
     size: 'base',
   },
 });
@@ -103,15 +108,17 @@ const headingVariant = cva('mt-0 ml-0 mr-0 p-0', {
   variants: {
     marginBottom: {
       none: 'mb-0',
-      xs: 'mb-1',
-      sm: 'mb-2',
-      base: 'mb-3 md:mb-4',
+      '2xs': 'mb-1',
+      xs: 'mb-2',
+      sm: 'mb-3',
+      'base-responsive': 'mb-3 md:mb-4',
+      base: 'mb-4',
       lg: 'mb-5',
       xl: 'mb-6',
     },
   },
   defaultVariants: {
-    marginBottom: 'base',
+    marginBottom: 'base-responsive',
   },
 });
 function H2({

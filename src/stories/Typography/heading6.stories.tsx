@@ -11,7 +11,16 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   argTypes: {
     marginBottom: {
       control: { type: 'select' },
-      options: ['none', 'xs', 'sm', 'base', 'lg', 'xl'],
+      options: [
+        'none',
+        '2xs',
+        'xs',
+        'sm',
+        'base-responsive',
+        'base',
+        'lg',
+        'xl',
+      ],
       defaultValue: 'primary',
     },
     className: {
@@ -20,7 +29,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {
-    marginBottom: 'base',
+    marginBottom: 'base-responsive',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => (
     <div
