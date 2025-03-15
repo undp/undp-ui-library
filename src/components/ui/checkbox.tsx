@@ -15,7 +15,8 @@ const checkBoxVariants = cva(
         red: 'border-accent-dark-red hover:bg-accent-light-red dark:border-accent-red dark:hover:bg-accent-light-red',
         black:
           'border-primary-gray-700 hover:bg-primary-gray-400 dark:border-primary-gray-100 dark:hover:bg-primary-gray-550',
-        custom: 'border-custom-color-600 hover:bg-custom-color-100',
+        custom:
+          'border-custom-color-600 hover:bg-custom-color-100 dark:border-custom-color-400 dark:hover:bg-custom-color-200',
       },
       variant: {
         light: 'border',
@@ -35,7 +36,7 @@ const checkVariants = cva('h-4 w-4', {
       blue: 'stroke-primary-blue-600 dark:stroke-primary-blue-400',
       red: 'stroke-accent-dark-red dark:stroke-accent-red',
       black: 'stroke-primary-gray-700 dark:stroke-primary-gray-100',
-      custom: 'stroke-custom-color-700',
+      custom: 'stroke-custom-color-600 dark:stroke-custom-color-400',
     },
     variant: {
       light: '-mt-px',

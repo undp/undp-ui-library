@@ -42,8 +42,23 @@ const preview: Preview = {
         title: 'Language',
         icon: 'globe',
         // Array of plain string values or MenuItem shape (see below)
-        items: ['ar', 'ch-traditional', 'ch-simplified', 'en', 'jp', 'mm', 'ua'],
-        // Change title based on selected value
+        
+        items: [
+          { value: 'en', title: 'English' },
+          { value: 'ar', title: 'Arabic' },
+          { value: 'az', title: 'Azerbaijani' },
+          { value: 'bn', title: 'Bangla' },
+          { value: 'my', title: 'Burmese' },
+          { value: 'zh', title: 'Chinese' },
+          { value: 'cy', title: 'Cyrillic (Russian, Ukrainian etc.)' },
+          { value: 'he', title: 'Hebrew' },
+          { value: 'hi', title: 'Hindi' },
+          { value: 'jp', title: 'Japanese' },
+          { value: 'ka', title: 'Georgian' },
+          { value: 'km', title: 'Khmer' },
+          { value: 'ko', title: 'Korean' },
+          { value: 'ne', title: 'Nepali' },
+        ],
         dynamicTitle: true,
         default: 'en'
       },

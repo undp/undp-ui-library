@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+Hebrew:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Myanmar:wght@100..900&family=Noto+Sans+SC:wght@100..900&display=swap');
 
 @import "rc-slider/assets/index.css";
 
@@ -79,6 +78,8 @@
     --sdg-15: #56C02B;
     --sdg-16: #00689D;
     --sdg-17: #19486A;
+    --font-custom: Roboto, sans-serif;
+    --font-custom-heading: Roboto, sans-serif;
   }
 }
 
@@ -254,44 +255,97 @@ img, video {
 }
 
 
+.custom-font {
+  font-family: var(--font-custom);
+}
+
+h1.custom-font, .custom-font h1  {
+  font-family: var(--font-custom-heading);
+}
+
 .en {
   @apply font-sans;
 }
 .ar {
-  @apply font-sans-ar;
+  @apply font-sans-ar
 }
-.he {
-  @apply font-sans-he;
+.az {
+  @apply font-sans-az
 }
-.mm {
-  @apply font-sans-mm;
+.bn {
+  @apply font-sans-bn
 }
-.ua {
+.cy {
   @apply font-sans;
 }
-.jp {
-  @apply font-sans-jp;
+.he {
+  @apply font-sans-he
 }
-.ch {
-  @apply font-sans-ch;
+.hi {
+  @apply font-sans-hi
+}
+.jp {
+  @apply font-sans-jp
+}
+.ka {
+  @apply font-sans-ka
+}
+.km {
+  @apply font-sans-km
+}
+.ko {
+  @apply font-sans-ko
+}
+.my {
+  @apply font-sans-my
+}
+.ne {
+  @apply font-sans-ne
+}
+.zh {
+  @apply font-sans-zh
 }
 h1 {
   @apply font-heading;   
 }
-.ar h1 {
-  @apply font-sans-ar;
+h1.ar, .ar h1 {
+  @apply font-sans-ar
 }
-.he h1 {
-  @apply font-sans-he;
+h1.az, .az h1 {
+  @apply font-sans-az
 }
-.mm h1 {
-  @apply font-sans-mm;
+h1.bn, .bn h1 {
+  @apply font-sans-bn
 }
-.jp h1 {
-  @apply font-sans-jp;
+h1.cy, .cy h1 {
+  @apply font-sans;
 }
-.ch h1 {
-  @apply font-sans-ch;
+h1.he, .he h1 {
+  @apply font-sans-he
+}
+h1.hi, .hi h1 {
+  @apply font-sans-hi
+}
+h1.jp, .jp h1 {
+  @apply font-sans-jp
+}
+h1.ka, .ka h1 {
+  @apply font-sans-ka
+}
+h1.km, .km h1 {
+  @apply font-sans-km
+}
+h1.ko, .ko h1 {
+  @apply font-sans-ko
+}
+h1.my, .my h1 {
+  @apply font-sans-my
+}
+h1.ne, .ne h1 {
+  @apply font-sans-ne
+}
+h1.zh, .zh h1 {
+  @apply font-sans-zh
 }
 
 [hidden]:where(:not([hidden="until-found"])) {

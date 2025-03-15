@@ -15,7 +15,8 @@ const radioVariants = cva(
         red: 'border-accent-dark-red hover:bg-accent-light-red dark:border-accent-red dark:hover:bg-accent-light-red',
         black:
           'border-primary-gray-700 hover:bg-primary-gray-400 dark:border-primary-gray-100 dark:hover:bg-primary-gray-550',
-        custom: 'border-custom-color-600 hover:bg-custom-color-100',
+        custom:
+          'border-custom-color-600 hover:bg-custom-color-100 dark:border-custom-color-400 dark:hover:bg-custom-color-200',
       },
       variant: {
         light: 'border',
@@ -35,7 +36,7 @@ const radioCheckVariants = cva('stroke-0', {
       blue: 'fill-primary-blue-600 dark:fill-primary-blue-400',
       red: 'fill-accent-dark-red dark:fill-accent-red',
       black: 'fill-primary-gray-700 dark:fill-primary-gray-100',
-      custom: 'fill-custom-color-600',
+      custom: 'fill-custom-color-600 dark:fill-custom-color-400',
     },
     variant: {
       light: 'h-1.5 w-1.5',

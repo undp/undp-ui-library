@@ -35,7 +35,6 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'secondary',
         'secondary-without-icon',
         'tertiary',
-        'tertiary-without-icon',
         'link',
         'link-without-icon',
         'outline',
