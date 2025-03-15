@@ -6,7 +6,7 @@ import { Button } from './button';
 import { Input } from './input';
 
 const Search = React.forwardRef<
-  Omit<React.HTMLAttributes<HTMLInputElement>, 'size'>,
+  HTMLInputElement,
   React.ComponentProps<'input'> & {
     inputVariant?: 'light' | 'normal';
     inputClassName?: string;
@@ -24,7 +24,7 @@ const Search = React.forwardRef<
     showSearchButton?: boolean;
     searchOnlyOnClick?: boolean;
     buttonChildren?: React.ReactNode;
-    size?: 'sm' | 'base';
+    inputSize?: 'sm' | 'base';
     onSearch?: (d?: string) => void;
   }
 >(
@@ -33,12 +33,12 @@ const Search = React.forwardRef<
     inputClassName,
     buttonClassName,
     onSearch,
-    size,
     searchOnlyOnClick,
     buttonVariant,
     buttonChildren,
     showSearchButton,
     inputVariant,
+    inputSize,
     placeholder,
     ...props
   }) => {
@@ -58,7 +58,7 @@ const Search = React.forwardRef<
                 onSearch?.(d.target.value);
               }
             }}
-            size={size}
+            inputSize={inputSize}
             onKeyDown={event => {
               if (event.key === 'Enter') {
                 onSearch?.(query);
@@ -80,7 +80,7 @@ const Search = React.forwardRef<
           <Button
             variant={buttonVariant || 'secondary-without-icon'}
             className={buttonClassName}
-            padding={size}
+            padding={inputSize}
             onClick={() => {
               onSearch?.(query);
             }}

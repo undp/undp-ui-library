@@ -17,7 +17,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'text' },
       defaultValue: '',
     },
-    size: {
+    inputSize: {
       control: { type: 'inline-radio' },
       options: ['sm', 'base'],
       defaultValue: 'base',

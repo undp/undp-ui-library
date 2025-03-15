@@ -10,13 +10,13 @@ const inputVariants = cva(
         light: 'border border-primary-gray-400 dark:border-primary-gray-500',
         normal: 'border-2 border-primary-black dark:border-primary-gray-300',
       },
-      size: {
+      inputSize: {
         sm: 'px-2.5 py-1',
         base: 'p-2.5 ',
       },
     },
     defaultVariants: {
-      size: 'base',
+      inputSize: 'base',
       variant: 'normal',
     },
   },
@@ -26,12 +26,12 @@ const Input = React.forwardRef<
   HTMLInputElement,
   React.InputHTMLAttributes<HTMLInputElement> &
     VariantProps<typeof inputVariants>
->(({ className, size, variant, ...props }, ref) => {
+>(({ className, inputSize, variant, ...props }, ref) => {
   return (
     <input
       {...props}
       ref={ref}
-      className={cn(inputVariants({ size, variant }), className)}
+      className={cn(inputVariants({ inputSize, variant }), className)}
     />
   );
 });
