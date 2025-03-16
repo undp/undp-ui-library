@@ -29,7 +29,10 @@ const preview: Preview = {
         title: 'Direction',
         icon: 'mirror',
         // Array of plain string values or MenuItem shape (see below)
-        items: ['ltr', 'rtl' ],
+        items: [
+          { value: 'ltr', title: 'left-to-right'},
+          { value: 'rtl', title: 'right-to-left'},
+        ],
         // Change title based on selected value
         dynamicTitle: true,
         default: 'ltr'
@@ -58,6 +61,7 @@ const preview: Preview = {
           { value: 'km', title: 'Khmer' },
           { value: 'ko', title: 'Korean' },
           { value: 'ne', title: 'Nepali' },
+          { value: 'custom', title: 'Custom' },
         ],
         dynamicTitle: true,
         default: 'en'

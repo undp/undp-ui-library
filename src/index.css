@@ -255,97 +255,56 @@ img, video {
 }
 
 
-.custom-font {
-  font-family: var(--font-custom);
-}
-
-h1.custom-font, .custom-font h1  {
-  font-family: var(--font-custom-heading);
-}
-
-.en {
-  @apply font-sans;
-}
-.ar {
-  @apply font-sans-ar
-}
-.az {
-  @apply font-sans-az
-}
-.bn {
-  @apply font-sans-bn
-}
-.cy {
-  @apply font-sans;
-}
-.he {
-  @apply font-sans-he
-}
-.hi {
-  @apply font-sans-hi
-}
-.jp {
-  @apply font-sans-jp
-}
-.ka {
-  @apply font-sans-ka
-}
-.km {
-  @apply font-sans-km
-}
-.ko {
-  @apply font-sans-ko
-}
-.my {
-  @apply font-sans-my
-}
-.ne {
-  @apply font-sans-ne
-}
-.zh {
-  @apply font-sans-zh
-}
 h1 {
   @apply font-heading;   
 }
-h1.ar, .ar h1 {
-  @apply font-sans-ar
-}
-h1.az, .az h1 {
-  @apply font-sans-az
-}
-h1.bn, .bn h1 {
-  @apply font-sans-bn
-}
-h1.cy, .cy h1 {
+.en, .en h2, .en h3, .en h4, .en h5, .en h6, .en p, .en cite, .en blockquote, h2.en,  h3.en,  h4.en,  h5.en,  h6.en, p.en, cite.en, blockquote.en {
   @apply font-sans;
 }
-h1.he, .he h1 {
+.ar, .ar h1, .ar h2, .ar h3, .ar h4, .ar h5, .ar h6, .ar p, .ar cite, .ar blockquote, h1.ar,  h2.ar,  h3.ar,  h4.ar,  h5.ar,  h6.ar, p.ar, cite.ar, blockquote.ar {
+  @apply font-sans-ar
+}
+.az, .az h1, .az h2, .az h3, .az h4, .az h5, .az h6, .az p, .az cite, .az blockquote, h1.az,  h2.az,  h3.az,  h4.az,  h5.az,  h6.az, p.az, cite.az, blockquote.az {
+  @apply font-sans-az
+}
+.bn, .bn h1, .bn h2, .bn h3, .bn h4, .bn h5, .bn h6, .bn p, .bn cite, .bn blockquote, h1.bn,  h2.bn,  h3.bn,  h4.bn,  h5.bn,  h6.bn, p.bn, cite.bn, blockquote.bn  {
+  @apply font-sans-bn
+}
+.cy, .cy h1, .cy h2, .cy h3, .cy h4, .cy h5, .cy h6, .cy p, .cy cite, .cy blockquote, h1.cy, h2.cy,  h3.cy,  h4.cy,  h5.cy,  h6.cy, p.cy, cite.cy, blockquote.cy {
+  @apply font-sans;
+}
+.he, .he h1, .he h2, .he h3, .he h4, .he h5, .he h6, .he p, .he cite, .he blockquote, h1.he,  h2.he,  h3.he,  h4.he,  h5.he,  h6.he, p.he, cite.he, blockquote.he  {
   @apply font-sans-he
 }
-h1.hi, .hi h1 {
+.hi, .hi h1, .hi h2, .hi h3, .hi h4, .hi h5, .hi h6, .hi p, .hi cite, .hi blockquote, h1.hi,  h2.hi,  h3.hi,  h4.hi,  h5.hi,  h6.hi, p.hi, cite.hi, blockquote.hi  {
   @apply font-sans-hi
 }
-h1.jp, .jp h1 {
+.jp, .jp h1, .jp h2, .jp h3, .jp h4, .jp h5, .jp h6, .jp p, .jp cite, .jp blockquote, h1.jp,  h2.jp,  h3.jp,  h4.jp,  h5.jp,  h6.jp, p.jp, cite.jp, blockquote.jp  {
   @apply font-sans-jp
 }
-h1.ka, .ka h1 {
+.ka, .ka h1, .ka h2, .ka h3, .ka h4, .ka h5, .ka h6, .ka p, .ka cite, .ka blockquote, h1.ka,  h2.ka,  h3.ka,  h4.ka,  h5.ka,  h6.ka, p.ka, cite.ka, blockquote.ka  {
   @apply font-sans-ka
 }
-h1.km, .km h1 {
+.km, .km h1, .km h2, .km h3, .km h4, .km h5, .km h6, .km p, .km cite, .km blockquote, h1.km,  h2.km,  h3.km,  h4.km,  h5.km,  h6.km, p.km, cite.km, blockquote.km  {
   @apply font-sans-km
 }
-h1.ko, .ko h1 {
+.ko, .ko h1, .ko h2, .ko h3, .ko h4, .ko h5, .ko h6, .ko p, .ko cite, .ko blockquote, h1.ko,  h2.ko,  h3.ko,  h4.ko,  h5.ko,  h6.ko, p.ko, cite.ko, blockquote.ko  {
   @apply font-sans-ko
 }
-h1.my, .my h1 {
+.my, .my h1, .my h2, .my h3, .my h4, .my h5, .my h6, .my p, .my cite, .my blockquote, h1.my,  h2.my,  h3.my,  h4.my,  h5.my,  h6.my, p.my, cite.my, blockquote.my  {
   @apply font-sans-my
 }
-h1.ne, .ne h1 {
+.ne, .ne h1, .ne h2, .ne h3, .ne h4, .ne h5, .ne h6, .ne p, .ne cite, .ne blockquote, h1.ne,  h2.ne,  h3.ne,  h4.ne,  h5.ne,  h6.ne, p.ne, cite.ne, blockquote.ne  {
   @apply font-sans-ne
 }
-h1.zh, .zh h1 {
+.zh, .zh h1, .zh h2, .zh h3, .zh h4, .zh h5, .zh h6, .zh p, .zh cite, .zh blockquote, h1.zh,  h2.zh,  h3.zh,  h4.zh,  h5.zh,  h6.zh, p.zh, cite.zh, blockquote.zh  {
   @apply font-sans-zh
+}
+.custom, .custom h2, .custom h3, .custom h4, .custom h5, .custom h6, .custom p, .custom cite, .custom blockquote, h2.custom,  h3.custom,  h4.custom,  h5.custom,  h6.custom, p.custom, cite.custom, blockquote.custom {
+  font-family: var(--font-custom);
+}
+h1.custom, .custom h1  {
+  font-family: var(--font-custom-heading);
 }
 
 [hidden]:where(:not([hidden="until-found"])) {
