@@ -19,91 +19,93 @@ import githubLogo from "./assets/Github-logo.svg";
     },
   }}
 />
-<div name="Intro" className="documentation-page">
-  <div>
-    <div className="grid-x grid-margin-x intro">
-      <H3>UNDP Design System</H3>
-      <div className="medium-6 cell">
-        <p className="subtitle">
-          {`Here you can find our design guidelines, component documentation, and
-          resources for building a react or next.js apps with UNDP's design system.
-          It is base on the design system build and maintained by UNDP's Digital Communication Studio.
-          This resource is build and maintained by UNDP's SDGIntegration team.`}
-        </p>
-      </div>
-      <div className="flex github">
-        <a href="https://github.com/undp/design-system" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
-          <img width={'32px'} src={githubLogo} alt="" />
-          <P className='m-0 md:m-0'>View Github repository</P>
-        </a>
-      </div>
-    </div>
-    <Spacer size='2xl' />
-    <Separator />
-    <Spacer size='2xl' />
-    <div>
-      <H4>Getting started</H4>      
-      <H6>Using the library in React projects</H6>
-      <P>
-        Before starting, it is recommended to correctly install and configure [Node.js](https://nodejs.org/en/download) v16 or above.
-        We also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript/TypeScript, and React. Starting out is straightforward.
-      </P>
-      <H6>Installing with NPM</H6>
-      <P className='mb-0 md:mb-0'>
-        Start by installing UNDP Visualization Library as a node module and save it as a dependency in your package.json:      
-      </P>
-      <Code className='mt-3'>npm install @undp-data/undp-design-system-react `--save`</Code>
-      <H6 className='mt-6'>Import</H6>
-      <P>
-        It is recommended to import what you need and the use it.
-        It is also recommended to import the css because some setting expect the CSS to be imported to look good. You can import the css file like this:
-      </P>
-      <Code>import '@undp-data/undp-design-system-react/dist/style.css';</Code>
-      <H6 className='mt-6'>TypeScript</H6>
-      <P>
-        UNDP visualization library provides a built-in ts definition, you don't need to install any type definitions.
-      </P>
-    </div>
-    <Spacer size='2xl' />
-    <Separator />
-    <Spacer size='2xl' />
-    <div>
-      <H4>Adding custom color</H4>      
-      <P>To add custom color as the primary color overwrite the following variable in main css and import it after the css for the design system: `--custom-color-100`, `--custom-color-200`, `--custom-color-300`, `--custom-color-400`, `--custom-color-500`, `--custom-color-600`, `--custom-color-700`, `--custom-foreground`. For example:</P>
-      <Code>
-      {`<div
-      style={{
-        '--custom-color-100': '#FFE5B4',
-        '--custom-color-200': '#FFD38C',
-        '--custom-color-300': '#FFB85C',
-        '--custom-color-400': '#FFA242',
-        '--custom-color-500': '#FF971D',
-        '--custom-color-600': '#FD9D24',
-        '--custom-color-700': '#E6851D',
-        '--custom-foreground': '#fff'
-        }}
-        >`}
-      </Code>
-      <Spacer size='2xl' />
-      <P>
-        After that use the color variant as `custom` in various component that allows it. For example:
-      </P>
-      <Code>
-        {`<Container
-          backgroundColor="custom"
-          gap="none"
-          layout="default"
-          padding="base"
-          width="full"
-        >
-          <H4>
-            Heading
-          </H4>
-          <P>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-          </P>
-        </Container>`}
-      </Code>
-    </div>
+
+# UNDP Data Viz Library
+
+##### Here you can find our design guidelines, component documentation, and resources for building a react or next.js apps with UNDP's design system. It is base on the design system build and maintained by UNDP's Digital Communication Studio. This resource is build and maintained by UNDP's BPPS team.
+
+<br />
+
+## Getting started
+
+#### Using the library in React projects
+
+Before starting, it is recommended to correctly install and configure [Node.js](https://nodejs.org/en/download) v16 or above.
+
+We also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript/TypeScript, and React. Starting out is straightforward.
+      
+#### Installing with NPM
+
+Start by installing UNDP Design System as a node module and save it as a dependency in your package.json:
+```
+npm install @undp-data/undp-design-system-react `--save`
+```
+
+#### Import
+
+It is recommended to import what you need and the use it.
+
+It is also recommended to import the css because some setting expect the CSS to be imported to look good. You can import the css file like this:
+```
+import '@undp-data/undp-design-system-react/dist/style.css';
+```
+
+## Adding custom color
+
+>To add custom color as the primary color overwrite the following variable in main css and import it after the css for the design system: `--custom-color-100`, `--custom-color-200`, `--custom-color-300`, `--custom-color-400`, `--custom-color-500`, `--custom-color-600`, `--custom-color-700`, `--custom-foreground`. For example:
+
+```html
+<div
+  style={{
+    '--custom-color-100': '#FFE5B4',
+    '--custom-color-200': '#FFD38C',
+    '--custom-color-300': '#FFB85C',
+    '--custom-color-400': '#FFA242',
+    '--custom-color-500': '#FF971D',
+    '--custom-color-600': '#FD9D24',
+    '--custom-color-700': '#E6851D',
+    '--custom-foreground': '#fff'
+    }}
+>
+<!--HTML element goes here-->
+</div>
+
+```
+
+After that use the color variant as `custom` in various component that allows it. For example:
+
+```tsx
+<Container
+  backgroundColor="custom"
+  gap="none"
+  layout="default"
+  padding="base"
+  width="full"
+>
+  <H4>
+    Heading
+  </H4>
+  <P>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+  </P>
+</Container>
+```
+
+## TypeScript
+
+UNDP Design System provides a built-in ts definition, you don't need to install any type definitions.
+
+<br />
+
+## Resources
+
+<br />
+
+<div className="flex github">
+  <div className="flex github">
+    <a href="https://github.com/undp/design-system" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
+      <img width={'32px'} src={githubLogo} alt="" />
+      <P className='m-0 md:m-0'>View Github repository</P>
+    </a>
   </div>
 </div>
