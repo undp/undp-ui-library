@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Carousel, CarouselCard } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof CarouselCard>;
@@ -15,9 +16,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: 'sm',
     },
   },
-  args: {
-    size: 'sm',
-  },
+  args: { size: 'sm' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Stepper } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Stepper>;
@@ -30,9 +31,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: 0,
     },
   },
-  args: {
-    currentStep: 1,
-  },
+  args: { currentStep: 1 },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
@@ -52,9 +51,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
               title: 'Step 2',
               description: 'Step 2 description',
             },
-            {
-              title: 'Step 3',
-            },
+            { title: 'Step 3' },
           ]}
         />
       </div>

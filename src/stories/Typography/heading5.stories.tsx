@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { H5 } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof H5>;
@@ -28,9 +29,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  args: {
-    marginBottom: 'base-responsive',
-  },
+  args: { marginBottom: 'base-responsive' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

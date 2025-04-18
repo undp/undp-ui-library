@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Pagination } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Pagination>;
@@ -38,6 +39,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         <Pagination
           {...args}
           onChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
         />

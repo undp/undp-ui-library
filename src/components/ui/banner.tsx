@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -77,9 +77,7 @@ const sidebarVariants = cva('w-full', {
       full: '',
     },
   },
-  defaultVariants: {
-    sidebarWidth: 'base',
-  },
+  defaultVariants: { sidebarWidth: 'base' },
 });
 
 const BannerContext = React.createContext<{

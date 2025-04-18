@@ -1,6 +1,8 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
+import React from 'react';
+
 import { H5, P } from './typography';
+
+import { cn } from '@/lib/utils';
 
 interface FooterProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;

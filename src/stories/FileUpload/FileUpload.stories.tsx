@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { UploadIcon } from 'lucide-react';
+
 import { FileUpload } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof FileUpload>;
@@ -19,6 +20,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <FileUpload
           onFileChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
         >

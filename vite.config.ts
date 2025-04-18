@@ -1,13 +1,35 @@
-/* eslint-disable import/no-extraneous-dependencies */
+ 
+import path from 'path';
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import eslint from 'vite-plugin-eslint';
-import path from 'path';
 import dts from 'vite-plugin-dts';
+import tailwindcss from '@tailwindcss/vite';
+
+function removeFonts() {
+  return {
+    name: 'remove-fonts',
+    enforce: 'post', // Ensure it runs after Vite's default asset handling
+    generateBundle(_options, bundle) {
+      for (const name in bundle) {
+        if (/\.(woff|woff2|eot|ttf|otf)$/i.test(name)) {
+          delete bundle[name];
+        }
+      }
+    },
+  };
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [dts({ rollupTypes: true }), react(), eslint()],
+  plugins: [
+    dts({ rollupTypes: true }), 
+    react(), 
+    eslint(),
+    tailwindcss(),
+    removeFonts(),
+  ],
   /*
   define: {
     'process.env.NODE_ENV': JSON.stringify('production'),
@@ -26,12 +48,17 @@ export default defineConfig({
       formats: ['es', 'cjs', 'umd'],
     },
     rollupOptions: {
-      // Externalize deps that shouldn't be bundled into the library.
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom' ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.names && assetInfo.names.includes('undp-design-system-react.css')) {
+            return 'index.css';
+          }
+          return 'assets/[name][extname]';
         },
       },
     },
@@ -46,9 +73,5 @@ export default defineConfig({
       optionsSuccessStatus: 204,
     },
   },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
+  resolve: { alias: { '@': path.resolve(__dirname, './src') } },
 });

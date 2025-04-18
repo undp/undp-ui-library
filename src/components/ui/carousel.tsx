@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import * as React from 'react';
-
+import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 const Carousel = React.forwardRef<
@@ -42,9 +40,7 @@ const Carousel = React.forwardRef<
       <div
         ref={ref}
         className='flex gap-4 items-stretch'
-        style={{
-          cursor: `${cursor}, auto`,
-        }}
+        style={{ cursor: `${cursor}, auto` }}
       >
         {children}
       </div>
@@ -64,9 +60,7 @@ const cardVariants = cva('shrink-0 min-w-[320px] snap-start', {
       full: 'w-full',
     },
   },
-  defaultVariants: {
-    size: 'sm',
-  },
+  defaultVariants: { size: 'sm' },
 });
 const CarouselCard = React.forwardRef<
   HTMLDivElement,

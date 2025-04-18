@@ -1,6 +1,6 @@
-import * as React from 'react';
-
+import React from 'react';
 import { CheckIcon } from 'lucide-react';
+
 import { cn } from '@/lib/utils';
 
 interface StepperProps extends React.HTMLAttributes<HTMLOListElement> {
@@ -41,8 +41,8 @@ function Stepper({
             i + 1 < currentStep
               ? finishedStepsClassName
               : i + 1 === currentStep
-              ? activeStepsClassName
-              : unfinishedStepsClassName,
+                ? activeStepsClassName
+                : unfinishedStepsClassName,
           )}
         >
           <div className='flex items-center gap-3 grow'>
@@ -52,8 +52,8 @@ function Stepper({
                 i + 1 < currentStep
                   ? 'bg-primary-blue-600 dark:bg-primary-blue-300'
                   : i + 1 === currentStep
-                  ? 'bg-primary-gray-600 dark:bg-primary-gray-550'
-                  : 'bg-primary-gray-300 dark:bg-primary-gray-650',
+                    ? 'bg-primary-gray-600 dark:bg-primary-gray-550'
+                    : 'bg-primary-gray-300 dark:bg-primary-gray-650',
               )}
             >
               {i + 1 < currentStep ? (

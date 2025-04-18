@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Upload, Trash2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn, generateRandomId } from '@/lib/utils';
+
 import { Badge } from './badge';
 import { P } from './typography';
 import { Label } from './label';
+
+import { cn, generateRandomId } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   onFileChange?: (_d: File[]) => void;

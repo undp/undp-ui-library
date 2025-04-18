@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'undp-button !m-0 inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded-none text-lg font-bold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'undp-button m-0! tracking-[0.48px] inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded-none text-lg font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -26,10 +26,10 @@ const buttonVariants = cva(
         icon: 'bg-transparent dark:text-primary-gray-100 text-primary-gray-700 dark:hover:text-primary-gray-500 hover:text-primary-gray-500',
       },
       size: {
-        base: '!text-base',
-        xs: '!text-xs',
-        sm: '!text-sm',
-        xl: '!text-xl',
+        base: 'leading-none text-base!',
+        xs: 'leading-none text-xs!',
+        sm: 'leading-none text-sm!',
+        xl: 'leading-none text-xl!',
       },
       padding: {
         base: 'py-4 px-6',
@@ -50,7 +50,9 @@ interface ButtonProps
     VariantProps<typeof buttonVariants> {}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, padding, ...props }, ref) => {
+  ({
+    className, variant, size, padding, ...props 
+  }, ref) => {
     const Comp = 'button';
     return (
       <Comp

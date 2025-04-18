@@ -1,5 +1,6 @@
 import React from 'react';
 import { X } from 'lucide-react';
+
 import {
   Dialog,
   DialogContent,
@@ -49,7 +50,7 @@ function Modal(props: ModalProps) {
     >
       <DialogContent
         className={cn(
-          'rounded-none p-16 max-w-screen-xl undp-scrollbar',
+          'rounded-none p-16 max-w-(--breakpoint-xl) undp-scrollbar',
           'data-[state=open]:animate-in data-[state=closed]:animate-out',
           'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
           'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -68,7 +69,7 @@ function Modal(props: ModalProps) {
             onClick={() => {
               onClose?.();
             }}
-            className='absolute right-6 top-6 p-2 bg-primary-gray-200 dark:bg-primary-gray-600 rounded-full ring-offset-background transition-opacity hover:bg-primary-gray-300 hover:dark:bg-primary-gray-500 disabled:pointer-events-none data-[state=open]:bg-primary-gray-200 dark:data-[state=open]:bg-primary-gray-600 data-[state=open]:text-primary-gray-600'
+            className='absolute right-6 top-6 p-2 bg-primary-gray-200 dark:bg-primary-gray-600 rounded-full ring-offset-background transition-opacity hover:bg-primary-gray-300 dark:hover:bg-primary-gray-500 disabled:pointer-events-none data-[state=open]:bg-primary-gray-200 dark:data-[state=open]:bg-primary-gray-600 data-[state=open]:text-primary-gray-600'
           >
             <X className='h-6 w-6 stroke-primary-black dark:stroke-primary-gray-100' />
           </button>

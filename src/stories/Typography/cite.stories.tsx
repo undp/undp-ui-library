@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Cite } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Cite>;

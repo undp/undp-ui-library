@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Checkbox } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Checkbox>;
@@ -30,9 +31,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  args: {
-    label: 'Checkbox',
-  },
+  args: { label: 'Checkbox' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
@@ -44,6 +43,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         <Checkbox
           {...args}
           onCheckedChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
         />

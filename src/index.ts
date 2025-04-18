@@ -1,19 +1,20 @@
 /* ------- Style Sheet ------- */
-import './index.css';
+import '@/index.css';
+
 
 export {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from './components/ui/accordion';
-export { Badge } from './components/ui/badge';
+} from '@/components/ui/accordion';
+export { Badge } from '@/components/ui/badge';
 export {
   Banner,
   BannerBody,
   BannerBodySidebar,
   BannerBodyContent,
-} from './components/ui/banner';
+} from '@/components/ui/banner';
 export {
   Breadcrumb,
   BreadcrumbList,
@@ -22,8 +23,8 @@ export {
   BreadcrumbPage,
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
-} from './components/ui/breadcrumb';
-export { Button } from './components/ui/button';
+} from '@/components/ui/breadcrumb';
+export { Button } from '@/components/ui/button';
 export {
   Card,
   CardTag,
@@ -32,7 +33,7 @@ export {
   CardImage,
   CardFooter,
   CardHeader,
-} from './components/ui/Cards/card';
+} from '@/components/ui/Cards/card';
 export {
   PageWideCard,
   PageWideCardTag,
@@ -43,14 +44,14 @@ export {
   PageWideCardContent,
   PageWideCardContainer,
   PageWideCardHeader,
-} from './components/ui/Cards/cardPageWide';
-export { Carousel, CarouselCard } from './components/ui/carousel';
-export { Checkbox } from './components/ui/checkbox';
+} from '@/components/ui/Cards/cardPageWide';
+export { Carousel, CarouselCard } from '@/components/ui/carousel';
+export { Checkbox } from '@/components/ui/checkbox';
 export {
   CheckboxGroup,
   CheckboxGroupItem,
-} from './components/ui/checkbox-group';
-export { Container } from './components/ui/container';
+} from '@/components/ui/checkbox-group';
+export { Container } from '@/components/ui/container';
 export {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -63,60 +64,61 @@ export {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-} from './components/ui/dropdown-menu';
-export { DropdownSelect, createFilter } from './components/ui/select';
-export { FileUpload } from './components/ui/fileUpload';
+} from '@/components/ui/dropdown-menu';
+export { DropdownSelect, createFilter } from '@/components/ui/select';
+export { FileUpload } from '@/components/ui/fileUpload';
 export {
   Footer,
   FooterLogoUnit,
   FooterCopyrightUnit,
   FooterMainNavUnit,
-} from './components/ui/footer';
+} from '@/components/ui/footer';
 export {
   Header,
   HeaderLogoUnit,
   HeaderMenuUnit,
   HeaderActions,
   HeaderMainNavUnit,
-} from './components/ui/header';
+} from '@/components/ui/header';
 export {
   HoverCard,
   HoverCardTrigger,
   HoverCardContent,
-} from './components/ui/hover-card';
-export { Search } from './components/ui/input-search';
-export { Input } from './components/ui/input';
-export { Label } from './components/ui/label';
-export { UNDPLogo } from './components/ui/logo.tsx';
-export { Modal } from './components/ui/modal';
-export { Pagination } from './components/ui/Pagination';
+} from '@/components/ui/hover-card';
+export { Search } from '@/components/ui/input-search';
+export { Input } from '@/components/ui/input';
+export { Label } from '@/components/ui/label';
+export { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+export { UNDPLogo } from '@/components/ui/logo.tsx';
+export { Modal } from '@/components/ui/modal';
+export { Pagination } from '@/components/ui/Pagination';
 export {
   Popover,
   PopoverTrigger,
   PopoverContent,
   PopoverAnchor,
-} from './components/ui/popover';
-export { RadioGroup, RadioGroupItem } from './components/ui/radio-group';
-export { SdgBorder } from './components/ui/sdgBorder';
-export { SDGIcons } from './components/ui/sdgIcons.tsx';
-export { SegmentedControl } from './components/ui/segmentedControl';
-export { Separator } from './components/ui/separator';
-export { Sidebar, SidebarItem } from './components/ui/sidebar-nav';
-export { SliderUI } from './components/ui/slider';
-export { Spacer } from './components/ui/spacer';
-export { Spinner } from './components/ui/spinner';
-export { Stepper } from './components/ui/stepper';
-export { Switch } from './components/ui/switch';
-export { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui/tabs';
-export { Textarea } from './components/ui/textarea';
-export { Toaster } from './components/ui/toaster';
-export { useToast, toast } from './hooks/use-toast.ts';
+} from '@/components/ui/popover';
+export { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+export { SdgBorder } from '@/components/ui/sdgBorder';
+export { SDGIcons } from '@/components/ui/sdgIcons.tsx';
+export { SegmentedControl } from '@/components/ui/segmentedControl';
+export { Separator } from '@/components/ui/separator';
+export { Sidebar, SidebarItem } from '@/components/ui/sidebar-nav';
+export { SliderUI } from '@/components/ui/slider';
+export { Spacer } from '@/components/ui/spacer';
+export { Spinner } from '@/components/ui/spinner';
+export { Stepper } from '@/components/ui/stepper';
+export { Switch } from '@/components/ui/switch';
+export { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+export { Textarea } from '@/components/ui/textarea';
+export { Toaster } from '@/components/ui/toaster';
+export { useToast, toast } from '@/hooks/use-toast.ts';
 export {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
-} from './components/ui/tooltip';
+} from '@/components/ui/tooltip';
 export {
   H1,
   H2,
@@ -129,7 +131,7 @@ export {
   Blockquote,
   P,
   A,
-} from './components/ui/typography';
+} from '@/components/ui/typography';
 export {
   VisualizationWidget,
   VisualizationWidgetHeader,
@@ -137,6 +139,6 @@ export {
   VisualizationWidgetBody,
   VisualizationWidgetBodySidebar,
   VisualizationWidgetBodyContent,
-} from './components/ui/visualization-widget';
+} from '@/components/ui/visualization-widget';
 
-export { cn } from './lib/utils';
+export { cn } from '@/lib/utils';

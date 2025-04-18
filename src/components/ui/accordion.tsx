@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { ChevronDown } from 'lucide-react';
-
 import { cva, VariantProps } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 const accordionVariants = cva('', {
@@ -18,9 +18,7 @@ const accordionVariants = cva('', {
         'bg-transparent text-primary-gray-700 dark:text-primary-white mb-0 py-0 px-0',
     },
   },
-  defaultVariants: {
-    variant: 'primary',
-  },
+  defaultVariants: { variant: 'primary' },
 });
 
 const accordionTitleVariants = cva(
@@ -34,9 +32,7 @@ const accordionTitleVariants = cva(
         quaternary: 'uppercase font-bold text-base gap-3',
       },
     },
-    defaultVariants: {
-      variant: 'primary',
-    },
+    defaultVariants: { variant: 'primary' },
   },
 );
 
@@ -51,9 +47,7 @@ const accordionContentVariants = cva(
         quaternary: 'my-3.5 p-0',
       },
     },
-    defaultVariants: {
-      variant: 'primary',
-    },
+    defaultVariants: { variant: 'primary' },
   },
 );
 
@@ -77,7 +71,7 @@ const Accordion = React.forwardRef<
   AccordionProps
 >(({ variant, children, ...props }, ref) => {
   return (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
+     
     <AccordionContext.Provider value={{ variant }}>
       <AccordionPrimitive.Root ref={ref} {...props}>
         {children}

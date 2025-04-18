@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
@@ -117,9 +118,7 @@ const headingVariant = cva('mt-0 ml-0 mr-0 p-0', {
       xl: 'mb-6',
     },
   },
-  defaultVariants: {
-    marginBottom: 'base-responsive',
-  },
+  defaultVariants: { marginBottom: 'base-responsive' },
 });
 function H2({
   children,
@@ -211,7 +210,7 @@ function H6({
     <h6
       {...props}
       className={cn(
-        'text-base font-bold leading-[1.15] uppercase',
+        'text-base font-bold leading-[1.15] uppercase tracking-[0.48px]',
         headingVariant({ marginBottom }),
         className,
       )}
@@ -255,14 +254,18 @@ function Code({ children, className, ...props }: HeadingProps) {
   );
 }
 
+interface BlockquoteProps extends React.HTMLAttributes<HTMLQuoteElement> {
+  className?: string;
+}
+
 function Blockquote({
   children,
   className,
   marginBottom,
   ...props
-}: HeadingProps & VariantProps<typeof headingVariant>) {
+}: BlockquoteProps & VariantProps<typeof headingVariant>) {
   return (
-    <code
+    <blockquote
       {...props}
       className={cn(
         'text-[1.625rem] md:text-[2.188rem] font-semibold leading-[1.1] md:leading-[1.25]',
@@ -271,7 +274,7 @@ function Blockquote({
       )}
     >
       {children}
-    </code>
+    </blockquote>
   );
 }
 
@@ -285,7 +288,7 @@ function A({ children, className, ...props }: LinkProps) {
       {...props}
       className={cn(
         'undp-link light text-primary-black dark:text-primary-white dark:text-primary-white bg-double-red dark:bg-double-white',
-        'cursor-pointer no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_#0468b1]',
+        'cursor-pointer no-underline focus-visible:outline-hidden focus-visible:shadow-[0_0_0_#0468b1]',
         className,
       )}
     >

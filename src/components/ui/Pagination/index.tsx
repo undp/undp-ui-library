@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
+import React, { useEffect, useState } from 'react';
+
 import {
   PaginationUnit,
   PaginationContent,
@@ -9,6 +9,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from './pagination';
+
+import { cn } from '@/lib/utils';
 
 interface PaginationProps {
   defaultPage?: number;
@@ -49,7 +51,9 @@ const getPageNumbers = (currentPageNo: number, totalPages: number) => {
 };
 
 function Pagination(props: PaginationProps) {
-  const { defaultPage = 1, total, pageSize, onChange, className } = props;
+  const {
+    defaultPage = 1, total, pageSize, onChange, className, 
+  } = props;
   const totalPages = Math.ceil(total / pageSize);
   const [currentPage, setCurrentPage] = useState(defaultPage);
   const [pageNumbers, setPageNumbers] = useState<(number | 'ellipsis')[]>(

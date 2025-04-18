@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import Select, {
   components,
   MultiValue,
@@ -15,6 +16,7 @@ import Select, {
 } from 'react-select';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import { cva } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 interface OptionType {
@@ -23,16 +25,16 @@ interface OptionType {
 }
 
 const selectVariants = cva(
-  '!text-sm !rounded-none !bg-primary-white dark:!bg-primary-gray-650',
+  'text-sm! rounded-none! bg-primary-white! dark:bg-primary-gray-650!',
   {
     variants: {
       variant: {
-        light: '!border !border-primary-gray-400 dark:!border-primary-gray-500',
-        normal: '!border-2 !border-primary-black dark:!border-primary-gray-300',
+        light: 'border! border-primary-gray-400! dark:border-primary-gray-500!',
+        normal: 'border-2! border-primary-black! dark:border-primary-gray-300!',
       },
       size: {
-        sm: '!p-0 !min-h-[40px]',
-        base: '!min-h-[48px] !px-0 !py-0.5',
+        sm: 'p-0! min-h-[40px]!',
+        base: 'min-h-[48px]! px-0! py-0.5!',
       },
     },
     defaultVariants: {
@@ -161,17 +163,17 @@ function DropdownSelect({
             truncateLabel ? ' max-w-[72px] truncate' : ''
           }`,
         multiValueRemove: () =>
-          'hover:bg-primary-gray-400 dark:[&_svg]:!stroke-primary-white',
+          'hover:bg-primary-gray-400 dark:[&_svg]:stroke-primary-white!',
         valueContainer: () => 'px-1',
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         option: (state: any) =>
-          `${'p-0 text-sm hover:bg-primary-blue-100 hover:dark:bg-primary-blue-400 hover:font-bold hover:text-primary-black'}${
+          `${'p-0 text-sm hover:bg-primary-blue-100 dark:hover:bg-primary-blue-400 hover:font-bold hover:text-primary-black'}${
             state.isSelected
               ? 'bg-primary-blue-600 text-primary-white dark:bg-primary-blue-200 dark:text-primary-gray-700'
               : 'bg-primary-white text-primary-black dark:bg-primary-gray-650 dark:text-primary-white'
           }`,
-        menu: () => '!rounded-none !mt-1 !border-0 !shadow-lg !p-0',
-        menuList: () => 'undp-scrollbar !pt-0 !pb-0',
+        menu: () => 'rounded-none! mt-1! border-0! shadow-lg! p-0!',
+        menuList: () => 'undp-scrollbar pt-0! pb-0!',
       }}
       components={customComponents}
     />

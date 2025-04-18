@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Toaster, Button, useToast } from '@/index';
 
@@ -48,6 +48,7 @@ export const Default: Story = {};
 
 export const ConfigurableToast: Story = {
   render: (args, { globals: { theme, direction, language } }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { toast } = useToast();
 
     return (
@@ -97,14 +98,8 @@ export const ConfigurableToast: Story = {
       control: 'select',
       options: ['default', 'destructive', 'success', 'warning', 'info'],
     },
-    duration: {
-      control: { type: 'number' },
-    },
-    title: {
-      control: 'text',
-    },
-    description: {
-      control: 'text',
-    },
+    duration: { control: { type: 'number' } },
+    title: { control: 'text' },
+    description: { control: 'text' },
   },
 };

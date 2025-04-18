@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { SegmentedControl } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof SegmentedControl>;
@@ -22,9 +23,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  args: {
-    defaultValue: 'option 1',
-  },
+  args: { defaultValue: 'option 1' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
@@ -36,6 +35,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         <SegmentedControl
           {...args}
           onValueChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
           options={[

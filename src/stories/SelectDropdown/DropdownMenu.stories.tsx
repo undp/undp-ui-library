@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { DropdownSelect } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof DropdownSelect>;
@@ -48,6 +49,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <DropdownSelect
           {...args}
+          // eslint-disable-next-line no-console
           onChange={d => console.log(d)}
           options={[
             { value: 'apple', label: 'Apple' },

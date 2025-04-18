@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { cn } from '@/lib/utils';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -19,7 +20,7 @@ function SdgBorder({ sdgList, barClassName, ...props }: Props) {
           <div
             key={i}
             style={{ backgroundColor: `var(--sdg-${d})` }}
-            className={cn('h-4 flex-grow', barClassName)}
+            className={cn('h-4 grow', barClassName)}
           />
         );
       })}

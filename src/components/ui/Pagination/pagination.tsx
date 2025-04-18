@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -35,18 +35,17 @@ const PaginationItem = React.forwardRef<
 ));
 PaginationItem.displayName = 'PaginationItem';
 
-function PaginationLink({
+function PaginationLink({   
   className,
   children,
   ...props
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
     <button
       {...props}
       type='button'
       className={cn(
-        'p-4 text-base text-primary-black dark:text-primary-gray-100 hover:dark:bg-primary-gray-600',
+        'p-4 text-base text-primary-black dark:text-primary-gray-100 dark:hover:bg-primary-gray-600',
         className,
       )}
     >
@@ -65,7 +64,7 @@ function PaginationPrevious({
       {...props}
       aria-label='Go to previous page'
       className={cn(
-        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rtl:scale-x-[-1] rounded-full hover:bg-primary-gray-400 hover:dark:bg-primary-gray-550',
+        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rtl:scale-x-[-1] rounded-full hover:bg-primary-gray-400 dark:hover:bg-primary-gray-550',
         className,
       )}
     >
@@ -84,7 +83,7 @@ function PaginationNext({
       {...props}
       aria-label='Go to next page'
       className={cn(
-        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rtl:scale-x-[-1] rounded-full hover:bg-primary-gray-400 hover:dark:bg-primary-gray-550',
+        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rtl:scale-x-[-1] rounded-full hover:bg-primary-gray-400 dark:hover:bg-primary-gray-550',
         className,
       )}
     >

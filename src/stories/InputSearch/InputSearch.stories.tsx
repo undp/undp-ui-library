@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Search } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Search>;
@@ -28,16 +29,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: 'base',
     },
     buttonVariant: {
-      control: { type: 'select' },
+      control: { type: 'inline-radio' },
       options: [
-        'primary',
-        'primary-without-icon',
-        'secondary',
-        'secondary-without-icon',
         'tertiary',
-        'link',
-        'link-without-icon',
-        'outline',
         'icon',
       ],
       defaultValue: 'secondary-without-icon',
@@ -52,7 +46,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {
-    buttonVariant: 'secondary-without-icon',
+    buttonVariant: 'icon',
     searchOnlyOnClick: false,
     showSearchButton: true,
   },
@@ -67,6 +61,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         <Search
           {...args}
           onSearch={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
         />

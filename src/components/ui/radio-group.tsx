@@ -1,13 +1,14 @@
-import * as React from 'react';
+import React from 'react';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { Circle } from 'lucide-react';
-
 import { cva } from 'class-variance-authority';
-import { cn, generateRandomId } from '@/lib/utils';
+
 import { Label } from './label';
 
+import { cn, generateRandomId } from '@/lib/utils';
+
 const radioVariants = cva(
-  'aspect-square h-4 w-4 bg-primary-white dark:bg-primary-gray-650 rounded-full text-primary-gray-700 dark:text-primary-white shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+  'aspect-square h-4 w-4 bg-primary-white dark:bg-primary-gray-650 rounded-full text-primary-gray-700 dark:text-primary-white shadow-sm focus:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       color: {
@@ -63,8 +64,9 @@ const RadioGroup = React.forwardRef<
     color?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
     variant?: 'light' | 'normal' | null | undefined;
   }
-  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
->(({ className, color, variant, dir, ...props }, ref) => {
+>(({
+  className, color, variant, ...props 
+}, ref) => {
   const contextValue = React.useMemo(
     () => ({
       color,
@@ -94,7 +96,9 @@ const RadioGroupItem = React.forwardRef<
     radioClassName?: string;
     labelClassName?: string;
   }
->(({ className, radioClassName, labelClassName, label, ...props }, ref) => {
+>(({
+  className, radioClassName, labelClassName, label, ...props 
+}, ref) => {
   const id = props.id || generateRandomId();
   const { color, variant } = React.useContext(RadioGroupContext);
   return (
@@ -109,7 +113,7 @@ const RadioGroupItem = React.forwardRef<
           <Circle className={radioCheckVariants({ color, variant })} />
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
-      <Label className={cn('mt-0.5 !text-base', labelClassName)} htmlFor={id}>
+      <Label className={cn('mt-0.5 text-base!', labelClassName)} htmlFor={id}>
         {label}
       </Label>
     </div>

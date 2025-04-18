@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { cva } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 interface OptionDataType {
@@ -27,7 +28,7 @@ const segmentedButtonVariants = cva(
 );
 
 const buttonSelectedVariants = cva(
-  'bg-primary-white dark:bg-primary-gray-550 shadow-sm',
+  'bg-primary-white dark:bg-primary-gray-550 shadow-xs',
   {
     variants: {
       color: {
@@ -37,9 +38,7 @@ const buttonSelectedVariants = cva(
         custom: 'text-custom-color-600 dark:text-primary-white',
       },
     },
-    defaultVariants: {
-      color: 'red',
-    },
+    defaultVariants: { color: 'red' },
   },
 );
 
@@ -48,15 +47,13 @@ const buttonUnselectedVariants = cva(
   {
     variants: {
       color: {
-        blue: 'hover:text-primary-blue-600 hover:dark:text-primary-white',
-        red: 'hover:text-accent-dark-red hover:dark:text-primary-white',
-        black: 'hover:text-primary-gray-600 hover:dark:text-primary-white',
-        custom: 'hover:text-custom-color-600 hover:dark:text-primary-white',
+        blue: 'hover:text-primary-blue-600 dark:hover:text-primary-white',
+        red: 'hover:text-accent-dark-red dark:hover:text-primary-white',
+        black: 'hover:text-primary-gray-600 dark:hover:text-primary-white',
+        custom: 'hover:text-custom-color-600 dark:hover:text-primary-white',
       },
     },
-    defaultVariants: {
-      color: 'red',
-    },
+    defaultVariants: { color: 'red' },
   },
 );
 

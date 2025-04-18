@@ -20,9 +20,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  args: {
-    defaultValue: 'tab 1',
-  },
+  args: { defaultValue: 'tab 1' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
