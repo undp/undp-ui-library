@@ -7,20 +7,6 @@ import eslint from 'vite-plugin-eslint';
 import dts from 'vite-plugin-dts';
 import tailwindcss from '@tailwindcss/vite';
 
-function removeFonts() {
-  return {
-    name: 'remove-fonts',
-    enforce: 'post', // Ensure it runs after Vite's default asset handling
-    generateBundle(_options, bundle) {
-      for (const name in bundle) {
-        if (/\.(woff|woff2|eot|ttf|otf)$/i.test(name)) {
-          delete bundle[name];
-        }
-      }
-    },
-  };
-}
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -28,7 +14,6 @@ export default defineConfig({
     react(), 
     eslint(),
     tailwindcss(),
-    removeFonts(),
   ],
   /*
   define: {
