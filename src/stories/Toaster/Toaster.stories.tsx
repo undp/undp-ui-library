@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Toaster, Button, useToast } from '@/index';
 
 function ToastButton() {
