@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { Menu, X } from 'lucide-react';
+
 import { cn } from '@/lib/utils';
 
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
@@ -51,11 +52,11 @@ function HeaderLogoUnit({
         />
         <div>
           {siteSubName ? (
-            <div className='leading-none uppercase font-semibold text-primary-gray-600 dark:text-primary-gray-200 pb-px mx-0 mt-0 mb-1 text-xs leading-none inline-block no-underline'>
+            <div className='leading-[1.142] border-b border-b-primary-gray-500 dark:border-b-primary-gray-550 pb-px uppercase font-semibold text-primary-gray-600 dark:text-primary-gray-200 pb-px mx-0 mt-0 mb-[4.8px] text-xs inline-block no-underline'>
               {siteSubName}
             </div>
           ) : null}
-          <div className='text-primary-black dark:text-primary-white p-0 m-0 no-underline text-xl font-semibold leading-none'>
+          <div className='text-primary-black dark:text-primary-white p-0 m-0 no-underline text-base lg:text-xl font-semibold leading-[1.142]'>
             {siteName}
           </div>
         </div>
@@ -126,7 +127,7 @@ function HeaderMenuUnit({
     <div
       {...props}
       className={cn(
-        'grid gap-4 text-primary-black dark:text-primary-gray-200 md:flex grow items-center md:justify-center md:gap-8 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black dark:[&>a]:text-primary-gray-200 md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600 dark:[&>a:hover]:text-primary-gray-100',
+        'grid gap-4 md:gap-8 tracking-[0.42px] font-medium text-primary-black dark:text-primary-gray-200 md:flex grow items-center md:justify-center md:gap-12 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black dark:[&>a]:text-primary-gray-200 md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600 dark:[&>a:hover]:text-primary-gray-100',
         className,
       )}
     >

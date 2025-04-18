@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+
 import { cn } from '@/lib/utils';
 
 const VisualizationWidget = React.forwardRef<
@@ -25,12 +26,12 @@ const VisualizationWidgetHeaderContext = React.createContext<{
   activeItemClass?: string;
   hoverItemClass?: string;
   onValueChange: (value: string) => void;
-}>({
-  selectedValue: undefined,
-  hoverItemClass: undefined,
-  activeItemClass: undefined,
-  onValueChange: () => {},
-});
+    }>({
+      selectedValue: undefined,
+      hoverItemClass: undefined,
+      activeItemClass: undefined,
+      onValueChange: () => {},
+    });
 
 interface VisualizationWidgetHeaderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -105,8 +106,12 @@ interface VisualizationWidgetHeaderItemProps
 const VisualizationWidgetHeaderItem = React.forwardRef<
   HTMLButtonElement,
   VisualizationWidgetHeaderItemProps
->(({ className, children, value, ...props }, ref) => {
-  const { selectedValue, activeItemClass, hoverItemClass, onValueChange } =
+>(({
+  className, children, value, ...props 
+}, ref) => {
+  const {
+    selectedValue, activeItemClass, hoverItemClass, onValueChange, 
+  } =
     React.useContext(VisualizationWidgetHeaderContext);
   return (
     <button

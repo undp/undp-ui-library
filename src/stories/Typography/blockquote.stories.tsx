@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Blockquote } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Blockquote>;

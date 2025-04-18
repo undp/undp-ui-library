@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Sidebar, SidebarItem } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Sidebar>;
@@ -27,9 +28,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  args: {
-    variant: 'background',
-  },
+  args: { variant: 'background' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
@@ -42,6 +41,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
           {...args}
           defaultValue='item 1'
           onValueChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
         >

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { MoreHorizontal } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -7,7 +7,7 @@ const Breadcrumb = React.forwardRef<
   HTMLElement,
   React.ComponentPropsWithoutRef<'nav'>
 >(({ ...props }, ref) => (
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
+   
   <nav ref={ref} aria-label='breadcrumb' {...props} />
 ));
 Breadcrumb.displayName = 'Breadcrumb';

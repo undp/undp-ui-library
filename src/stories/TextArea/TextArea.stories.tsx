@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Textarea } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Textarea>;
@@ -29,6 +30,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <Textarea
         {...args}
         onChange={d => {
+          // eslint-disable-next-line no-console
           console.log(d.target.value);
         }}
       />

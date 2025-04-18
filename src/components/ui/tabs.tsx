@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
-
 import { cva } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 const tabVariants = cva(
-  'inline-flex text-base rtl:[direction:rtl] uppercase font-bold justify-center whitespace-nowrap border-b-2 border-primary-gray-300 dark:border-primary-gray-650 dark:text-primary-white p-0 pb-2 mt-3 mr-6 -mb-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-primary-blue-100 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex text-base rtl:[direction:rtl] uppercase font-bold justify-center whitespace-nowrap border-b-2 border-primary-gray-300 dark:border-primary-gray-650 dark:text-primary-white p-0 pb-2 mt-3 mr-6 -mb-0.5 transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-offset-primary-blue-100 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       color: {
@@ -16,17 +16,13 @@ const tabVariants = cva(
         custom: 'data-[state=active]:border-custom-color-600',
       },
     },
-    defaultVariants: {
-      color: 'red',
-    },
+    defaultVariants: { color: 'red' },
   },
 );
 
 const TabContext = React.createContext<{
   color?: 'blue' | 'red' | 'black' | 'custom' | undefined;
-}>({
-  color: undefined,
-});
+}>({ color: undefined });
 
 const Tabs = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
@@ -35,9 +31,7 @@ const Tabs = React.forwardRef<
   }
 >(({ color, className, ...props }, ref) => {
   const contextValue = React.useMemo(
-    () => ({
-      color,
-    }),
+    () => ({ color }),
     [color],
   );
   return (
@@ -91,7 +85,7 @@ const TabsContent = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 dark:text-primary-white',
+      'mt-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-1 dark:text-primary-white',
       className,
     )}
   />

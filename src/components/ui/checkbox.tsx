@@ -1,13 +1,14 @@
-import * as React from 'react';
+import React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { Check } from 'lucide-react';
-
 import { cva, VariantProps } from 'class-variance-authority';
-import { cn, generateRandomId } from '@/lib/utils';
+
 import { Label } from './label';
 
+import { cn, generateRandomId } from '@/lib/utils';
+
 const checkBoxVariants = cva(
-  'peer h-4 w-4 shrink-0 rounded-0 bg-primary-white dark:bg-primary-gray-650 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+  'peer h-4 w-4 shrink-0 rounded-0 bg-primary-white dark:bg-primary-gray-650 focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       color: {
@@ -97,7 +98,7 @@ const Checkbox = React.forwardRef<
         </CheckboxPrimitive.Root>
         {label ? (
           <Label
-            className={cn('mt-0.5 !text-base', labelClassName)}
+            className={cn('mt-0.5 text-base!', labelClassName)}
             htmlFor={id}
           >
             {label}

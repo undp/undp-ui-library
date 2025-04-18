@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Spacer, H6 } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Spacer>;
@@ -29,9 +30,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: 'base',
     },
   },
-  args: {
-    size: 'base',
-  },
+  args: { size: 'base' },
   render: ({ ...args }) => (
     <>
       <H6>Heading 1</H6>

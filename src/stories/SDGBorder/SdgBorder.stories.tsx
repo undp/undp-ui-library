@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { SdgBorder } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof SdgBorder>;
@@ -14,9 +15,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: '',
     },
   },
-  args: {
-    sdgList: undefined,
-  },
+  args: { sdgList: undefined },
   render: ({ ...args }, { globals: { theme, direction, language } }) => (
     <div
       dir={direction}

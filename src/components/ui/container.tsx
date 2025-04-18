@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -71,14 +71,18 @@ const Container = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof containerVariants>
 >(
   (
-    { className, backgroundColor, layout, width, padding, gap, ...props },
+    {
+      className, backgroundColor, layout, width, padding, gap, ...props 
+    },
     ref,
   ) => {
     return (
       <div
         {...props}
         className={cn(
-          containerVariants({ backgroundColor, layout, width, padding, gap }),
+          containerVariants({
+            backgroundColor, layout, width, padding, gap, 
+          }),
           className,
         )}
         ref={ref}

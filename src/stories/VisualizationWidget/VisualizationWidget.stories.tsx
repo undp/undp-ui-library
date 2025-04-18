@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChartBar } from 'lucide-react';
+
 import {
   VisualizationWidget,
   VisualizationWidgetHeader,
@@ -18,9 +19,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'UI/Visualization Widget',
   component: VisualizationWidgetHeader,
   tags: ['autodocs'],
-  args: {
-    defaultValue: 'chart 1',
-  },
+  args: { defaultValue: 'chart 1' },
   argTypes: {
     defaultValue: {
       control: { type: 'text' },
@@ -45,6 +44,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <VisualizationWidget>
         <VisualizationWidgetHeader
           onChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
           {...args}

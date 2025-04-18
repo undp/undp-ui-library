@@ -1,6 +1,6 @@
 import * as React from 'react';
-
 import { cva, VariantProps } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 const cardVariants = cva('flex flex-col justify-between items-stretch', {
@@ -13,20 +13,20 @@ const cardVariants = cva('flex flex-col justify-between items-stretch', {
       transparent:
         'bg-primary-transparent text-primary-black dark:text-primary-white',
       white:
-        'bg-primary-white dark:bg-primary-gray-700 hover:bg-primary-gray-200 hover:dark:bg-primary-gray-600 text-primary-black dark:text-primary-white',
-      gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 hover:bg-primary-gray-400 hover:dark:bg-primary-gray-500 text-primary-black dark:text-primary-white',
+        'bg-primary-white dark:bg-primary-gray-700 hover:bg-primary-gray-200 dark:hover:bg-primary-gray-600 text-primary-black dark:text-primary-white',
+      gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 hover:bg-primary-gray-400 dark:hover:bg-primary-gray-500 text-primary-black dark:text-primary-white',
       'dark-gray':
-        'bg-primary-gray-600 dark:bg-primary-gray-300 hover:bg-primary-gray-500 hover:dark:bg-primary-gray-400 text-primary-white dark:text-primary-black',
+        'bg-primary-gray-600 dark:bg-primary-gray-300 hover:bg-primary-gray-500 dark:hover:bg-primary-gray-400 text-primary-white dark:text-primary-black',
       black:
-        'bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-650 hover:dark:bg-primary-gray-300 text-primary-white dark:text-primary-black',
-      blue: 'bg-primary-blue-200 hover:bg-primary-blue-300 dark:bg-primary-blue-600 hover:dark:bg-primary-blue-500 text-primary-black dark:text-primary-white',
+        'bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-650 dark:hover:bg-primary-gray-300 text-primary-white dark:text-primary-black',
+      blue: 'bg-primary-blue-200 hover:bg-primary-blue-300 dark:bg-primary-blue-600 dark:hover:bg-primary-blue-500 text-primary-black dark:text-primary-white',
       azure:
-        'bg-accent-light-azure hover:bg-accent-azure dark:bg-accent-dark-azure hover:dark:bg-accent-azure text-primary-black dark:text-primary-white',
+        'bg-accent-light-azure hover:bg-accent-azure dark:bg-accent-dark-azure dark:hover:bg-accent-azure text-primary-black dark:text-primary-white',
       yellow:
-        'bg-accent-light-yellow hover:bg-accent-yellow dark:bg-accent-dark-yellow hover:dark:bg-accent-yellow text-primary-black',
-      red: 'bg-accent-light-red hover:bg-accent-red dark:bg-accent-dark-red hover:dark:bg-accent-red text-primary-black dark:text-primary-white',
+        'bg-accent-light-yellow hover:bg-accent-yellow dark:bg-accent-dark-yellow dark:hover:bg-accent-yellow text-primary-black',
+      red: 'bg-accent-light-red hover:bg-accent-red dark:bg-accent-dark-red dark:hover:bg-accent-red text-primary-black dark:text-primary-white',
       green:
-        'bg-accent-light-green hover:bg-accent-green dark:bg-accent-dark-green hover:dark:bg-accent-green text-primary-black dark:text-primary-white',
+        'bg-accent-light-green hover:bg-accent-green dark:bg-accent-dark-green dark:hover:bg-accent-green text-primary-black dark:text-primary-white',
       custom:
         'bg-custom-color-200 hover:bg-custom-color-300 text-custom-foreground',
     },
@@ -53,7 +53,9 @@ export interface CardProps
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, border, size, variant, backgroundColor, ...props }, ref) => (
+  ({
+    className, border, size, variant, backgroundColor, ...props 
+  }, ref) => (
     <div
       ref={ref}
       className={cn(

@@ -1,9 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 const inputVariants = cva(
-  'w-full bg-primary-white dark:bg-primary-gray-650 text-primary-black dark:text-primary-white text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-primary-gray-700 dark:file:text-primary-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-primary-gray-550 dark:placeholder:text-primary-gray-400',
+  'w-full bg-primary-white dark:bg-primary-gray-650 text-primary-black dark:text-primary-white text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-primary-gray-700 dark:file:text-primary-white focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-primary-gray-550 dark:placeholder:text-primary-gray-400',
   {
     variants: {
       variant: {
@@ -26,7 +27,9 @@ const Input = React.forwardRef<
   HTMLInputElement,
   React.InputHTMLAttributes<HTMLInputElement> &
     VariantProps<typeof inputVariants>
->(({ className, inputSize, variant, ...props }, ref) => {
+>(({
+  className, inputSize, variant, ...props 
+}, ref) => {
   return (
     <input
       {...props}

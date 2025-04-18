@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import '../src/fonts.css'; 
 
 const preview: Preview = {
   parameters: {
@@ -30,12 +31,12 @@ const preview: Preview = {
         icon: 'mirror',
         // Array of plain string values or MenuItem shape (see below)
         items: [
-          { value: 'ltr', title: 'left-to-right'},
-          { value: 'rtl', title: 'right-to-left'},
+          { value: 'ltr', title: 'left-to-right' },
+          { value: 'rtl', title: 'right-to-left' },
         ],
         // Change title based on selected value
         dynamicTitle: true,
-        default: 'ltr'
+        default: 'ltr',
       },
     },
     language: {
@@ -64,13 +65,11 @@ const preview: Preview = {
           { value: 'custom', title: 'Custom' },
         ],
         dynamicTitle: true,
-        default: 'en'
+        default: 'en',
       },
-    }
+    },
   },
-  initialGlobals: {
-    theme: 'light',
-  },
+  initialGlobals: { theme: 'light' },
 };
 
 export default preview;

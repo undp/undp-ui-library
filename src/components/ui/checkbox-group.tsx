@@ -1,8 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 
-import { cn } from '@/lib/utils';
 import { Checkbox } from './checkbox';
+
+import { cn } from '@/lib/utils';
 
 interface CheckboxGroupProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange'> {
@@ -19,12 +20,12 @@ const CheckboxGroupContext = React.createContext<{
   onValueChange: (value: string, checked: boolean) => void;
   color?: 'blue' | 'red' | 'black' | 'custom' | undefined;
   variant?: 'light' | 'normal' | undefined;
-}>({
-  selectedValues: [],
-  onValueChange: () => {},
-  color: undefined,
-  variant: undefined,
-});
+    }>({
+      selectedValues: [],
+      onValueChange: () => {},
+      color: undefined,
+      variant: undefined,
+    });
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
   (
@@ -108,7 +109,9 @@ const CheckboxGroupItem = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxGroupItemProps
 >(({ value, ...props }, ref) => {
-  const { selectedValues, onValueChange, color, variant } =
+  const {
+    selectedValues, onValueChange, color, variant, 
+  } =
     React.useContext(CheckboxGroupContext);
 
   return (

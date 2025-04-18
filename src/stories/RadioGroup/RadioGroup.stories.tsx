@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { RadioGroup, RadioGroupItem } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof RadioGroup>;
@@ -38,6 +39,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         <RadioGroup
           {...args}
           onValueChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
         >

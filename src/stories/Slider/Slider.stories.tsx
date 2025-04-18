@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { SliderUI } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof SliderUI>;
@@ -78,9 +79,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         <SliderUI
           {...args}
           onChange={d => {
+            // eslint-disable-next-line no-console
             console.log('Change:', d);
           }}
           onChangeComplete={d => {
+            // eslint-disable-next-line no-console
             console.log('Change completed:', d);
           }}
         />

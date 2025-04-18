@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Switch } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Switch>;
@@ -38,6 +39,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         <Switch
           {...args}
           onChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d);
           }}
         />

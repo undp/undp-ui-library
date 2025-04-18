@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import * as React from 'react';
+import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 const sidebarVariants = cva('w-full sm:w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5', {
@@ -14,9 +12,7 @@ const sidebarVariants = cva('w-full sm:w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5', {
         'border-r border-r-primary-gray-300 dark:border-r-primary-gray-600',
     },
   },
-  defaultVariants: {
-    variant: 'background',
-  },
+  defaultVariants: { variant: 'background' },
 });
 interface SidebarProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>,
@@ -32,12 +28,12 @@ const SidebarContext = React.createContext<{
   activeItemClass?: string;
   hoverItemClass?: string;
   onValueChange: (value: string) => void;
-}>({
-  selectedValue: undefined,
-  hoverItemClass: undefined,
-  activeItemClass: undefined,
-  onValueChange: () => {},
-});
+    }>({
+      selectedValue: undefined,
+      hoverItemClass: undefined,
+      activeItemClass: undefined,
+      onValueChange: () => {},
+    });
 
 const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   (
@@ -100,8 +96,12 @@ interface SidebarItemProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const SidebarItem = React.forwardRef<HTMLDivElement, SidebarItemProps>(
-  ({ className, children, value, ...props }, ref) => {
-    const { selectedValue, activeItemClass, hoverItemClass, onValueChange } =
+  ({
+    className, children, value, ...props 
+  }, ref) => {
+    const {
+      selectedValue, activeItemClass, hoverItemClass, onValueChange, 
+    } =
       React.useContext(SidebarContext);
     return (
       <div

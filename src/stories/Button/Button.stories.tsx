@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Button } from '@/index';
 import '../../index.css';
 
@@ -40,11 +41,7 @@ const meta: Meta<typeof Button> = {
     size: 'base',
     padding: 'base',
   },
-  parameters: {
-    docs: {
-      source: 'auto',
-    },
-  },
+  parameters: { docs: { source: 'auto' } },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
@@ -56,6 +53,7 @@ const meta: Meta<typeof Button> = {
         <Button
           {...args}
           onClick={() => {
+            // eslint-disable-next-line no-console
             console.log('Hello world');
           }}
         >

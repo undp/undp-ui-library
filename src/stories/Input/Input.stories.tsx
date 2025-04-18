@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Input } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Input>;
@@ -36,6 +37,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
           {...args}
           placeholder='Text here...'
           onChange={d => {
+            // eslint-disable-next-line no-console
             console.log(d.target.value);
           }}
         />

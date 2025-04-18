@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -21,9 +21,7 @@ const spacerVariants = cva('h-0 w-full', {
       '9xl': 'py-20',
     },
   },
-  defaultVariants: {
-    size: 'base',
-  },
+  defaultVariants: { size: 'base' },
 });
 
 const Spacer = React.forwardRef<

@@ -1,6 +1,6 @@
 import * as React from 'react';
-
 import { cva, VariantProps } from 'class-variance-authority';
+
 import { cn } from '@/lib/utils';
 
 const cardVariants = cva('flex flex-col items-stretch w-full', {
@@ -14,9 +14,7 @@ const cardVariants = cva('flex flex-col items-stretch w-full', {
       xl: '[&_.card-img]:w-3/4 [&_.card-content]:w-1/4',
     },
   },
-  defaultVariants: {
-    imageWidth: 'base',
-  },
+  defaultVariants: { imageWidth: 'base' },
 });
 
 interface CardProps
@@ -26,7 +24,9 @@ interface CardProps
 }
 
 const PageWideCard = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, border, imageWidth, ...props }, ref) => (
+  ({
+    className, border, imageWidth, ...props 
+  }, ref) => (
     <div
       ref={ref}
       className={cn(
