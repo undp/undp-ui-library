@@ -41,7 +41,7 @@ export default defineConfig({
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.names && assetInfo.names.includes('undp-design-system-react.css')) {
-            return 'index.css';
+            return 'style.css';
           }
           return 'assets/[name][extname]';
         },

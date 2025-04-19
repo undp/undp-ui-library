@@ -1,6 +1,6 @@
 {
   "name": "@undp-data/undp-design-system-react",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -36,7 +36,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clean": "rimraf node_modules"
+    "clean": "rimraf node_modules && rimraf dist"
   },
   "keywords": [
     "UNDP",
@@ -121,6 +121,7 @@
     "globals": "^16.0.0",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
     "shadcn-ui": "^0.9.5",
     "storybook": "^8.6.2",
     "storybook-dark-mode": "^4.0.2",
