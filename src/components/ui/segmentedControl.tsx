@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 interface OptionDataType {
-  label: string;
+  label: React.ReactNode;
   value: string;
 }
 const segmentedButtonVariants = cva(

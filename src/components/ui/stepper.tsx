@@ -28,7 +28,7 @@ function Stepper({
     <ol
       {...props}
       className={cn(
-        'flex items-center w-full text-base text-center text-primary-gray-700 dark:text-primary-white justify-between gap-3',
+        'flex items-center list-none w-full text-base text-center text-primary-gray-700 dark:text-primary-white justify-between gap-3',
         className,
       )}
     >

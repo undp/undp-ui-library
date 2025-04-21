@@ -63,7 +63,7 @@ const Search = React.forwardRef<
               />
               {!isFocused && (query === '' || !query) && (
                 <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-                  <SearchIcon className='h-4 w-4 text-primary-gray-500 dark:text-primary-gray-400 mr-2' />
+                  {!buttonChildren ? <SearchIcon className='h-4 w-4 text-primary-gray-500 dark:text-primary-gray-400 mr-2' /> : null}
                   <span className='text-primary-gray-500 dark:text-primary-gray-400'>
                     {placeholder || 'Search...'}
                   </span>
