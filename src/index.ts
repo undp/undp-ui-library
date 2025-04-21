@@ -89,6 +89,7 @@ export { Search } from '@/components/ui/input-search';
 export { Input } from '@/components/ui/input';
 export { Label } from '@/components/ui/label';
 export { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+export { Ol, Ul, Li } from '@/components/ui/list';
 export { UNDPLogo } from '@/components/ui/logo.tsx';
 export { Modal } from '@/components/ui/modal';
 export { Pagination } from '@/components/ui/Pagination';
