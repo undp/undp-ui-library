@@ -15,11 +15,6 @@ export default defineConfig({
     eslint(),
     tailwindcss(),
   ],
-  /*
-  define: {
-    'process.env.NODE_ENV': JSON.stringify('production'),
-  },
-  */
   build: {
     cssCodeSplit: false,
     lib: {
@@ -40,7 +35,7 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.names && assetInfo.names.includes('undp-design-system-react.css')) {
+          if (assetInfo.names && assetInfo.names.includes('design-system-react.css')) {
             return 'style.css';
           }
           return 'assets/[name][extname]';

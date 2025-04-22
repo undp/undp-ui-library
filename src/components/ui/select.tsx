@@ -16,6 +16,7 @@ import Select, {
 } from 'react-select';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import { cva } from 'class-variance-authority';
+import { JSX } from 'react/jsx-runtime';
 
 import { cn } from '@/lib/utils';
 

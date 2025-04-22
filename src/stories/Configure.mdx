@@ -30,7 +30,7 @@ import githubLogo from "./assets/Github-logo.svg";
 
 #### Using the library in React projects
 
-Before starting, it is recommended to correctly install and configure [Node.js](https://nodejs.org/en/download) v16 or above.
+Before starting, it is recommended to correctly install and configure [Node.js](https://nodejs.org/en/download) v18 or above.
 
 We also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript/TypeScript, and React. Starting out is straightforward.
       
@@ -38,7 +38,7 @@ We also assumes that you have intermediate knowledge about HTML, CSS, and JavaSc
 
 Start by installing UNDP Design System as a node module and save it as a dependency in your package.json:
 ```
-npm install @undp-data/undp-design-system-react `--save`
+npm install @undp/design-system-react `--save`
 ```
 
 #### Import
@@ -47,7 +47,7 @@ It is recommended to import what you need and the use it.
 
 It is also recommended to import the css because some setting expect the CSS to be imported to look good. You can import the css file like this:
 ```
-import '@undp-data/undp-design-system-react/dist/style.css';
+import '@undp/design-system-react/dist/style.css';
 ```
 
 ## Adding custom color
@@ -103,7 +103,7 @@ UNDP Design System provides a built-in ts definition, you don't need to install 
 
 <div className="flex github">
   <div className="flex github">
-    <a href="https://github.com/undp/design-system" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
+    <a href="https://github.com/UNDP-Data/undp-ui-library" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
       <img width={'32px'} src={githubLogo} alt="" />
       <P className='m-0 md:m-0'>View Github repository</P>
     </a>
