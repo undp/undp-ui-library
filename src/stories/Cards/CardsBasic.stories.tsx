@@ -9,6 +9,7 @@ import {
   CardImage,
   CardFooter,
   CardHeader,
+  Button,
 } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Card>;
@@ -77,7 +78,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
               ad litora torquent per conubia nostra, per inceptos himenaeos.
             </CardDescription>
           </CardHeader>
-          <CardFooter>Footer</CardFooter>
+          <CardFooter>
+            <Button variant='link' padding='none'>Read more</Button>
+          </CardFooter>
         </Card>
       </div>
     );

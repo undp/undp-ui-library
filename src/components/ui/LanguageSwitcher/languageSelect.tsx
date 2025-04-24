@@ -19,7 +19,8 @@ const LanguageSelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-9 flex gap-2 rtl:[direction:rtl] items-center text-primary-blue-600 dark:text-primary-white uppercase font-semibold text-sm justify-between whitespace-nowrap bg-transparent p-0 shadow-sm data-[placeholder]:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      'flex h-9 flex gap-2 rtl:[direction:rtl] items-center text-primary-blue-600 dark:text-primary-white uppercase font-semibold text-sm justify-between whitespace-nowrap bg-transparent p-0 shadow-sm data-[placeholder]:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+      '[&[data-state=open]>.lucide-chevron-down]:rotate-180',
       className,
     )}
     {...props}

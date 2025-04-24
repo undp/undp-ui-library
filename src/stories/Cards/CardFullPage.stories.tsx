@@ -11,6 +11,7 @@ import {
   PageWideCardContent,
   PageWideCardContainer,
   PageWideCardHeader,
+  Button,
 } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof PageWideCard>;
@@ -55,7 +56,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
                   himenaeos.
                 </PageWideCardDescription>
               </PageWideCardHeader>
-              <PageWideCardFooter>Footer</PageWideCardFooter>
+              <PageWideCardFooter>
+                <Button variant='link' padding='none'>Read more</Button>
+              </PageWideCardFooter>
             </PageWideCardContent>
             <PagWideCardImage
               className='h-96'
