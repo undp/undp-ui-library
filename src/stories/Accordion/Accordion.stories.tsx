@@ -18,18 +18,23 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     variant: {
       control: { type: 'select' },
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
-      defaultValue: 'primary',
+      defaultValue: { summary: 'primary' },
     },
     collapsible: {
       control: { type: 'inline-radio' },
       options: [true, false],
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
     type: {
       control: { type: 'inline-radio' },
       options: ['single', 'multiple'],
-      defaultValue: 'single',
+      defaultValue: { summary: 'single' },
     },
+  },
+  args: {
+    variant: 'primary',
+    collapsible: false,
+    type: 'single',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (

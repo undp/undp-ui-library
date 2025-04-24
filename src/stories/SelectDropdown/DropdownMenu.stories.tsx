@@ -14,30 +14,38 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['light', 'normal'],
-      defaultValue: 'normal',
+      defaultValue: { summary: 'normal' },
     },
     size: {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['sm', 'base'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     truncateLabel: {
       type: 'boolean',
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
     isClearable: {
       type: 'boolean',
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
     isSearchable: {
       type: 'boolean',
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
     isMulti: {
       type: 'boolean',
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
+  },
+  args: {
+    variant: 'normal',
+    size: 'base',
+    truncateLabel: false,
+    isClearable: false,
+    isSearchable: false,
+    isMulti: false,
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (

@@ -13,12 +13,12 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     variant: {
       control: { type: 'inline-radio' },
       options: ['dark', 'light'],
-      defaultValue: 'dark',
+      defaultValue: { summary: 'dark' },
     },
     orientation: {
       control: { type: 'inline-radio' },
       options: ['horizontal', 'vertical'],
-      defaultValue: 'horizontal',
+      defaultValue: { summary: 'horizontal' },
     },
   },
   args: {

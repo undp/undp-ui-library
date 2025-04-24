@@ -22,24 +22,25 @@ const meta: Meta<typeof Badge> = {
         'outline',
         'custom',
       ],
-      defaultValue: 'light-gray',
+      defaultValue: { summary: 'light-gray' },
     },
     size: {
       control: { type: 'select' },
       type: 'string',
       options: ['base', 'xs', 'sm', 'lg', 'xl'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     rounded: {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['none', 'xs', 'sm', 'full'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'full' },
     },
   },
   args: {
     variant: 'light-gray',
     size: 'base',
+    rounded: 'full',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (

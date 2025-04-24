@@ -13,7 +13,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     size: {
       control: { type: 'select' },
       options: ['xs', 'sm', 'base', 'lg', 'xl', 'full'],
-      defaultValue: 'sm',
+      defaultValue: { summary: 'sm' },
     },
   },
   args: { size: 'sm' },

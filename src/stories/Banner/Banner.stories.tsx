@@ -32,27 +32,27 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'green',
         'custom',
       ],
-      defaultValue: 'transparent',
+      defaultValue: { summary: 'transparent' },
     },
     padding: {
       control: { type: 'select' },
       options: ['none', '2xs', 'xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     bodyMaxWidth: {
       control: { type: 'select' },
       options: ['xs', 'sm', 'base', 'lg', 'xl', 'full'],
-      defaultValue: 'full',
+      defaultValue: { summary: 'full' },
     },
     bodyGap: {
       control: { type: 'select' },
       options: ['none', '2xs', 'xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     sidebarWidth: {
       control: { type: 'select' },
       options: ['sm', 'base', 'lg', 'full'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
   },
   args: {

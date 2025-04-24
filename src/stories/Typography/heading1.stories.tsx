@@ -22,19 +22,16 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'lg',
         'xl',
       ],
-      defaultValue: 'primary',
+      defaultValue: { summary: 'base-responsive' },
     },
     size: {
       control: { type: 'inline-radio' },
       options: ['sm', 'base'],
-      defaultValue: 'primary',
+      defaultValue: { summary: 'base' },
     },
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
   },
-  args: { marginBottom: 'base-responsive' },
+  args: { marginBottom: 'base-responsive', size: 'base' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => (
     <div
       dir={direction}

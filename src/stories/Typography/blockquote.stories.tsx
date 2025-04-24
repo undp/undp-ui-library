@@ -9,12 +9,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Typography/Blockquote',
   component: Blockquote,
   tags: ['autodocs'],
-  argTypes: {
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-  },
+  argTypes: { className: { control: { type: 'text' } } },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

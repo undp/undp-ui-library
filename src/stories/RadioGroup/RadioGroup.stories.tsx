@@ -10,24 +10,24 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
     color: {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: 'red',
+      defaultValue: { summary: 'red' },
     },
     variant: {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['light', 'normal'],
-      defaultValue: 'red',
+      defaultValue: { summary: 'normal' },
     },
   },
-  args: {},
+  args: { 
+    color: 'red',
+    variant: 'normal',
+  },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

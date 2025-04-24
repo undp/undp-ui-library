@@ -13,20 +13,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     variant: {
       control: { type: 'inline-radio' },
       options: ['noEffect', 'background', 'border'],
-      defaultValue: 'background',
+      defaultValue: { summary: 'background' },
     },
-    activeItemClass: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    hoverItemClass: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    defaultValue: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    activeItemClass: { control: { type: 'text' } },
+    hoverItemClass: { control: { type: 'text' } },
+    defaultValue: { control: { type: 'text' } },
   },
   args: { variant: 'background' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {

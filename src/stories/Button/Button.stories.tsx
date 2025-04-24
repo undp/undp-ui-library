@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Download } from 'lucide-react';
 
 import { Button } from '@/index';
+
 import '../../index.css';
 
 const meta: Meta<typeof Button> = {
@@ -21,19 +23,19 @@ const meta: Meta<typeof Button> = {
         'outline',
         'icon',
       ],
-      defaultValue: 'primary',
+      defaultValue: { summary: 'primary' },
     },
     size: {
       control: { type: 'select' },
       type: 'string',
       options: ['base', 'xs', 'sm', 'xl'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     padding: {
       control: { type: 'select' },
       type: 'string',
       options: ['base', 'sm', 'none'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
   },
   args: {
@@ -57,7 +59,7 @@ const meta: Meta<typeof Button> = {
             console.log('Hello world');
           }}
         >
-          Click Me
+          {args.variant === 'icon' ? <Download size={24} /> : 'Click Me'}
         </Button>
       </div>
     );

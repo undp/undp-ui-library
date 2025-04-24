@@ -17,7 +17,6 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
-  args: {},
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

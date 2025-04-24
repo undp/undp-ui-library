@@ -13,7 +13,7 @@ const LanguageSelectGroup = SelectPrimitive.Group;
 const LanguageSelectValue = SelectPrimitive.Value;
  
 const LanguageSelectTrigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  React.ComponentRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
@@ -34,7 +34,7 @@ const LanguageSelectTrigger = React.forwardRef<
 LanguageSelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
  
 const LanguageSelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
+  React.ComponentRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
 >(({
   className, children, position = "popper", ...props 
@@ -65,7 +65,7 @@ const LanguageSelectContent = React.forwardRef<
 LanguageSelectContent.displayName = SelectPrimitive.Content.displayName;
  
 const LanguageSelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item

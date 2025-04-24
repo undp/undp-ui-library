@@ -50,7 +50,7 @@ const checkVariants = cva('h-4 w-4', {
   },
 });
 const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentRef<typeof CheckboxPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
     VariantProps<typeof checkBoxVariants> & {
       label?: string;

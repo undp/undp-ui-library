@@ -9,7 +9,6 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/Language Select',
   component: LanguageSwitcher,
   tags: ['autodocs'],
-  argTypes: {},
   args: {
     options: [
       {
@@ -25,6 +24,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         id: 'es',
       },
     ],
+    defaultValue: 'en',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (

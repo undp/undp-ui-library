@@ -12,15 +12,12 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   argTypes: {
     defaultPage: {
       control: { type: 'number' },
-      defaultValue: 1,
+      defaultValue: { summary: 1 },
     },
-    total: {
-      control: { type: 'number' },
-      defaultValue: 100,
-    },
+    total: { control: { type: 'number' } },
     pageSize: {
       control: { type: 'number' },
-      defaultValue: 10,
+      defaultValue: { summary: 10 },
     },
   },
   args: {

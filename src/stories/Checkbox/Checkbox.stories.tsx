@@ -14,24 +14,22 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: 'red',
+      defaultValue: { summary: 'red' },
     },
     variant: {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['light', 'normal'],
-      defaultValue: 'red',
+      defaultValue: { summary: 'normal' },
     },
-    checkBoxClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    checkIconClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    checkBoxClassName: { control: { type: 'text' } },
+    checkIconClassName: { control: { type: 'text' } },
   },
-  args: { label: 'Checkbox' },
+  args: { 
+    label: 'Checkbox',
+    color: 'red',
+    variant: 'normal',
+  },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

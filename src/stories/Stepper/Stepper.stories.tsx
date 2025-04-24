@@ -10,25 +10,13 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Stepper,
   tags: ['autodocs'],
   argTypes: {
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    unfinishedStepsClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    finishedStepsClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    activeStepsClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
+    unfinishedStepsClassName: { control: { type: 'text' } },
+    finishedStepsClassName: { control: { type: 'text' } },
+    activeStepsClassName: { control: { type: 'text' } },
     currentStep: {
       control: { type: 'number' },
-      defaultValue: 0,
+      defaultValue: { summary: 0 },
     },
   },
   args: { currentStep: 1 },

@@ -10,38 +10,19 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Modal,
   tags: ['autodocs'],
   argTypes: {
-    title: {
-      control: { type: 'text' },
-      defaultValue: 'Modal title',
-    },
-    description: {
-      control: { type: 'text' },
-      defaultValue:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    },
+    title: { control: { type: 'text' } },
+    description: { control: { type: 'text' } },
     open: {
       control: { type: 'boolean' },
-      defaultValue: true,
+      defaultValue: { summary: true },
     },
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    titleClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    footerClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    descriptionClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
+    titleClassName: { control: { type: 'text' } },
+    footerClassName: { control: { type: 'text' } },
+    descriptionClassName: { control: { type: 'text' } },
     showCloseButton: {
       control: { type: 'boolean' },
-      defaultValue: true,
+      defaultValue: { summary: true },
     },
   },
   args: {

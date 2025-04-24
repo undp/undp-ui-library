@@ -10,20 +10,31 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: SegmentedControl,
   tags: ['autodocs'],
   argTypes: {
-    defaultValue: {
-      control: { type: 'text' },
-      defaultValue: '',
+    defaultValue: { control: { type: 'text' } },
+    buttonClassName: { control: { type: 'text' } },
+    activeButtonClassName: { control: { type: 'text' } },
+    size: {
+      control: { type: 'inline-radio' },
+      options: ['sm', 'base'],
+      defaultValue: { summary: 'base' },
     },
-    buttonClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
+    variant: {
+      control: { type: 'inline-radio' },
+      options: ['normal', 'light'],
+      defaultValue: { summary: 'normal' },
     },
-    activeButtonClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
+    color: {
+      control: { type: 'inline-radio' },
+      options: ['red', 'blue', 'black', 'custom'],
+      defaultValue: { summary: 'red' },
     },
   },
-  args: { defaultValue: 'option 1' },
+  args: {
+    defaultValue: 'option 1',
+    size: 'base',
+    variant: 'normal', 
+    color: 'red',
+  },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

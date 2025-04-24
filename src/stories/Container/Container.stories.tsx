@@ -25,27 +25,27 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'green',
         'custom',
       ],
-      defaultValue: 'transparent',
+      defaultValue: { summary: 'transparent' },
     },
     layout: {
       control: { type: 'inline-radio' },
       options: ['flex', 'default'],
-      defaultValue: 'default',
+      defaultValue: { summary: 'default' },
     },
     width: {
       control: { type: 'select' },
       options: ['xs', 'sm', 'base', 'lg', 'xl', 'full'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     padding: {
       control: { type: 'select' },
       options: ['none', '2xs', 'xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     gap: {
       control: { type: 'select' },
       options: ['none', '2xs', 'xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
   },
   args: {

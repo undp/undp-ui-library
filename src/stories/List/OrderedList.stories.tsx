@@ -12,7 +12,6 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'Components/Lists/Ordered',
   component: Ol,
   tags: ['autodocs'],
-  args: {},
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

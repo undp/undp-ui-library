@@ -9,12 +9,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'UI/SDG Border',
   component: SdgBorder,
   tags: ['autodocs'],
-  argTypes: {
-    barClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-  },
+  argTypes: { barClassName: { control: { type: 'text' } } },
   args: { sdgList: undefined },
   render: ({ ...args }, { globals: { theme, direction, language } }) => (
     <div

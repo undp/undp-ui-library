@@ -27,7 +27,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         '8xl',
         '9xl',
       ],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
   },
   args: { size: 'base' },

@@ -13,11 +13,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     variant: {
       control: { type: 'inline-radio' },
       options: ['blue', 'white'],
-      defaultValue: 'blue',
+      defaultValue: { summary: 'blue' },
     },
     width: {
       control: { type: 'number' },
-      defaultValue: 60,
+      defaultValue: { summary: 60 },
     },
   },
   args: {

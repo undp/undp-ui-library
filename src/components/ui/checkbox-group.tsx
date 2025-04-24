@@ -106,7 +106,7 @@ interface CheckboxGroupItemProps
 }
 
 const CheckboxGroupItem = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentRef<typeof CheckboxPrimitive.Root>,
   CheckboxGroupItemProps
 >(({ value, ...props }, ref) => {
   const {

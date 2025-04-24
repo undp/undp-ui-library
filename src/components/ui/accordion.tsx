@@ -67,7 +67,7 @@ type AccordionProps = React.ComponentPropsWithoutRef<
   VariantProps<typeof accordionVariants>;
 
 const Accordion = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Root>,
+  React.ComponentRef<typeof AccordionPrimitive.Root>,
   AccordionProps
 >(({ variant, children, ...props }, ref) => {
   return (
@@ -82,7 +82,7 @@ const Accordion = React.forwardRef<
 Accordion.displayName = AccordionPrimitive.Root.displayName;
 
 const AccordionItem = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Item>,
+  React.ComponentRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => {
   const context = React.useContext(AccordionContext);
@@ -102,7 +102,7 @@ const AccordionItem = React.forwardRef<
 AccordionItem.displayName = 'AccordionItem';
 
 const AccordionTrigger = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Trigger>,
+  React.ComponentRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => {
   const context = React.useContext(AccordionContext);
@@ -134,7 +134,7 @@ const AccordionTrigger = React.forwardRef<
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
 const AccordionContent = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Content>,
+  React.ComponentRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => {
   const context = React.useContext(AccordionContext);

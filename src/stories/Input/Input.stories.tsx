@@ -10,20 +10,21 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Input,
   tags: ['autodocs'],
   argTypes: {
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
     inputSize: {
       control: { type: 'inline-radio' },
       options: ['sm', 'base'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     variant: {
       control: { type: 'inline-radio' },
       options: ['light', 'normal'],
-      defaultValue: 'normal',
+      defaultValue: { summary: 'normal' },
     },
+  },
+  args: { 
+    inputSize: 'base',
+    variant: 'normal',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (

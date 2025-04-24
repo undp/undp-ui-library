@@ -20,7 +20,7 @@ const buttonVariants = cva(
           'bg-primary-gray-300 text-primary-gray-700 dark:bg-primary-gray-600 dark:text-primary-white red-arrow hover:bg-primary-gray-400 dark:hover:bg-primary-gray-550',
         link: 'text-primary-gray-700 dark:text-primary-white red-arrow button-arrow',
         'link-without-icon':
-          'text-primary-gray-700 dark:text-primary-white hover:text-accent-dark-red dark:hover:text-accent-red',
+          'text-primary-gray-700 dark:text-primary-white dark:hover:text-primary-gray-500 hover:text-primary-gray-500',
         outline:
           'bg-transparent text-primary-black dark:text-primary-white border-2 border-primary-gray-700 dark:border-primary-gray-100',
         icon: 'bg-transparent dark:text-primary-gray-100 text-primary-gray-700 dark:hover:text-primary-gray-500 hover:text-primary-gray-500',

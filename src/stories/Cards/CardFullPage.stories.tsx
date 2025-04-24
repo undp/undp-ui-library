@@ -23,11 +23,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     imageWidth: {
       control: { type: 'select' },
       options: ['zero', 'xs', 'sm', 'base', 'lg', 'xl'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     border: {
       control: { type: 'boolean' },
-      defaultValue: true,
+      defaultValue: { summary: true },
     },
   },
   args: {

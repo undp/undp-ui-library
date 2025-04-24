@@ -13,9 +13,8 @@ interface LanguageSwitcherProps {
     label: string;
     id: string;
   }[];
-  defaultValue?: string;
+  defaultValue: string;
   value?: string;
-  placeHolder?: string;
   onValueChange?: (_d: string) => void;
 }
 
@@ -26,12 +25,11 @@ function LanguageSwitcher(props: LanguageSwitcherProps) {
     value,
     onValueChange,
     defaultValue,
-    placeHolder ,
   } = props;
   return (
     <LanguageSelect onValueChange={onValueChange} value={value} defaultValue={defaultValue}>
       <LanguageSelectTrigger>
-        <LanguageSelectValue placeholder={placeHolder || 'Select language'} />
+        <LanguageSelectValue />
       </LanguageSelectTrigger>
       <LanguageSelectContent>
         {

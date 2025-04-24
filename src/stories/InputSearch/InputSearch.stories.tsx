@@ -10,23 +10,17 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Search,
   tags: ['autodocs'],
   argTypes: {
-    inputClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    buttonClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    inputClassName: { control: { type: 'text' } },
+    buttonClassName: { control: { type: 'text' } },
     inputSize: {
       control: { type: 'inline-radio' },
       options: ['sm', 'base'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     inputVariant: {
       control: { type: 'inline-radio' },
       options: ['light', 'normal'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     buttonVariant: {
       control: { type: 'inline-radio' },
@@ -34,19 +28,21 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'tertiary',
         'icon',
       ],
-      defaultValue: 'secondary-without-icon',
+      defaultValue: { summary: 'icon' },
     },
     searchOnlyOnClick: {
       control: { type: 'boolean' },
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
     showSearchButton: {
       control: { type: 'boolean' },
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
   },
   args: {
     buttonVariant: 'icon',
+    inputVariant: 'normal',
+    inputSize: 'base',
     searchOnlyOnClick: false,
     showSearchButton: true,
   },

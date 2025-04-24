@@ -18,47 +18,32 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
     min: {
       control: { type: 'number' },
-      defaultValue: 1,
+      defaultValue: { summary: 1 },
     },
     max: {
       control: { type: 'number' },
-      defaultValue: 100,
+      defaultValue: { summary: 100 },
     },
     step: {
       control: { type: 'number' },
-      defaultValue: 1,
+      defaultValue: { summary: 1 },
     },
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    trackClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    sliderClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    railClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    handleClassName: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
+    trackClassName: { control: { type: 'text' } },
+    sliderClassName: { control: { type: 'text' } },
+    railClassName: { control: { type: 'text' } },
+    handleClassName: { control: { type: 'text' } },
     showHandleValue: {
       control: { type: 'boolean' },
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
     disabled: {
       control: { type: 'boolean' },
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
     range: {
       control: { type: 'boolean' },
-      defaultValue: false,
+      defaultValue: { summary: false },
     },
   },
   args: {
@@ -66,6 +51,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     max: 100,
     step: 1,
     showHandleValue: false,
+    disabled: false,
     range: false,
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {

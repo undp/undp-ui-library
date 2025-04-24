@@ -13,22 +13,19 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     size: {
       control: { type: 'select' },
       options: ['xs', 'sm', 'base', 'base-responsive', 'lg', 'xl'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base-responsive' },
     },
     leading: {
       control: { type: 'select' },
       options: ['none', 'xs', 'sm', 'base', 'lg', 'xl'],
-      defaultValue: 'primary',
+      defaultValue: { summary: 'base' },
     },
     marginBottom: {
       control: { type: 'select' },
       options: ['none', '3xs', '2xs', 'xs', 'sm', 'base', 'lg', 'xl'],
-      defaultValue: 'primary',
+      defaultValue: { summary: 'base' },
     },
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
   },
   args: {
     size: 'base-responsive',

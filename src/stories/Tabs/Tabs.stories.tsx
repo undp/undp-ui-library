@@ -14,14 +14,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: 'red',
+      defaultValue: { summary: 'red' },
     },
-    defaultValue: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    defaultValue: { control: { type: 'text' } },
   },
-  args: { defaultValue: 'tab 1' },
+  args: { defaultValue: 'tab 1', color: 'red' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div

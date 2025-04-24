@@ -21,7 +21,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     variant: {
       control: { type: 'inline-radio' },
       options: ['with-image', 'without-image'],
-      defaultValue: 'with-image',
+      defaultValue: { summary: 'with-image' },
     },
     backgroundColor: {
       control: { type: 'select' },
@@ -38,16 +38,16 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'green',
         'custom',
       ],
-      defaultValue: 'white',
+      defaultValue: { summary: 'white' },
     },
     size: {
       control: { type: 'select' },
       options: ['xs', 'sm', 'base', 'lg', 'xl', 'full'],
-      defaultValue: 'full',
+      defaultValue: { summary: 'full' },
     },
     border: {
       control: { type: 'boolean' },
-      defaultValue: true,
+      defaultValue: { summary: true },
     },
   },
   args: {

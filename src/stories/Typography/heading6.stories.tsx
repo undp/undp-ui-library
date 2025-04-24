@@ -22,12 +22,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'lg',
         'xl',
       ],
-      defaultValue: 'primary',
+      defaultValue: { summary: 'base-responsive' },
     },
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
   },
   args: { marginBottom: 'base-responsive' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => (

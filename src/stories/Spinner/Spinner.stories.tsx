@@ -14,19 +14,20 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: 'red',
+      defaultValue: { summary: 'red' },
     },
     size: {
       control: { type: 'select' },
       options: ['sm', 'base', 'lg'],
-      defaultValue: 'base',
+      defaultValue: { summary: 'base' },
     },
     show: {
       control: { type: 'boolean' },
-      defaultValue: true,
+      defaultValue: { summary: true },
     },
   },
   args: {
+    variant: 'red',
     size: 'base',
     show: true,
   },

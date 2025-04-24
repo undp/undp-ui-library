@@ -21,18 +21,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   tags: ['autodocs'],
   args: { defaultValue: 'chart 1' },
   argTypes: {
-    defaultValue: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    activeItemClass: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
-    hoverItemClass: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    defaultValue: { control: { type: 'text' } },
+    activeItemClass: { control: { type: 'text' } },
+    hoverItemClass: { control: { type: 'text' } },
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => (
     <div

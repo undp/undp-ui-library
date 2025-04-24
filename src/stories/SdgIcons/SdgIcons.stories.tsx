@@ -31,15 +31,14 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         '16',
         '17',
       ],
-      defaultValue: '1',
     },
     size: {
       control: { type: 'number' },
-      defaultValue: 100,
+      defaultValue: { summary: 100 },
     },
     background: {
       control: { type: 'boolean' },
-      defaultValue: true,
+      defaultValue: { summary: true },
     },
   },
   args: {

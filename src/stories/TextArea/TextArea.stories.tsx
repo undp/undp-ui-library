@@ -10,16 +10,14 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Textarea,
   tags: ['autodocs'],
   argTypes: {
-    className: {
-      control: { type: 'text' },
-      defaultValue: '',
-    },
+    className: { control: { type: 'text' } },
     variant: {
       control: { type: 'inline-radio' },
       options: ['light', 'normal'],
-      defaultValue: 'normal',
+      defaultValue: { summary: 'normal' },
     },
   },
+  args: { variant: 'normal' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => (
     <div
       dir={direction}
