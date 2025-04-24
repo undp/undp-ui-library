@@ -19,7 +19,7 @@ const LanguageSelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex h-9 flex gap-2 rtl:[direction:rtl] items-center text-primary-blue-600 dark:text-primary-white uppercase font-semibold text-sm justify-between whitespace-nowrap bg-transparent p-0 shadow-sm data-[placeholder]:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+      'cursor-pointer flex h-9 flex gap-2 rtl:[direction:rtl] items-center text-primary-blue-600 hover:text-primary-blue-400 dark:text-primary-white dark:hover:text-primary-white uppercase font-semibold text-sm justify-between whitespace-nowrap bg-transparent p-0 shadow-sm data-[placeholder]:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
       '[&[data-state=open]>.lucide-chevron-down]:rotate-180',
       className,
     )}
@@ -28,7 +28,7 @@ const LanguageSelectTrigger = React.forwardRef<
     <LanguageSwitcherIcon />
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className='h-6 w-6' />
+      <ChevronDown className='h-6 w-6 transition-transform duration-200' />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));

@@ -22,7 +22,7 @@ const buttonVariants = cva(
         'link-without-icon':
           'text-primary-gray-700 dark:text-primary-white dark:hover:text-primary-gray-500 hover:text-primary-gray-500',
         outline:
-          'bg-transparent text-primary-black dark:text-primary-white border-2 border-primary-gray-700 dark:border-primary-gray-100 dark:hover:text-primary-gray-500 hover:text-primary-gray-500',
+          'bg-transparent text-primary-black dark:text-primary-white border-2 border-primary-gray-700 dark:border-primary-gray-100 dark:hover:bg-primary-gray-550 hover:bg-primary-gray-300',
         icon: 'bg-transparent dark:text-primary-gray-100 text-primary-gray-700 dark:hover:text-primary-gray-500 hover:text-primary-gray-500',
       },
       size: {

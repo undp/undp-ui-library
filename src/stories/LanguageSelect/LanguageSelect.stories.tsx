@@ -16,11 +16,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         id: 'en',
       },
       {
-        label: 'French',
+        label: 'Français',
         id: 'fr',
       },
       {
-        label: 'Spanish',
+        label: 'Español',
         id: 'es',
       },
     ],
