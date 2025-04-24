@@ -1,28 +1,27 @@
 import React from 'react';
 import { VariantProps, cva } from 'class-variance-authority';
-import { Loader2 } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
 const loaderVariants = cva(
-  'animate-spin text-primary-gray-700 dark:text-primary-white',
+  'animate-spin border-[5px] rounded-full inline-block box-border',
   {
     variants: {
       variant: {
-        red: 'stroke-accent-dark-red dark:stroke-accent-red!',
-        blue: 'stroke-primary-blue-600 dark:stroke-primary-blue-500!',
-        black: 'stroke-primary-gray-600 dark:stroke-primary-gray-200!',
-        custom: 'stroke-custom-color-600',
+        red: 'border-accent-dark-red dark:border-accent-red border-b-primary-gray-300 dark:border-b-primary-gray-550',
+        blue: 'border-primary-blue-600 dark:border-primary-blue-500 border-b-primary-gray-300 dark:border-b-primary-gray-550',
+        black: 'border-primary-gray-600 dark:border-primary-gray-200 border-b-primary-gray-300 dark:border-b-primary-gray-550',
+        custom: 'border-custom-color-600 border-b-primary-gray-300 dark:border-b-primary-gray-550',
       },
       size: {
-        sm: 'size-6',
-        base: 'size-8',
-        lg: 'size-12',
+        sm: 'border-[2px] h-6 w-6',
+        base: 'border-[4px] h-8 w-8',
+        lg: 'border-[6px] h-12 w-12',
       },
     },
     defaultVariants: {
       size: 'base',
-      variant: 'red',
+      variant: 'blue',
     },
   },
 );
@@ -49,7 +48,9 @@ export function Spinner({
         show ? 'flex' : 'hidden',
       )}
     >
-      <Loader2 className={cn(loaderVariants({ size, variant }), className)} />
+      <div
+        className={cn(loaderVariants({ variant,size }), className)}
+      />
       {children}
     </span>
   );

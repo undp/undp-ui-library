@@ -84,25 +84,18 @@ export default {
     },
     keyframes: {
       'accordion-down': {
-        from: {
-          height: '0',
-        },
-        to: {
-          height: 'var(--radix-accordion-content-height)',
-        },
+        from: { height: '0' },
+        to: { height: 'var(--radix-accordion-content-height)' },
       },
       'accordion-up': {
-        from: {
-          height: 'var(--radix-accordion-content-height)',
-        },
-        to: {
-          height: '0',
-        },
+        from: { height: 'var(--radix-accordion-content-height)' },
+        to: { height: '0' },
       },
     },
     animation: {
       'accordion-down': 'accordion-down 0.2s ease-out',
       'accordion-up': 'accordion-up 0.2s ease-out',
+      spin: 'spin 1s linear infinite',
     },
     fontFamily: {
       sans: [
@@ -135,16 +128,12 @@ export default {
       ],
       mono: ['monospace'],
     },
-    boxShadow: {
-      header: '0 3px 6px rgb(0 0 0 / 10%)',
-    },
+    boxShadow: { header: '0 3px 6px rgb(0 0 0 / 10%)' },
     height: {
       header: '7.1875rem',
       inherit: 'inherit',
     },
-    lineHeight: {
-      0: '0',
-    },
+    lineHeight: { 0: '0' },
     textAlign: ['rtl'],
   },
   safelist: [
@@ -2840,7 +2829,5 @@ export default {
     'dark:bg-transparent',
   ],
   plugins: [require('tailwindcss-animate')],
-  corePlugins: {
-    preflight: false, // Disables Tailwind's Preflight
-  },
+  corePlugins: { preflight: false },
 };

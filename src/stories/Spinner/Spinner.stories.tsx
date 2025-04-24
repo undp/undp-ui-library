@@ -13,8 +13,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     variant: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: { summary: 'red' },
+      options: ['blue', 'black', 'custom'],
+      defaultValue: { summary: 'blue' },
     },
     size: {
       control: { type: 'select' },
@@ -27,7 +27,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {
-    variant: 'red',
+    variant: 'blue',
     size: 'base',
     show: true,
   },
