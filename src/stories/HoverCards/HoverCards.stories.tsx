@@ -19,9 +19,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <HoverCard openDelay={0}>
           <HoverCardTrigger>Hover here</HoverCardTrigger>
-          <HoverCardContent>
-            This is docs for UNDP design system
-          </HoverCardContent>
+          <HoverCardContent>This is docs for UNDP design system</HoverCardContent>
         </HoverCard>
       </div>
     );

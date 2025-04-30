@@ -25,25 +25,22 @@ interface OptionType {
   label: string | number;
 }
 
-const selectVariants = cva(
-  'text-sm! rounded-none! bg-primary-white! dark:bg-primary-gray-650!',
-  {
-    variants: {
-      variant: {
-        light: 'border! border-primary-gray-400! dark:border-primary-gray-500!',
-        normal: 'border-2! border-primary-black! dark:border-primary-gray-300!',
-      },
-      size: {
-        sm: 'p-0! min-h-[40px]!',
-        base: 'min-h-[48px]! px-0! py-0.5!',
-      },
+const selectVariants = cva('text-sm! rounded-none! bg-primary-white! dark:bg-primary-gray-650!', {
+  variants: {
+    variant: {
+      light: 'border! border-primary-gray-400! dark:border-primary-gray-500!',
+      normal: 'border-2! border-primary-black! dark:border-primary-gray-300!',
     },
-    defaultVariants: {
-      variant: 'normal',
-      size: 'base',
+    size: {
+      sm: 'p-0! min-h-[40px]!',
+      base: 'min-h-[48px]! px-0! py-0.5!',
     },
   },
-);
+  defaultVariants: {
+    variant: 'normal',
+    size: 'base',
+  },
+});
 
 interface SelectPropsDataType {
   truncateLabel?: boolean;
@@ -97,9 +94,7 @@ interface SelectPropsDataType {
   closeMenuOnSelect?: boolean;
   captureMenuScroll?: boolean;
   escapeClearsValue?: boolean;
-  filterOption?:
-    | ((option: FilterOptionOption<OptionType>, inputValue: string) => boolean)
-    | null;
+  filterOption?: ((option: FilterOptionOption<OptionType>, inputValue: string) => boolean) | null;
   loadingMessage?: () => string | null;
   noOptionsMessage?: () => string | null;
   getOptionLabel?: GetOptionLabel<OptionType> | undefined;
@@ -151,10 +146,8 @@ function DropdownSelect({
       placeholder={placeholder || 'Select...'}
       classNames={{
         control: () => cn(selectVariants({ variant, size }), className),
-        singleValue: () =>
-          'text-primary-black dark:text-primary-white text-base',
-        placeholder: () =>
-          'text-primary-gray-550 dark:text-primary-400 text-base',
+        singleValue: () => 'text-primary-black dark:text-primary-white text-base',
+        placeholder: () => 'text-primary-gray-550 dark:text-primary-400 text-base',
         groupHeading: () => 'font-bold',
         input: () => 'text-base',
         multiValue: () =>
@@ -163,10 +156,9 @@ function DropdownSelect({
           `!px-1.5 !py-1 text-sm text-primary-black dark:text-primary-white ${
             truncateLabel ? ' max-w-[72px] truncate' : ''
           }`,
-        multiValueRemove: () =>
-          'hover:bg-primary-gray-400 dark:[&_svg]:stroke-primary-white!',
+        multiValueRemove: () => 'hover:bg-primary-gray-400 dark:[&_svg]:stroke-primary-white!',
         valueContainer: () => 'px-1',
-         
+
         option: (state: any) =>
           `${'p-0 text-sm hover:bg-primary-blue-100 dark:hover:bg-primary-blue-400 hover:font-bold hover:text-primary-black'}${
             state.isSelected

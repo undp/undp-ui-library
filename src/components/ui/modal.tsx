@@ -83,10 +83,7 @@ function Modal(props: ModalProps) {
               </DialogTitle>
             )}
             {description && (
-              <DialogDescription
-                className={descriptionClassName}
-                id={descriptionId}
-              >
+              <DialogDescription className={descriptionClassName} id={descriptionId}>
                 {description}
               </DialogDescription>
             )}
@@ -95,9 +92,7 @@ function Modal(props: ModalProps) {
 
         {children}
 
-        {footer && (
-          <DialogFooter className={footerClassName}>{footer}</DialogFooter>
-        )}
+        {footer && <DialogFooter className={footerClassName}>{footer}</DialogFooter>}
       </DialogContent>
     </Dialog>
   );

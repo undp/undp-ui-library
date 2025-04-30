@@ -11,9 +11,7 @@ import {
   VisualizationWidgetBodyContent,
 } from '@/index';
 
-type PagePropsAndCustomArgs = React.ComponentProps<
-  typeof VisualizationWidgetHeader
->;
+type PagePropsAndCustomArgs = React.ComponentProps<typeof VisualizationWidgetHeader>;
 
 const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'UI/Visualization Widget',

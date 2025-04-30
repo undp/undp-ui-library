@@ -1,8 +1,8 @@
-import { StarIcon } from "lucide-react";
+import { StarIcon } from 'lucide-react';
 
 import './index.css';
 
-import { SegmentedControl } from "./components/ui/segmentedControl";
+import { SegmentedControl } from './components/ui/segmentedControl';
 
 function App() {
   return (

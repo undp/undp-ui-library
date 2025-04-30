@@ -17,9 +17,7 @@ function Header({ className, children, ...props }: HeaderProps) {
         className,
       )}
     >
-      <div className='max-w-full flex py-0 px-6 gap-4 justify-between items-center'>
-        {children}
-      </div>
+      <div className='max-w-full flex py-0 px-6 gap-4 justify-between items-center'>{children}</div>
     </header>
   );
 }
@@ -70,27 +68,17 @@ interface HeaderMainNavUnitProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
 }
 
-function HeaderMainNavUnit({
-  className,
-  children,
-  ...props
-}: HeaderMainNavUnitProps) {
+function HeaderMainNavUnit({ className, children, ...props }: HeaderMainNavUnitProps) {
   const [showMenu, setShowMenu] = React.useState(false);
   return (
     <>
       <div
         {...props}
-        className={cn(
-          'grow justify-between gap-8 hidden text-sm uppercase md:flex',
-          className,
-        )}
+        className={cn('grow justify-between gap-8 hidden text-sm uppercase md:flex', className)}
       >
         {children}
       </div>
-      <div
-        {...props}
-        className={cn('grow justify-end gap-8 flex md:hidden', className)}
-      >
+      <div {...props} className={cn('grow justify-end gap-8 flex md:hidden', className)}>
         <button
           type='button'
           onClick={() => {
@@ -118,11 +106,7 @@ interface HeaderMenuUnitProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
 }
 
-function HeaderMenuUnit({
-  className,
-  children,
-  ...props
-}: HeaderMenuUnitProps) {
+function HeaderMenuUnit({ className, children, ...props }: HeaderMenuUnitProps) {
   return (
     <div
       {...props}
@@ -145,20 +129,11 @@ function HeaderActions({ className, children, ...props }: HeaderActionsProps) {
   return (
     <div
       {...props}
-      className={cn(
-        'flex mt-6 md:mt-0 md:justify-center gap-8 items-center',
-        className,
-      )}
+      className={cn('flex mt-6 md:mt-0 md:justify-center gap-8 items-center', className)}
     >
       {children}
     </div>
   );
 }
 
-export {
-  Header,
-  HeaderLogoUnit,
-  HeaderMenuUnit,
-  HeaderActions,
-  HeaderMainNavUnit,
-};
+export { Header, HeaderLogoUnit, HeaderMenuUnit, HeaderActions, HeaderMainNavUnit };

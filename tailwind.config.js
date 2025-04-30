@@ -98,13 +98,7 @@ export default {
       spin: 'spin 1s linear infinite',
     },
     fontFamily: {
-      sans: [
-        'ProximaNova',
-        'proxima-nova',
-        'Helvetica Neue',
-        'Roboto',
-        'sans-serif',
-      ],
+      sans: ['ProximaNova', 'proxima-nova', 'Helvetica Neue', 'Roboto', 'sans-serif'],
       'sans-ar': ['Noto Sans Arabic', 'sans-serif'],
       'sans-az': ['Noto Sans', 'sans-serif'],
       'sans-bn': ['UN Bangla', 'sans-serif'],

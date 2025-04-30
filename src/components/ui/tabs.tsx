@@ -30,17 +30,10 @@ const Tabs = React.forwardRef<
     color: 'blue' | 'red' | 'black' | 'custom' | undefined;
   }
 >(({ color, className, ...props }, ref) => {
-  const contextValue = React.useMemo(
-    () => ({ color }),
-    [color],
-  );
+  const contextValue = React.useMemo(() => ({ color }), [color]);
   return (
     <TabContext.Provider value={contextValue}>
-      <TabsPrimitive.Root
-        className={cn('rtl:[direction:rtl]', className)}
-        {...props}
-        ref={ref}
-      />
+      <TabsPrimitive.Root className={cn('rtl:[direction:rtl]', className)} {...props} ref={ref} />
     </TabContext.Provider>
   );
 });
@@ -67,11 +60,7 @@ const TabsTrigger = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { color } = React.useContext(TabContext);
   return (
-    <TabsPrimitive.Trigger
-      {...props}
-      ref={ref}
-      className={cn(tabVariants({ color }), className)}
-    />
+    <TabsPrimitive.Trigger {...props} ref={ref} className={cn(tabVariants({ color }), className)} />
   );
 });
 

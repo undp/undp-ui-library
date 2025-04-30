@@ -64,9 +64,7 @@ const RadioGroup = React.forwardRef<
     color?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
     variant?: 'light' | 'normal' | null | undefined;
   }
->(({
-  className, color, variant, ...props 
-}, ref) => {
+>(({ className, color, variant, ...props }, ref) => {
   const contextValue = React.useMemo(
     () => ({
       color,
@@ -78,10 +76,7 @@ const RadioGroup = React.forwardRef<
     <RadioGroupContext.Provider value={contextValue}>
       <RadioGroupPrimitive.Root
         {...props}
-        className={cn(
-          'flex gap-x-4 gap-y-2 flex-row flex-wrap rtl:[direction:rtl]',
-          className,
-        )}
+        className={cn('flex gap-x-4 gap-y-2 flex-row flex-wrap rtl:[direction:rtl]', className)}
         ref={ref}
       />
     </RadioGroupContext.Provider>
@@ -96,9 +91,7 @@ const RadioGroupItem = React.forwardRef<
     radioClassName?: string;
     labelClassName?: string;
   }
->(({
-  className, radioClassName, labelClassName, label, ...props 
-}, ref) => {
+>(({ className, radioClassName, labelClassName, label, ...props }, ref) => {
   const id = props.id || generateRandomId();
   const { color, variant } = React.useContext(RadioGroupContext);
   return (

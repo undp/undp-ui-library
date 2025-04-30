@@ -1,17 +1,17 @@
-import React from "react";
-import * as SelectPrimitive from "@radix-ui/react-select";
-import { Check, ChevronDown } from "lucide-react";
- 
-import { LanguageSwitcherIcon } from "../../icons/icons";
+import React from 'react';
+import * as SelectPrimitive from '@radix-ui/react-select';
+import { Check, ChevronDown } from 'lucide-react';
 
-import { cn } from "@/lib/utils";
- 
+import { LanguageSwitcherIcon } from '../../icons/icons';
+
+import { cn } from '@/lib/utils';
+
 const LanguageSelect = SelectPrimitive.Root;
- 
+
 const LanguageSelectGroup = SelectPrimitive.Group;
- 
+
 const LanguageSelectValue = SelectPrimitive.Value;
- 
+
 const LanguageSelectTrigger = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
@@ -33,20 +33,18 @@ const LanguageSelectTrigger = React.forwardRef<
   </SelectPrimitive.Trigger>
 ));
 LanguageSelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
- 
+
 const LanguageSelectContent = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({
-  className, children, position = "popper", ...props 
-}, ref) => (
+>(({ className, children, position = 'popper', ...props }, ref) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "relative z-50 max-h-[--radix-select-content-available-height] min-w-[8rem] overflow-y-auto overflow-x-hidden rounded-md border bg-primary-white dark:bg-primary-gray-650 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-select-content-transform-origin]",
-        position === "popper" &&
-          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+        'relative z-50 max-h-[--radix-select-content-available-height] min-w-[8rem] overflow-y-auto overflow-x-hidden rounded-md border bg-primary-white dark:bg-primary-gray-650 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-select-content-transform-origin]',
+        position === 'popper' &&
+          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
         className,
       )}
       position={position}
@@ -54,8 +52,8 @@ const LanguageSelectContent = React.forwardRef<
     >
       <SelectPrimitive.Viewport
         className={cn(
-          position === "popper" &&
-            "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]",
+          position === 'popper' &&
+            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
         )}
       >
         {children}
@@ -64,7 +62,7 @@ const LanguageSelectContent = React.forwardRef<
   </SelectPrimitive.Portal>
 ));
 LanguageSelectContent.displayName = SelectPrimitive.Content.displayName;
- 
+
 const LanguageSelectItem = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
@@ -72,7 +70,7 @@ const LanguageSelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-default select-none items-center py-3 px-4 text-sm uppercase font-semibold outline-none border-b border-primary-gray-400 [&:last-of-type]:border-b-0 dark:border-primary-gray-550 focus:bg-primary-gray-400 dark:focus:bg-primary-gray-550  data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      'relative flex w-full cursor-default select-none items-center py-3 px-4 text-sm uppercase font-semibold outline-none border-b border-primary-gray-400 [&:last-of-type]:border-b-0 dark:border-primary-gray-550 focus:bg-primary-gray-400 dark:focus:bg-primary-gray-550  data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className,
     )}
     {...props}
@@ -86,7 +84,7 @@ const LanguageSelectItem = React.forwardRef<
   </SelectPrimitive.Item>
 ));
 LanguageSelectItem.displayName = SelectPrimitive.Item.displayName;
- 
+
 export {
   LanguageSelect,
   LanguageSelectGroup,

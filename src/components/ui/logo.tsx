@@ -12,30 +12,15 @@ function UNDPLogo(props: Props) {
   switch (variant) {
     case 'blue':
       return (
-        <img
-          width={`${width || 60}px`}
-          src={UndpLogoBlue}
-          alt='UNDP Logo'
-          className={className}
-        />
+        <img width={`${width || 60}px`} src={UndpLogoBlue} alt='UNDP Logo' className={className} />
       );
     case 'white':
       return (
-        <img
-          width={`${width || 60}px`}
-          src={UndpLogoWhite}
-          alt='UNDP Logo'
-          className={className}
-        />
+        <img width={`${width || 60}px`} src={UndpLogoWhite} alt='UNDP Logo' className={className} />
       );
     default:
       return (
-        <img
-          width={`${width || 60}px`}
-          src={UndpLogoBlue}
-          alt='UNDP Logo'
-          className={className}
-        />
+        <img width={`${width || 60}px`} src={UndpLogoBlue} alt='UNDP Logo' className={className} />
       );
   }
 }

@@ -34,12 +34,7 @@ function FileUpload({ onFileChange, children, ...props }: Props) {
 
   return (
     <>
-      <div
-        className={cn(
-          'flex flex-col items-center gap-4 mb-2.5 w-full',
-          props.className,
-        )}
-      >
+      <div className={cn('flex flex-col items-center gap-4 mb-2.5 w-full', props.className)}>
         <input
           {...props}
           id={idForHtml}
@@ -73,11 +68,7 @@ function FileUpload({ onFileChange, children, ...props }: Props) {
                 <span className='truncate text-primary-gray-500 dark:text-primary-gray-400 text-base'>
                   {file.name}
                 </span>
-                <Button
-                  variant='icon'
-                  padding='none'
-                  onClick={() => handleRemoveFile(index)}
-                >
+                <Button variant='icon' padding='none' onClick={() => handleRemoveFile(index)}>
                   <Trash2 className='w-4 h-4 stroke-accent-red' />
                 </Button>
               </Badge>

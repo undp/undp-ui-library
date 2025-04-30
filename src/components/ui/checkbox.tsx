@@ -78,29 +78,20 @@ const Checkbox = React.forwardRef<
         <CheckboxPrimitive.Root
           {...props}
           ref={ref}
-          className={cn(
-            checkBoxVariants({ color, variant }),
-            checkBoxClassName,
-          )}
+          className={cn(checkBoxVariants({ color, variant }), checkBoxClassName)}
           id={id}
         >
           <CheckboxPrimitive.Indicator
             className={cn('flex items-center justify-center text-current')}
           >
             <Check
-              className={cn(
-                checkVariants({ color, variant }),
-                checkIconClassName,
-              )}
+              className={cn(checkVariants({ color, variant }), checkIconClassName)}
               strokeWidth={variant === 'light' ? 2 : 4}
             />
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
         {label ? (
-          <Label
-            className={cn('mt-0.5 text-base!', labelClassName)}
-            htmlFor={id}
-          >
+          <Label className={cn('mt-0.5 text-base!', labelClassName)} htmlFor={id}>
             {label}
           </Label>
         ) : null}

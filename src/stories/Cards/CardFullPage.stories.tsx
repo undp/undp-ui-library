@@ -50,14 +50,15 @@ const meta: Meta<PagePropsAndCustomArgs> = {
               <PageWideCardHeader>
                 <PageWideCardTitle>Card Title</PageWideCardTitle>
                 <PageWideCardDescription>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  blandit augue eu sagittis facilisis. Class aptent taciti
-                  sociosqu ad litora torquent per conubia nostra, per inceptos
-                  himenaeos.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu
+                  sagittis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia
+                  nostra, per inceptos himenaeos.
                 </PageWideCardDescription>
               </PageWideCardHeader>
               <PageWideCardFooter>
-                <Button variant='link' padding='none'>Read more</Button>
+                <Button variant='link' padding='none'>
+                  Read more
+                </Button>
               </PageWideCardFooter>
             </PageWideCardContent>
             <PagWideCardImage

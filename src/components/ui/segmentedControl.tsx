@@ -27,20 +27,17 @@ const segmentedButtonVariants = cva(
   },
 );
 
-const buttonSelectedVariants = cva(
-  'bg-primary-white dark:bg-primary-gray-550 shadow-xs',
-  {
-    variants: {
-      color: {
-        blue: 'text-primary-blue-600 dark:text-primary-white',
-        red: 'text-accent-dark-red dark:text-primary-white',
-        black: 'text-primary-gray-700 dark:text-primary-white',
-        custom: 'text-custom-color-600 dark:text-primary-white',
-      },
+const buttonSelectedVariants = cva('bg-primary-white dark:bg-primary-gray-550 shadow-xs', {
+  variants: {
+    color: {
+      blue: 'text-primary-blue-600 dark:text-primary-white',
+      red: 'text-accent-dark-red dark:text-primary-white',
+      black: 'text-primary-gray-700 dark:text-primary-white',
+      custom: 'text-custom-color-600 dark:text-primary-white',
     },
-    defaultVariants: { color: 'red' },
   },
-);
+  defaultVariants: { color: 'red' },
+});
 
 const buttonUnselectedVariants = cva(
   'text-primary-black dark:text-primary-gray-200 hover:bg-primary-gray-400 dark:hover:bg-primary-gray-650',

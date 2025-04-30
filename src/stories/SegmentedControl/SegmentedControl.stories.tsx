@@ -32,7 +32,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   args: {
     defaultValue: 'option 1',
     size: 'base',
-    variant: 'normal', 
+    variant: 'normal',
     color: 'red',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {

@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -30,14 +30,14 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UNDP-Data/undp-ui-library.git"
+    "url": "git+https://github.com/undp/undp-ui-library.git"
   },
   "author": "United Nations Development Programme",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/UNDP-Data/undp-ui-library/issues"
+    "url": "https://github.com/undp/undp-ui-library/issues"
   },
-  "homepage": "https://kind-river-0135cff03.4.azurestaticapps.net/",
+  "homepage": "https://react.design.undp.org/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

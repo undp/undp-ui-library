@@ -25,11 +25,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         }`}
       >
         <Header>
-          <HeaderLogoUnit
-            siteName='Data Futures Exchange'
-            siteSubName='UNDP'
-            hyperlink='./'
-          />
+          <HeaderLogoUnit siteName='Data Futures Exchange' siteSubName='UNDP' hyperlink='./' />
           <HeaderMainNavUnit>
             <HeaderMenuUnit>
               <div>Nav 1</div>

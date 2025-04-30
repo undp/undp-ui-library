@@ -12,16 +12,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   argTypes: {
     marginBottom: {
       control: { type: 'select' },
-      options: [
-        'none',
-        '2xs',
-        'xs',
-        'sm',
-        'base-responsive',
-        'base',
-        'lg',
-        'xl',
-      ],
+      options: ['none', '2xs', 'xs', 'sm', 'base-responsive', 'base', 'lg', 'xl'],
       defaultValue: { summary: 'base-responsive' },
     },
     className: { control: { type: 'text' } },

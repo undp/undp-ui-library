@@ -17,11 +17,8 @@ const inputVariants = cva(
 );
 const Textarea = React.forwardRef<
   HTMLTextAreaElement,
-  React.TextareaHTMLAttributes<HTMLTextAreaElement> &
-    VariantProps<typeof inputVariants>
->(({
-  className, variant, placeholder, ...props 
-}, ref) => {
+  React.TextareaHTMLAttributes<HTMLTextAreaElement> & VariantProps<typeof inputVariants>
+>(({ className, variant, placeholder, ...props }, ref) => {
   return (
     <textarea
       {...props}

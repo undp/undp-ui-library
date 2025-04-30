@@ -8,8 +8,7 @@ const sidebarVariants = cva('w-full sm:w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5', {
     variant: {
       noEffect: '',
       background: 'bg-primary-gray-100 dark:bg-primary-gray-650',
-      border:
-        'border-r border-r-primary-gray-300 dark:border-r-primary-gray-600',
+      border: 'border-r border-r-primary-gray-300 dark:border-r-primary-gray-600',
     },
   },
   defaultVariants: { variant: 'background' },
@@ -28,12 +27,12 @@ const SidebarContext = React.createContext<{
   activeItemClass?: string;
   hoverItemClass?: string;
   onValueChange: (value: string) => void;
-    }>({
-      selectedValue: undefined,
-      hoverItemClass: undefined,
-      activeItemClass: undefined,
-      onValueChange: () => {},
-    });
+}>({
+  selectedValue: undefined,
+  hoverItemClass: undefined,
+  activeItemClass: undefined,
+  onValueChange: () => {},
+});
 
 const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   (
@@ -50,9 +49,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     ref,
   ) => {
     // Internal state for uncontrolled usage
-    const [selectedValue, setSelectedValue] = React.useState<string>(
-      defaultValue || '',
-    );
+    const [selectedValue, setSelectedValue] = React.useState<string>(defaultValue || '');
 
     // Handler for checkbox changes
     const handleValueChange = React.useCallback(
@@ -78,11 +75,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
 
     return (
       <SidebarContext.Provider value={contextValue}>
-        <div
-          className={cn(sidebarVariants({ variant }), className)}
-          ref={ref}
-          {...props}
-        >
+        <div className={cn(sidebarVariants({ variant }), className)} ref={ref} {...props}>
           {children}
         </div>
       </SidebarContext.Provider>
@@ -96,12 +89,8 @@ interface SidebarItemProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const SidebarItem = React.forwardRef<HTMLDivElement, SidebarItemProps>(
-  ({
-    className, children, value, ...props 
-  }, ref) => {
-    const {
-      selectedValue, activeItemClass, hoverItemClass, onValueChange, 
-    } =
+  ({ className, children, value, ...props }, ref) => {
+    const { selectedValue, activeItemClass, hoverItemClass, onValueChange } =
       React.useContext(SidebarContext);
     return (
       <div
@@ -110,8 +99,7 @@ const SidebarItem = React.forwardRef<HTMLDivElement, SidebarItemProps>(
         className={cn(
           'text-primary-black dark:text-primary-white text-base bg-transparent p-4 flex gap-2 items-center cursor-pointer',
           selectedValue === value
-            ? activeItemClass ||
-                'bg-primary-gray-300 font-bold dark:bg-primary-gray-600'
+            ? activeItemClass || 'bg-primary-gray-300 font-bold dark:bg-primary-gray-600'
             : '',
           hoverItemClass
             ? `hover:${hoverItemClass} dark:hover:${hoverItemClass}`

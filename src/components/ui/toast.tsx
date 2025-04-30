@@ -58,8 +58,7 @@ const toastTitleVariants = cva('', {
 
 const Toast = React.forwardRef<
   React.ComponentRef<typeof ToastPrimitives.Root>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
-    VariantProps<typeof toastVariants>
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> & VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => {
   return (
     <ToastContext.Provider value={{ variant }}>
@@ -120,25 +119,13 @@ const ToastTitle = React.forwardRef<
   let icon: React.ReactNode = null;
   switch (context?.variant) {
     case 'destructive':
-      icon = (
-        <CircleX className='h-4 w-4 stroke-accent-dark-red' strokeWidth={2} />
-      );
+      icon = <CircleX className='h-4 w-4 stroke-accent-dark-red' strokeWidth={2} />;
       break;
     case 'success':
-      icon = (
-        <CircleCheckBig
-          className='h-4 w-4 stroke-accent-dark-green'
-          strokeWidth={2}
-        />
-      );
+      icon = <CircleCheckBig className='h-4 w-4 stroke-accent-dark-green' strokeWidth={2} />;
       break;
     case 'warning':
-      icon = (
-        <TriangleAlert
-          className='h-4 w-4 stroke-accent-dark-yellow'
-          strokeWidth={2}
-        />
-      );
+      icon = <TriangleAlert className='h-4 w-4 stroke-accent-dark-yellow' strokeWidth={2} />;
       break;
     default:
       icon = null;

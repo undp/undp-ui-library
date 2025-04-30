@@ -39,7 +39,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
           onValueChange={d => {
             // eslint-disable-next-line no-console
             console.log('Change:', d);
-          }} 
+          }}
         />
       </div>
     );

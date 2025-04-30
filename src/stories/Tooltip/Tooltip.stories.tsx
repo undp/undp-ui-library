@@ -1,14 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-  TooltipProvider,
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  Button,
-  P,
-} from '@/index';
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent, Button, P } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Tooltip>;
 

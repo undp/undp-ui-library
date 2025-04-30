@@ -15,27 +15,25 @@ function PaginationUnit({ className, ...props }: React.ComponentProps<'nav'>) {
 }
 PaginationUnit.displayName = 'PaginationUnit';
 
-const PaginationContent = React.forwardRef<
-  HTMLUListElement,
-  React.ComponentProps<'ul'>
->(({ className, ...props }, ref) => (
-  <ul
-    {...props}
-    ref={ref}
-    className={cn('flex flex-row items-center gap-1 list-none', className)}
-  />
-));
+const PaginationContent = React.forwardRef<HTMLUListElement, React.ComponentProps<'ul'>>(
+  ({ className, ...props }, ref) => (
+    <ul
+      {...props}
+      ref={ref}
+      className={cn('flex flex-row items-center gap-1 list-none', className)}
+    />
+  ),
+);
 PaginationContent.displayName = 'PaginationContent';
 
-const PaginationItem = React.forwardRef<
-  HTMLLIElement,
-  React.ComponentProps<'li'>
->(({ className, ...props }, ref) => (
-  <li {...props} ref={ref} className={cn('mr-2 last:mr-0', className)} />
-));
+const PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<'li'>>(
+  ({ className, ...props }, ref) => (
+    <li {...props} ref={ref} className={cn('mr-2 last:mr-0', className)} />
+  ),
+);
 PaginationItem.displayName = 'PaginationItem';
 
-function PaginationLink({   
+function PaginationLink({
   className,
   children,
   ...props
@@ -55,10 +53,7 @@ function PaginationLink({
 }
 PaginationLink.displayName = 'PaginationLink';
 
-function PaginationPrevious({
-  className,
-  ...props
-}: React.ComponentProps<typeof PaginationLink>) {
+function PaginationPrevious({ className, ...props }: React.ComponentProps<typeof PaginationLink>) {
   return (
     <PaginationLink
       {...props}
@@ -74,10 +69,7 @@ function PaginationPrevious({
 }
 PaginationPrevious.displayName = 'PaginationPrevious';
 
-function PaginationNext({
-  className,
-  ...props
-}: React.ComponentProps<typeof PaginationLink>) {
+function PaginationNext({ className, ...props }: React.ComponentProps<typeof PaginationLink>) {
   return (
     <PaginationLink
       {...props}
@@ -93,10 +85,7 @@ function PaginationNext({
 }
 PaginationNext.displayName = 'PaginationNext';
 
-function PaginationEllipsis({
-  className,
-  ...props
-}: React.ComponentProps<'span'>) {
+function PaginationEllipsis({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       {...props}

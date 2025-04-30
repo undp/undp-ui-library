@@ -25,7 +25,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     checkBoxClassName: { control: { type: 'text' } },
     checkIconClassName: { control: { type: 'text' } },
   },
-  args: { 
+  args: {
     label: 'Checkbox',
     color: 'red',
     variant: 'normal',

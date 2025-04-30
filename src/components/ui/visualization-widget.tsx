@@ -2,23 +2,22 @@ import React from 'react';
 
 import { cn } from '@/lib/utils';
 
-const VisualizationWidget = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }, ref) => {
-  return (
-    <div
-      className={cn(
-        'border border-primary-gray-300 dark:border-primary-gray-600 w-full',
-        className,
-      )}
-      ref={ref}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-});
+const VisualizationWidget = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, children, ...props }, ref) => {
+    return (
+      <div
+        className={cn(
+          'border border-primary-gray-300 dark:border-primary-gray-600 w-full',
+          className,
+        )}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  },
+);
 VisualizationWidget.displayName = 'VisualizationWidget';
 
 const VisualizationWidgetHeaderContext = React.createContext<{
@@ -26,12 +25,12 @@ const VisualizationWidgetHeaderContext = React.createContext<{
   activeItemClass?: string;
   hoverItemClass?: string;
   onValueChange: (value: string) => void;
-    }>({
-      selectedValue: undefined,
-      hoverItemClass: undefined,
-      activeItemClass: undefined,
-      onValueChange: () => {},
-    });
+}>({
+  selectedValue: undefined,
+  hoverItemClass: undefined,
+  activeItemClass: undefined,
+  onValueChange: () => {},
+});
 
 interface VisualizationWidgetHeaderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -41,25 +40,12 @@ interface VisualizationWidgetHeaderProps
   onChange?: (value: string) => void;
 }
 
-const VisualizationWidgetHeader = React.forwardRef<
-  HTMLDivElement,
-  VisualizationWidgetHeaderProps
->(
+const VisualizationWidgetHeader = React.forwardRef<HTMLDivElement, VisualizationWidgetHeaderProps>(
   (
-    {
-      className,
-      children,
-      defaultValue,
-      activeItemClass,
-      hoverItemClass,
-      onChange,
-      ...props
-    },
+    { className, children, defaultValue, activeItemClass, hoverItemClass, onChange, ...props },
     ref,
   ) => {
-    const [selectedValue, setSelectedValue] = React.useState<string>(
-      defaultValue || '',
-    );
+    const [selectedValue, setSelectedValue] = React.useState<string>(defaultValue || '');
 
     // Handler for checkbox changes
     const handleValueChange = React.useCallback(
@@ -98,21 +84,17 @@ const VisualizationWidgetHeader = React.forwardRef<
 );
 VisualizationWidgetHeader.displayName = 'VisualizationWidgetHeader';
 
-interface VisualizationWidgetHeaderItemProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface VisualizationWidgetHeaderItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   value: string;
 }
 
 const VisualizationWidgetHeaderItem = React.forwardRef<
   HTMLButtonElement,
   VisualizationWidgetHeaderItemProps
->(({
-  className, children, value, ...props 
-}, ref) => {
-  const {
-    selectedValue, activeItemClass, hoverItemClass, onValueChange, 
-  } =
-    React.useContext(VisualizationWidgetHeaderContext);
+>(({ className, children, value, ...props }, ref) => {
+  const { selectedValue, activeItemClass, hoverItemClass, onValueChange } = React.useContext(
+    VisualizationWidgetHeaderContext,
+  );
   return (
     <button
       ref={ref}
@@ -122,8 +104,7 @@ const VisualizationWidgetHeaderItem = React.forwardRef<
       className={cn(
         'flex border-0 flex-col grow gap-1 items-center justify-center p-3 font-medium bg-primary-gray-100 dark:bg-primary-gray-650 text-primary-gray-500 dark:text-primary-white text-sm font-medium border-r border-r-primary-gray-400 dark:border-r-primary-gray-550 last:border-r-0',
         selectedValue === value
-          ? activeItemClass ||
-              'bg-primary-white text-primary-blue-600 dark:bg-primary-gray-700'
+          ? activeItemClass || 'bg-primary-white text-primary-blue-600 dark:bg-primary-gray-700'
           : '',
         hoverItemClass
           ? `hover:${hoverItemClass} dark:hover:${hoverItemClass}`

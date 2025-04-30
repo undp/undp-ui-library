@@ -73,13 +73,15 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             ) : null}
             <CardTitle>Card title</CardTitle>
             <CardDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              blandit augue eu sagittis facilisis. Class aptent taciti sociosqu
-              ad litora torquent per conubia nostra, per inceptos himenaeos.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu
+              sagittis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia
+              nostra, per inceptos himenaeos.
             </CardDescription>
           </CardHeader>
           <CardFooter>
-            <Button variant='link' padding='none'>Read more</Button>
+            <Button variant='link' padding='none'>
+              Read more
+            </Button>
           </CardFooter>
         </Card>
       </div>

@@ -29,12 +29,7 @@ interface FooterLogoUnitProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
 }
 
-function FooterLogoUnit({
-  className,
-  link,
-  children,
-  ...props
-}: FooterLogoUnitProps) {
+function FooterLogoUnit({ className, link, children, ...props }: FooterLogoUnitProps) {
   return (
     <div
       {...props}
@@ -67,11 +62,7 @@ interface FooterMainNavUnitProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
 }
 
-function FooterMainNavUnit({
-  className,
-  children,
-  ...props
-}: FooterMainNavUnitProps) {
+function FooterMainNavUnit({ className, children, ...props }: FooterMainNavUnitProps) {
   return (
     <div {...props} className={className}>
       {children}
@@ -84,22 +75,10 @@ interface FooterCopyrightUnitProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
 }
 
-function FooterCopyrightUnit({
-  className,
-  children,
-  ...props
-}: FooterCopyrightUnitProps) {
+function FooterCopyrightUnit({ className, children, ...props }: FooterCopyrightUnitProps) {
   return (
-    <div
-      {...props}
-      className={cn(
-        'flex justify-between flex-wrap items-center mt-6',
-        className,
-      )}
-    >
-      <P className='m-0 md:m-0 py-0 px-0 text-base'>
-        © United Nations Development Programme
-      </P>
+    <div {...props} className={cn('flex justify-between flex-wrap items-center mt-6', className)}>
+      <P className='m-0 md:m-0 py-0 px-0 text-base'>© United Nations Development Programme</P>
       <div>{children}</div>
     </div>
   );

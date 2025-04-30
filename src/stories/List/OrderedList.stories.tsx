@@ -1,10 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Ol,
-  Li,
-} from '@/index';
+import { Ol, Li } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Ol>;
 

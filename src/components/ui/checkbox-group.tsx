@@ -5,8 +5,7 @@ import { Checkbox } from './checkbox';
 
 import { cn } from '@/lib/utils';
 
-interface CheckboxGroupProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange'> {
+interface CheckboxGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange'> {
   defaultValue?: string[];
   value?: string[];
   onValueChange?: (value: string[]) => void;
@@ -20,31 +19,17 @@ const CheckboxGroupContext = React.createContext<{
   onValueChange: (value: string, checked: boolean) => void;
   color?: 'blue' | 'red' | 'black' | 'custom' | undefined;
   variant?: 'light' | 'normal' | undefined;
-    }>({
-      selectedValues: [],
-      onValueChange: () => {},
-      color: undefined,
-      variant: undefined,
-    });
+}>({
+  selectedValues: [],
+  onValueChange: () => {},
+  color: undefined,
+  variant: undefined,
+});
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
-  (
-    {
-      className,
-      children,
-      value,
-      variant,
-      color,
-      onValueChange,
-      defaultValue,
-      ...props
-    },
-    ref,
-  ) => {
+  ({ className, children, value, variant, color, onValueChange, defaultValue, ...props }, ref) => {
     // Internal state for uncontrolled usage
-    const [internalValue, setInternalValue] = React.useState<string[]>(
-      defaultValue || [],
-    );
+    const [internalValue, setInternalValue] = React.useState<string[]>(defaultValue || []);
 
     // Use either controlled or uncontrolled value
     const selectedValues = value !== undefined ? value : internalValue;
@@ -94,10 +79,7 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
 CheckboxGroup.displayName = 'CheckboxGroup';
 
 interface CheckboxGroupItemProps
-  extends Omit<
-    React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
-    'value'
-  > {
+  extends Omit<React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>, 'value'> {
   label?: string;
   labelClassName?: string;
   checkBoxClassName?: string;
@@ -109,10 +91,7 @@ const CheckboxGroupItem = React.forwardRef<
   React.ComponentRef<typeof CheckboxPrimitive.Root>,
   CheckboxGroupItemProps
 >(({ value, ...props }, ref) => {
-  const {
-    selectedValues, onValueChange, color, variant, 
-  } =
-    React.useContext(CheckboxGroupContext);
+  const { selectedValues, onValueChange, color, variant } = React.useContext(CheckboxGroupContext);
 
   return (
     <Checkbox

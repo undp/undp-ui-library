@@ -10,8 +10,7 @@ const buttonVariants = cva(
       variant: {
         primary:
           'bg-accent-dark-red text-primary-white button-arrow black-arrow hover:bg-accent-red',
-        'primary-without-icon':
-          'bg-accent-dark-red text-primary-white hover:bg-accent-red',
+        'primary-without-icon': 'bg-accent-dark-red text-primary-white hover:bg-accent-red',
         secondary:
           'bg-primary-blue-600 text-primary-white button-arrow white-arrow hover:bg-primary-blue-400',
         'secondary-without-icon':
@@ -50,9 +49,7 @@ interface ButtonProps
     VariantProps<typeof buttonVariants> {}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({
-    className, variant, size, padding, ...props 
-  }, ref) => {
+  ({ className, variant, size, padding, ...props }, ref) => {
     const Comp = 'button';
     return (
       <Comp

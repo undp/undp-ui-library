@@ -28,13 +28,7 @@ const Spacer = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof spacerVariants>
 >(({ className, size, ...props }, ref) => {
-  return (
-    <div
-      {...props}
-      className={cn(spacerVariants({ size }), className)}
-      ref={ref}
-    />
-  );
+  return <div {...props} className={cn(spacerVariants({ size }), className)} ref={ref} />;
 });
 Spacer.displayName = 'Spacer';
 

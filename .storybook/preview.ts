@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
-import '../src/index.css'; 
-import '../src/fonts.css'; 
+import '../src/index.css';
+import '../src/fonts.css';
 
 const preview: Preview = {
   parameters: {
@@ -47,7 +47,7 @@ const preview: Preview = {
         title: 'Language',
         icon: 'globe',
         // Array of plain string values or MenuItem shape (see below)
-        
+
         items: [
           { value: 'en', title: 'English' },
           { value: 'ar', title: 'Arabic' },

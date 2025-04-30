@@ -88,8 +88,7 @@ export const ConfigurableToast: Story = {
   tags: ['autodocs'],
   args: {
     title: 'Custom Notification',
-    description:
-      'This toast message can be configured through Storybook controls.',
+    description: 'This toast message can be configured through Storybook controls.',
     variant: 'default',
     duration: 5000,
   },

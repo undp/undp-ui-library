@@ -22,7 +22,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: { summary: 'normal' },
     },
   },
-  args: { 
+  args: {
     inputSize: 'base',
     variant: 'normal',
   },

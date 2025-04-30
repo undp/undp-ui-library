@@ -24,10 +24,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
     buttonVariant: {
       control: { type: 'inline-radio' },
-      options: [
-        'tertiary',
-        'icon',
-      ],
+      options: ['tertiary', 'icon'],
       defaultValue: { summary: 'icon' },
     },
     searchOnlyOnClick: {

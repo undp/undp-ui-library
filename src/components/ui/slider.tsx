@@ -70,8 +70,7 @@ function SliderUI(sliderProps: SliderProps) {
                     left: node.props.style?.left,
                     position: 'absolute',
                     textAlign: 'center',
-                    transform:
-                      'translateX(-50%) translateY(calc(-100% - 12px))',
+                    transform: 'translateX(-50%) translateY(calc(-100% - 12px))',
                   }}
                 >
                   {handleProps.value}
@@ -86,10 +85,7 @@ function SliderUI(sliderProps: SliderProps) {
           sliderClassName,
         )}
         classNames={{
-          rail: cn(
-            'bg-primary-gray-300! h-1 dark:bg-primary-gray-550!',
-            railClassName,
-          ),
+          rail: cn('bg-primary-gray-300! h-1 dark:bg-primary-gray-550!', railClassName),
           track: cn(trackVariants({ variant }), trackClassName),
           handle: cn(handleVariants({ variant }), handleClassName),
         }}

@@ -14,8 +14,7 @@ const accordionVariants = cva('', {
         'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary-gray-700 dark:text-primary-white mb-0 px-4 py-1 border-b border-b-primary-gray-400 dark:border-b-primary-gray-550 last:border-b-0',
       tertiary:
         'bg-transparent text-primary-gray-700 dark:text-primary-white mb-0 py-2 px-0 border-b border-b-primary-gray-400 dark:border-b-primary-gray-500',
-      quaternary:
-        'bg-transparent text-primary-gray-700 dark:text-primary-white mb-0 py-0 px-0',
+      quaternary: 'bg-transparent text-primary-gray-700 dark:text-primary-white mb-0 py-0 px-0',
     },
   },
   defaultVariants: { variant: 'primary' },
@@ -52,18 +51,10 @@ const accordionContentVariants = cva(
 );
 
 const AccordionContext = React.createContext<{
-  variant:
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'quaternary'
-    | null
-    | undefined;
+  variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | null | undefined;
 } | null>(null);
 
-type AccordionProps = React.ComponentPropsWithoutRef<
-  typeof AccordionPrimitive.Root
-> &
+type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> &
   VariantProps<typeof accordionVariants>;
 
 const Accordion = React.forwardRef<
@@ -71,7 +62,6 @@ const Accordion = React.forwardRef<
   AccordionProps
 >(({ variant, children, ...props }, ref) => {
   return (
-     
     <AccordionContext.Provider value={{ variant }}>
       <AccordionPrimitive.Root ref={ref} {...props}>
         {children}
@@ -87,16 +77,9 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const context = React.useContext(AccordionContext);
 
-  const combinedClasses = cn(
-    accordionVariants({ variant: context?.variant }),
-    className,
-  );
+  const combinedClasses = cn(accordionVariants({ variant: context?.variant }), className);
   return (
-    <AccordionPrimitive.Item
-      {...props}
-      ref={ref}
-      className={cn(combinedClasses, className)}
-    />
+    <AccordionPrimitive.Item {...props} ref={ref} className={cn(combinedClasses, className)} />
   );
 });
 AccordionItem.displayName = 'AccordionItem';
@@ -111,10 +94,7 @@ const AccordionTrigger = React.forwardRef<
       <AccordionPrimitive.Trigger
         {...props}
         ref={ref}
-        className={cn(
-          accordionTitleVariants({ variant: context?.variant }),
-          className,
-        )}
+        className={cn(accordionTitleVariants({ variant: context?.variant }), className)}
       >
         {context?.variant === 'quaternary' ? (
           <>
@@ -142,10 +122,7 @@ const AccordionContent = React.forwardRef<
     <AccordionPrimitive.Content
       {...props}
       ref={ref}
-      className={cn(
-        accordionContentVariants({ variant: context?.variant }),
-        className,
-      )}
+      className={cn(accordionContentVariants({ variant: context?.variant }), className)}
     >
       <div className={className}>{children}</div>
     </AccordionPrimitive.Content>

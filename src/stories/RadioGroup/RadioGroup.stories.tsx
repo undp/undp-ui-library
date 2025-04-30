@@ -24,7 +24,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: { summary: 'normal' },
     },
   },
-  args: { 
+  args: {
     color: 'red',
     variant: 'normal',
   },

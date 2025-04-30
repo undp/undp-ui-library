@@ -6,10 +6,8 @@ import { cn } from '@/lib/utils';
 const containerVariants = cva('', {
   variants: {
     backgroundColor: {
-      transparent:
-        'bg-primary-transparent text-primary-black dark:text-primary-white',
-      white:
-        'bg-primary-white dark:bg-primary-gray-700 text-primary-black dark:text-primary-white',
+      transparent: 'bg-primary-transparent text-primary-black dark:text-primary-white',
+      white: 'bg-primary-white dark:bg-primary-gray-700 text-primary-black dark:text-primary-white',
       gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 text-primary-black dark:text-primary-white',
       'dark-gray':
         'bg-primary-gray-600 dark:bg-primary-gray-300 text-primary-white dark:text-primary-black',
@@ -69,27 +67,24 @@ const containerVariants = cva('', {
 const Container = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof containerVariants>
->(
-  (
-    {
-      className, backgroundColor, layout, width, padding, gap, ...props 
-    },
-    ref,
-  ) => {
-    return (
-      <div
-        {...props}
-        className={cn(
-          containerVariants({
-            backgroundColor, layout, width, padding, gap, 
-          }),
-          className,
-        )}
-        ref={ref}
-      />
-    );
-  },
-);
+>(({ className, backgroundColor, layout, width, padding, gap, ...props }, ref) => {
+  return (
+    <div
+      {...props}
+      className={cn(
+        containerVariants({
+          backgroundColor,
+          layout,
+          width,
+          padding,
+          gap,
+        }),
+        className,
+      )}
+      ref={ref}
+    />
+  );
+});
 Container.displayName = 'Container';
 
 export { Container };

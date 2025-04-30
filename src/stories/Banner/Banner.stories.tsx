@@ -1,14 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Banner,
-  BannerBody,
-  BannerBodySidebar,
-  BannerBodyContent,
-  H3,
-  P,
-} from '@/index';
+import { Banner, BannerBody, BannerBodySidebar, BannerBodyContent, H3, P } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Banner>;
 
@@ -77,10 +70,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             </BannerBodySidebar>
             <BannerBodyContent>
               <P>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                blandit augue eu sagittis facilisis. Class aptent taciti
-                sociosqu ad litora torquent per conubia nostra, per inceptos
-                himenaeos.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu
+                sagittis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia
+                nostra, per inceptos himenaeos.
               </P>
             </BannerBodyContent>
           </BannerBody>

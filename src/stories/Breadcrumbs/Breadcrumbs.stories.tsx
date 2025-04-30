@@ -32,9 +32,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href='/docs/components'>
-                Components
-              </BreadcrumbLink>
+              <BreadcrumbLink href='/docs/components'>Components</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbEllipsis />

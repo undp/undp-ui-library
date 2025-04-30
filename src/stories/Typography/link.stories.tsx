@@ -18,9 +18,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       }`}
     >
       <A {...args}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit
-        augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora
-        torquent per conubia nostra, per inceptos himenaeos.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu sagittis
+        facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+        himenaeos.
       </A>
     </div>
   ),

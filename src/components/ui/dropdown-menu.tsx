@@ -13,10 +13,7 @@ const DropdownMenuTrigger = React.forwardRef<
   <DropdownMenuPrimitive.Trigger
     {...props}
     ref={ref}
-    className={cn(
-      'focus:outline-hidden text-primary-black dark:text-primary-gray-100',
-      className,
-    )}
+    className={cn('focus:outline-hidden text-primary-black dark:text-primary-gray-100', className)}
   >
     {children}
   </DropdownMenuPrimitive.Trigger>
@@ -34,9 +31,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
     inset?: boolean;
   }
->(({
-  className, inset, children, ...props 
-}, ref) => (
+>(({ className, inset, children, ...props }, ref) => (
   <DropdownMenuPrimitive.SubTrigger
     {...props}
     ref={ref}
@@ -50,8 +45,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     <ChevronRight className='ml-auto' />
   </DropdownMenuPrimitive.SubTrigger>
 ));
-DropdownMenuSubTrigger.displayName =
-  DropdownMenuPrimitive.SubTrigger.displayName;
+DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
 
 const DropdownMenuSubContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.SubContent>,
@@ -66,8 +60,7 @@ const DropdownMenuSubContent = React.forwardRef<
     )}
   />
 ));
-DropdownMenuSubContent.displayName =
-  DropdownMenuPrimitive.SubContent.displayName;
+DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
 
 const DropdownMenuContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Content>,
@@ -131,10 +124,7 @@ const DropdownMenuSeparator = React.forwardRef<
   <DropdownMenuPrimitive.Separator
     {...props}
     ref={ref}
-    className={cn(
-      '-mx-1 my-1 h-px bg-primary-gray-400 dark:bg-primary-gray-500',
-      className,
-    )}
+    className={cn('-mx-1 my-1 h-px bg-primary-gray-400 dark:bg-primary-gray-500', className)}
   />
 ));
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;

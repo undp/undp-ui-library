@@ -6,10 +6,8 @@ import { cn } from '@/lib/utils';
 const bannerVariants = cva('', {
   variants: {
     backgroundColor: {
-      transparent:
-        'bg-primary-transparent text-primary-black dark:text-primary-white',
-      white:
-        'bg-primary-white dark:bg-primary-gray-700 text-primary-black dark:text-primary-white',
+      transparent: 'bg-primary-transparent text-primary-black dark:text-primary-white',
+      white: 'bg-primary-white dark:bg-primary-gray-700 text-primary-black dark:text-primary-white',
       gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 text-primary-black dark:text-primary-white',
       'dark-gray':
         'bg-primary-gray-600 dark:bg-primary-gray-300 text-primary-white dark:text-primary-black',
@@ -95,31 +93,9 @@ const BannerContext = React.createContext<{
     | 'custom'
     | null
     | undefined;
-  padding:
-    | 'none'
-    | '2xs'
-    | 'xs'
-    | 'sm'
-    | 'base'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | null
-    | undefined;
+  padding: 'none' | '2xs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | null | undefined;
   bodyMaxWidth: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full' | null | undefined;
-  bodyGap:
-    | 'none'
-    | '2xs'
-    | 'xs'
-    | 'sm'
-    | 'base'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | null
-    | undefined;
+  bodyGap: 'none' | '2xs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | null | undefined;
   sidebarWidth: 'sm' | 'base' | 'lg' | 'full' | null | undefined;
 } | null>(null);
 
@@ -129,93 +105,74 @@ const Banner = React.forwardRef<
     VariantProps<typeof bannerVariants> &
     VariantProps<typeof bodyVariants> &
     VariantProps<typeof sidebarVariants>
->(
-  (
-    {
-      className,
+>(({ className, backgroundColor, sidebarWidth, bodyGap, bodyMaxWidth, padding, ...props }, ref) => {
+  const contextValue = React.useMemo(
+    () => ({
       backgroundColor,
       sidebarWidth,
       bodyGap,
       bodyMaxWidth,
       padding,
-      ...props
-    },
-    ref,
-  ) => {
-    const contextValue = React.useMemo(
-      () => ({
-        backgroundColor,
-        sidebarWidth,
-        bodyGap,
-        bodyMaxWidth,
-        padding,
-      }),
-      [backgroundColor, sidebarWidth, bodyGap, bodyMaxWidth, padding],
-    );
+    }),
+    [backgroundColor, sidebarWidth, bodyGap, bodyMaxWidth, padding],
+  );
+  return (
+    <BannerContext.Provider value={contextValue}>
+      <div
+        {...props}
+        className={cn(
+          bannerVariants({
+            backgroundColor,
+            padding,
+          }),
+          className,
+        )}
+        ref={ref}
+      />
+    </BannerContext.Provider>
+  );
+});
+Banner.displayName = 'Banner';
+
+const BannerBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const context = React.useContext(BannerContext);
     return (
-      <BannerContext.Provider value={contextValue}>
-        <div
-          {...props}
-          className={cn(
-            bannerVariants({
-              backgroundColor,
-              padding,
-            }),
-            className,
-          )}
-          ref={ref}
-        />
-      </BannerContext.Provider>
+      <div
+        {...props}
+        className={cn(
+          bodyVariants({
+            bodyMaxWidth: context?.bodyMaxWidth,
+            bodyGap: context?.bodyGap,
+          }),
+          className,
+        )}
+        ref={ref}
+      />
     );
   },
 );
-Banner.displayName = 'Banner';
-
-const BannerBody = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const context = React.useContext(BannerContext);
-  return (
-    <div
-      {...props}
-      className={cn(
-        bodyVariants({
-          bodyMaxWidth: context?.bodyMaxWidth,
-          bodyGap: context?.bodyGap,
-        }),
-        className,
-      )}
-      ref={ref}
-    />
-  );
-});
 BannerBody.displayName = 'BannerBody';
 
-const BannerBodySidebar = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const context = React.useContext(BannerContext);
-  return (
-    <div
-      {...props}
-      className={cn(
-        sidebarVariants({ sidebarWidth: context?.sidebarWidth }),
-        className,
-      )}
-      ref={ref}
-    />
-  );
-});
+const BannerBodySidebar = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const context = React.useContext(BannerContext);
+    return (
+      <div
+        {...props}
+        className={cn(sidebarVariants({ sidebarWidth: context?.sidebarWidth }), className)}
+        ref={ref}
+      />
+    );
+  },
+);
 BannerBodySidebar.displayName = 'BannerBodySidebar';
 
-const BannerBodyContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  return <div {...props} className={cn('flex-1', className)} ref={ref} />;
-});
+const BannerBodyContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    return <div {...props} className={cn('flex-1', className)} ref={ref} />;
+  },
+);
 BannerBodyContent.displayName = 'BannerBodyContent';
 
 export { Banner, BannerBody, BannerBodySidebar, BannerBodyContent };

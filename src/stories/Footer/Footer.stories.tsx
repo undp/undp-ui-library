@@ -1,12 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Footer,
-  FooterLogoUnit,
-  FooterCopyrightUnit,
-  FooterMainNavUnit,
-} from '@/index';
+import { Footer, FooterLogoUnit, FooterCopyrightUnit, FooterMainNavUnit } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Footer>;
 

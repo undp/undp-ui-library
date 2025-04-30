@@ -51,13 +51,7 @@ function P({
   ...props
 }: ParagraphProps & VariantProps<typeof paragraphVariant>) {
   return (
-    <p
-      {...props}
-      className={cn(
-        paragraphVariant({ size, leading, marginBottom }),
-        className,
-      )}
-    >
+    <p {...props} className={cn(paragraphVariant({ size, leading, marginBottom }), className)}>
       {children}
     </p>
   );
@@ -96,10 +90,7 @@ function H1({
   ...props
 }: HeadingProps & VariantProps<typeof heading1Variant>) {
   return (
-    <h1
-      {...props}
-      className={cn(heading1Variant({ marginBottom, size }), className)}
-    >
+    <h1 {...props} className={cn(heading1Variant({ marginBottom, size }), className)}>
       {children}
     </h1>
   );

@@ -39,10 +39,14 @@ const thumbVariant = cva(
         normal: 'h-[22px] w-[22px] ',
       },
       showIconWithSize: {
-        yes_with_small: 'data-[state=checked]:translate-x-[8px] data-[state=checked]:rtl:translate-x-[-8px]',
-        no_with_small: 'data-[state=checked]:translate-x-[22px] data-[state=checked]:rtl:translate-x-[-22px]',
-        yes_with_normal: 'data-[state=checked]:translate-x-[12px] data-[state=checked]:rtl:translate-x-[-12px]',
-        no_with_normal: 'data-[state=checked]:translate-x-[32px] data-[state=checked]:rtl:translate-x-[-32px]',
+        yes_with_small:
+          'data-[state=checked]:translate-x-[8px] data-[state=checked]:rtl:translate-x-[-8px]',
+        no_with_small:
+          'data-[state=checked]:translate-x-[22px] data-[state=checked]:rtl:translate-x-[-22px]',
+        yes_with_normal:
+          'data-[state=checked]:translate-x-[12px] data-[state=checked]:rtl:translate-x-[-12px]',
+        no_with_normal:
+          'data-[state=checked]:translate-x-[32px] data-[state=checked]:rtl:translate-x-[-32px]',
       },
     },
     defaultVariants: { size: 'normal', showIconWithSize: 'no_with_normal' },
@@ -57,36 +61,68 @@ const Switch = React.forwardRef<
       showIcon?: boolean;
       values?: [string, string];
     }
->(({
-  className, showValue = false, showIcon = true, values = ['On', 'Off'], onCheckedChange, color, size = 'normal', ...props 
-}, ref) => {
-  const [value, setValue] = useState(props.defaultChecked || false);
-  return (
-    <div className='flex gap-2 items-center'>
-      <SwitchPrimitives.Root
-        {...props}
-        className={cn(switchVariants({ color, size }), className)}
-        ref={ref}
-        onCheckedChange={d => {
-          setValue(d);
-          onCheckedChange?.(d);
-        }}
-      >        
-        {
-          showIcon &&  value ?
-            <Check size={size === 'normal' ? 14 : 10} className={size === 'normal' ? 'ml-2 rtl:mr-2 rtl:ml-0 text-primary-white' : 'ml-1 rtl:mr-1 rtl:ml-0 text-primary-white'} /> : null
-        }
-        <SwitchPrimitives.Thumb className={cn(thumbVariant({ size, showIconWithSize: (showIcon ? `yes_with_${size as 'small' | 'normal'}` : `no_with_${size as 'small' | 'normal'}`) }))} />
-        {
-          showIcon &&  !value ?
-            <X size={size === 'normal' ? 14 : 10} className={size === 'normal' ? 'ml-3 rtl:mr-3 rtl:ml-0' : 'ml-2 rtl:mr-2 rtl:ml-0'} /> : null
-        }
-      </SwitchPrimitives.Root>
-      {
-        showValue ? <P size={'base'} marginBottom={'none'} leading={'none'}>{value ? values[0] : values[1]}</P> : null
-      }
-    </div>
-  );});
+>(
+  (
+    {
+      className,
+      showValue = false,
+      showIcon = true,
+      values = ['On', 'Off'],
+      onCheckedChange,
+      color,
+      size = 'normal',
+      ...props
+    },
+    ref,
+  ) => {
+    const [value, setValue] = useState(props.defaultChecked || false);
+    return (
+      <div className='flex gap-2 items-center'>
+        <SwitchPrimitives.Root
+          {...props}
+          className={cn(switchVariants({ color, size }), className)}
+          ref={ref}
+          onCheckedChange={d => {
+            setValue(d);
+            onCheckedChange?.(d);
+          }}
+        >
+          {showIcon && value ? (
+            <Check
+              size={size === 'normal' ? 14 : 10}
+              className={
+                size === 'normal'
+                  ? 'ml-2 rtl:mr-2 rtl:ml-0 text-primary-white'
+                  : 'ml-1 rtl:mr-1 rtl:ml-0 text-primary-white'
+              }
+            />
+          ) : null}
+          <SwitchPrimitives.Thumb
+            className={cn(
+              thumbVariant({
+                size,
+                showIconWithSize: showIcon
+                  ? `yes_with_${size as 'small' | 'normal'}`
+                  : `no_with_${size as 'small' | 'normal'}`,
+              }),
+            )}
+          />
+          {showIcon && !value ? (
+            <X
+              size={size === 'normal' ? 14 : 10}
+              className={size === 'normal' ? 'ml-3 rtl:mr-3 rtl:ml-0' : 'ml-2 rtl:mr-2 rtl:ml-0'}
+            />
+          ) : null}
+        </SwitchPrimitives.Root>
+        {showValue ? (
+          <P size='base' marginBottom='none' leading='none'>
+            {value ? values[0] : values[1]}
+          </P>
+        ) : null}
+      </div>
+    );
+  },
+);
 Switch.displayName = SwitchPrimitives.Root.displayName;
 
 export { Switch };

@@ -10,8 +10,7 @@ const cardVariants = cva('flex flex-col justify-between items-stretch', {
       'without-image': '[&_.card-tag]:pb-4',
     },
     backgroundColor: {
-      transparent:
-        'bg-primary-transparent text-primary-black dark:text-primary-white',
+      transparent: 'bg-primary-transparent text-primary-black dark:text-primary-white',
       white:
         'bg-primary-white dark:bg-primary-gray-700 hover:bg-primary-gray-200 dark:hover:bg-primary-gray-600 text-primary-black dark:text-primary-white',
       gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 hover:bg-primary-gray-400 dark:hover:bg-primary-gray-500 text-primary-black dark:text-primary-white',
@@ -27,8 +26,7 @@ const cardVariants = cva('flex flex-col justify-between items-stretch', {
       red: 'bg-accent-light-red hover:bg-accent-red dark:bg-accent-dark-red dark:hover:bg-accent-red text-primary-black dark:text-primary-white',
       green:
         'bg-accent-light-green hover:bg-accent-green dark:bg-accent-dark-green dark:hover:bg-accent-green text-primary-black dark:text-primary-white',
-      custom:
-        'bg-custom-color-200 hover:bg-custom-color-300 text-custom-foreground',
+      custom: 'bg-custom-color-200 hover:bg-custom-color-300 text-custom-foreground',
     },
     size: {
       xs: 'w-1/4',
@@ -53,16 +51,12 @@ export interface CardProps
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({
-    className, border, size, variant, backgroundColor, ...props 
-  }, ref) => (
+  ({ className, border, size, variant, backgroundColor, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
         cardVariants({ size, backgroundColor, variant }),
-        border === false
-          ? ''
-          : 'border-t-2 border-primary-black dark:border-primary-gray-100',
+        border === false ? '' : 'border-t-2 border-primary-black dark:border-primary-gray-100',
         className,
       )}
       {...props}
@@ -71,55 +65,52 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 );
 Card.displayName = 'Card';
 
-const CardHeader = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ ...props }, ref) => <div ref={ref} {...props} />,
-);
+const CardHeader = React.forwardRef<HTMLDivElement, CardProps>(({ ...props }, ref) => (
+  <div ref={ref} {...props} />
+));
 CardHeader.displayName = 'CardHeader';
 
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('pl-6 pr-6 pt-4 pb-6 flex flex-wrap gap-4', className)}
-    {...props}
-  />
-));
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('pl-6 pr-6 pt-4 pb-6 flex flex-wrap gap-4', className)}
+      {...props}
+    />
+  ),
+);
 CardFooter.displayName = 'CardFooter';
 
-const CardTag = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-xs font-bold leading-[1.15] uppercase',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </div>
-));
+const CardTag = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-xs font-bold leading-[1.15] uppercase',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  ),
+);
 CardTag.displayName = 'CardTag';
 
-const CardTitle = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'm-0 pl-6 pr-6 pt-4 pb-6 leading-[1.15] flex gap-2 font-normal text-[1.25rem] md:text-[1.563rem]',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </div>
-));
+const CardTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'm-0 pl-6 pr-6 pt-4 pb-6 leading-[1.15] flex gap-2 font-normal text-[1.25rem] md:text-[1.563rem]',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  ),
+);
 CardTitle.displayName = 'CardTitle';
 
 const CardDescription = React.forwardRef<
@@ -128,10 +119,7 @@ const CardDescription = React.forwardRef<
 >(({ children, className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      `pl-6 pr-6 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl`,
-      className,
-    )}
+    className={cn(`pl-6 pr-6 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl`, className)}
     {...props}
   >
     {children}
@@ -146,22 +134,9 @@ interface CardImageProps extends React.HTMLAttributes<HTMLImageElement> {
 
 const CardImage = React.forwardRef<HTMLImageElement, CardImageProps>(
   ({ className, ...props }, ref) => (
-    <img
-      ref={ref}
-      alt='card'
-      {...props}
-      className={cn('w-full h-64 object-cover', className)}
-    />
+    <img ref={ref} alt='card' {...props} className={cn('w-full h-64 object-cover', className)} />
   ),
 );
 CardImage.displayName = 'CardImage';
 
-export {
-  Card,
-  CardTag,
-  CardTitle,
-  CardDescription,
-  CardImage,
-  CardFooter,
-  CardHeader,
-};
+export { Card, CardTag, CardTitle, CardDescription, CardImage, CardFooter, CardHeader };

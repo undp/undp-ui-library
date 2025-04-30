@@ -1,15 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  Button,
-  Input,
-  H6,
-  P,
-} from '@/index';
+import { Popover, PopoverTrigger, PopoverContent, Button, Input, H6, P } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Popover>;
 

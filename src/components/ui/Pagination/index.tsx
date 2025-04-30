@@ -35,13 +35,7 @@ const getPageNumbers = (currentPageNo: number, totalPages: number) => {
   } else if (currentPageNo >= totalPages - 2) {
     pages.push('ellipsis', totalPages - 3, totalPages - 2, totalPages - 1);
   } else {
-    pages.push(
-      'ellipsis',
-      currentPageNo - 1,
-      currentPageNo,
-      currentPageNo + 1,
-      'ellipsis',
-    );
+    pages.push('ellipsis', currentPageNo - 1, currentPageNo, currentPageNo + 1, 'ellipsis');
   }
 
   // Always show last page
@@ -51,9 +45,7 @@ const getPageNumbers = (currentPageNo: number, totalPages: number) => {
 };
 
 function Pagination(props: PaginationProps) {
-  const {
-    defaultPage = 1, total, pageSize, onChange, className, 
-  } = props;
+  const { defaultPage = 1, total, pageSize, onChange, className } = props;
   const totalPages = Math.ceil(total / pageSize);
   const [currentPage, setCurrentPage] = useState(defaultPage);
   const [pageNumbers, setPageNumbers] = useState<(number | 'ellipsis')[]>(
@@ -76,8 +68,7 @@ function Pagination(props: PaginationProps) {
             }}
             className={cn(
               'cursor-pointer',
-              currentPage <= 1 &&
-                'cursor-not-allowed pointer-events-none opacity-35',
+              currentPage <= 1 && 'cursor-not-allowed pointer-events-none opacity-35',
             )}
           />
         </PaginationItem>
@@ -114,8 +105,7 @@ function Pagination(props: PaginationProps) {
             }}
             className={cn(
               'cursor-pointer',
-              currentPage >= totalPages &&
-                'cursor-not-allowed pointer-events-none opacity-35',
+              currentPage >= totalPages && 'cursor-not-allowed pointer-events-none opacity-35',
             )}
           />
         </PaginationItem>
