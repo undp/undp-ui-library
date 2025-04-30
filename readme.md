@@ -6,7 +6,7 @@ We also assumes that you have intermediate knowledge about HTML, CSS, and JavaSc
 
 __Note: The library uses react v19__
 
-Detailed documentation can be found [here](https://kind-river-0135cff03.4.azurestaticapps.net/).
+Detailed documentation can be found [here](https://react.design.undp.org/).
 
 ### Installation
 __Using npm__
@@ -21,7 +21,7 @@ yarn add @undp/design-system-react
 ```
 
 ### Import
-It is recommended to import what you need and the use it. For example, import the `HorizontalBarGraph` like this:
+It is recommended to import what you need and the use it. For example, import the `Checkbox` like this:
 ```
 import { Checkbox } from '@undp/design-system-react'
 ```
