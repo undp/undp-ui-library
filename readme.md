@@ -1,6 +1,8 @@
-# Getting Started
+# UNDP design system for react ![npm](https://img.shields.io/npm/v/@undp/design-system-react)
 
-UNDP design system react is the implementation of [UNDP design system](https://design.undp.org/) in React. Before starting, it is recommended to learn React first, and correctly install and configure Node.js v18 or above. 
+## Getting Started
+
+UNDP design system for react is the implementation of [UNDP design system](https://design.undp.org/) in React. Before starting, it is recommended to learn React first, and correctly install and configure Node.js v18 or above. 
 
 We also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript/TypeScript, and React. Starting out is straightforward.
 
