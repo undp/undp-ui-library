@@ -29,7 +29,11 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
           else setCursor('url(https://design.undp.org/static/media/arrow-left.14de54ea.svg)');
         }}
       >
-        <div ref={ref} className='flex gap-4 items-stretch' style={{ cursor: `${cursor}, auto` }}>
+        <div
+          ref={ref}
+          className='flex gap-4 items-stretch w-full'
+          style={{ cursor: `${cursor}, auto` }}
+        >
           {children}
         </div>
       </div>
@@ -41,12 +45,12 @@ Carousel.displayName = 'Carousel';
 const cardVariants = cva('shrink-0 min-w-[320px] snap-start', {
   variants: {
     size: {
-      xs: 'w-1/4',
-      sm: 'w-1/3',
-      base: 'w-1/2',
-      lg: 'w-2/3',
-      xl: 'w-[calc(100%-80px)]',
-      full: 'w-full',
+      xs: 'w-1/4 snap-start',
+      sm: 'w-1/3 snap-start',
+      base: 'w-1/2 snap-start',
+      lg: 'w-2/3 snap-start',
+      xl: 'w-[calc(100%-80px)] snap-start',
+      full: 'w-full snap-start',
     },
   },
   defaultVariants: { size: 'sm' },

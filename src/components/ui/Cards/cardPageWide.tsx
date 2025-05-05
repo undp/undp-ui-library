@@ -43,7 +43,7 @@ const PageWideCardContent = React.forwardRef<HTMLDivElement, CardProps>(
     <div
       ref={ref}
       {...props}
-      className={cn('card-content flex flex-col justify-between pl-4', className)}
+      className={cn('card-content flex flex-col justify-between pl-4 rtl:pl-0 rtl:pr-4', className)}
     />
   ),
 );
@@ -82,7 +82,7 @@ const PageWideCardTag = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'flex gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 pb-4 md:mb-0 text-xs font-bold leading-[1.15] text-primary-black dark:text-primary-white uppercase',
+      'flex gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 [dir-rtl]:pr-6 rtl:pl-6 pb-4 md:mb-0 text-xs font-bold leading-[1.15] text-primary-black dark:text-primary-white uppercase',
       className,
     )}
     {...props}
@@ -126,24 +126,24 @@ const PageWideCardDescription = React.forwardRef<
 ));
 PageWideCardDescription.displayName = 'PageWideCardDescription';
 
-interface PagWideCardImageProps extends React.HTMLAttributes<HTMLImageElement> {
+interface PageWideCardImageProps extends React.HTMLAttributes<HTMLImageElement> {
   src: string;
   alt?: string;
 }
 
-const PagWideCardImage = React.forwardRef<HTMLImageElement, PagWideCardImageProps>(
+const PageWideCardImage = React.forwardRef<HTMLImageElement, PageWideCardImageProps>(
   ({ className, ...props }, ref) => (
     <img ref={ref} alt='card' {...props} className={cn('card-img object-cover', className)} />
   ),
 );
-PagWideCardImage.displayName = 'PagWideCardImage';
+PageWideCardImage.displayName = 'PageWideCardImage';
 
 export {
   PageWideCard,
   PageWideCardTag,
   PageWideCardTitle,
   PageWideCardDescription,
-  PagWideCardImage,
+  PageWideCardImage,
   PageWideCardFooter,
   PageWideCardContent,
   PageWideCardContainer,

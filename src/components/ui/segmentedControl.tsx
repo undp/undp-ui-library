@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -57,6 +57,7 @@ const buttonUnselectedVariants = cva(
 interface Props {
   options: OptionDataType[];
   defaultValue?: string;
+  value?: string;
   onValueChange?: (d: string) => void;
   className?: string;
   buttonClassName?: string;
@@ -77,13 +78,18 @@ function SegmentedControl(props: Props) {
     size,
     variant,
     color,
+    value,
   } = props;
-  const [selected, setSelected] = useState(defaultValue || options[0].value);
+  const [selected, setSelected] = useState(value || defaultValue || options[0].value);
 
   const handleSelect = (value: string) => {
     setSelected(value);
     onValueChange?.(value);
   };
+
+  useEffect(() => {
+    setSelected(value || defaultValue || options[0].value);
+  }, [defaultValue, options, value]);
 
   return (
     <div className={cn(segmentedButtonVariants({ size, variant }), className)}>

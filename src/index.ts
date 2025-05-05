@@ -33,7 +33,7 @@ export {
   PageWideCardTag,
   PageWideCardTitle,
   PageWideCardDescription,
-  PagWideCardImage,
+  PageWideCardImage,
   PageWideCardFooter,
   PageWideCardContent,
   PageWideCardContainer,
@@ -99,6 +99,7 @@ export { Toaster } from '@/components/ui/toaster';
 export { useToast, toast } from '@/hooks/use-toast.ts';
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
 export { H1, H2, H3, H4, H5, H6, Cite, Code, Blockquote, P, A } from '@/components/ui/typography';
+export { VizCarousel } from '@/components/ui/vizCarousel';
 export {
   VisualizationWidget,
   VisualizationWidgetHeader,

@@ -683,6 +683,7 @@ export default {
     'min-w-48',
     'min-w-52',
     'min-w-56',
+    'min-w-80',
     'max-h-auto',
     'max-h-screen',
     'max-h-none',

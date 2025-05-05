@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -44,7 +44,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clean": "rimraf node_modules && rimraf dist && rimraf package-lock.json"
+    "clean": "rimraf node_modules && rimraf dist && rimraf package-lock.json",
+    "install:build": "npm install && tsc && vite build"
   },
   "keywords": [
     "UNDP",
