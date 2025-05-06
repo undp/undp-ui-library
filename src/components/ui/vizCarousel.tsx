@@ -23,11 +23,11 @@ const cardVariants = cva('flex box-border justify-between', {
 const vizContainerVariants = cva('flex box-border shrink-0', {
   variants: {
     vizWidth: {
-      xs: 'w-1/4 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2  min-w-80 grow pb-4',
-      sm: 'w-1/3 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2  min-w-80 grow pb-4',
-      base: 'w-1/2 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2  min-w-80 grow pb-4',
-      lg: 'w-2/3 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2  min-w-80 grow pb-4',
-      xl: 'w-3/4 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2  min-w-80 grow pb-4',
+      xs: 'w-1/4 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 grow pb-4',
+      sm: 'w-1/3 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 grow pb-4',
+      base: 'w-1/2 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 grow pb-4',
+      lg: 'w-2/3 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 grow pb-4',
+      xl: 'w-3/4 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 grow pb-4',
       full: 'w-full',
     },
   },
