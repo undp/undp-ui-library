@@ -2,18 +2,9 @@ import React, { ReactNode, useState } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
+import { P } from './typography';
 
-const VizCarouselContext = React.createContext<{
-  vizWidth?: 'xs' | 'sm' | 'base' | 'lg' | 'full' | 'xl' | null;
-  border?: boolean | null;
-  wrapperRef: React.RefObject<HTMLDivElement | null>;
-  vizHeight: string;
-}>({
-  vizWidth: 'base',
-  wrapperRef: { current: null },
-  vizHeight: 'auto',
-});
+import { cn } from '@/lib/utils';
 
 const cardVariants = cva('flex box-border justify-between', {
   variants: {
@@ -23,7 +14,7 @@ const cardVariants = cva('flex box-border justify-between', {
       base: 'w-1/2 flex-col pr-2 rtl:pl-2 gap-4 min-w-80 grow pb-4',
       lg: 'w-1/3 flex-col pr-2 rtl:pl-2 gap-4 min-w-80 grow pb-4',
       xl: 'w-1/4 flex-col pr-2 rtl:pl-2 gap-4 min-w-80 grow pb-4',
-      full: 'w-full shrink-0 items-start gap-8 mb-4',
+      full: 'w-full shrink-0 items-start gap-x-8 gap-y-4 mb-4 flex-wrap sm:flex-nowrap',
     },
   },
   defaultVariants: { vizWidth: 'base' },
@@ -51,74 +42,71 @@ interface CardProps
     content: ReactNode;
     viz: ReactNode;
   }[];
+  slideNo?: boolean;
 }
 
 const VizCarousel = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, vizWidth, slides, vizHeight = 'auto', ...props }) => {
+  ({ className, vizWidth, slides, vizHeight = 'auto', slideNo = true, ...props }) => {
     const WrapperRef = React.useRef<HTMLDivElement>(null);
     const [slide, setSlide] = useState(1);
-    const contextValue = React.useMemo(
-      () => ({
-        vizWidth,
-        vizHeight,
-        wrapperRef: WrapperRef,
-      }),
-      [vizWidth, vizHeight, WrapperRef],
-    );
     return (
-      <VizCarouselContext.Provider value={contextValue}>
-        <div
-          ref={WrapperRef}
-          className={cn(
-            'mr-auto ml-auto mb-0 undp-scrollbar w-full pb-4 gap-6 flex snap-x snap-mandatory scroll-p-0 scroll-pl-0 overflow-x-auto',
-            className,
-          )}
-          {...props}
-        >
-          <div className='w-full flex gap-6'>
-            {slides.map((d, i) => (
-              <div
-                key={i}
-                className={`flex box-border flex-wrap items-stretch w-full shrink-0 snap-start ${vizWidth === 'full' ? 'flex-col' : 'flex-row'}`}
-              >
-                <div className={cn(cardVariants({ vizWidth }))}>
-                  <div>{d.content}</div>
-                  <div className='flex gap-4'>
-                    <div
-                      className={`rounded-full p-1 rtl:rotate-180 ${slide === 1 ? 'bg-primary-gray-300 dark:bg-primary-gray-550 cursor-not-allowed' : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100'}`}
-                      onClick={() => {
-                        if (WrapperRef.current && slide !== 1) {
-                          setSlide(slide - 1);
-                          WrapperRef.current.scrollBy(-280, 0);
-                        }
-                      }}
-                    >
-                      <ChevronLeft className='w-6 h-6 text-primary-white dark:text-primary-gray-700' />
-                    </div>
-                    <div
-                      className={`rounded-full p-1 rtl:rotate-180 ${slide === slides.length ? 'bg-primary-gray-300 dark:bg-primary-gray-550 cursor-not-allowed' : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100'}`}
-                      onClick={() => {
-                        if (WrapperRef.current && slide !== slides.length) {
-                          setSlide(slide + 1);
-                          WrapperRef.current.scrollBy(280, 0);
-                        }
-                      }}
-                    >
-                      <ChevronRight className='w-6 h-6 text-primary-white dark:text-primary-gray-700' />
-                    </div>
+      <div
+        ref={WrapperRef}
+        className={cn(
+          'mr-auto ml-auto mb-0 undp-scrollbar w-full pb-4 gap-6 flex snap-x snap-mandatory scroll-p-0 scroll-pl-0 overflow-x-auto',
+          className,
+        )}
+        {...props}
+      >
+        <div className='w-full flex gap-6'>
+          {slides.map((d, i) => (
+            <div
+              key={i}
+              className={`flex box-border flex-wrap items-stretch w-full shrink-0 snap-start ${vizWidth === 'full' ? 'flex-col' : 'flex-row'}`}
+            >
+              <div className={cn(cardVariants({ vizWidth }))}>
+                <div className='min-w-80 grow sm:grow-0'>{d.content}</div>
+                <div className={`flex ${slideNo ? 'gap-2' : 'gap-3'} items-center shrink-0`}>
+                  <div
+                    className={`rounded-full pr-1 w-9 h-9 md:w-13 md:h-13 pt-0.5 rtl:rotate-180 ${slide === 1 ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed' : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100'}`}
+                    onClick={() => {
+                      if (WrapperRef.current && slide !== 1) {
+                        const parentWithDir = WrapperRef.current.closest('[dir]');
+                        const scrollBy = parentWithDir?.getAttribute('dir') === 'rtl' ? 280 : -280;
+                        setSlide(slide - 1);
+                        WrapperRef.current.scrollBy(scrollBy, 0);
+                      }
+                    }}
+                  >
+                    <ChevronLeft className='w-8 h-8 md:w-12 md:h-12 text-primary-white dark:text-primary-gray-700' />
+                  </div>
+                  {slideNo ? (
+                    <P marginBottom='none' className='px-2 shrink-0'>
+                      {slide} / {slides.length}
+                    </P>
+                  ) : null}
+                  <div
+                    className={`rounded-full pl-1 w-9 h-9 md:w-13 md:h-13 pt-0.5 rtl:rotate-180 ${slide === slides.length ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed' : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100'}`}
+                    onClick={() => {
+                      if (WrapperRef.current && slide !== slides.length) {
+                        const parentWithDir = WrapperRef.current.closest('[dir]');
+                        const scrollBy = parentWithDir?.getAttribute('dir') === 'rtl' ? -280 : 280;
+                        setSlide(slide + 1);
+                        WrapperRef.current.scrollBy(scrollBy, 0);
+                      }
+                    }}
+                  >
+                    <ChevronRight className='w-8 h-8 md:w-12 md:h-12 text-primary-white dark:text-primary-gray-700' />
                   </div>
                 </div>
-                <div
-                  style={{ height: vizHeight }}
-                  className={cn(vizContainerVariants({ vizWidth }))}
-                >
-                  {d.viz}
-                </div>
               </div>
-            ))}
-          </div>
+              <div style={{ height: vizHeight }} className={cn(vizContainerVariants({ vizWidth }))}>
+                {d.viz}
+              </div>
+            </div>
+          ))}
         </div>
-      </VizCarouselContext.Provider>
+      </div>
     );
   },
 );

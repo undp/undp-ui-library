@@ -16,10 +16,12 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       defaultValue: { summary: 'sm' },
     },
     vizHeight: { control: { type: 'text' } },
+    slideNo: { control: { type: 'boolean' } },
   },
   args: {
     vizWidth: 'base',
     vizHeight: 'auto',
+    slideNo: true,
     slides: [
       {
         content: (
