@@ -2,13 +2,15 @@
 
 ## Getting Started
 
-UNDP design system for react is the implementation of [UNDP design system](https://design.undp.org/) in React. Before starting, it is recommended to learn React first, and correctly install and configure Node.js v18 or above. 
+[UNDP design system for react](https://react.design.undp.org/) is the implementation of [UNDP design system](https://design.undp.org/) in React. Before starting, it is recommended to learn React first, and correctly install and configure Node.js v18 or above. 
 
-We also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript/TypeScript, and React. Starting out is straightforward.
+We also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript/TypeScript, and React.
 
 __Note: The library uses react v19__
 
-Detailed documentation can be found [here](https://react.design.undp.org/).
+Detailed documentation can be found [here](https://react.design.undp.org/)
+
+NPM Package can be found [here](https://www.npmjs.com/package/@undp/design-system-react)
 
 ### Installation
 __Using npm__
