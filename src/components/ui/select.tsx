@@ -1,30 +1,26 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
-import Select, {
-  components,
-  MultiValue,
-  SingleValue,
-  ActionMeta,
-  createFilter,
-  OptionsOrGroups,
-  GroupBase,
-  PropsValue,
-  FormatOptionLabelMeta,
-  GetOptionLabel,
-  GetOptionValue,
-  FilterOptionOption,
-} from 'react-select';
+import Select, { components, createFilter, Props } from 'react-select';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import { cva } from 'class-variance-authority';
 import { JSX } from 'react/jsx-runtime';
 
 import { cn } from '@/lib/utils';
 
-interface OptionType {
-  value: string | number | (string | number)[];
-  label: string | number;
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const MultiValue = (props: any, maxTagCount: number) => {
+  const { index, getValue } = props;
+  const selectedValues = getValue();
 
+  if (index < maxTagCount) {
+    return <components.MultiValue {...props} />;
+  }
+
+  if (index === maxTagCount) {
+    const extraCount = selectedValues.length - maxTagCount;
+    return <div className='ml-1 text-sm'>+{extraCount}</div>;
+  }
+
+  return null;
+};
 const selectVariants = cva('text-sm! rounded-none! bg-primary-white! dark:bg-primary-gray-650!', {
   variants: {
     variant: {
@@ -42,67 +38,14 @@ const selectVariants = cva('text-sm! rounded-none! bg-primary-white! dark:bg-pri
   },
 });
 
-interface SelectPropsDataType {
+interface SelectPropsDataType extends Props {
   truncateLabel?: boolean;
-  options?: OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined;
-  value?: PropsValue<OptionType> | undefined;
-  defaultValue?: PropsValue<OptionType> | undefined;
-  isMulti?: boolean;
-  isClearable?: boolean;
-  isSearchable?: boolean;
-  isDisabled?: boolean;
-  isLoading?: boolean;
-  controlShouldRenderValue?: boolean;
-  hideSelectedOptions?: boolean;
-
-  onChange?: (
-    newValue: MultiValue<OptionType> | SingleValue<OptionType>,
-    actionMeta: ActionMeta<OptionType>,
-  ) => void;
-  onInputChange?: (inputValue: string, actionMeta: any) => void;
-  onFocus?: () => void;
-  onBlur?: () => void;
-  onMenuOpen?: () => void;
-  onMenuClose?: () => void;
-
-  className?: string;
-  classNamePrefix?: string;
-  theme?: (theme: any) => any;
-
-  menuIsOpen?: boolean;
-  menuPlacement?: 'auto' | 'top' | 'bottom';
-  menuPosition?: 'absolute' | 'fixed';
-  menuPortalTarget?: HTMLElement;
-  maxMenuHeight?: number;
-
-  placeholder?: string;
-  inputValue?: string;
-  backspaceRemovesValue?: boolean;
-
-  ariaLiveMessages?: { [key: string]: (props: any) => string };
-  isRtl?: boolean;
-
-  components?: {
-    [key: string]: React.ComponentType<any>;
-  };
-  formatOptionLabel?: (
-    data: OptionType,
-    formatOptionLabelMeta: FormatOptionLabelMeta<OptionType>,
-  ) => React.ReactNode;
-
-  blurInputOnSelect?: boolean;
-  closeMenuOnSelect?: boolean;
-  captureMenuScroll?: boolean;
-  escapeClearsValue?: boolean;
-  filterOption?: ((option: FilterOptionOption<OptionType>, inputValue: string) => boolean) | null;
-  loadingMessage?: () => string | null;
-  noOptionsMessage?: () => string | null;
-  getOptionLabel?: GetOptionLabel<OptionType> | undefined;
-  getOptionValue?: GetOptionValue<OptionType> | undefined;
   variant?: 'light' | 'normal';
   size?: 'sm' | 'base';
+  maxTagCount?: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CustomDropdownIndicator(props: any) {
   const { selectProps } = props;
   return (
@@ -116,8 +59,11 @@ function CustomDropdownIndicator(props: any) {
   );
 }
 
-const customComponents = {
+const customComponents = (maxTagCount?: number) => ({
   DropdownIndicator: CustomDropdownIndicator,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  MultiValue: (props: any) => MultiValue(props, maxTagCount || Infinity),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   MultiValueRemove: (props: any) => {
     const { innerRef, innerProps } = props;
     return (
@@ -130,7 +76,7 @@ const customComponents = {
       </div>
     );
   },
-};
+});
 
 function DropdownSelect({
   className,
@@ -138,6 +84,7 @@ function DropdownSelect({
   size,
   truncateLabel,
   placeholder,
+  maxTagCount,
   ...props
 }: SelectPropsDataType): JSX.Element {
   return (
@@ -159,7 +106,7 @@ function DropdownSelect({
         multiValueRemove: () => 'hover:bg-primary-gray-400 dark:[&_svg]:stroke-primary-white!',
         valueContainer: () => 'px-1',
 
-        option: (state: any) =>
+        option: state =>
           `${'p-0 text-sm hover:bg-primary-blue-100 dark:hover:bg-primary-blue-400 hover:font-bold hover:text-primary-black'}${
             state.isSelected
               ? 'bg-primary-blue-600 text-primary-white dark:bg-primary-blue-200 dark:text-primary-gray-700'
@@ -168,7 +115,8 @@ function DropdownSelect({
         menu: () => 'rounded-none! mt-1! border-0! shadow-lg! p-0!',
         menuList: () => 'undp-scrollbar pt-0! pb-0!',
       }}
-      components={customComponents}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      components={customComponents(maxTagCount) as any}
     />
   );
 }

@@ -38,6 +38,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       type: 'boolean',
       defaultValue: { summary: false },
     },
+    maxTagCount: {
+      type: 'number',
+    },
   },
   args: {
     variant: 'normal',
