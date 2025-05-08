@@ -19,11 +19,11 @@ const paragraphVariant = cva('mt-0 ml-0 mr-0', {
     },
     leading: {
       none: 'leading-none',
-      xs: 'leading-tight',
-      sm: 'leading-snug',
+      xs: 'leading-[1.25]',
+      sm: 'leading-[1.375]',
       base: 'leading-[1.4]',
-      lg: 'leading-relaxed',
-      xl: 'leading-loose',
+      lg: 'leading-[1.625]',
+      xl: 'leading-[2]',
     },
     marginBottom: {
       none: 'mb-0',
