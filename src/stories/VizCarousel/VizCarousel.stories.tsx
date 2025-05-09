@@ -15,12 +15,14 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       options: ['xs', 'sm', 'base', 'lg', 'xl', 'full'],
       defaultValue: { summary: 'sm' },
     },
-    vizHeight: { control: { type: 'text' } },
+    vizClassName: { control: { type: 'text' } },
+    contentClassName: { control: { type: 'text' } },
+    contentStyle: { control: { type: 'object' } },
+    vizStyle: { control: { type: 'object' } },
     slideNo: { control: { type: 'boolean' } },
   },
   args: {
     vizWidth: 'base',
-    vizHeight: 'auto',
     slideNo: true,
     slides: [
       {
@@ -47,7 +49,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             </p>
           </div>
         ),
-        viz: <div className='w-full h-full bg-primary-gray-300 min-h-[320px]' />,
+        viz: <div className='w-full h-full bg-primary-gray-500' />,
       },
       {
         content: (
@@ -60,7 +62,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             </p>
           </div>
         ),
-        viz: <div className='w-full h-full bg-primary-gray-300 min-h-[320px]' />,
+        viz: <div className='w-full h-full bg-primary-gray-300' />,
       },
     ],
   },
