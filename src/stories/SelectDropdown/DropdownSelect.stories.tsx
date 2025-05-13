@@ -38,6 +38,10 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       type: 'boolean',
       defaultValue: { summary: false },
     },
+    isDisabled: {
+      type: 'boolean',
+      defaultValue: { summary: false },
+    },
     maxTagCount: {
       type: 'number',
     },
@@ -49,6 +53,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     isClearable: false,
     isSearchable: false,
     isMulti: false,
+    isDisabled: false,
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (

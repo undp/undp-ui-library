@@ -21,7 +21,7 @@ const MultiValue = (props: any, maxTagCount: number) => {
 
   return null;
 };
-const selectVariants = cva('text-sm! rounded-none! bg-primary-white! dark:bg-primary-gray-650!', {
+const selectVariants = cva('text-sm! rounded-none!', {
   variants: {
     variant: {
       light: 'border! border-primary-gray-400! dark:border-primary-gray-500!',
@@ -31,10 +31,15 @@ const selectVariants = cva('text-sm! rounded-none! bg-primary-white! dark:bg-pri
       sm: 'p-0! min-h-[40px]!',
       base: 'min-h-[48px]! px-0! py-0.5!',
     },
+    isDisabled: {
+      true: 'bg-primary-gray-200! dark:bg-primary-gray-550! border-primary-gray-400! dark:border-primary-gray-500!',
+      false: 'bg-primary-white! dark:bg-primary-gray-650!',
+    },
   },
   defaultVariants: {
     variant: 'normal',
     size: 'base',
+    isDisabled: false,
   },
 });
 
@@ -46,21 +51,32 @@ interface SelectPropsDataType extends Props {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function CustomDropdownIndicator(props: any) {
+function CustomDropdownIndicator(props: any, isDisabled?: boolean) {
   const { selectProps } = props;
   return (
     <components.DropdownIndicator {...props}>
       {selectProps.menuIsOpen ? (
-        <ChevronUp className='h-6 w-6 stroke-accent-red dark:stroke-primary-white' />
+        <ChevronUp
+          className={cn(
+            'h-6 w-6',
+            isDisabled ? 'stroke-primary-gray-400' : 'stroke-accent-red dark:stroke-primary-white',
+          )}
+        />
       ) : (
-        <ChevronDown className='h-6 w-6 stroke-accent-red dark:stroke-primary-white' />
+        <ChevronDown
+          className={cn(
+            'h-6 w-6',
+            isDisabled ? 'stroke-primary-gray-400' : 'stroke-accent-red dark:stroke-primary-white',
+          )}
+        />
       )}
     </components.DropdownIndicator>
   );
 }
 
-const customComponents = (maxTagCount?: number) => ({
-  DropdownIndicator: CustomDropdownIndicator,
+const customComponents = (maxTagCount?: number, isDisabled?: boolean) => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  DropdownIndicator: (props: any) => CustomDropdownIndicator(props, isDisabled),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   MultiValue: (props: any) => MultiValue(props, maxTagCount || Infinity),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -85,14 +101,17 @@ function DropdownSelect({
   truncateLabel,
   placeholder,
   maxTagCount,
+  isDisabled,
   ...props
 }: SelectPropsDataType): JSX.Element {
   return (
     <Select
       {...props}
+      isDisabled={isDisabled}
       placeholder={placeholder || 'Select...'}
       classNames={{
-        control: () => cn(selectVariants({ variant, size }), className),
+        control: () =>
+          cn(selectVariants({ variant, size, isDisabled: isDisabled || false }), className),
         singleValue: () => 'text-primary-black dark:text-primary-white text-base',
         placeholder: () => 'text-primary-gray-550 dark:text-primary-400 text-base',
         groupHeading: () => 'font-bold',
@@ -105,7 +124,6 @@ function DropdownSelect({
           }`,
         multiValueRemove: () => 'hover:bg-primary-gray-400 dark:[&_svg]:stroke-primary-white!',
         valueContainer: () => 'px-1',
-
         option: state =>
           `${'p-0 text-sm hover:bg-primary-blue-100 dark:hover:bg-primary-blue-400 hover:font-bold hover:text-primary-black'}${
             state.isSelected
@@ -116,7 +134,7 @@ function DropdownSelect({
         menuList: () => 'undp-scrollbar pt-0! pb-0!',
       }}
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      components={customComponents(maxTagCount) as any}
+      components={customComponents(maxTagCount, isDisabled) as any}
     />
   );
 }
