@@ -8,5 +8,27 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
+  managerHead: head => `
+    ${head}
+    <meta name="description" content="Documentation and examples for UNDP design system for react" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UNDP design system for react" />
+    <meta property="og:url" content="https://react.design.undp.org/" />
+    <meta property="og:title" content="Documentation | UNDP design system for react" />
+    <meta property="og:description" content="Documentation and examples for UNDP design system for react" />
+    <meta property="og:image" content="/Cover.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://react.design.undp.org/" />
+    <meta name="twitter:title" content="Documentation | UNDP design system for react" />
+    <meta name="twitter:description" content="Documentation and examples for UNDP design system for react" />
+    <meta name="twitter:image" content="/Cover.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+  `,
 };
 export default config;
