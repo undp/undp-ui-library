@@ -94,6 +94,14 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
     "@eslint/config-array": "^0.20.0",

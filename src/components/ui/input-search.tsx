@@ -20,24 +20,27 @@ const Search = React.forwardRef<
     onSearch?: (d?: string) => void;
   }
 >(
-  ({
-    className,
-    inputClassName,
-    buttonClassName,
-    onSearch,
-    searchOnlyOnClick,
-    buttonVariant,
-    buttonChildren,
-    showSearchButton,
-    inputVariant,
-    inputSize,
-    placeholder,
-    ...props
-  }) => {
+  (
+    {
+      className,
+      inputClassName,
+      buttonClassName,
+      onSearch,
+      searchOnlyOnClick,
+      buttonVariant,
+      buttonChildren,
+      showSearchButton,
+      inputVariant,
+      inputSize,
+      placeholder,
+      ...props
+    },
+    ref,
+  ) => {
     const [query, setQuery] = React.useState<string | undefined>(undefined);
     const [isFocused, setIsFocused] = React.useState(false);
     return (
-      <div className={cn('flex gap-0', className)}>
+      <div className={cn('flex gap-0', className)} ref={ref}>
         <div className='relative w-full'>
           <Input
             {...props}

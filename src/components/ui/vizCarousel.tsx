@@ -49,74 +49,85 @@ interface CardProps
 }
 
 const VizCarousel = React.forwardRef<HTMLDivElement, CardProps>(
-  ({
-    className,
-    vizWidth,
-    slides,
-    vizStyle,
-    contentStyle,
-    contentClassName,
-    vizClassName,
-    slideNo = true,
-    ...props
-  }) => {
+  (
+    {
+      className,
+      vizWidth,
+      slides,
+      vizStyle,
+      contentStyle,
+      contentClassName,
+      vizClassName,
+      slideNo = true,
+      ...props
+    },
+    ref,
+  ) => {
     const WrapperRef = React.useRef<HTMLDivElement>(null);
     const [slide, setSlide] = useState(1);
     return (
-      <div
-        ref={WrapperRef}
-        className={cn(
-          'mr-auto ml-auto mb-0 undp-scrollbar w-full pb-4 gap-6 flex snap-x snap-mandatory scroll-p-0 scroll-pl-0 overflow-x-auto',
-          className,
-        )}
-        {...props}
-      >
-        {slides.map((d, i) => (
-          <div
-            key={i}
-            className={`flex box-border flex-wrap w-full shrink-0 snap-start ${vizWidth === 'full' ? 'flex-col items-start' : 'flex-row items-stretch'}`}
-          >
-            <div style={contentStyle} className={cn(cardVariants({ vizWidth }), contentClassName)}>
-              <div className='min-w-80 grow sm:grow-0'>{d.content}</div>
-              <div className={`flex ${slideNo ? 'gap-2' : 'gap-3'} items-center shrink-0`}>
-                <div
-                  className={`rounded-full pr-1 w-9 h-9 md:w-12 md:h-12 border-0 flex items-center justify-center rtl:rotate-180 ${slide === 1 ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed' : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200'}`}
-                  onClick={() => {
-                    if (WrapperRef.current && slide !== 1) {
-                      const parentWithDir = WrapperRef.current.closest('[dir]');
-                      const scrollBy = parentWithDir?.getAttribute('dir') === 'rtl' ? 280 : -280;
-                      setSlide(slide - 1);
-                      WrapperRef.current.scrollBy(scrollBy, 0);
-                    }
-                  }}
-                >
-                  <ChevronLeft className='w-6 h-6 text-primary-white dark:text-primary-gray-700' />
-                </div>
-                {slideNo ? (
-                  <P marginBottom='none' className='px-2 shrink-0'>
-                    {slide} / {slides.length}
-                  </P>
-                ) : null}
-                <div
-                  className={`rounded-full pl-1 w-9 h-9 md:w-12 md:h-12 border-0 flex items-center justify-center rtl:rotate-180 ${slide === slides.length ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed' : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200'}`}
-                  onClick={() => {
-                    if (WrapperRef.current && slide !== slides.length) {
-                      const parentWithDir = WrapperRef.current.closest('[dir]');
-                      const scrollBy = parentWithDir?.getAttribute('dir') === 'rtl' ? -280 : 280;
-                      setSlide(slide + 1);
-                      WrapperRef.current.scrollBy(scrollBy, 0);
-                    }
-                  }}
-                >
-                  <ChevronRight className='w-6 h-6 text-primary-white dark:text-primary-gray-700' />
+      <div ref={ref}>
+        <div
+          ref={WrapperRef}
+          className={cn(
+            'mr-auto ml-auto mb-0 undp-scrollbar w-full pb-4 gap-6 flex snap-x snap-mandatory scroll-p-0 scroll-pl-0 overflow-x-auto',
+            className,
+          )}
+          {...props}
+        >
+          {slides.map((d, i) => (
+            <div
+              key={i}
+              className={`flex box-border flex-wrap w-full shrink-0 snap-start ${vizWidth === 'full' ? 'flex-col items-start' : 'flex-row items-stretch'}`}
+            >
+              <div
+                style={contentStyle}
+                className={cn(cardVariants({ vizWidth }), contentClassName)}
+              >
+                <div className='min-w-80 grow sm:grow-0'>{d.content}</div>
+                <div className={`flex ${slideNo ? 'gap-2' : 'gap-3'} items-center shrink-0`}>
+                  <div
+                    className={`rounded-full pr-1 w-9 h-9 md:w-12 md:h-12 border-0 flex items-center justify-center rtl:rotate-180 ${slide === 1 ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed' : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200'}`}
+                    onClick={() => {
+                      if (WrapperRef.current && slide !== 1) {
+                        const parentWithDir = WrapperRef.current.closest('[dir]');
+                        const scrollBy = parentWithDir?.getAttribute('dir') === 'rtl' ? 280 : -280;
+                        setSlide(slide - 1);
+                        WrapperRef.current.scrollBy(scrollBy, 0);
+                      }
+                    }}
+                  >
+                    <ChevronLeft className='w-6 h-6 text-primary-white dark:text-primary-gray-700' />
+                  </div>
+                  {slideNo ? (
+                    <P marginBottom='none' className='px-2 shrink-0'>
+                      {slide} / {slides.length}
+                    </P>
+                  ) : null}
+                  <div
+                    className={`rounded-full pl-1 w-9 h-9 md:w-12 md:h-12 border-0 flex items-center justify-center rtl:rotate-180 ${slide === slides.length ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed' : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200'}`}
+                    onClick={() => {
+                      if (WrapperRef.current && slide !== slides.length) {
+                        const parentWithDir = WrapperRef.current.closest('[dir]');
+                        const scrollBy = parentWithDir?.getAttribute('dir') === 'rtl' ? -280 : 280;
+                        setSlide(slide + 1);
+                        WrapperRef.current.scrollBy(scrollBy, 0);
+                      }
+                    }}
+                  >
+                    <ChevronRight className='w-6 h-6 text-primary-white dark:text-primary-gray-700' />
+                  </div>
                 </div>
               </div>
+              <div
+                style={vizStyle}
+                className={cn(vizContainerVariants({ vizWidth }), vizClassName)}
+              >
+                {d.viz}
+              </div>
             </div>
-            <div style={vizStyle} className={cn(vizContainerVariants({ vizWidth }), vizClassName)}>
-              {d.viz}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   },
