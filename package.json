@@ -1,23 +1,23 @@
 {
   "name": "@undp/design-system-react",
-  "version": "0.0.68",
+  "version": "0.0.69",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": ["*.css"],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "files": [
-    "dist/index.js",
-    "dist/index.cjs",
-    "dist/index.umd.js",
-    "dist/index.d.ts",
-    "dist/style.css"
+    "dist"
   ],
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
     },
-    "./dist/style.css": {
+    "./style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     }

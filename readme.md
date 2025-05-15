@@ -33,7 +33,7 @@ import { Checkbox } from '@undp/design-system-react'
 
 It is also recommended to import the css because some setting expect the CSS to be imported to look good. You can import the css file like this: 
 ```
-import '@undp/design-system-react/dist/style.css';
+import '@undp/design-system-react/style.css';
 ```
 
 ### TypeScript

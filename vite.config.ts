@@ -14,7 +14,7 @@ export default defineConfig(() => {
     build: {
       cssCodeSplit: false,
       lib: {
-        entry: 'src/index.ts',
+        entry: path.resolve(__dirname, 'src/index.ts'),
         name: 'undpDesignSystem',
         fileName: format => {
           if (format === 'es') return 'index.js'; // ES Module
