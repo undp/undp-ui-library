@@ -99,6 +99,20 @@ After that use the color variant as `custom` in various component that allows it
 </Container>
 ```
 
+## Using the design system with TailwindCSS
+
+UNDP Design System is build using TailwindCSS. If you want to use the design system in a project with TailwindCSS, then to avoid conflicts please use the tailwind config from the design system as preset in you tailwind.config.js
+
+```js
+// tailwind.config.js
+const preset = require('@undp/design-system-react/tailwind.config');
+
+export default {
+  presets: [preset],
+  ...
+};
+```
+
 ## TypeScript
 
 UNDP Design System provides a built-in ts definition, you don't need to install any type definitions.

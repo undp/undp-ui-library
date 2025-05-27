@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "0.0.69",
+  "version": "0.0.70",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -10,6 +10,7 @@
     "node": ">=18.0.0"
   },
   "files": [
+    "tailwind.config.js",
     "dist"
   ],
   "exports": {
@@ -20,6 +21,10 @@
     "./style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
+    },
+    "./tailwind.config": {
+      "import": "./tailwind.config.js",
+      "require": "./tailwind.config.js"
     }
   },
   "publishConfig": {
