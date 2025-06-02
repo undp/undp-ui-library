@@ -115,17 +115,17 @@ function DropdownSelect({
         singleValue: () => 'text-primary-black dark:text-primary-white text-base',
         placeholder: () => 'text-primary-gray-550 dark:text-primary-400 text-base',
         groupHeading: () => 'font-bold',
-        input: () => 'text-base',
+        input: () => 'text-base undp-select-input',
         multiValue: () =>
           'bg-primary-gray-300 dark:bg-primary-gray-550 rounded-sm border border-primary-gray-400 dark:border-primary-gray-600',
         multiValueLabel: () =>
-          `!px-1.5 !py-1 text-sm text-primary-black dark:text-primary-white ${
+          `px-1.5! py-1! text-sm text-primary-black dark:text-primary-white ${
             truncateLabel ? ' max-w-[72px] truncate' : ''
           }`,
         multiValueRemove: () => 'hover:bg-primary-gray-400 dark:[&_svg]:stroke-primary-white!',
-        valueContainer: () => 'px-1',
+        valueContainer: () => 'px-2 py-[2px]',
         option: state =>
-          `${'p-0 text-sm hover:bg-primary-blue-100 dark:hover:bg-primary-blue-400 hover:font-bold hover:text-primary-black'}${
+          `${'text-base hover:bg-primary-blue-100 dark:hover:bg-primary-blue-400 hover:font-bold hover:text-primary-black'}${
             state.isSelected
               ? 'bg-primary-blue-600 text-primary-white dark:bg-primary-blue-200 dark:text-primary-gray-700'
               : 'bg-primary-white text-primary-black dark:bg-primary-gray-650 dark:text-primary-white'

@@ -100,7 +100,7 @@ const VizCarousel = React.forwardRef<HTMLDivElement, CardProps>(
                     <ChevronLeft className='w-6 h-6 text-primary-white dark:text-primary-gray-700' />
                   </div>
                   {slideNo ? (
-                    <P marginBottom='none' className='px-2 shrink-0'>
+                    <P marginBottom='none' className='px-2! shrink-0'>
                       {slide} / {slides.length}
                     </P>
                   ) : null}

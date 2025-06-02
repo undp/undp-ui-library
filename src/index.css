@@ -275,3 +275,11 @@ h1.custom, .custom h1  {
 .dark .undp-scrollbar::-webkit-scrollbar-thumb {
   background: var(--gray-100);
 }
+
+.undp-select-input input{
+  height: auto;
+}
+
+.undp-select-input input:focus{
+  box-shadow: 0 0 0;
+}

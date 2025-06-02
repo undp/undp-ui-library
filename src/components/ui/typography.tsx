@@ -13,7 +13,7 @@ const paragraphVariant = cva('mt-0 ml-0 mr-0', {
       xs: 'text-xs!',
       sm: 'text-sm!',
       base: 'text-base!',
-      'base-responsive': 'text-base md:text-xl',
+      'base-responsive': 'text-base! md:text-xl!',
       lg: 'text-lg!',
       xl: 'text-xl!',
     },
@@ -21,7 +21,7 @@ const paragraphVariant = cva('mt-0 ml-0 mr-0', {
       none: 'leading-none!',
       xs: 'leading-[1.25]!',
       sm: 'leading-[1.375]!',
-      base: 'leading-[1.4]',
+      base: 'leading-[1.4]!',
       lg: 'leading-[1.625]!',
       xl: 'leading-[2]!',
     },
@@ -31,7 +31,7 @@ const paragraphVariant = cva('mt-0 ml-0 mr-0', {
       '2xs': 'mb-2!',
       xs: 'mb-3!',
       sm: 'mb-4!',
-      base: 'mb-5',
+      base: 'mb-5!',
       lg: 'mb-6!',
       xl: 'mb-7!',
     },
@@ -67,13 +67,13 @@ const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 font-bold uppercase', {
       '2xs': 'mb-1!',
       xs: 'mb-2!',
       sm: 'mb-3!',
-      'base-responsive': 'mb-3 md:mb-4',
+      'base-responsive': 'mb-3! md:mb-4!',
       base: 'mb-4!',
       lg: 'mb-5!',
       xl: 'mb-6!',
     },
     size: {
-      base: 'text-[2.938rem] md:text-[5.125rem] lg:text-[6.25rem] tracking-[0.06rem] leading-[1.08]',
+      base: 'text-[2.938rem]! md:text-[5.125rem]! lg:text-[6.25rem]! tracking-[0.06rem]! leading-[1.08]!',
       sm: 'text-[2.5rem]! md:text-[2.813rem]! lg:text-[3.438rem]! leading-[1.1]!',
     },
   },
@@ -103,7 +103,7 @@ const headingVariant = cva('mt-0 ml-0 mr-0 p-0', {
       '2xs': 'mb-1!',
       xs: 'mb-2!',
       sm: 'mb-3!',
-      'base-responsive': 'mb-3 md:mb-4',
+      'base-responsive': 'mb-3! md:mb-4!',
       base: 'mb-4!',
       lg: 'mb-5!',
       xl: 'mb-6!',
@@ -121,7 +121,7 @@ function H2({
     <h2
       {...props}
       className={cn(
-        'text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] font-bold leading-[1.1]',
+        'text-[2.5rem]! md:text-[2.813rem]! lg:text-[3.438rem]! font-bold! leading-[1.1]!',
         headingVariant({ marginBottom }),
         className,
       )}
@@ -141,7 +141,7 @@ function H3({
     <h3
       {...props}
       className={cn(
-        'text-[1.875rem] md:text-[2.188rem] font-semibold leading-[1.15]',
+        'text-[1.875rem]! md:text-[2.188rem]! font-semibold! leading-[1.15]!',
         headingVariant({ marginBottom }),
         className,
       )}
@@ -161,7 +161,7 @@ function H4({
     <h4
       {...props}
       className={cn(
-        'text-[1.563rem] md:text-[2.188rem] font-normal leading-[1.15]',
+        'text-[1.563rem]! md:text-[2.188rem]! font-normal! leading-[1.15]!',
         headingVariant({ marginBottom }),
         className,
       )}
@@ -181,7 +181,7 @@ function H5({
     <h5
       {...props}
       className={cn(
-        'text-[1.25rem] md:text-[1.563rem] font-normal leading-[1.15]',
+        'text-[1.25rem]! md:text-[1.563rem]! font-normal! leading-[1.15]!',
         headingVariant({ marginBottom }),
         className,
       )}
@@ -201,7 +201,7 @@ function H6({
     <h6
       {...props}
       className={cn(
-        'text-base font-bold leading-[1.15] uppercase tracking-[0.48px]',
+        'text-base! font-bold! leading-[1.15]! uppercase! tracking-[0.48px]!',
         headingVariant({ marginBottom }),
         className,
       )}
@@ -221,7 +221,7 @@ function Cite({
     <cite
       {...props}
       className={cn(
-        'text-xl md:text-2xl leading-[1.1] block font-normal',
+        'text-xl! md:text-2xl! leading-[1.1]! block! font-normal!',
         headingVariant({ marginBottom }),
         className,
       )}
@@ -236,7 +236,7 @@ function Code({ children, className, ...props }: HeadingProps) {
     <code
       {...props}
       className={cn(
-        'font-mono mt-0 text-base bg-primary-gray-200 dark:bg-primary-gray-600 px-2 pb-2 text-primary-black dark:text-primary-white',
+        'font-mono! mt-0! text-base! bg-primary-gray-200! dark:bg-primary-gray-600! px-2! pb-2! text-primary-black! dark:text-primary-white!',
         className,
       )}
     >
@@ -259,7 +259,7 @@ function Blockquote({
     <blockquote
       {...props}
       className={cn(
-        'text-[1.625rem] md:text-[2.188rem] font-semibold leading-[1.1] md:leading-[1.25]',
+        'text-[1.625rem]! md:text-[2.188rem]! font-semibold! leading-[1.1]! md:leading-[1.25]!',
         headingVariant({ marginBottom }),
         className,
       )}
