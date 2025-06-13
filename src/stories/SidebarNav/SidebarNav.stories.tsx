@@ -18,6 +18,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     activeItemClass: { control: { type: 'text' } },
     hoverItemClass: { control: { type: 'text' } },
     defaultValue: { control: { type: 'text' } },
+    activeValue: { control: { type: 'text' } },
   },
   args: { variant: 'background' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
@@ -30,7 +31,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <Sidebar
           {...args}
-          defaultValue='item 1'
+          defaultValue='item 2'
           onValueChange={d => {
             // eslint-disable-next-line no-console
             console.log(d);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -17,6 +17,7 @@ interface SidebarProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>,
     VariantProps<typeof sidebarVariants> {
   defaultValue?: string;
+  activeValue?: string;
   activeItemClass?: string;
   hoverItemClass?: string;
   onValueChange?: (value: string) => void;
@@ -25,11 +26,13 @@ interface SidebarProps
 const SidebarContext = React.createContext<{
   selectedValue?: string;
   activeItemClass?: string;
+  activeValue?: string;
   hoverItemClass?: string;
   onValueChange: (value: string) => void;
 }>({
   selectedValue: undefined,
   hoverItemClass: undefined,
+  activeValue: undefined,
   activeItemClass: undefined,
   onValueChange: () => {},
 });
@@ -41,6 +44,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       children,
       variant,
       defaultValue,
+      activeValue,
       activeItemClass,
       hoverItemClass,
       onValueChange,
@@ -49,28 +53,35 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     ref,
   ) => {
     // Internal state for uncontrolled usage
-    const [selectedValue, setSelectedValue] = React.useState<string>(defaultValue || '');
+    const [selectedValue, setSelectedValue] = React.useState<string>(
+      activeValue || defaultValue || '',
+    );
 
     // Handler for checkbox changes
     const handleValueChange = React.useCallback(
       (itemValue: string) => {
-        setSelectedValue(itemValue);
+        setSelectedValue(activeValue || itemValue);
 
         // Call onChange handler if provided
         onValueChange?.(itemValue);
       },
-      [onValueChange],
+      [onValueChange, activeValue],
     );
+
+    useEffect(() => {
+      if (activeValue) setSelectedValue(activeValue);
+    }, [activeValue]);
 
     // Context to pass down the handler and selected values
     const contextValue = React.useMemo(
       () => ({
         activeItemClass,
+        activeValue,
         selectedValue,
         hoverItemClass,
         onValueChange: handleValueChange,
       }),
-      [selectedValue, activeItemClass, hoverItemClass, handleValueChange],
+      [activeItemClass, activeValue, selectedValue, hoverItemClass, handleValueChange],
     );
 
     return (

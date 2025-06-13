@@ -64,7 +64,39 @@ const VizCarousel = React.forwardRef<HTMLDivElement, CardProps>(
     ref,
   ) => {
     const WrapperRef = React.useRef<HTMLDivElement>(null);
+    const slideRefs = React.useRef<(HTMLDivElement | null)[]>([]);
     const [slide, setSlide] = useState(1);
+
+    React.useEffect(() => {
+      const observer = new IntersectionObserver(
+        entries => {
+          const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+          if (visible.length > 0) {
+            const index = slideRefs.current.findIndex(ref => ref === visible[0].target);
+            if (index !== -1) setSlide(index + 1);
+          }
+        },
+        {
+          root: WrapperRef.current,
+          threshold: 1,
+        },
+      );
+
+      slideRefs.current.forEach(ref => {
+        if (ref) observer.observe(ref);
+      });
+
+      return () => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        slideRefs.current.forEach(ref => {
+          if (ref) observer.unobserve(ref);
+        });
+      };
+    }, []);
+
     return (
       <div ref={ref}>
         <div
@@ -78,6 +110,9 @@ const VizCarousel = React.forwardRef<HTMLDivElement, CardProps>(
           {slides.map((d, i) => (
             <div
               key={i}
+              ref={el => {
+                slideRefs.current[i] = el;
+              }}
               className={`flex box-border flex-wrap w-full shrink-0 snap-start ${vizWidth === 'full' ? 'flex-col items-start' : 'flex-row items-stretch'}`}
             >
               <div
