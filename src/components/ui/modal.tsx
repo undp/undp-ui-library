@@ -1,5 +1,6 @@
 import React from 'react';
 import { X } from 'lucide-react';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 import {
   Dialog,
@@ -75,7 +76,7 @@ function Modal(props: ModalProps) {
           </button>
         )}
 
-        {(title || description) && (
+        {title || description ? (
           <DialogHeader>
             {title && (
               <DialogTitle id={titleId} className={titleClassName}>
@@ -88,6 +89,10 @@ function Modal(props: ModalProps) {
               </DialogDescription>
             )}
           </DialogHeader>
+        ) : (
+          <VisuallyHidden>
+            <DialogTitle>This a modal</DialogTitle>
+          </VisuallyHidden>
         )}
 
         {children}
