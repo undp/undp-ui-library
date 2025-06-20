@@ -112,9 +112,11 @@ function DropdownSelect({
       classNames={{
         control: () =>
           cn(selectVariants({ variant, size, isDisabled: isDisabled || false }), className),
-        singleValue: () => 'text-primary-black dark:text-primary-white text-base',
-        placeholder: () => 'text-primary-gray-550 dark:text-primary-400 text-base',
-        groupHeading: () => 'font-bold',
+        singleValue: () => 'text-primary-black! dark:text-primary-white! text-base',
+        placeholder: () => 'text-primary-gray-550! dark:text-primary-400! text-base',
+        group: () => 'py-0!',
+        groupHeading: () =>
+          'font-bold! text-base! normal-case! py-[12px]! m-0! bg-primary-gray-300 dark:bg-primary-gray-600 text-primary-gray-700! dark:text-primary-white!',
         input: () => 'text-base undp-select-input',
         multiValue: () =>
           'bg-primary-gray-300 dark:bg-primary-gray-550 rounded-sm border border-primary-gray-400 dark:border-primary-gray-600',
@@ -125,12 +127,14 @@ function DropdownSelect({
         multiValueRemove: () => 'hover:bg-primary-gray-400 dark:[&_svg]:stroke-primary-white!',
         valueContainer: () => 'px-2 py-[2px]',
         option: state =>
-          `${'text-base hover:bg-primary-blue-100 dark:hover:bg-primary-blue-400 hover:font-bold hover:text-primary-black'}${
+          cn(
+            'bg-transparent! text-base hover:bg-primary-blue-100! dark:hover:bg-primary-blue-700! hover:text-primary-black! dark:hover:text-primary-white!',
             state.isSelected
-              ? 'bg-primary-blue-600 text-primary-white dark:bg-primary-blue-200 dark:text-primary-gray-700'
-              : 'bg-primary-white text-primary-black dark:bg-primary-gray-650 dark:text-primary-white'
-          }`,
-        menu: () => 'rounded-none! mt-1! border-0! shadow-lg! p-0!',
+              ? 'bg-primary-blue-600! text-primary-white dark:bg-primary-blue-600! dark:text-primary-gray-700'
+              : 'text-primary-black dark:text-primary-white',
+          ),
+        menu: () =>
+          'bg-primary-white! rounded-none! mt-1! border-0! shadow-lg! p-0! dark:bg-primary-gray-650!',
         menuList: () => 'undp-scrollbar pt-0! pb-0!',
       }}
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

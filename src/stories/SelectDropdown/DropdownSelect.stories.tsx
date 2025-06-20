@@ -68,9 +68,20 @@ const meta: Meta<PagePropsAndCustomArgs> = {
           // eslint-disable-next-line no-console
           onChange={d => console.log(d)}
           options={[
-            { value: 'apple', label: 'Apple' },
-            { value: 'banana', label: 'Banana' },
-            { value: 'cherry', label: 'Cherry' },
+            {
+              label: 'Fruits',
+              options: [
+                { value: 'apple', label: 'Apple' },
+                { value: 'orange', label: 'Orange' },
+              ],
+            },
+            {
+              label: 'Vegetables',
+              options: [
+                { value: 'carrot', label: 'Carrot' },
+                { value: 'broccoli', label: 'Broccoli' },
+              ],
+            },
           ]}
         />
       </div>
