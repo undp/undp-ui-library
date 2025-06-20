@@ -32,7 +32,7 @@ const selectVariants = cva('text-sm! rounded-none!', {
       base: 'min-h-[48px]! px-0! py-0.5!',
     },
     isDisabled: {
-      true: 'bg-primary-gray-200! dark:bg-primary-gray-550! border-primary-gray-400! dark:border-primary-gray-500!',
+      true: 'bg-primary-gray-200! dark:bg-primary-gray-650! border-primary-gray-400! dark:border-primary-gray-500!',
       false: 'bg-primary-white! dark:bg-primary-gray-650!',
     },
   },
@@ -112,7 +112,13 @@ function DropdownSelect({
       classNames={{
         control: () =>
           cn(selectVariants({ variant, size, isDisabled: isDisabled || false }), className),
-        singleValue: () => 'text-primary-black! dark:text-primary-white! text-base',
+        singleValue: state =>
+          cn(
+            'text-base',
+            state.isDisabled
+              ? 'text-primary-gray-500! dark:text-primary-gray-500! '
+              : 'text-primary-black! dark:text-primary-white!',
+          ),
         placeholder: () => 'text-primary-gray-550! dark:text-primary-400! text-base',
         group: () => 'py-0!',
         groupHeading: () =>
@@ -128,10 +134,10 @@ function DropdownSelect({
         valueContainer: () => 'px-2 py-[2px]',
         option: state =>
           cn(
-            'bg-transparent! text-base hover:bg-primary-blue-100! dark:hover:bg-primary-blue-700! hover:text-primary-black! dark:hover:text-primary-white!',
+            'bg-transparent! text-base',
             state.isSelected
-              ? 'bg-primary-blue-600! text-primary-white dark:bg-primary-blue-600! dark:text-primary-gray-700'
-              : 'text-primary-black dark:text-primary-white',
+              ? 'bg-primary-blue-600! text-primary-white dark:bg-primary-blue-600! dark:text-primary-gray-700 hover:bg-primary-blue-700! dark:hover:bg-primary-blue-700!'
+              : 'text-primary-black dark:text-primary-white hover:bg-primary-blue-100! dark:hover:bg-primary-blue-700! hover:text-primary-black! dark:hover:text-primary-white!',
           ),
         menu: () =>
           'bg-primary-white! rounded-none! mt-1! border-0! shadow-lg! p-0! dark:bg-primary-gray-650!',
