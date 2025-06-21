@@ -80,6 +80,7 @@ export { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 export { Ol, Ul, Li } from '@/components/ui/list';
 export { UNDPLogo } from '@/components/ui/logo.tsx';
 export { Modal } from '@/components/ui/modal';
+export { MarkdownRenderer } from '@/components/ui/md-renderer';
 export { Pagination } from '@/components/ui/Pagination';
 export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor } from '@/components/ui/popover';
 export { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
