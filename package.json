@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "0.0.78",
+  "version": "0.0.79",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -94,6 +94,7 @@
     "react-day-picker": "^9.6.7",
     "react-markdown": "^10.1.0",
     "react-select": "^5.10.1",
+    "remark-gfm": "^4.0.1",
     "sonner": "^2.0.3",
     "tailwind-animate": "^0.2.10",
     "tailwind-merge": "^3.2.0",

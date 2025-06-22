@@ -94,6 +94,15 @@ export { Spacer } from '@/components/ui/spacer';
 export { Spinner } from '@/components/ui/spinner';
 export { Stepper } from '@/components/ui/stepper';
 export { Switch } from '@/components/ui/switch';
+export {
+  TableCaption,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+  Table,
+} from '@/components/ui/table';
 export { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 export { Textarea } from '@/components/ui/textarea';
 export { Toaster } from '@/components/ui/toaster';

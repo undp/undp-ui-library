@@ -13,6 +13,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     classNames: {
       table: {
         type: {
+          summary: 'object',
           detail: `{
   h1?: string;
   h2?: string;
@@ -30,6 +31,12 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   li?: string;
   hr?: string;
   pre?: string;
+  table?: string;
+  thead?: string;
+  td?: string;
+  tr?: string;
+  tbody?: string;
+  th?: string;
 }`,
         },
       },
@@ -102,8 +109,18 @@ This is an ordered list:
 2. Second item
 3. Third item
 
+This is a table
+
+| Month    | Savings |
+| -------- | ------- |
+| January  | $250    |
+| February | $80     |
+| March    | $420    |
+
 This is a horizontal rule:
 ___ 
+
+
    
 
 `,

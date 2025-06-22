@@ -1,4 +1,5 @@
 import ReactMarkdown, { Components } from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import { cn } from '@/lib/utils';
 
@@ -20,6 +21,12 @@ interface Props {
     li?: string;
     hr?: string;
     pre?: string;
+    table?: string;
+    thead?: string;
+    td?: string;
+    tr?: string;
+    tbody?: string;
+    th?: string;
   };
   components?: Components;
   text?: string;
@@ -28,6 +35,7 @@ interface Props {
 function MarkdownRenderer({ classNames, text, components }: Props) {
   return (
     <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
       components={{
         ...{
           h1: props => (
@@ -152,6 +160,32 @@ function MarkdownRenderer({ classNames, text, components }: Props) {
               className={cn(
                 'p-4 mb-3 md:mb-4 bg-primary-gray-200 dark:bg-primary-gray-600',
                 classNames?.pre,
+              )}
+              {...props}
+            />
+          ),
+          table: props => (
+            <table className={cn('w-full caption-bottom mb-4', classNames?.table)} {...props} />
+          ),
+          thead: props => <thead className={classNames?.thead} {...props} />,
+          th: props => (
+            <th
+              className={cn(
+                'bg-primary-gray-300 text-xl leading-[1.4] dark:bg-primary-gray-600 py-3 pl-3 pr-10 rtl:pr-3 rtl:pl-10 text-left rtl:text-right align-middle font-semibold whitespace-nowrap',
+                classNames?.th,
+              )}
+              {...props}
+            />
+          ),
+          tbody: props => <tbody className={classNames?.tbody} {...props} />,
+          tr: props => (
+            <tr className={cn('border-b border-primary-gray-400', classNames?.tr)} {...props} />
+          ),
+          td: props => (
+            <td
+              className={cn(
+                'align-middle py-3 pl-3 pr-10 rtl:pr-3 text-xl rtl:pl-10 whitespace-nowrap',
+                classNames?.td,
               )}
               {...props}
             />

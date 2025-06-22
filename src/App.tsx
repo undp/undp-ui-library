@@ -1,30 +1,37 @@
-import { StarIcon } from 'lucide-react';
-
 import './index.css';
 
-import { SegmentedControl } from './components/ui/segmentedControl';
+import {
+  TableCaption,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+  Table,
+} from './components/ui/table';
 
 function App() {
   return (
     <>
-      <SegmentedControl
-        defaultValue='option 1'
-        onValueChange={() => {}}
-        options={[
-          {
-            label: <div>Hello world</div>,
-            value: 'option 1',
-          },
-          {
-            label: <StarIcon />,
-            value: 'option 2',
-          },
-          {
-            label: 'Option 3',
-            value: 'option 3',
-          },
-        ]}
-      />
+      <Table>
+        <TableCaption>A list of your recent invoices.</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className='w-[100px]'>Invoice</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead>Method</TableHead>
+            <TableHead className='text-right'>Amount</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell className='font-medium'>INV001</TableCell>
+            <TableCell>Paid</TableCell>
+            <TableCell>Credit Card</TableCell>
+            <TableCell className='text-right'>$250.00</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
     </>
   );
 }
