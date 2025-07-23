@@ -108,6 +108,8 @@ function DropdownSelect({
     <Select
       {...props}
       isDisabled={isDisabled}
+      hideSelectedOptions={false}
+      closeMenuOnSelect={!props.isMulti}
       placeholder={placeholder || 'Select...'}
       classNames={{
         control: () =>
@@ -136,7 +138,7 @@ function DropdownSelect({
           cn(
             'bg-transparent! text-base',
             state.isSelected
-              ? 'bg-primary-blue-600! text-primary-white dark:bg-primary-blue-600! dark:text-primary-gray-700 hover:bg-primary-blue-700! dark:hover:bg-primary-blue-700!'
+              ? 'bg-primary-blue-500! text-primary-white dark:bg-primary-blue-600! dark:text-primary-gray-700 hover:bg-primary-blue-700! dark:hover:bg-primary-blue-700!'
               : 'text-primary-black dark:text-primary-white hover:bg-primary-blue-100! dark:hover:bg-primary-blue-700! hover:text-primary-black! dark:hover:text-primary-white!',
           ),
         menu: () =>
