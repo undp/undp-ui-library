@@ -129,4 +129,6 @@ export {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 
+export { SDGCardButton } from '@/components/ui/sdgCardButton';
+
 export { cn } from '@/lib/utils';
