@@ -14,7 +14,7 @@ import {
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Drawer>;
 
 const meta: Meta<PagePropsAndCustomArgs> = {
-  title: 'UI/Drawer',
+  title: 'Components/Drawer',
   component: Drawer,
   tags: ['autodocs'],
   argTypes: {
