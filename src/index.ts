@@ -127,6 +127,7 @@ export {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
+  DrawerBody,
 } from '@/components/ui/drawer';
 
 export { SDGCardButton } from '@/components/ui/sdgCardButton';

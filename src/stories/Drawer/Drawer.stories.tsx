@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import {
   Drawer,
+  DrawerBody,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
@@ -42,6 +43,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
               <DrawerTitle>Are you absolutely sure?</DrawerTitle>
               <DrawerDescription>This action cannot be undone.</DrawerDescription>
             </DrawerHeader>
+            <DrawerBody>Hello world</DrawerBody>
             <DrawerFooter>This is the footer</DrawerFooter>
           </DrawerContent>
         </Drawer>

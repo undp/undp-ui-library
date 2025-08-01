@@ -44,7 +44,6 @@ function DrawerContent({
   return (
     <DrawerPortal data-slot='drawer-portal'>
       <DrawerOverlay />
-
       <DrawerPrimitive.Content
         data-slot='drawer-content'
         className={cn(
@@ -70,7 +69,9 @@ function DrawerContent({
             <X size={32} strokeWidth={1} />
           </button>
         </DrawerClose>
-        {children}
+        <div className='pt-[4.375rem] px-[0.75rem] md:pt-0 md:pr-[1.5rem] md:pl-[2rem] h-[100vh] undp-scrollbar'>
+          {children}
+        </div>
       </DrawerPrimitive.Content>
     </DrawerPortal>
   );
@@ -81,7 +82,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot='drawer-header'
       className={cn(
-        'flex flex-col gap-0.5 p-4 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=right]:mt-24 group-data-[vaul-drawer-direction=right]:mr-24 group-data-[vaul-drawer-direction=top]:mt-24 group-data-[vaul-drawer-direction=bottom]:mt-24 group-data-[vaul-drawer-direction=top]:ml-24 group-data-[vaul-drawer-direction=bottom]:ml-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-1.5 md:text-left h-[100vh] undp-scrollbar',
+        'mt-0 mr-0 ml-[1.875rem] md:mt-[6rem] md:ml-[6rem] group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=right]:mt-24 group-data-[vaul-drawer-direction=right]:mr-24 group-data-[vaul-drawer-direction=top]:mt-24 group-data-[vaul-drawer-direction=bottom]:mt-24 group-data-[vaul-drawer-direction=top]:ml-24 group-data-[vaul-drawer-direction=bottom]:ml-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-1.5 md:text-left',
         className,
       )}
       {...props}
@@ -89,22 +90,44 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
+function DrawerBody({ className, ...props }: React.ComponentProps<'div'>) {
+  return <div data-slot='drawer-header' className={cn('mt-20', className)} {...props} />;
+}
+
 function DrawerFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot='drawer-footer'
-      className={cn('mt-auto flex flex-col gap-2 p-4', className)}
+      className={cn('mt-auto flex flex-col gap-2 p-4 absolute bottom-0', className)}
       {...props}
     />
   );
 }
 
 function DrawerTitle({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Title>) {
-  return <DrawerPrimitive.Title data-slot='drawer-title' {...props} />;
+  return (
+    <DrawerPrimitive.Title
+      data-slot='drawer-title'
+      {...props}
+      className={cn(
+        'font-heading mb-4 text-[1.563rem] leading-[1.1] uppercase font-bold md:text-[3.438rem]',
+        props.className,
+      )}
+    />
+  );
 }
 
 function DrawerDescription({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Description>) {
-  return <DrawerPrimitive.Description data-slot='drawer-description' {...props} />;
+  return (
+    <DrawerPrimitive.Description
+      data-slot='drawer-description'
+      {...props}
+      className={cn(
+        'text-[1.25rem] mb-4 leading-[1.15] font-semibold md:text-[2.188rem]',
+        props.className,
+      )}
+    />
+  );
 }
 
 export {
@@ -118,4 +141,5 @@ export {
   DrawerFooter,
   DrawerTitle,
   DrawerDescription,
+  DrawerBody,
 };
