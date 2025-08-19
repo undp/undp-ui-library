@@ -47,7 +47,7 @@ const SDGCardButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         </strong>
         <h4
           className={cn(
-            'm-0 font-heading p-0 text-[1.875rem] left-[18rem] tracking-[.094rem] absolute uppercase',
+            'm-0 font-heading text-left p-0 text-[1.875rem] left-[18rem] tracking-[.094rem] absolute uppercase',
             textClassName,
           )}
           style={{ color: textColor || '#fff' }}

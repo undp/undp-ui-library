@@ -2,13 +2,22 @@ import path from 'path';
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import eslint from 'vite-plugin-eslint';
+import eslint from '@nabla/vite-plugin-eslint';
 import dts from 'vite-plugin-dts';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
-  const plugins = [dts({ rollupTypes: true }), react(), eslint(), tailwindcss()];
+  const plugins = [
+    dts({
+      include: ['src/'],
+      exclude: ['**/*.mdx', '**/*.test.tsx', 'stories'],
+      rollupTypes: true,
+    }),
+    react(),
+    eslint(),
+    tailwindcss(),
+  ];
   return {
     plugins,
     build: {

@@ -1,5 +1,4 @@
-import { H3, P, A } from 'storybook/internal/components';
-
+import { A, H3, P } from './components/ui/typography';
 import './index.css';
 
 function App() {

@@ -4,8 +4,10 @@ import { X } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-function Drawer({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
-  return <DrawerPrimitive.Root data-slot='drawer' direction='right' {...props} />;
+function Drawer({ direction, ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
+  return (
+    <DrawerPrimitive.Root data-slot='drawer' modal direction={direction || 'right'} {...props} />
+  );
 }
 
 function DrawerTrigger({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Trigger>) {
@@ -69,7 +71,15 @@ function DrawerContent({
             <X size={32} strokeWidth={1} />
           </button>
         </DrawerClose>
-        <div className='pt-[4.375rem] px-[0.75rem] md:pt-0 md:pr-[1.5rem] md:pl-[2rem] h-[100vh] undp-scrollbar'>
+        <div
+          style={{
+            userSelect: 'text',
+            touchAction: 'auto',
+          }}
+          onPointerDown={e => e.stopPropagation()}
+          onTouchStart={e => e.stopPropagation()}
+          className='pt-[4.375rem] px-[0.75rem] md:pt-0 md:pr-[1.5rem] md:pl-[2rem] h-[100vh] undp-scrollbar'
+        >
           {children}
         </div>
       </DrawerPrimitive.Content>
@@ -91,7 +101,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function DrawerBody({ className, ...props }: React.ComponentProps<'div'>) {
-  return <div data-slot='drawer-header' className={cn('mt-20', className)} {...props} />;
+  return <div data-slot='drawer-body' className={cn('mt-20', className)} {...props} />;
 }
 
 function DrawerFooter({ className, ...props }: React.ComponentProps<'div'>) {
