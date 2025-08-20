@@ -38,13 +38,13 @@ function DrawerOverlay({
   );
 }
 
-function DrawerContent({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Content>) {
-  return (
-    <DrawerPortal data-slot='drawer-portal'>
+type DrawerContentProps = React.ComponentProps<typeof DrawerPrimitive.Content> & {
+  inPortal?: boolean;
+};
+
+function DrawerContent({ className, children, inPortal = false, ...props }: DrawerContentProps) {
+  const content = (
+    <>
       <DrawerOverlay />
       <DrawerPrimitive.Content
         data-slot='drawer-content'
@@ -83,8 +83,12 @@ function DrawerContent({
           {children}
         </div>
       </DrawerPrimitive.Content>
-    </DrawerPortal>
+    </>
   );
+  if (inPortal) {
+    return <DrawerPortal data-slot='drawer-portal'>{content}</DrawerPortal>;
+  }
+  return content;
 }
 
 function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
