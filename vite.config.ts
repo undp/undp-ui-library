@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import eslint from '@nabla/vite-plugin-eslint';
 import dts from 'vite-plugin-dts';
+import { visualizer } from 'rollup-plugin-visualizer';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
@@ -14,6 +15,7 @@ export default defineConfig(() => {
       exclude: ['**/*.mdx', '**/*.test.tsx', 'stories'],
       rollupTypes: true,
     }),
+    visualizer({ filename: 'stats.html', open: true }),
     react(),
     eslint(),
     tailwindcss(),
@@ -28,9 +30,8 @@ export default defineConfig(() => {
         fileName: format => {
           if (format === 'es') return 'index.js'; // ES Module
           if (format === 'cjs') return 'index.cjs'; // CommonJS Module
-          return 'index.umd.js'; // UMD Module
         },
-        formats: ['es', 'cjs', 'umd'],
+        formats: ['es', 'cjs'],
       },
       rollupOptions: {
         external: ['react', 'react-dom'],
@@ -46,6 +47,7 @@ export default defineConfig(() => {
             return 'assets/[name][extname]';
           },
         },
+        treeshake: true,
       },
       sourcemap: true,
       emptyOutDir: true,
