@@ -38,13 +38,13 @@ const SDGCardButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             'url(https://www.undp.org/libraries/undp--design-system-assets/images/arrow-right-white.svg), auto',
         }}
         className={cn(
-          'min-h-[160px] w-full flex items-start flex-col gap-0 px-6 py-9 sm:flex-row sm:px-0 sm:items-center sm:py-4 sm:gap-[18rem]',
+          'min-h-[160px] w-full flex items-start flex-col gap-0 px-6 py-9 sm:flex-row sm:px-0 sm:items-center sm:py-0 sm:gap-9',
           className,
         )}
       >
         <strong
           className={cn(
-            'text-[2.938rem] pl-0 sm:text-[6.875rem] sm:pl-[6.313rem] font-heading',
+            'text-[2.938rem] pl-0 sm:text-[6.875rem] sm:pl-[6.313rem] font-heading w-auto sm:w-[250px] text-left',
             indexClassName,
           )}
           style={{ color: textColor || '#fff' }}
