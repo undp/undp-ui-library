@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   index: string | number;
   text: string;
-  backgroundColor: string;
+  backgroundColor?: string;
   textColor?: string;
   indexClassName?: string;
   textClassName?: string;
@@ -37,17 +37,23 @@ const SDGCardButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
           cursor:
             'url(https://www.undp.org/libraries/undp--design-system-assets/images/arrow-right-white.svg), auto',
         }}
-        className={cn('min-h-[160px] w-full flex items-center', className)}
+        className={cn(
+          'min-h-[160px] w-full flex items-start flex-col gap-0 px-6 py-9 sm:flex-row sm:px-0 sm:items-center sm:py-4 sm:gap-[18rem]',
+          className,
+        )}
       >
         <strong
-          className={cn('text-[6.875rem] pl-[6.313rem] font-heading', indexClassName)}
+          className={cn(
+            'text-[2.938rem] pl-0 sm:text-[6.875rem] sm:pl-[6.313rem] font-heading',
+            indexClassName,
+          )}
           style={{ color: textColor || '#fff' }}
         >
           {index}
         </strong>
         <h4
           className={cn(
-            'm-0 font-heading text-left p-0 text-[1.875rem] left-[18rem] tracking-[.094rem] absolute uppercase',
+            'm-0 font-heading text-left p-0 text-[1.563rem] tracking-[.078rem] uppercase sm:text-[1.875rem] sm:tracking-[.094rem]',
             textClassName,
           )}
           style={{ color: textColor || '#fff' }}
