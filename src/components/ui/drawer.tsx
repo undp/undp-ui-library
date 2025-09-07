@@ -110,7 +110,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function DrawerBody({ className, ...props }: React.ComponentProps<'div'>) {
-  return <div data-slot='drawer-body' className={cn('mt-20', className)} {...props} />;
+  return <div data-slot='drawer-body' className={cn('mt-20 sm:mt-10', className)} {...props} />;
 }
 
 function DrawerFooter({ className, ...props }: React.ComponentProps<'div'>) {
