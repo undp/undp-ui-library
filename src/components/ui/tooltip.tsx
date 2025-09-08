@@ -9,11 +9,14 @@ const Tooltip = TooltipPrimitive.Root;
 
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
+type TooltipContentProps = React.ComponentProps<typeof TooltipPrimitive.Content> & {
+  inPortal?: boolean;
+};
 const TooltipContent = React.forwardRef<
   React.ComponentRef<typeof TooltipPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
-  <TooltipPrimitive.Portal>
+  TooltipContentProps
+>(({ className, inPortal = false, sideOffset = 4, ...props }, ref) => {
+  const content = (
     <TooltipPrimitive.Content
       {...props}
       ref={ref}
@@ -23,8 +26,11 @@ const TooltipContent = React.forwardRef<
         className,
       )}
     />
-  </TooltipPrimitive.Portal>
-));
+  );
+
+  return inPortal ? <TooltipPrimitive.Portal>{content}</TooltipPrimitive.Portal> : content;
+});
+
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
