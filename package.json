@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "1.2.11",
+  "version": "1.2.13",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -374,6 +374,7 @@
     "@eslint/object-schema": "^2.1.6",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
+    "@microsoft/api-extractor": "^7.52.12",
     "@nabla/vite-plugin-eslint": "^2.0.6",
     "@storybook/addon-backgrounds": "^9.0.8",
     "@storybook/addon-controls": "^9.0.8",

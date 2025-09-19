@@ -96,6 +96,7 @@ const customComponents = (maxTagCount?: number, isDisabled?: boolean) => ({
 
 function DropdownSelect({
   className,
+  classNames,
   variant,
   size,
   truncateLabel,
@@ -144,6 +145,7 @@ function DropdownSelect({
         menu: () =>
           'bg-primary-white! rounded-none! mt-1! border-0! shadow-lg! p-0! dark:bg-primary-gray-650!',
         menuList: () => 'undp-scrollbar pt-0! pb-0!',
+        ...(classNames || {}),
       }}
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       components={customComponents(maxTagCount, isDisabled) as any}
