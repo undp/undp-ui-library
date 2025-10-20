@@ -38,7 +38,7 @@ const SDGCardButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             'url(https://www.undp.org/libraries/undp--design-system-assets/images/arrow-right-white.svg), auto',
         }}
         className={cn(
-          'min-h-[160px] w-full flex items-start flex-col gap-0 px-6 py-9 sm:flex-row sm:px-0 sm:items-center sm:py-0 sm:gap-9',
+          'min-h-[160px] w-full flex items-start flex-col gap-0 px-6 py-9 sm:flex-row sm:px-0 sm:items-center sm:py-0 sm:gap-9 hover:brightness-90',
           className,
         )}
       >

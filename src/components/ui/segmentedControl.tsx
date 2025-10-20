@@ -65,6 +65,10 @@ interface Props {
   size?: 'sm' | 'base';
   variant?: 'light' | 'normal';
   color?: 'blue' | 'red' | 'black' | 'custom';
+  buttonStyle?: {
+    active?: React.CSSProperties;
+    inactive?: React.CSSProperties;
+  };
 }
 
 function SegmentedControl(props: Props) {
@@ -79,6 +83,7 @@ function SegmentedControl(props: Props) {
     variant,
     color,
     value,
+    buttonStyle,
   } = props;
   const [selected, setSelected] = useState(value || defaultValue || options[0].value);
 
@@ -106,6 +111,7 @@ function SegmentedControl(props: Props) {
             buttonClassName,
             selected === option.value ? activeButtonClassName : '',
           )}
+          style={selected === option.value ? buttonStyle?.active : buttonStyle?.inactive}
         >
           {option.label}
         </button>

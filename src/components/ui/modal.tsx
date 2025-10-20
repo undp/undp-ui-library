@@ -24,6 +24,9 @@ interface ModalProps {
   titleClassName?: string;
   footerClassName?: string;
   descriptionClassName?: string;
+  overlayClassName?: string;
+  closeButtonClassName?: string;
+  inPortal?: boolean;
 }
 
 function Modal(props: ModalProps) {
@@ -38,7 +41,10 @@ function Modal(props: ModalProps) {
     titleClassName,
     footerClassName,
     descriptionClassName,
+    overlayClassName,
+    closeButtonClassName,
     showCloseButton = true,
+    inPortal = false,
   } = props;
   const descriptionId = React.useId();
   const titleId = React.useId();
@@ -50,6 +56,7 @@ function Modal(props: ModalProps) {
       }}
     >
       <DialogContent
+        inPortal={inPortal}
         className={cn(
           'rounded-none p-16 max-w-(--breakpoint-xl) undp-scrollbar',
           'data-[state=open]:animate-in data-[state=closed]:animate-out',
@@ -58,6 +65,7 @@ function Modal(props: ModalProps) {
           'data-[state=closed]:slide-out-to-top-[2%] data-[state=open]:slide-in-from-top-[2%]',
           className,
         )}
+        overlayClassName={overlayClassName}
         onOpenChange={state => {
           if (!state) onClose?.();
         }}
@@ -70,7 +78,10 @@ function Modal(props: ModalProps) {
             onClick={() => {
               onClose?.();
             }}
-            className='absolute right-6 top-6 p-2 bg-primary-gray-200 dark:bg-primary-gray-600 rounded-full ring-offset-background transition-opacity hover:bg-primary-gray-300 dark:hover:bg-primary-gray-500 disabled:pointer-events-none data-[state=open]:bg-primary-gray-200 dark:data-[state=open]:bg-primary-gray-600 data-[state=open]:text-primary-gray-600'
+            className={cn(
+              'absolute right-6 top-6 p-2 bg-primary-gray-200 dark:bg-primary-gray-600 rounded-full ring-offset-background transition-opacity hover:bg-primary-gray-300 dark:hover:bg-primary-gray-500 disabled:pointer-events-none data-[state=open]:bg-primary-gray-200 dark:data-[state=open]:bg-primary-gray-600 data-[state=open]:text-primary-gray-600',
+              closeButtonClassName,
+            )}
           >
             <X className='h-6 w-6 stroke-primary-black dark:stroke-primary-gray-100' />
           </button>

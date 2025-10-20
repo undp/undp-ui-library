@@ -47,12 +47,21 @@ function DrawerOverlay({
 
 type DrawerContentProps = React.ComponentProps<typeof DrawerPrimitive.Content> & {
   inPortal?: boolean;
+  overlayClassName?: string;
+  closeButtonClassName?: string;
 };
 
-function DrawerContent({ className, children, inPortal = false, ...props }: DrawerContentProps) {
+function DrawerContent({
+  className,
+  children,
+  inPortal = false,
+  overlayClassName,
+  closeButtonClassName,
+  ...props
+}: DrawerContentProps) {
   const content = (
     <>
-      <DrawerOverlay />
+      <DrawerOverlay className={overlayClassName} />
       <DrawerPrimitive.Content
         data-slot='drawer-content'
         className={cn(
@@ -73,6 +82,7 @@ function DrawerContent({ className, children, inPortal = false, ...props }: Draw
               'group-data-[vaul-drawer-direction=left]/drawer-content:ml-4 group-data-[vaul-drawer-direction=left]/drawer-content:left-0 sm:group-data-[vaul-drawer-direction=left]/drawer-content:ml-[8.33%] sm:group-data-[vaul-drawer-direction=left]/drawer-content:left-[100%]',
               'group-data-[vaul-drawer-direction=top]/drawer-content:hidden',
               'group-data-[vaul-drawer-direction=bottom]/drawer-content:hidden',
+              closeButtonClassName,
             )}
           >
             <X size={32} strokeWidth={1} />

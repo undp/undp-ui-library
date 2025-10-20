@@ -22,6 +22,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
     index: {
       control: { type: 'text' },
+      type: 'string',
     },
     text: {
       control: { type: 'text' },
@@ -29,6 +30,10 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
     indexClassName: { control: { type: 'text' } },
     textClassName: { control: { type: 'text' } },
+  },
+  args: {
+    text: 'No Poverty',
+    index: '1',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
