@@ -103,6 +103,7 @@ function DropdownSelect({
   placeholder,
   maxTagCount,
   isDisabled,
+  components,
   ...props
 }: SelectPropsDataType): JSX.Element {
   return (
@@ -147,10 +148,9 @@ function DropdownSelect({
         menuList: () => 'undp-scrollbar pt-0! pb-0!',
         ...(classNames || {}),
       }}
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      components={customComponents(maxTagCount, isDisabled) as any}
+      components={{ ...customComponents(maxTagCount, isDisabled), ...(components || {}) }}
     />
   );
 }
 
-export { DropdownSelect, createFilter };
+export { DropdownSelect, createFilter, components };
