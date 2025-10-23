@@ -98,7 +98,14 @@ module.exports = {
       spin: 'spin 1s linear infinite',
     },
     fontFamily: {
-      sans: ['ProximaNova', 'proxima-nova', 'Helvetica Neue', 'Roboto', 'sans-serif'],
+      sans: [
+        'var(--font-sans)',
+        'ProximaNova',
+        'proxima-nova',
+        'Helvetica Neue',
+        'Roboto',
+        'sans-serif',
+      ],
       'sans-ar': ['Noto Sans Arabic', 'sans-serif'],
       'sans-az': ['Noto Sans', 'sans-serif'],
       'sans-bn': ['UN Bangla', 'sans-serif'],
@@ -111,8 +118,9 @@ module.exports = {
       'sans-my': ['Noto Sans Myanmar', 'sans-serif'],
       'sans-ne': ['Noto Sans', 'sans-serif'],
       'sans-zh': ['Noto Sans SC', 'sans-serif'],
-      serif: ['serif'],
+      serif: ['var(--font-serif)', 'serif'],
       heading: [
+        'var(--font-heading)',
         'SohneBreit',
         'ProximaNova',
         'proxima-nova',

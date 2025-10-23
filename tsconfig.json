@@ -24,10 +24,6 @@
     }
   },
   "files": [],
-  "include": [
-    "eslint.config.js",
-    "src",
-    "tailwind.config.js"
-  ],
+  "include": ["eslint.config.js", "src", "tailwind.config.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

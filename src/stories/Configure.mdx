@@ -1,16 +1,16 @@
 import { Meta, Source, Canvas, Story } from '@storybook/addon-docs/blocks';
 import { H3, H4, P, Code, H6, Separator, Spacer } from '@/index';
-import githubLogo from "./assets/Github-logo.svg";
-import dsIcon from "./assets/DS-icon.svg";
-import figmaIcon from "./assets/Figma-icon.svg";
-import sendIcon from "./assets/Send-icon.svg";
-import npmIcon from "./assets/npm-logo.svg";
+import githubLogo from './assets/Github-logo.svg';
+import dsIcon from './assets/DS-icon.svg';
+import figmaIcon from './assets/Figma-icon.svg';
+import sendIcon from './assets/Send-icon.svg';
+import npmIcon from './assets/npm-logo.svg';
 
 <Meta
-  title="Getting started/Intro"
+  title='Getting started/Intro'
   parameters={{
-    layout: "fullscreen",
-    viewMode: "docs",
+    layout: 'fullscreen',
+    viewMode: 'docs',
     previewTabs: {
       canvas: { hidden: false },
       story: { hidden: false },
@@ -18,7 +18,7 @@ import npmIcon from "./assets/npm-logo.svg";
     docs: {
       story: {
         inline: false,
-        iframeHeight: "100%",
+        iframeHeight: '100%',
       },
     },
   }}
@@ -28,7 +28,7 @@ import npmIcon from "./assets/npm-logo.svg";
 
 ##### Here you can find our design guidelines, component documentation, and resources for building a react or next.js apps with UNDP's design system. It is base on the design system build and maintained by UNDP's Digital Communication Studio. This resource is build and maintained by UNDP's BPPS team.
 
-UNDP design system react is the implementation of [UNDP design system](https://design.undp.org/) in React. Before starting, it is recommended to learn React first, and correctly install and configure Node.js v18 or above. 
+UNDP design system react is the implementation of [UNDP design system](https://design.undp.org/) in React. Before starting, it is recommended to learn React first, and correctly install and configure Node.js v18 or above.
 
 We also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript/TypeScript, and React. Starting out is straightforward.
 
@@ -41,10 +41,11 @@ We also assumes that you have intermediate knowledge about HTML, CSS, and JavaSc
 Before starting, it is recommended to correctly install and configure [Node.js](https://nodejs.org/en/download) v18 or above.
 
 We also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript/TypeScript, and React. Starting out is straightforward.
-      
+
 #### Installing with NPM
 
 Start by installing UNDP Design System as a node module and save it as a dependency in your package.json:
+
 ```
 npm install @undp/design-system-react `--save`
 ```
@@ -54,13 +55,14 @@ npm install @undp/design-system-react `--save`
 It is recommended to import what you need and the use it.
 
 It is also recommended to import the css because some setting expect the CSS to be imported to look good. You can import the css file like this:
+
 ```
 import '@undp/design-system-react/style.css';
 ```
 
 ## Adding custom color
 
->To add custom color as the primary color overwrite the following variable in main css and import it after the css for the design system: `--custom-color-100`, `--custom-color-200`, `--custom-color-300`, `--custom-color-400`, `--custom-color-500`, `--custom-color-600`, `--custom-color-700`, `--custom-foreground`. For example:
+> To add custom color as the primary color overwrite the following variable in main css and import it after the css for the design system: `--custom-color-100`, `--custom-color-200`, `--custom-color-300`, `--custom-color-400`, `--custom-color-500`, `--custom-color-600`, `--custom-color-700`, `--custom-foreground`. For example:
 
 ```html
 <div
@@ -83,18 +85,12 @@ import '@undp/design-system-react/style.css';
 After that use the color variant as `custom` in various component that allows it. For example:
 
 ```tsx
-<Container
-  backgroundColor="custom"
-  gap="none"
-  layout="default"
-  padding="base"
-  width="full"
->
-  <H4>
-    Heading
-  </H4>
+<Container backgroundColor='custom' gap='none' layout='default' padding='base' width='full'>
+  <H4>Heading</H4>
   <P>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu sagittis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu sagittis
+    facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+    himenaeos.
   </P>
 </Container>
 ```
@@ -124,27 +120,43 @@ UNDP Design System provides a built-in ts definition, you don't need to install 
 <br />
 
 <div className='flex gap-4 flex-wrap'>
-    <div className="flex github">
-      <a href="https://github.com/undp/undp-ui-library" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
-        <img width={'32px'} src={githubLogo} alt="" />
-        <P className='m-0 md:m-0'>View Github repository</P>
-      </a>
-    </div>
-  <div className="flex github">
-    <a href="https://www.npmjs.com/package/@undp/design-system-react" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
-      <img width={'48px'} src={npmIcon} alt="" />
+  <div className='flex github'>
+    <a
+      href='https://github.com/undp/undp-ui-library'
+      target='_blank'
+      className='flex items-center gap-2 bg-primary-gray-300 p-4'
+    >
+      <img width={'32px'} src={githubLogo} alt='' />
+      <P className='m-0 md:m-0'>View Github repository</P>
+    </a>
+  </div>
+  <div className='flex github'>
+    <a
+      href='https://www.npmjs.com/package/@undp/design-system-react'
+      target='_blank'
+      className='flex items-center gap-2 bg-primary-gray-300 p-4'
+    >
+      <img width={'48px'} src={npmIcon} alt='' />
       <P className='m-0 md:m-0'>NPM package</P>
     </a>
   </div>
-  <div className="flex github">
-    <a href="https://design.undp.org/" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
-      <img width={'32px'} src={dsIcon} alt="" />
+  <div className='flex github'>
+    <a
+      href='https://design.undp.org/'
+      target='_blank'
+      className='flex items-center gap-2 bg-primary-gray-300 p-4'
+    >
+      <img width={'32px'} src={dsIcon} alt='' />
       <P className='m-0 md:m-0'>Native UNDP Design system</P>
     </a>
   </div>
-  <div className="flex github">
-    <a href="https://www.figma.com/community/file/1128400672549109458/undp-design-system" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
-      <img width={'32px'} src={figmaIcon} alt="" />
+  <div className='flex github'>
+    <a
+      href='https://www.figma.com/community/file/1128400672549109458/undp-design-system'
+      target='_blank'
+      className='flex items-center gap-2 bg-primary-gray-300 p-4'
+    >
+      <img width={'32px'} src={figmaIcon} alt='' />
       <P className='m-0 md:m-0'>Figma file</P>
     </a>
   </div>
@@ -157,9 +169,13 @@ UNDP Design System provides a built-in ts definition, you don't need to install 
 <br />
 
 <div className='flex gap-4 flex-wrap'>
-  <div className="flex github">
-    <a href="mailto:data@undp.org" target="_blank" className='flex items-center gap-2 bg-primary-gray-300 p-4'>
-      <img width={'32px'} src={sendIcon} alt="" />
+  <div className='flex github'>
+    <a
+      href='mailto:data@undp.org'
+      target='_blank'
+      className='flex items-center gap-2 bg-primary-gray-300 p-4'
+    >
+      <img width={'32px'} src={sendIcon} alt='' />
       <P className='m-0 md:m-0'>Send us an email for features or issues</P>
     </a>
   </div>

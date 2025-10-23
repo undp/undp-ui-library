@@ -6,64 +6,64 @@
 
 @layer base {
   :root {
-    --background: #FFFFFF;
-    --foreground: #232E3D;
-    --custom-color-100: #B5D5F5;
-    --custom-color-200: #94C4F5;
-    --custom-color-300: #6BABEB;
-    --custom-color-400: #4F95DD;
-    --custom-color-500: #3288CE;
-    --custom-color-600: #0468B1;
-    --custom-color-700: #1F5A95;
-    --custom-foreground: #232E3D;
-    --ring: #B5D5F5;
-    --blue-100: #B5D5F5;
-    --blue-200: #94C4F5;
-    --blue-300: #6BABEB;
-    --blue-400: #4F95DD;
-    --blue-500: #3288CE;
-    --blue-600: #0468B1;
-    --blue-700: #1F5A95;
-    --white: #FFFFFF;
-    --gray-100: #FAFAFA;
-    --gray-200: #F7F7F7;
-    --gray-300: #EDEFF0;
-    --gray-400: #D4D6D8;
-    --gray-500: #A9B1B7;
+    --background: #ffffff;
+    --foreground: #232e3d;
+    --custom-color-100: #b5d5f5;
+    --custom-color-200: #94c4f5;
+    --custom-color-300: #6babeb;
+    --custom-color-400: #4f95dd;
+    --custom-color-500: #3288ce;
+    --custom-color-600: #0468b1;
+    --custom-color-700: #1f5a95;
+    --custom-foreground: #232e3d;
+    --ring: #b5d5f5;
+    --blue-100: #b5d5f5;
+    --blue-200: #94c4f5;
+    --blue-300: #6babeb;
+    --blue-400: #4f95dd;
+    --blue-500: #3288ce;
+    --blue-600: #0468b1;
+    --blue-700: #1f5a95;
+    --white: #ffffff;
+    --gray-100: #fafafa;
+    --gray-200: #f7f7f7;
+    --gray-300: #edeff0;
+    --gray-400: #d4d6d8;
+    --gray-500: #a9b1b7;
     --gray-550: #879099;
-    --gray-600: #55606E;
+    --gray-600: #55606e;
     --gray-650: #3b4859;
-    --gray-700: #232E3D;
+    --gray-700: #232e3d;
     --black: #000000;
-    --light-yellow: #FFEB00;
-    --yellow: #FFEB00;
-    --dark-yellow: #FBC412;
-    --light-red: #FFBCB7;
-    --red: #EE402D;
-    --dark-red: #D12800;
-    --light-green: #B8ECB6;
-    --green: #6DE354;
-    --dark-green: #59BA47;
-    --light-azure: #A2DAF3;
-    --azure: #60D4F2;
-    --dark-azure: #00C1FF;
-    --sdg-1: #E5243B;
-    --sdg-2: #DDA63A;
-    --sdg-3: #4C9F38;
-    --sdg-4: #C5192D;
-    --sdg-5: #FF3A21;
-    --sdg-6: #26BDE2;
-    --sdg-7: #FCC30B;
-    --sdg-8: #A21942;
-    --sdg-9: #FD6925;
-    --sdg-10: #DD1367;
-    --sdg-11: #FD9D24;
-    --sdg-12: #BF8B2E;
-    --sdg-13: #3F7E44;
-    --sdg-14: #0A97D9;
-    --sdg-15: #56C02B;
-    --sdg-16: #00689D;
-    --sdg-17: #19486A;
+    --light-yellow: #ffeb00;
+    --yellow: #ffeb00;
+    --dark-yellow: #fbc412;
+    --light-red: #ffbcb7;
+    --red: #ee402d;
+    --dark-red: #d12800;
+    --light-green: #b8ecb6;
+    --green: #6de354;
+    --dark-green: #59ba47;
+    --light-azure: #a2daf3;
+    --azure: #60d4f2;
+    --dark-azure: #00c1ff;
+    --sdg-1: #e5243b;
+    --sdg-2: #dda63a;
+    --sdg-3: #4c9f38;
+    --sdg-4: #c5192d;
+    --sdg-5: #ff3a21;
+    --sdg-6: #26bde2;
+    --sdg-7: #fcc30b;
+    --sdg-8: #a21942;
+    --sdg-9: #fd6925;
+    --sdg-10: #dd1367;
+    --sdg-11: #fd9d24;
+    --sdg-12: #bf8b2e;
+    --sdg-13: #3f7e44;
+    --sdg-14: #0a97d9;
+    --sdg-15: #56c02b;
+    --sdg-16: #00689d;
+    --sdg-17: #19486a;
     --font-custom: Roboto, sans-serif;
     --font-custom-heading: Roboto, sans-serif;
   }
@@ -75,17 +75,17 @@
   ::file-selector-button {
     border-color: var(--gray-200, currentcolor);
   }
-  
+
   body {
     margin: 0;
     line-height: inherit;
     color: var(--black);
   }
-  
+
   .dark {
     color: var(--white);
   }
-  
+
   ul {
     list-style-type: disc;
   }
@@ -95,153 +95,437 @@
   }
 }
 
-
-
 h1 {
-  @apply font-heading;   
+  @apply font-heading;
 }
-.en, .en h2, .en h3, .en h4, .en h5, .en h6, .en p, .en cite, .en blockquote, h2.en,  h3.en,  h4.en,  h5.en,  h6.en, p.en, cite.en, blockquote.en {
+.en,
+.en h2,
+.en h3,
+.en h4,
+.en h5,
+.en h6,
+.en p,
+.en cite,
+.en blockquote,
+h2.en,
+h3.en,
+h4.en,
+h5.en,
+h6.en,
+p.en,
+cite.en,
+blockquote.en {
   @apply font-sans;
 }
-.ar, .ar h1, .ar h2, .ar h3, .ar h4, .ar h5, .ar h6, .ar p, .ar cite, .ar blockquote, h1.ar,  h2.ar,  h3.ar,  h4.ar,  h5.ar,  h6.ar, p.ar, cite.ar, blockquote.ar {
-  @apply font-sans-ar
+.ar,
+.ar h1,
+.ar h2,
+.ar h3,
+.ar h4,
+.ar h5,
+.ar h6,
+.ar p,
+.ar cite,
+.ar blockquote,
+h1.ar,
+h2.ar,
+h3.ar,
+h4.ar,
+h5.ar,
+h6.ar,
+p.ar,
+cite.ar,
+blockquote.ar {
+  @apply font-sans-ar;
 }
-.az, .az h1, .az h2, .az h3, .az h4, .az h5, .az h6, .az p, .az cite, .az blockquote, h1.az,  h2.az,  h3.az,  h4.az,  h5.az,  h6.az, p.az, cite.az, blockquote.az {
-  @apply font-sans-az
+.az,
+.az h1,
+.az h2,
+.az h3,
+.az h4,
+.az h5,
+.az h6,
+.az p,
+.az cite,
+.az blockquote,
+h1.az,
+h2.az,
+h3.az,
+h4.az,
+h5.az,
+h6.az,
+p.az,
+cite.az,
+blockquote.az {
+  @apply font-sans-az;
 }
-.bn, .bn h1, .bn h2, .bn h3, .bn h4, .bn h5, .bn h6, .bn p, .bn cite, .bn blockquote, h1.bn,  h2.bn,  h3.bn,  h4.bn,  h5.bn,  h6.bn, p.bn, cite.bn, blockquote.bn  {
-  @apply font-sans-bn
+.bn,
+.bn h1,
+.bn h2,
+.bn h3,
+.bn h4,
+.bn h5,
+.bn h6,
+.bn p,
+.bn cite,
+.bn blockquote,
+h1.bn,
+h2.bn,
+h3.bn,
+h4.bn,
+h5.bn,
+h6.bn,
+p.bn,
+cite.bn,
+blockquote.bn {
+  @apply font-sans-bn;
 }
-.cy, .cy h1, .cy h2, .cy h3, .cy h4, .cy h5, .cy h6, .cy p, .cy cite, .cy blockquote, h1.cy, h2.cy,  h3.cy,  h4.cy,  h5.cy,  h6.cy, p.cy, cite.cy, blockquote.cy {
+.cy,
+.cy h1,
+.cy h2,
+.cy h3,
+.cy h4,
+.cy h5,
+.cy h6,
+.cy p,
+.cy cite,
+.cy blockquote,
+h1.cy,
+h2.cy,
+h3.cy,
+h4.cy,
+h5.cy,
+h6.cy,
+p.cy,
+cite.cy,
+blockquote.cy {
   @apply font-sans;
 }
-.he, .he h1, .he h2, .he h3, .he h4, .he h5, .he h6, .he p, .he cite, .he blockquote, h1.he,  h2.he,  h3.he,  h4.he,  h5.he,  h6.he, p.he, cite.he, blockquote.he  {
-  @apply font-sans-he
+.he,
+.he h1,
+.he h2,
+.he h3,
+.he h4,
+.he h5,
+.he h6,
+.he p,
+.he cite,
+.he blockquote,
+h1.he,
+h2.he,
+h3.he,
+h4.he,
+h5.he,
+h6.he,
+p.he,
+cite.he,
+blockquote.he {
+  @apply font-sans-he;
 }
-.hi, .hi h1, .hi h2, .hi h3, .hi h4, .hi h5, .hi h6, .hi p, .hi cite, .hi blockquote, h1.hi,  h2.hi,  h3.hi,  h4.hi,  h5.hi,  h6.hi, p.hi, cite.hi, blockquote.hi  {
-  @apply font-sans-hi
+.hi,
+.hi h1,
+.hi h2,
+.hi h3,
+.hi h4,
+.hi h5,
+.hi h6,
+.hi p,
+.hi cite,
+.hi blockquote,
+h1.hi,
+h2.hi,
+h3.hi,
+h4.hi,
+h5.hi,
+h6.hi,
+p.hi,
+cite.hi,
+blockquote.hi {
+  @apply font-sans-hi;
 }
-.jp, .jp h1, .jp h2, .jp h3, .jp h4, .jp h5, .jp h6, .jp p, .jp cite, .jp blockquote, h1.jp,  h2.jp,  h3.jp,  h4.jp,  h5.jp,  h6.jp, p.jp, cite.jp, blockquote.jp  {
-  @apply font-sans-jp
+.jp,
+.jp h1,
+.jp h2,
+.jp h3,
+.jp h4,
+.jp h5,
+.jp h6,
+.jp p,
+.jp cite,
+.jp blockquote,
+h1.jp,
+h2.jp,
+h3.jp,
+h4.jp,
+h5.jp,
+h6.jp,
+p.jp,
+cite.jp,
+blockquote.jp {
+  @apply font-sans-jp;
 }
-.ka, .ka h1, .ka h2, .ka h3, .ka h4, .ka h5, .ka h6, .ka p, .ka cite, .ka blockquote, h1.ka,  h2.ka,  h3.ka,  h4.ka,  h5.ka,  h6.ka, p.ka, cite.ka, blockquote.ka  {
-  @apply font-sans-ka
+.ka,
+.ka h1,
+.ka h2,
+.ka h3,
+.ka h4,
+.ka h5,
+.ka h6,
+.ka p,
+.ka cite,
+.ka blockquote,
+h1.ka,
+h2.ka,
+h3.ka,
+h4.ka,
+h5.ka,
+h6.ka,
+p.ka,
+cite.ka,
+blockquote.ka {
+  @apply font-sans-ka;
 }
-.km, .km h1, .km h2, .km h3, .km h4, .km h5, .km h6, .km p, .km cite, .km blockquote, h1.km,  h2.km,  h3.km,  h4.km,  h5.km,  h6.km, p.km, cite.km, blockquote.km  {
-  @apply font-sans-km
+.km,
+.km h1,
+.km h2,
+.km h3,
+.km h4,
+.km h5,
+.km h6,
+.km p,
+.km cite,
+.km blockquote,
+h1.km,
+h2.km,
+h3.km,
+h4.km,
+h5.km,
+h6.km,
+p.km,
+cite.km,
+blockquote.km {
+  @apply font-sans-km;
 }
-.ko, .ko h1, .ko h2, .ko h3, .ko h4, .ko h5, .ko h6, .ko p, .ko cite, .ko blockquote, h1.ko,  h2.ko,  h3.ko,  h4.ko,  h5.ko,  h6.ko, p.ko, cite.ko, blockquote.ko  {
-  @apply font-sans-ko
+.ko,
+.ko h1,
+.ko h2,
+.ko h3,
+.ko h4,
+.ko h5,
+.ko h6,
+.ko p,
+.ko cite,
+.ko blockquote,
+h1.ko,
+h2.ko,
+h3.ko,
+h4.ko,
+h5.ko,
+h6.ko,
+p.ko,
+cite.ko,
+blockquote.ko {
+  @apply font-sans-ko;
 }
-.my, .my h1, .my h2, .my h3, .my h4, .my h5, .my h6, .my p, .my cite, .my blockquote, h1.my,  h2.my,  h3.my,  h4.my,  h5.my,  h6.my, p.my, cite.my, blockquote.my  {
-  @apply font-sans-my
+.my,
+.my h1,
+.my h2,
+.my h3,
+.my h4,
+.my h5,
+.my h6,
+.my p,
+.my cite,
+.my blockquote,
+h1.my,
+h2.my,
+h3.my,
+h4.my,
+h5.my,
+h6.my,
+p.my,
+cite.my,
+blockquote.my {
+  @apply font-sans-my;
 }
-.ne, .ne h1, .ne h2, .ne h3, .ne h4, .ne h5, .ne h6, .ne p, .ne cite, .ne blockquote, h1.ne,  h2.ne,  h3.ne,  h4.ne,  h5.ne,  h6.ne, p.ne, cite.ne, blockquote.ne  {
-  @apply font-sans-ne
+.ne,
+.ne h1,
+.ne h2,
+.ne h3,
+.ne h4,
+.ne h5,
+.ne h6,
+.ne p,
+.ne cite,
+.ne blockquote,
+h1.ne,
+h2.ne,
+h3.ne,
+h4.ne,
+h5.ne,
+h6.ne,
+p.ne,
+cite.ne,
+blockquote.ne {
+  @apply font-sans-ne;
 }
-.zh, .zh h1, .zh h2, .zh h3, .zh h4, .zh h5, .zh h6, .zh p, .zh cite, .zh blockquote, h1.zh,  h2.zh,  h3.zh,  h4.zh,  h5.zh,  h6.zh, p.zh, cite.zh, blockquote.zh  {
-  @apply font-sans-zh
+.zh,
+.zh h1,
+.zh h2,
+.zh h3,
+.zh h4,
+.zh h5,
+.zh h6,
+.zh p,
+.zh cite,
+.zh blockquote,
+h1.zh,
+h2.zh,
+h3.zh,
+h4.zh,
+h5.zh,
+h6.zh,
+p.zh,
+cite.zh,
+blockquote.zh {
+  @apply font-sans-zh;
 }
-.custom, .custom h2, .custom h3, .custom h4, .custom h5, .custom h6, .custom p, .custom cite, .custom blockquote, h2.custom,  h3.custom,  h4.custom,  h5.custom,  h6.custom, p.custom, cite.custom, blockquote.custom {
+.custom,
+.custom h2,
+.custom h3,
+.custom h4,
+.custom h5,
+.custom h6,
+.custom p,
+.custom cite,
+.custom blockquote,
+h2.custom,
+h3.custom,
+h4.custom,
+h5.custom,
+h6.custom,
+p.custom,
+cite.custom,
+blockquote.custom {
   font-family: var(--font-custom);
 }
-h1.custom, .custom h1  {
+h1.custom,
+.custom h1 {
   font-family: var(--font-custom-heading);
 }
 
-[hidden]:where(:not([hidden="until-found"])) {
-	display: none
+[hidden]:where(:not([hidden='until-found'])) {
+  display: none;
 }
 
-
-
 .undp-button.button-arrow::after {
-	transition: .2s ease;
-	content: "";
-	height: 20px;
-	margin-left: 0.75rem;
-	width: 13px
+  transition: 0.2s ease;
+  content: '';
+  height: 20px;
+  margin-left: 0.75rem;
+  width: 13px;
 }
 
 .undp-button.button-arrow:not(.disabled):hover::after {
-	transform: translate(70%, 0)
+  transform: translate(70%, 0);
 }
 
 .button-arrow.white-arrow::after {
-	background: url(https://design.undp.org/static/media/chevron-right-white.c14d1d86.svg) no-repeat left center;
+  background: url(https://design.undp.org/static/media/chevron-right-white.c14d1d86.svg) no-repeat
+    left center;
 }
 
 .button-arrow.black-arrow::after {
-	background: url(https://design.undp.org/static/media/chevron-right-black.f618eac3.svg) no-repeat left center;
+  background: url(https://design.undp.org/static/media/chevron-right-black.f618eac3.svg) no-repeat
+    left center;
 }
 
 .button-arrow.red-arrow::after {
-	background: url(https://design.undp.org/icons/chevron-right.svg) no-repeat left center;
+  background: url(https://design.undp.org/icons/chevron-right.svg) no-repeat left center;
 }
 
-[dir=rtl] .button-arrow.white-arrow::after {
+[dir='rtl'] .button-arrow.white-arrow::after {
   margin-left: 0;
-	margin-right: 0.75rem;
-	background: url(https://raw.githubusercontent.com/undp/design-system-assets/refs/heads/main/images/chevron-left-white.svg) no-repeat left center;
+  margin-right: 0.75rem;
+  background: url(https://raw.githubusercontent.com/undp/design-system-assets/refs/heads/main/images/chevron-left-white.svg)
+    no-repeat left center;
 }
 
-[dir=rtl] .button-arrow.black-arrow::after {
-	background: url(https://design.undp.org/static/media/chevron-right-black.f618eac3.svg) no-repeat left center;
+[dir='rtl'] .button-arrow.black-arrow::after {
+  background: url(https://design.undp.org/static/media/chevron-right-black.f618eac3.svg) no-repeat
+    left center;
   transform: scaleX(-1);
   margin-left: 0;
-	margin-right: 0.75rem;
+  margin-right: 0.75rem;
 }
 
-[dir=rtl] .button-arrow.red-arrow::after {
-	background: url(https://design.undp.org/icons/chevron-left.svg) no-repeat left center;
+[dir='rtl'] .button-arrow.red-arrow::after {
+  background: url(https://design.undp.org/icons/chevron-left.svg) no-repeat left center;
   margin-left: 0;
-	margin-right: 0.75rem;
+  margin-right: 0.75rem;
 }
 
-[dir=rtl] .undp-button.button-arrow:not(.disabled):hover::after {
-	transform: translate(-70%, 0);
+[dir='rtl'] .undp-button.button-arrow:not(.disabled):hover::after {
+  transform: translate(-70%, 0);
 }
 
-
-[dir=rtl] .undp-button.button-arrow.black-arrow:not(.disabled):hover::after {
-	transform: translate(-70%, 0) scaleX(-1);
+[dir='rtl'] .undp-button.button-arrow.black-arrow:not(.disabled):hover::after {
+  transform: translate(-70%, 0) scaleX(-1);
 }
 @keyframes lineLoop-animation-for-links {
   0% {
-    background-position: 100% 100%, -30px 100%;
-    background-size: 100% 2px, 0 2px;
+    background-position:
+      100% 100%,
+      -30px 100%;
+    background-size:
+      100% 2px,
+      0 2px;
   }
   to {
-    background-position: calc(100% + 30px) 100%, 0 100%;
-    background-size: 0 2px, 100% 2px;
+    background-position:
+      calc(100% + 30px) 100%,
+      0 100%;
+    background-size:
+      0 2px,
+      100% 2px;
   }
 }
 @keyframes lineLoop-animation-for-links-rtl {
   0% {
-    background-position: calc(100% + 30px) 100%, 0 100%;
-    background-size: 0 2px, 100% 2px;
+    background-position:
+      calc(100% + 30px) 100%,
+      0 100%;
+    background-size:
+      0 2px,
+      100% 2px;
   }
   to {
-    background-position: 100% 100%, -30px 100%;
-    background-size: 100% 2px, 0 2px;
+    background-position:
+      100% 100%,
+      -30px 100%;
+    background-size:
+      100% 2px,
+      0 2px;
   }
 }
 
 .undp-link {
-  background-position: 100% 100%, -30px 100%;
+  background-position:
+    100% 100%,
+    -30px 100%;
   background-repeat: no-repeat;
-  background-size: 100% 2px, 0 1px;
-
+  background-size:
+    100% 2px,
+    0 1px;
 }
 
 .undp-link:hover {
   animation: lineLoop-animation-for-links 2s linear infinite;
 }
 
-[dir=rtl] .undp-link:hover {
+[dir='rtl'] .undp-link:hover {
   animation: lineLoop-animation-for-links-rtl 2s linear infinite;
 }
-
 
 .undp-scrollbar {
   overflow-x: auto;
@@ -255,7 +539,7 @@ h1.custom, .custom h1  {
 .undp-scrollbar::-webkit-scrollbar-track {
   background: var(--black);
   background-clip: padding-box;
-  border: 2px solid rgba(255,255,255,0);
+  border: 2px solid rgba(255, 255, 255, 0);
 }
 .undp-scrollbar::-webkit-scrollbar-corner {
   display: none;
@@ -267,17 +551,17 @@ h1.custom, .custom h1  {
 .dark .undp-scrollbar::-webkit-scrollbar-track {
   background: var(--gray-100);
   background-clip: padding-box;
-  border: 2px solid rgba(0,0,0,0);
+  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 .dark .undp-scrollbar::-webkit-scrollbar-thumb {
   background: var(--gray-100);
 }
 
-.undp-select-input input{
+.undp-select-input input {
   height: auto;
 }
 
-.undp-select-input input:focus{
+.undp-select-input input:focus {
   box-shadow: 0 0 0;
 }

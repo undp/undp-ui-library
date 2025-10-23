@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useEffectEvent } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -52,27 +52,25 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     },
     ref,
   ) => {
-    // Internal state for uncontrolled usage
     const [selectedValue, setSelectedValue] = React.useState<string>(
       activeValue || defaultValue || '',
     );
-
-    // Handler for checkbox changes
     const handleValueChange = React.useCallback(
       (itemValue: string) => {
         setSelectedValue(activeValue || itemValue);
-
-        // Call onChange handler if provided
         onValueChange?.(itemValue);
       },
       [onValueChange, activeValue],
     );
 
-    useEffect(() => {
+    const setSelectedValueEffect = useEffectEvent(() => {
       if (activeValue) setSelectedValue(activeValue);
+    });
+
+    useEffect(() => {
+      setSelectedValueEffect();
     }, [activeValue]);
 
-    // Context to pass down the handler and selected values
     const contextValue = React.useMemo(
       () => ({
         activeItemClass,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useEffectEvent, useState } from 'react';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -92,8 +92,11 @@ function SegmentedControl(props: Props) {
     onValueChange?.(value);
   };
 
-  useEffect(() => {
+  const setSelectedEffect = useEffectEvent(() => {
     setSelected(value || defaultValue || options[0].value);
+  });
+  useEffect(() => {
+    setSelectedEffect();
   }, [defaultValue, options, value]);
 
   return (
