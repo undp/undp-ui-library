@@ -15,10 +15,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       options: ['noEffect', 'background', 'border'],
       defaultValue: { summary: 'background' },
     },
-    activeItemClass: { control: { type: 'text' } },
-    hoverItemClass: { control: { type: 'text' } },
     defaultValue: { control: { type: 'text' } },
-    activeValue: { control: { type: 'text' } },
+    classNames: { control: { type: 'object' } },
   },
   args: { variant: 'background' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {

@@ -60,14 +60,17 @@ interface Props {
   value?: string;
   onValueChange?: (d: string) => void;
   className?: string;
-  buttonClassName?: string;
-  activeButtonClassName?: string;
   size?: 'sm' | 'base';
   variant?: 'light' | 'normal';
   color?: 'blue' | 'red' | 'black' | 'custom';
   buttonStyle?: {
     active?: React.CSSProperties;
-    inactive?: React.CSSProperties;
+    items?: React.CSSProperties;
+  };
+  classNames?: {
+    control?: string;
+    items?: string;
+    active?: string;
   };
 }
 
@@ -77,13 +80,12 @@ function SegmentedControl(props: Props) {
     defaultValue,
     onValueChange,
     className,
-    buttonClassName,
-    activeButtonClassName,
     size,
     variant,
     color,
     value,
     buttonStyle,
+    classNames,
   } = props;
   const [selected, setSelected] = useState(value || defaultValue || options[0].value);
 
@@ -92,15 +94,16 @@ function SegmentedControl(props: Props) {
     onValueChange?.(value);
   };
 
-  const setSelectedEffect = useEffectEvent(() => {
+  const setSelectedEffect = useEffectEvent((value?: string) => {
     setSelected(value || defaultValue || options[0].value);
   });
+
   useEffect(() => {
-    setSelectedEffect();
-  }, [defaultValue, options, value]);
+    setSelectedEffect(value);
+  }, [value]);
 
   return (
-    <div className={cn(segmentedButtonVariants({ size, variant }), className)}>
+    <div className={cn(segmentedButtonVariants({ size, variant }), className, classNames?.control)}>
       {options.map(option => (
         <button
           type='button'
@@ -111,10 +114,17 @@ function SegmentedControl(props: Props) {
             selected === option.value
               ? buttonSelectedVariants({ color })
               : buttonUnselectedVariants({ color }),
-            buttonClassName,
-            selected === option.value ? activeButtonClassName : '',
+            classNames?.items,
+            selected === option.value && classNames?.active,
           )}
-          style={selected === option.value ? buttonStyle?.active : buttonStyle?.inactive}
+          style={
+            buttonStyle?.items || (selected === option.value && buttonStyle?.active)
+              ? {
+                  ...(buttonStyle?.items || {}),
+                  ...(selected === option.value ? buttonStyle?.active : {}),
+                }
+              : undefined
+          }
         >
           {option.label}
         </button>

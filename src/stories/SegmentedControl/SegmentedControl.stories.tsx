@@ -11,9 +11,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   tags: ['autodocs'],
   argTypes: {
     defaultValue: { control: { type: 'text' } },
+    classNames: { control: { type: 'object' } },
     value: { control: { type: 'text' } },
-    buttonClassName: { control: { type: 'text' } },
-    activeButtonClassName: { control: { type: 'text' } },
     size: {
       control: { type: 'inline-radio' },
       options: ['sm', 'base'],

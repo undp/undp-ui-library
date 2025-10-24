@@ -18,6 +18,13 @@ interface PaginationProps {
   pageSize: number;
   onChange: (page: number) => void;
   className?: string;
+  classNames?: {
+    control?: string;
+    list?: string;
+    navigation?: string;
+    ellipsis?: string;
+    active?: string;
+  };
 }
 
 const getPageNumbers = (currentPageNo: number, totalPages: number) => {
@@ -45,7 +52,7 @@ const getPageNumbers = (currentPageNo: number, totalPages: number) => {
 };
 
 function Pagination(props: PaginationProps) {
-  const { defaultPage = 1, total, pageSize, onChange, className } = props;
+  const { defaultPage = 1, total, pageSize, onChange, className, classNames } = props;
   const totalPages = Math.ceil(total / pageSize);
   const [currentPage, setCurrentPage] = useState(defaultPage);
   const [pageNumbers, setPageNumbers] = useState<(number | 'ellipsis')[]>(
@@ -56,7 +63,7 @@ function Pagination(props: PaginationProps) {
     setPageNumbers(getPageNumbers(currentPage, totalPages));
   }, [currentPage, totalPages]);
   return (
-    <PaginationUnit className={cn('select-none', className)}>
+    <PaginationUnit className={cn('select-none', className, classNames?.control)}>
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
@@ -68,6 +75,7 @@ function Pagination(props: PaginationProps) {
             }}
             className={cn(
               'cursor-pointer',
+              classNames?.navigation,
               currentPage <= 1 && 'cursor-not-allowed pointer-events-none opacity-35',
             )}
           />
@@ -76,7 +84,7 @@ function Pagination(props: PaginationProps) {
         {pageNumbers.map((page, index) => (
           <PaginationItem key={index}>
             {page === 'ellipsis' ? (
-              <PaginationEllipsis />
+              <PaginationEllipsis className={classNames?.ellipsis} />
             ) : (
               <PaginationLink
                 onClick={() => {
@@ -85,8 +93,11 @@ function Pagination(props: PaginationProps) {
                 }}
                 className={cn(
                   'cursor-pointer w-[32px] h-[32px] flex items-center justify-center rounded-full hover:bg-primary-gray-300',
-                  page === currentPage &&
-                    'bg-primary-blue-600 hover:bg-primary-blue-700 dark:bg-primary-blue-500 dark:hover:bg-primary-blue-400 hover:text-primary-wite text-primary-white',
+                  classNames?.list,
+                  page === currentPage && [
+                    'bg-primary-blue-600 hover:bg-primary-blue-700 dark:bg-primary-blue-500 dark:hover:bg-primary-blue-400 hover:text-primary-white text-primary-white',
+                    classNames?.active,
+                  ],
                 )}
               >
                 {page}
@@ -105,6 +116,7 @@ function Pagination(props: PaginationProps) {
             }}
             className={cn(
               'cursor-pointer',
+              classNames?.navigation,
               currentPage >= totalPages && 'cursor-not-allowed pointer-events-none opacity-35',
             )}
           />

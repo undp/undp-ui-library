@@ -19,6 +19,9 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'number' },
       defaultValue: { summary: 10 },
     },
+    classNames: {
+      control: { type: 'object' },
+    },
   },
   args: {
     defaultPage: 1,
