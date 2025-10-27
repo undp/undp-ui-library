@@ -99,7 +99,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'var(--font-sans)',
+        'var(--font-sans, "ProximaNova")',
         'ProximaNova',
         'proxima-nova',
         'Helvetica Neue',
