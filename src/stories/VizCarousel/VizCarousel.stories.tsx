@@ -15,10 +15,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       options: ['xs', 'sm', 'base', 'lg', 'xl', 'full'],
       defaultValue: { summary: 'sm' },
     },
-    vizClassName: { control: { type: 'text' } },
-    contentClassName: { control: { type: 'text' } },
-    contentStyle: { control: { type: 'object' } },
-    vizStyle: { control: { type: 'object' } },
+    classNames: { control: { type: 'object' } },
+    styles: { control: { type: 'object' } },
     slideNo: { control: { type: 'boolean' } },
   },
   args: {
