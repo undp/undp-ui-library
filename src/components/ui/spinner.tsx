@@ -6,11 +6,11 @@ import { cn } from '@/lib/utils';
 const loaderVariants = cva('animate-spin border-[5px] rounded-full inline-block box-border', {
   variants: {
     variant: {
-      red: 'border-accent-dark-red dark:border-accent-red border-b-primary-gray-300 dark:border-b-primary-gray-550',
-      blue: 'border-primary-blue-600 dark:border-primary-blue-500 border-b-primary-gray-300 dark:border-b-primary-gray-550',
+      red: 'border-accent-dark-red dark:border-accent-red !border-b-primary-gray-300 dark:!border-b-primary-gray-550',
+      blue: 'border-primary-blue-600 dark:border-primary-blue-500 !border-b-primary-gray-300 dark:!border-b-primary-gray-550',
       black:
-        'border-primary-gray-600 dark:border-primary-gray-200 border-b-primary-gray-300 dark:border-b-primary-gray-550',
-      custom: 'border-custom-color-600 border-b-primary-gray-300 dark:border-b-primary-gray-550',
+        'border-primary-gray-600 dark:border-primary-gray-200 !border-b-primary-gray-300 dark:!border-b-primary-gray-550',
+      custom: 'border-custom-color-600 !border-b-primary-gray-300 dark:!border-b-primary-gray-550',
     },
     size: {
       sm: 'border-[2px] h-6 w-6',
