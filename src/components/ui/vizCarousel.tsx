@@ -273,7 +273,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                     <div
                       style={styles?.playPauseButton}
                       className={cn(
-                        'rounded-full pl-1 w-9 h-9 md:w-12 md:h-12 border-2 border-primary-gray-600 dark:border-primary-white flex items-center justify-center rtl:rotate-180 cursor-pointer bg-transparent hover:bg-primary-gray-100 dark:hover:bg-primary-gray-600',
+                        'rounded-full w-9 h-9 md:w-12 md:h-12 border-2 border-primary-gray-600 dark:border-primary-white flex items-center justify-center cursor-pointer bg-transparent hover:bg-primary-gray-100 dark:hover:bg-primary-gray-600',
                         classNames?.playPauseButton,
                       )}
                       onClick={() => {

@@ -18,6 +18,14 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     classNames: { control: { type: 'object' } },
     styles: { control: { type: 'object' } },
     slideNo: { control: { type: 'boolean' } },
+    autoScroll: {
+      control: 'text',
+      table: {
+        type: {
+          summary: 'boolean | number',
+        },
+      },
+    },
   },
   args: {
     vizWidth: 'base',

@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "1.5.3",
+  "version": "1.5.5",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -20,6 +20,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./Accordion": {
+      "types": "./dist/Accordion.d.ts",
+      "import": "./dist/Accordion.js",
+      "require": "./dist/Accordion.cjs"
     },
     "./Badge": {
       "types": "./dist/Badge.d.ts",
