@@ -17,11 +17,11 @@ import { cn } from '@/lib/utils';
 const cardVariants = cva('flex box-border justify-between', {
   variants: {
     vizWidth: {
-      xs: 'w-3/4 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-80 grow pb-4',
-      sm: 'w-2/3 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-80 grow pb-4',
-      base: 'w-1/2 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-80 grow pb-4',
-      lg: 'w-1/3 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-80 grow pb-4',
-      xl: 'w-1/4 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-80 grow pb-4',
+      xs: 'w-3/4 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 sm:pb-4',
+      sm: 'w-2/3 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 sm:pb-4',
+      base: 'w-1/2 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 sm:pb-4',
+      lg: 'w-1/3 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 sm:pb-4',
+      xl: 'w-1/4 flex-col pr-0 sm:pr-2 rtl:pr-0 sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 sm:pb-4',
       full: 'w-full shrink-0 items-start gap-x-8 gap-y-4 mb-4 flex-wrap sm:flex-nowrap',
     },
   },
@@ -31,11 +31,11 @@ const cardVariants = cva('flex box-border justify-between', {
 const vizContainerVariants = cva('flex box-border grow shrink-0', {
   variants: {
     vizWidth: {
-      xs: 'w-1/4 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 pb-4',
-      sm: 'w-1/3 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 pb-4',
-      base: 'w-1/2 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 pb-4',
-      lg: 'w-2/3 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 pb-4',
-      xl: 'w-3/4 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-80 pb-4',
+      xs: 'w-1/4 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-60 pb-0 sm:pb-4',
+      sm: 'w-1/3 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-60 pb-0 sm:pb-4',
+      base: 'w-1/2 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-60 pb-0 sm:pb-4',
+      lg: 'w-2/3 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-60 pb-0 sm:pb-4',
+      xl: 'w-3/4 pl-0 sm:pl-2 rtl:pr-0 rtl:pl-0 sm:rtl:pr-2 min-w-60 pb-0 sm:pb-4',
       full: 'w-full',
     },
   },
@@ -210,7 +210,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                 style={styles?.content}
                 className={cn(cardVariants({ vizWidth }), classNames?.content)}
               >
-                <div className='min-w-80 grow sm:grow-0'>{d.content}</div>
+                <div className='min-w-60 grow sm:grow-0'>{d.content}</div>
                 <div className={`flex ${slideNo ? 'gap-2' : 'gap-3'} items-center shrink-0`}>
                   <div
                     style={styles?.arrowButton}
