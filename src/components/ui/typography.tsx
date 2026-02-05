@@ -91,7 +91,7 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: string;
 }
 
-const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase', {
+const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase font-heading', {
   variants: {
     marginBottom: {
       none: 'mb-0',
@@ -144,7 +144,7 @@ function H1({
 }
 
 const heading2Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] leading-[1.1]',
+  'mt-0 ml-0 mr-0 p-0 text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] leading-[1.1] font-sans',
   {
     variants: {
       marginBottom: {
@@ -191,7 +191,7 @@ function H2({
 }
 
 const heading3Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-[1.875rem] md:text-[2.188rem] leading-[1.15]',
+  'mt-0 ml-0 mr-0 p-0 text-[1.875rem] md:text-[2.188rem] leading-[1.15] font-sans',
   {
     variants: {
       marginBottom: {
@@ -237,7 +237,7 @@ function H3({
 }
 
 const heading4Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-[1.563rem] md:text-[2.188rem] leading-[1.15]',
+  'mt-0 ml-0 mr-0 p-0 text-[1.563rem] md:text-[2.188rem] leading-[1.15] font-sans',
   {
     variants: {
       marginBottom: {
@@ -281,34 +281,37 @@ function H4({
     </h4>
   );
 }
-const heading5Variant = cva('mt-0 ml-0 mr-0 p-0 text-[1.25rem] md:text-[1.563rem] leading-[1.15]', {
-  variants: {
-    marginBottom: {
-      none: 'mb-0',
-      '2xs': 'mb-1',
-      xs: 'mb-2',
-      sm: 'mb-3',
-      'base-responsive': 'mb-3 md:mb-4',
-      base: 'mb-4',
-      lg: 'mb-5',
-      xl: 'mb-6',
+const heading5Variant = cva(
+  'mt-0 ml-0 mr-0 p-0 text-[1.25rem] md:text-[1.563rem] leading-[1.15] font-sans',
+  {
+    variants: {
+      marginBottom: {
+        none: 'mb-0',
+        '2xs': 'mb-1',
+        xs: 'mb-2',
+        sm: 'mb-3',
+        'base-responsive': 'mb-3 md:mb-4',
+        base: 'mb-4',
+        lg: 'mb-5',
+        xl: 'mb-6',
+      },
+      weight: {
+        light: 'font-light',
+        normal: 'font-normal',
+        medium: 'font-medium',
+        semibold: 'font-semibold',
+        bold: 'font-bold',
+        extrabold: 'font-extrabold',
+      },
+      alignment: {
+        left: 'text-left',
+        right: 'text-right',
+        center: 'text-center',
+      },
     },
-    weight: {
-      light: 'font-light',
-      normal: 'font-normal',
-      medium: 'font-medium',
-      semibold: 'font-semibold',
-      bold: 'font-bold',
-      extrabold: 'font-extrabold',
-    },
-    alignment: {
-      left: 'text-left',
-      right: 'text-right',
-      center: 'text-center',
-    },
+    defaultVariants: { marginBottom: 'base-responsive', weight: 'normal', alignment: 'left' },
   },
-  defaultVariants: { marginBottom: 'base-responsive', weight: 'normal', alignment: 'left' },
-});
+);
 
 function H5({
   children,
@@ -325,7 +328,7 @@ function H5({
   );
 }
 const heading6Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-base leading-[1.15] uppercase tracking-[0.48px]',
+  'mt-0 ml-0 mr-0 p-0 text-base leading-[1.15] uppercase tracking-[0.48px] font-sans',
   {
     variants: {
       marginBottom: {
@@ -371,7 +374,7 @@ function H6({
   );
 }
 
-const citeVariant = cva('mt-0 ml-0 mr-0 p-0 text-xl md:text-2xl leading-[1.1] block', {
+const citeVariant = cva('mt-0 ml-0 mr-0 p-0 text-xl md:text-2xl leading-[1.1] block font-sans', {
   variants: {
     marginBottom: {
       none: 'mb-0',
@@ -444,7 +447,7 @@ interface BlockquoteProps extends React.HTMLAttributes<HTMLQuoteElement> {
 }
 
 const blockquoteVariant = cva(
-  'mt-0 ml-0 mr-0 text-[1.625rem] md:text-[2.188rem] leading-[1.1] md:leading-[1.25]',
+  'mt-0 ml-0 mr-0 text-[1.625rem] md:text-[2.188rem] leading-[1.1] md:leading-[1.25] font-sans',
   {
     variants: {
       weight: {

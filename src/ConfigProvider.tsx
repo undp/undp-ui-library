@@ -54,6 +54,20 @@ interface ConfigDataType {
     heading?: string;
   };
   mode?: 'light' | 'dark';
+  language?:
+    | 'en'
+    | 'ar'
+    | 'az'
+    | 'bn'
+    | 'he'
+    | 'hi'
+    | 'jp'
+    | 'ka'
+    | 'km'
+    | 'ko'
+    | 'my'
+    | 'ne'
+    | 'zh';
   rtl?: boolean;
 }
 
@@ -92,6 +106,29 @@ export const ConfigProvider = ({ children, config }: ConfigProviderProps) => {
         Object.entries(config.primary).forEach(([key, value]) => {
           root.style.setProperty(`--${key}`, value);
         });
+      }
+
+      if (config.language) {
+        const languageMap = {
+          en: 'ProximaNova',
+          ar: 'Noto Sans Arabic',
+          az: 'Noto Sans',
+          bn: 'UN Bangla',
+          he: 'Noto Sans Hebrew',
+          hi: 'Noto Sans Devanagari',
+          jp: 'Noto Sans JP',
+          ka: 'Noto Sans Georgian',
+          km: 'Noto Sans Khmer',
+          ko: 'Noto Sans KR',
+          my: 'Noto Sans Myanmar',
+          ne: 'Noto Sans',
+          zh: 'Noto Sans SC',
+        };
+        root.style.setProperty('--font-sans', languageMap[config.language]);
+        root.style.setProperty(
+          '--font-heading',
+          config.language === 'en' ? 'SohneBreit' : languageMap[config.language],
+        );
       }
       if (config.fonts?.body) {
         root.style.setProperty('--font-sans', config.fonts.body);
