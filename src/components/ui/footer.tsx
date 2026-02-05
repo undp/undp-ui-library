@@ -42,7 +42,7 @@ function FooterLogoUnit({ className, link, children, ...props }: FooterLogoUnitP
         <a href={link || './'} target='_blank' rel='noreferrer'>
           <img
             alt='undp logo'
-            src='https://design.undp.org/static/media/undp-logo-white.36e69590.svg'
+            src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-white.svg'
             className='w-[72px]'
           />
         </a>

@@ -133,3 +133,5 @@ export {
 export { SDGCardButton } from '@/components/ui/sdgCardButton';
 
 export { cn } from '@/lib/utils';
+
+export { ConfigProvider } from '@/ConfigProvider';

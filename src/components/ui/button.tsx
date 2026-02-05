@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'undp-button m-0! tracking-[0.48px] inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded-none text-lg font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'undp-button cursor-pointer m-0! tracking-[0.48px] inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded-none text-lg font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -15,6 +15,10 @@ const buttonVariants = cva(
           'bg-primary-blue-600 text-primary-white button-arrow white-arrow hover:bg-primary-blue-400',
         'secondary-without-icon':
           'bg-primary-blue-600 text-primary-white hover:bg-primary-blue-400',
+        custom:
+          'bg-custom-color-600 text-custom-foreground button-arrow white-arrow hover:bg-custom-color-400',
+        'custom-without-icon':
+          'bg-custom-color-600 text-custom-foreground hover:bg-custom-color-400',
         tertiary:
           'bg-primary-gray-300 text-primary-gray-700 dark:bg-primary-gray-600 dark:text-primary-white red-arrow hover:bg-primary-gray-400 dark:hover:bg-primary-gray-550',
         link: 'text-primary-gray-700 dark:text-primary-white red-arrow button-arrow',

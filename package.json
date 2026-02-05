@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "1.5.6",
+  "version": "2.0.0",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -283,6 +283,11 @@
     "./tailwind.config": {
       "import": "./tailwind.config.js",
       "require": "./tailwind.config.js"
+    },
+    "./ConfigProvider": {
+      "types": "./dist/ConfigProvider.d.ts",
+      "import": "./dist/ConfigProvider.js",
+      "require": "./dist/ConfigProvider.cjs"
     }
   },
   "publishConfig": {

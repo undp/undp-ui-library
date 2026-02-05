@@ -1,6 +1,3 @@
-import UndpLogoBlue from '../icons/undp-logo-blue.svg';
-import UndpLogoWhite from '../icons/undp-logo-white.svg';
-
 interface Props {
   variant?: 'blue' | 'white';
   width?: number;
@@ -12,15 +9,30 @@ function UNDPLogo(props: Props) {
   switch (variant) {
     case 'blue':
       return (
-        <img width={`${width || 60}px`} src={UndpLogoBlue} alt='UNDP Logo' className={className} />
+        <img
+          width={`${width || 60}px`}
+          src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-blue.svg'
+          alt='UNDP Logo'
+          className={className}
+        />
       );
     case 'white':
       return (
-        <img width={`${width || 60}px`} src={UndpLogoWhite} alt='UNDP Logo' className={className} />
+        <img
+          width={`${width || 60}px`}
+          src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-white.svg'
+          alt='UNDP Logo'
+          className={className}
+        />
       );
     default:
       return (
-        <img width={`${width || 60}px`} src={UndpLogoBlue} alt='UNDP Logo' className={className} />
+        <img
+          width={`${width || 60}px`}
+          src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-blue.svg'
+          alt='UNDP Logo'
+          className={className}
+        />
       );
   }
 }

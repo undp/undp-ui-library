@@ -1,0 +1,103 @@
+import { Meta, Source, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { H3, H4, P, Code, H6, Separator, Spacer } from '@/index';
+import githubLogo from './assets/Github-logo.svg';
+import dsIcon from './assets/DS-icon.svg';
+import figmaIcon from './assets/Figma-icon.svg';
+import sendIcon from './assets/Send-icon.svg';
+import npmIcon from './assets/npm-logo.svg';
+
+<Meta
+  title='Getting started/Customize theme'
+  parameters={{
+    layout: 'fullscreen',
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: false },
+      story: { hidden: false },
+    },
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: '100%',
+      },
+    },
+  }}
+/>
+
+# Customize theme
+
+UNDP design system for react allows you to customize our design tokens to satisfy UI diversity, including colors, and fonts.
+
+<br />
+
+## Basic usage
+
+By modifying `config` property of `ConfigProvide`, we can modify colors and fonts globally.
+
+```jsx
+import { Button, ConfigProvider } from '@undp/design-system-react';
+import React from 'react';
+
+const App => (
+  <ConfigProvider
+    config={{
+      foreground: '#000',
+      primary: {
+        white: '#fff',
+        black: '#000',
+      },
+      customColors: {
+        100: '#b5d5f5',
+        200: '#94c4f5',
+        300: '#6babeb',
+        400: '#4f95dd',
+        500: '#3288ce',
+        600: '#0468b1',
+        700: '#1f5a95',
+      },
+      blues: {
+        100: '#b5d5f5',
+        200: '#94c4f5',
+        300: '#6babeb',
+        400: '#4f95dd',
+        500: '#3288ce',
+        600: '#0468b1',
+        700: '#1f5a95',
+      },
+      grays: {
+        100: '#fafafa',
+        200: '#f7f7f7',
+        300: '#edeff0',
+        400: '#d4d6d8',
+        500: '#a9b1b7',
+        550: '#879099',
+        600: '#55606e',
+        650: '#3b4859',
+        700: '#232e3d',
+      },
+      accents: {
+        'light-yellow': '#ffeb00',
+        yellow: '#ffeb00',
+        'dark-yellow': '#fbc412',
+        'light-red': '#ffbcb7',
+        red: '#ee402d',
+        'dark-red': '#d12800',
+        'light-green': '#b8ecb6',
+        green: '#6de354',
+        'dark-green': '#59ba47',
+        'light-azure': '#a2daf3',
+        azure: '#60d4f2',
+        'dark-azure': '#00c1ff',
+      },
+      fonts: {
+        body: 'ProximaNova',
+        heading: 'SohneBreit',
+      },
+      mode: 'light',
+      rtl: false,
+    }}
+  >
+    <Button type="primary">Primary</Button>
+  </ConfigProvider>
+);
+```

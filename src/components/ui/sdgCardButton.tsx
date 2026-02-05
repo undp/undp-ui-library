@@ -35,7 +35,7 @@ const SDGCardButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
           ...style,
           backgroundColor: backgroundColor || 'var(--blue-600)',
           cursor:
-            'url(https://www.undp.org/libraries/undp--design-system-assets/images/arrow-right-white.svg), auto',
+            'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-right-white.svg), auto',
         }}
         className={cn(
           'min-h-[160px] w-full flex items-start flex-col gap-0 px-6 py-9 sm:flex-row sm:px-0 sm:items-center sm:py-0 sm:gap-9 hover:brightness-90',

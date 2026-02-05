@@ -7,7 +7,7 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
   ({ className, children, ...props }, ref) => {
     const WrapperRef = React.useRef<HTMLDivElement>(null);
     const [cursor, setCursor] = React.useState(
-      'url(https://design.undp.org/static/media/arrow-right.125a0586.svg)',
+      'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-right.svg)',
     );
     return (
       <div
@@ -25,8 +25,13 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
         }}
         onMouseMove={e => {
           if (e.clientX > window.innerWidth / 2)
-            setCursor('url(https://design.undp.org/static/media/arrow-right.125a0586.svg)');
-          else setCursor('url(https://design.undp.org/static/media/arrow-left.14de54ea.svg)');
+            setCursor(
+              'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-right.svg)',
+            );
+          else
+            setCursor(
+              'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-left.svg)',
+            );
         }}
       >
         <div

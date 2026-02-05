@@ -60,41 +60,6 @@ It is also recommended to import the css because some setting expect the CSS to 
 import '@undp/design-system-react/style.css';
 ```
 
-## Adding custom color
-
-> To add custom color as the primary color overwrite the following variable in main css and import it after the css for the design system: `--custom-color-100`, `--custom-color-200`, `--custom-color-300`, `--custom-color-400`, `--custom-color-500`, `--custom-color-600`, `--custom-color-700`, `--custom-foreground`. For example:
-
-```html
-<div
-  style={{
-    '--custom-color-100': '#FFE5B4',
-    '--custom-color-200': '#FFD38C',
-    '--custom-color-300': '#FFB85C',
-    '--custom-color-400': '#FFA242',
-    '--custom-color-500': '#FF971D',
-    '--custom-color-600': '#FD9D24',
-    '--custom-color-700': '#E6851D',
-    '--custom-foreground': '#fff'
-    }}
->
-<!--HTML element goes here-->
-</div>
-
-```
-
-After that use the color variant as `custom` in various component that allows it. For example:
-
-```tsx
-<Container backgroundColor='custom' gap='none' layout='default' padding='base' width='full'>
-  <H4>Heading</H4>
-  <P>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit augue eu sagittis
-    facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-    himenaeos.
-  </P>
-</Container>
-```
-
 ## Using the design system with TailwindCSS
 
 UNDP Design System is build using TailwindCSS. If you want to use the design system in a project with TailwindCSS, then to avoid conflicts please use the tailwind config from the design system as preset in you tailwind.config.js

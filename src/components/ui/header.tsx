@@ -44,7 +44,7 @@ function HeaderLogoUnit({
         className='logo-sub-head flex gap-6 items-center'
       >
         <img
-          src='https://design.undp.org/static/media/undp-logo-blue.4f32e17f.svg'
+          src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-blue.svg'
           alt='UNDP Logo'
           className='w-[40px] h-[82px] md:w-[60px] md:h-[122px] z-100'
         />

@@ -7,5 +7,6 @@ export const customTheme = create({
       : 'light',
   brandTitle: 'UNDP Design system for React',
   brandUrl: 'https://www.undp.org/',
-  brandImage: 'https://design.undp.org/images/undp-logo-blue.svg',
+  brandImage:
+    'https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-blue.svg',
 });
