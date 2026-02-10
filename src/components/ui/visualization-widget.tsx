@@ -1,4 +1,7 @@
 import React from 'react';
+import { ChevronsLeft, ChevronsRight } from 'lucide-react';
+
+import { Button } from './button';
 
 import { cn } from '@/lib/utils';
 
@@ -102,7 +105,7 @@ const VisualizationWidgetHeaderItem = React.forwardRef<
       {...props}
       onClick={() => onValueChange(value)}
       className={cn(
-        'flex border-0 flex-col grow gap-1 items-center justify-center p-3 font-medium bg-primary-gray-100 dark:bg-primary-gray-650 text-primary-gray-500 dark:text-primary-white text-sm font-medium border-r border-r-primary-gray-400 dark:border-r-primary-gray-550 last:border-r-0',
+        'flex border-0 flex-col grow cursor-pointer gap-1 items-center justify-center p-3 font-medium bg-primary-gray-100 dark:bg-primary-gray-650 text-primary-gray-500 dark:text-primary-white text-sm font-medium border-r border-r-primary-gray-400 dark:border-r-primary-gray-550 last:border-r-0',
         selectedValue === value
           ? activeItemClass || 'bg-primary-white text-primary-blue-600 dark:bg-primary-gray-700'
           : '',
@@ -139,18 +142,47 @@ VisualizationWidgetBody.displayName = 'VisualizationWidgetBody';
 
 const VisualizationWidgetBodySidebar = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }, ref) => {
+  React.HTMLAttributes<HTMLDivElement> & { collapsible?: boolean }
+>(({ className, children, collapsible = false, ...props }, ref) => {
+  const [collapsed, setCollapsed] = React.useState(false);
   return (
     <div
       className={cn(
-        'flex flex-wrap undp-scrollbar max-h-none md:max-h-[80vh] w-full md:w-1/3 xl:w-1/4 2xl:w-1/5 bg-primary-gray-100 dark:bg-primary-gray-650 border-r border-r-primary-gray-400 dark:border-r-primary-gray-600 p-4',
+        'undp-scrollbar max-h-none md:max-h-[80vh] bg-primary-gray-100 dark:bg-primary-gray-650 border-r border-r-primary-gray-400 dark:border-r-primary-gray-600',
+        collapsed ? 'w-full md:w-[40px] py-4 px-2' : 'w-full md:w-1/3 xl:w-1/4 2xl:w-1/5 p-4',
         className,
       )}
       ref={ref}
       {...props}
     >
-      {children}
+      <div className='w-full hidden md:block'>
+        {collapsible ? (
+          collapsed ? (
+            <Button
+              type='button'
+              variant='tertiary'
+              size='sm'
+              onClick={() => setCollapsed(false)}
+              className='flex rounded-full normal-case text-primary-gray-550 dark:text-primary-gray-400 w-6 h-6 p-0'
+            >
+              <ChevronsRight />
+            </Button>
+          ) : (
+            <Button
+              type='button'
+              variant='tertiary'
+              size='sm'
+              onClick={() => setCollapsed(true)}
+              className={`flex rounded-full normal-case text-primary-gray-550 dark:text-primary-gray-400 ${collapsed ? 'w-6 h-6' : 'w-full p-2'}`}
+            >
+              <>
+                <ChevronsLeft /> Hide sidebar
+              </>
+            </Button>
+          )
+        ) : null}
+      </div>
+      <div className={`w-full ${collapsed ? 'block md:hidden' : 'block'}`}>{children}</div>
     </div>
   );
 });
