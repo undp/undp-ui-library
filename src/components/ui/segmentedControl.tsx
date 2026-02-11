@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 interface OptionDataType {
   label: React.ReactNode;
   value: string;
+  disabled?: boolean;
 }
 const segmentedButtonVariants = cva(
   'inline-flex bg-primary-gray-300 dark:bg-primary-gray-600 rounded-none',
@@ -27,27 +28,32 @@ const segmentedButtonVariants = cva(
   },
 );
 
-const buttonSelectedVariants = cva('bg-primary-white dark:bg-primary-gray-550 shadow-xs', {
-  variants: {
-    color: {
-      blue: 'text-primary-blue-600 dark:text-primary-white',
-      red: 'text-accent-dark-red dark:text-primary-white',
-      black: 'text-primary-gray-700 dark:text-primary-white',
-      custom: 'text-custom-color-600 dark:text-primary-white',
-    },
-  },
-  defaultVariants: { color: 'red' },
-});
-
-const buttonUnselectedVariants = cva(
-  'text-primary-black dark:text-primary-gray-200 hover:bg-primary-gray-400 dark:hover:bg-primary-gray-650',
+const buttonSelectedVariants = cva(
+  'bg-primary-white dark:bg-primary-gray-550 shadow-xs disabled:opacity-50 disabled:cursor-not-allowed',
   {
     variants: {
       color: {
-        blue: 'hover:text-primary-blue-600 dark:hover:text-primary-white',
-        red: 'hover:text-accent-dark-red dark:hover:text-primary-white',
-        black: 'hover:text-primary-gray-600 dark:hover:text-primary-white',
-        custom: 'hover:text-custom-color-600 dark:hover:text-primary-white',
+        blue: 'text-primary-blue-600 dark:text-primary-white',
+        red: 'text-accent-dark-red dark:text-primary-white',
+        black: 'text-primary-gray-700 dark:text-primary-white',
+        custom: 'text-custom-color-600 dark:text-primary-white',
+      },
+    },
+    defaultVariants: { color: 'red' },
+  },
+);
+
+const buttonUnselectedVariants = cva(
+  'text-primary-black dark:text-primary-gray-200 hover:bg-primary-gray-400 dark:hover:bg-primary-gray-650 disabled:hover:bg-transparent disabled:hover:text-inherit disabled:cursor-not-allowed disabled:opacity-25',
+  {
+    variants: {
+      color: {
+        blue: 'hover:text-primary-blue-600 dark:hover:text-primary-white disabled:hover:text-inherit',
+        red: 'hover:text-accent-dark-red dark:hover:text-primary-white disabled:hover:text-inherit',
+        black:
+          'hover:text-primary-gray-600 dark:hover:text-primary-white disabled:hover:text-inherit',
+        custom:
+          'hover:text-custom-color-600 dark:hover:text-primary-white disabled:hover:text-inherit',
       },
     },
     defaultVariants: { color: 'red' },
@@ -63,6 +69,7 @@ interface Props {
   size?: 'sm' | 'base';
   variant?: 'light' | 'normal';
   color?: 'blue' | 'red' | 'black' | 'custom';
+  disabled?: boolean;
   buttonStyle?: {
     active?: React.CSSProperties;
     items?: React.CSSProperties;
@@ -84,6 +91,7 @@ function SegmentedControl(props: Props) {
     variant,
     color,
     value,
+    disabled,
     buttonStyle,
     classNames,
   } = props;
@@ -106,6 +114,7 @@ function SegmentedControl(props: Props) {
     <div className={cn(segmentedButtonVariants({ size, variant }), className, classNames?.control)}>
       {options.map(option => (
         <button
+          disabled={disabled || option.disabled}
           type='button'
           key={option.value}
           onClick={() => handleSelect(option.value)}
