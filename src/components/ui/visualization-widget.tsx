@@ -142,9 +142,17 @@ VisualizationWidgetBody.displayName = 'VisualizationWidgetBody';
 
 const VisualizationWidgetBodySidebar = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { collapsible?: boolean }
->(({ className, children, collapsible = false, ...props }, ref) => {
-  const [collapsed, setCollapsed] = React.useState(false);
+  React.HTMLAttributes<HTMLDivElement> & {
+    collapsible?: {
+      enabled: boolean;
+      triggerButtonClassName?: string;
+      triggerButtonChildren?: React.ReactNode;
+      triggerButtonStyles?: React.CSSProperties;
+      defaultCollapsed?: boolean;
+    };
+  }
+>(({ className, children, collapsible, ...props }, ref) => {
+  const [collapsed, setCollapsed] = React.useState(collapsible?.defaultCollapsed || false);
   return (
     <div
       className={cn(
@@ -155,31 +163,22 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
       ref={ref}
       {...props}
     >
-      <div className='w-full hidden md:block'>
-        {collapsible ? (
-          collapsed ? (
-            <Button
-              type='button'
-              variant='tertiary'
-              size='sm'
-              onClick={() => setCollapsed(false)}
-              className='flex rounded-full normal-case text-primary-gray-550 dark:text-primary-gray-400 w-6 h-6 p-0'
-            >
-              <ChevronsRight />
-            </Button>
-          ) : (
-            <Button
-              type='button'
-              variant='tertiary'
-              size='sm'
-              onClick={() => setCollapsed(true)}
-              className={`flex rounded-full normal-case text-primary-gray-550 dark:text-primary-gray-400 ${collapsed ? 'w-6 h-6' : 'w-full p-2'}`}
-            >
-              <>
-                <ChevronsLeft /> Hide sidebar
-              </>
-            </Button>
-          )
+      <div className='w-full hidden md:block relative'>
+        {collapsible?.enabled !== false ? (
+          <Button
+            type='button'
+            variant='tertiary'
+            size='sm'
+            onClick={() => setCollapsed(!collapsed)}
+            className={cn(
+              'flex rounded-full normal-case text-primary-gray-700 dark:text-primary-gray-700 w-6 h-6 absolute top-0 right-0 p-0',
+              collapsible?.triggerButtonClassName,
+            )}
+            style={collapsible?.triggerButtonStyles}
+          >
+            {collapsible?.triggerButtonChildren ||
+              (collapsed ? <ChevronsRight /> : <ChevronsLeft />)}
+          </Button>
         ) : null}
       </div>
       <div className={`w-full ${collapsed ? 'block md:hidden' : 'block'}`}>{children}</div>

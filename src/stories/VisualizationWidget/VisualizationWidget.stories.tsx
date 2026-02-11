@@ -52,7 +52,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
           </VisualizationWidgetHeaderItem>
         </VisualizationWidgetHeader>
         <VisualizationWidgetBody>
-          <VisualizationWidgetBodySidebar>
+          <VisualizationWidgetBodySidebar collapsible={{ enabled: true, defaultCollapsed: false }}>
             <div className='bg-primary-blue-100' />
           </VisualizationWidgetBodySidebar>
           <VisualizationWidgetBodyContent>
