@@ -128,7 +128,7 @@ const VisualizationWidgetBody = React.forwardRef<
   return (
     <div
       className={cn(
-        'flex gap-0 flex-wrap items-stretch max-h-none flex-col @md:max-h-[80vh] @md:flex-row',
+        'flex gap-0 flex-wrap items-stretch max-h-none flex-col @3xl:max-h-[80vh] @3xl:flex-row',
         className,
       )}
       ref={ref}
@@ -156,14 +156,14 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
   return (
     <div
       className={cn(
-        'undp-scrollbar max-h-none @md:max-h-[80vh] bg-primary-gray-100 dark:bg-primary-gray-650 border-r border-r-primary-gray-400 dark:border-r-primary-gray-600',
-        collapsed ? 'w-full @md:w-[40px] py-4 px-2' : 'w-full @md:w-1/3 @xl:w-1/4 @2xl:w-1/5 p-4',
+        'undp-scrollbar max-h-none @3xl:max-h-[80vh] bg-primary-gray-100 dark:bg-primary-gray-650 border-r border-r-primary-gray-400 dark:border-r-primary-gray-600',
+        collapsed ? 'w-full @3xl:w-[40px] py-4 px-2' : 'w-full @3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5 p-4',
         className,
       )}
       ref={ref}
       {...props}
     >
-      <div className='w-full hidden @md:block relative'>
+      <div className='w-full hidden @3xl:block relative'>
         {collapsible?.enabled !== false ? (
           <Button
             type='button'
@@ -181,7 +181,7 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
           </Button>
         ) : null}
       </div>
-      <div className={`w-full ${collapsed ? 'block @md:hidden' : 'block'}`}>{children}</div>
+      <div className={`w-full ${collapsed ? 'block @3xl:hidden' : 'block'}`}>{children}</div>
     </div>
   );
 });
@@ -194,7 +194,7 @@ const VisualizationWidgetBodyContent = React.forwardRef<
   return (
     <div
       className={cn(
-        'flex flex-wrap undp-scrollbar flex-1 bg-primary-white dark:bg-primary-gray-700 max-h-none @md:max-h-[80vh]',
+        'flex flex-wrap undp-scrollbar flex-1 bg-primary-white dark:bg-primary-gray-700 max-h-none @3xl:max-h-[80vh]',
         className,
       )}
       ref={ref}

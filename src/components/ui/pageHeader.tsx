@@ -17,8 +17,8 @@ const PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(
       <div
         ref={ref}
         className={cn(
-          `${contentMode} bg-cover bg-center w-full py-20 pl-4 @sm:pl-[8.3333%] rtl:pr-4 rtl:pl-0 @sm:rtl:pr-[8.3333%] @sm:rtl:pl-0 flex flex-col gap-4`,
-          minHeight ? 'min-h-[642px] @lg:min-h-[746px]' : '',
+          `${contentMode} bg-cover bg-center w-full py-20 pl-4 @2xl:pl-[8.3333%] rtl:pr-4 rtl:pl-0 @2xl:rtl:pr-[8.3333%] @2xl:rtl:pl-0 flex flex-col gap-4`,
+          minHeight ? 'min-h-[642px] @5xl:min-h-[746px]' : '',
           className,
         )}
         style={{
@@ -42,7 +42,7 @@ const PageHeaderContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
     <div
       ref={ref}
       className={cn(
-        'p-4 w-full @sm:w-[66.667%] grow flex flex-col gap-6 justify-center',
+        'p-4 w-full @2xl:w-[66.667%] grow flex flex-col gap-6 justify-center',
         className,
       )}
       {...props}

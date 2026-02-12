@@ -17,12 +17,12 @@ import { cn } from '@/lib/utils';
 const cardVariants = cva('flex box-border justify-between', {
   variants: {
     vizWidth: {
-      xs: 'w-3/4 flex-col pr-0 @sm:pr-2 rtl:pr-0 @sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @sm:pb-4',
-      sm: 'w-2/3 flex-col pr-0 @sm:pr-2 rtl:pr-0 @sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @sm:pb-4',
-      base: 'w-1/2 flex-col pr-0 @sm:pr-2 rtl:pr-0 @sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @sm:pb-4',
-      lg: 'w-1/3 flex-col pr-0 @sm:pr-2 rtl:pr-0 @sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @sm:pb-4',
-      xl: 'w-1/4 flex-col pr-0 @sm:pr-2 rtl:pr-0 @sm:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @sm:pb-4',
-      full: 'w-full shrink-0 items-start gap-x-8 gap-y-4 mb-4 flex-wrap @sm:flex-nowrap',
+      xs: 'w-3/4 flex-col pr-0 @2xl:pr-2 rtl:pr-0 @2xl:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @2xl:pb-4',
+      sm: 'w-2/3 flex-col pr-0 @2xl:pr-2 rtl:pr-0 @2xl:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @2xl:pb-4',
+      base: 'w-1/2 flex-col pr-0 @2xl:pr-2 rtl:pr-0 @2xl:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @2xl:pb-4',
+      lg: 'w-1/3 flex-col pr-0 @2xl:pr-2 rtl:pr-0 @2xl:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @2xl:pb-4',
+      xl: 'w-1/4 flex-col pr-0 @2xl:pr-2 rtl:pr-0 @2xl:rtl:pl-2 rtl:pl-0 gap-4 min-w-60 grow pb-8 @2xl:pb-4',
+      full: 'w-full shrink-0 items-start gap-x-8 gap-y-4 mb-4 flex-wrap @2xl:flex-nowrap',
     },
   },
   defaultVariants: { vizWidth: 'base' },
@@ -31,11 +31,11 @@ const cardVariants = cva('flex box-border justify-between', {
 const vizContainerVariants = cva('flex box-border grow shrink-0', {
   variants: {
     vizWidth: {
-      xs: 'w-1/4 pl-0 @sm:pl-2 rtl:pr-0 rtl:pl-0 @sm:rtl:pr-2 min-w-60 pb-0 @sm:pb-4',
-      sm: 'w-1/3 pl-0 @sm:pl-2 rtl:pr-0 rtl:pl-0 @sm:rtl:pr-2 min-w-60 pb-0 @sm:pb-4',
-      base: 'w-1/2 pl-0 @sm:pl-2 rtl:pr-0 rtl:pl-0 @sm:rtl:pr-2 min-w-60 pb-0 @sm:pb-4',
-      lg: 'w-2/3 pl-0 @sm:pl-2 rtl:pr-0 rtl:pl-0 @sm:rtl:pr-2 min-w-60 pb-0 @sm:pb-4',
-      xl: 'w-3/4 pl-0 @sm:pl-2 rtl:pr-0 rtl:pl-0 @sm:rtl:pr-2 min-w-60 pb-0 @sm:pb-4',
+      xs: 'w-1/4 pl-0 @2xl:pl-2 rtl:pr-0 rtl:pl-0 @2xl:rtl:pr-2 min-w-60 pb-0 @2xl:pb-4',
+      sm: 'w-1/3 pl-0 @2xl:pl-2 rtl:pr-0 rtl:pl-0 @2xl:rtl:pr-2 min-w-60 pb-0 @2xl:pb-4',
+      base: 'w-1/2 pl-0 @2xl:pl-2 rtl:pr-0 rtl:pl-0 @2xl:rtl:pr-2 min-w-60 pb-0 @2xl:pb-4',
+      lg: 'w-2/3 pl-0 @2xl:pl-2 rtl:pr-0 rtl:pl-0 @2xl:rtl:pr-2 min-w-60 pb-0 @2xl:pb-4',
+      xl: 'w-3/4 pl-0 @2xl:pl-2 rtl:pr-0 rtl:pl-0 @2xl:rtl:pr-2 min-w-60 pb-0 @2xl:pb-4',
       full: 'w-full',
     },
   },
@@ -216,7 +216,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                   <div
                     style={styles?.arrowButton}
                     className={cn(
-                      `rounded-full pr-1 w-9 h-9 @md:w-12 @md:h-12 border-0 flex items-center justify-center rtl:rotate-180`,
+                      `rounded-full pr-1 w-9 h-9 @3xl:w-12 @3xl:h-12 border-0 flex items-center justify-center rtl:rotate-180`,
                       slide === 1
                         ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed'
                         : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200',
@@ -246,7 +246,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                   ) : null}
                   <div
                     className={cn(
-                      `rounded-full pl-1 w-9 h-9 @md:w-12 @md:h-12 border-0 flex items-center justify-center rtl:rotate-180`,
+                      `rounded-full pl-1 w-9 h-9 @3xl:w-12 @3xl:h-12 border-0 flex items-center justify-center rtl:rotate-180`,
                       slide === slides.length
                         ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed'
                         : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200',
@@ -274,7 +274,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                     <div
                       style={styles?.playPauseButton}
                       className={cn(
-                        'rounded-full w-9 h-9 @md:w-12 @md:h-12 border-2 border-primary-gray-600 dark:border-primary-white flex items-center justify-center cursor-pointer bg-transparent hover:bg-primary-gray-100 dark:hover:bg-primary-gray-600',
+                        'rounded-full w-9 h-9 @3xl:w-12 @3xl:h-12 border-2 border-primary-gray-600 dark:border-primary-white flex items-center justify-center cursor-pointer bg-transparent hover:bg-primary-gray-100 dark:hover:bg-primary-gray-600',
                         classNames?.playPauseButton,
                       )}
                       onClick={() => {

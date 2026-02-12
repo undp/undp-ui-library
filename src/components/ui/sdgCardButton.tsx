@@ -39,13 +39,13 @@ const SDGCardButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-right-white.svg), auto',
           }}
           className={cn(
-            'min-h-[160px] w-full flex items-start flex-col gap-0 px-6 py-9 @sm:flex-row @sm:px-0 @sm:items-center @sm:py-0 @sm:gap-9 hover:brightness-90',
+            'min-h-[160px] w-full flex items-start flex-col gap-0 px-6 py-9 @2xl:flex-row @2xl:px-0 @2xl:items-center @2xl:py-0 @2xl:gap-9 hover:brightness-90',
             className,
           )}
         >
           <strong
             className={cn(
-              'text-[2.938rem] pl-0 @sm:text-[6.875rem] @sm:pl-[6.313rem] font-heading w-auto @sm:w-[250px] text-left',
+              'text-[2.938rem] pl-0 @2xl:text-[6.875rem] @2xl:pl-[6.313rem] font-heading w-auto @2xl:w-[250px] text-left',
               indexClassName,
             )}
             style={{ color: textColor || '#fff' }}
@@ -54,7 +54,7 @@ const SDGCardButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </strong>
           <h4
             className={cn(
-              'm-0 font-heading text-left p-0 text-[1.563rem] tracking-[.078rem] uppercase @sm:text-[1.875rem] @sm:tracking-[.094rem]',
+              'm-0 font-heading text-left p-0 text-[1.563rem] tracking-[.078rem] uppercase @2xl:text-[1.875rem] @2xl:tracking-[.094rem]',
               textClassName,
             )}
             style={{ color: textColor || '#fff' }}

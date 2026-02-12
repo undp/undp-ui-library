@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-const sidebarVariants = cva('w-full @sm:w-1/2 @md:w-1/3 @xl:w-1/4 @2xl:w-1/5', {
+const sidebarVariants = cva('w-full @2xl:w-1/2 @3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5', {
   variants: {
     variant: {
       noEffect: '',
