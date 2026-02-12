@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-const sidebarVariants = cva('w-full sm:w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5', {
+const sidebarVariants = cva('w-full @sm:w-1/2 @md:w-1/3 @xl:w-1/4 @2xl:w-1/5', {
   variants: {
     variant: {
       noEffect: '',
@@ -90,8 +90,10 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
 
     return (
       <SidebarContext.Provider value={contextValue}>
-        <div className={cn(sidebarVariants({ variant }), className)} ref={ref} {...props}>
-          {children}
+        <div className='@container w-full'>
+          <div className={cn(sidebarVariants({ variant }), className)} ref={ref} {...props}>
+            {children}
+          </div>
         </div>
       </SidebarContext.Provider>
     );
