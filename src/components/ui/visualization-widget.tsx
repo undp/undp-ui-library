@@ -157,7 +157,9 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
     <div
       className={cn(
         'undp-scrollbar max-h-none @3xl:max-h-[80vh] bg-primary-gray-100 dark:bg-primary-gray-650 border-r border-r-primary-gray-400 dark:border-r-primary-gray-600',
-        collapsed ? 'w-full @3xl:w-[40px] py-4 px-2' : 'w-full @3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5 p-4',
+        collapsed
+          ? 'w-full @3xl:w-[40px] py-4 px-2'
+          : 'w-full @3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5 p-4',
         className,
       )}
       ref={ref}
@@ -181,7 +183,7 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
           </Button>
         ) : null}
       </div>
-      <div className={`w-full ${collapsed ? 'block @3xl:hidden' : 'block'}`}>{children}</div>
+      {collapsible?.enabled !== false && collapsed ? null : <>{children}</>}
     </div>
   );
 });
