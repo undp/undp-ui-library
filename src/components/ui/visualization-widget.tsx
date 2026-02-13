@@ -156,7 +156,7 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
   return (
     <div
       className={cn(
-        'undp-scrollbar max-h-none @3xl:max-h-[80vh] bg-primary-gray-100 dark:bg-primary-gray-650 border-r border-r-primary-gray-400 dark:border-r-primary-gray-600',
+        'undp-scrollbar max-h-none @3xl:max-h-[80vh] bg-primary-gray-100 dark:bg-primary-gray-650 border-r-0 @3xl:border-r @3xl:border-r-primary-gray-400 dark:@3xl:border-r-primary-gray-600',
         collapsed
           ? 'w-full @3xl:w-[40px] py-4 px-2'
           : 'w-full @3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5 p-4',
