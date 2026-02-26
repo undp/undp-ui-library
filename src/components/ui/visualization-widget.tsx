@@ -87,13 +87,9 @@ const VisualizationWidgetHeader = React.forwardRef<HTMLDivElement, Visualization
 );
 VisualizationWidgetHeader.displayName = 'VisualizationWidgetHeader';
 
-interface VisualizationWidgetHeaderItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  value: string;
-}
-
 const VisualizationWidgetHeaderItem = React.forwardRef<
   HTMLButtonElement,
-  VisualizationWidgetHeaderItemProps
+  React.ButtonHTMLAttributes<HTMLButtonElement> & { value: string }
 >(({ className, children, value, ...props }, ref) => {
   const { selectedValue, activeItemClass, hoverItemClass, onValueChange } = React.useContext(
     VisualizationWidgetHeaderContext,

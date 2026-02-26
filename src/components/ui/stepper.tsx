@@ -3,7 +3,15 @@ import { CheckIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-interface StepperProps extends React.HTMLAttributes<HTMLOListElement> {
+function Stepper({
+  className,
+  steps,
+  currentStep = 0,
+  unfinishedStepsClassName,
+  finishedStepsClassName,
+  activeStepsClassName,
+  ...props
+}: React.HTMLAttributes<HTMLOListElement> & {
   className?: string;
   unfinishedStepsClassName?: string;
   finishedStepsClassName?: string;
@@ -13,17 +21,7 @@ interface StepperProps extends React.HTMLAttributes<HTMLOListElement> {
     description?: string;
   }[];
   currentStep?: number;
-}
-
-function Stepper({
-  className,
-  steps,
-  currentStep = 0,
-  unfinishedStepsClassName,
-  finishedStepsClassName,
-  activeStepsClassName,
-  ...props
-}: StepperProps) {
+}) {
   return (
     <ol
       {...props}

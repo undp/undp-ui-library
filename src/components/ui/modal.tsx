@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
-interface ModalProps {
+function Modal(props: {
   title?: string;
   description?: string;
   children?: React.ReactNode;
@@ -27,9 +27,7 @@ interface ModalProps {
   overlayClassName?: string;
   closeButtonClassName?: string;
   inPortal?: boolean;
-}
-
-function Modal(props: ModalProps) {
+}) {
   const {
     title,
     description,

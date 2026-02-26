@@ -8,11 +8,13 @@ import { Label } from './label';
 import { cn, generateRandomId } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+function FileUpload({
+  onFileChange,
+  children,
+  ...props
+}: React.InputHTMLAttributes<HTMLInputElement> & {
   onFileChange?: (_d: File[]) => void;
-}
-
-function FileUpload({ onFileChange, children, ...props }: Props) {
+}) {
   const idForHtml = props.id || generateRandomId();
   const [files, setFiles] = useState<File[]>([]);
 

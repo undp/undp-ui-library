@@ -3,7 +3,11 @@ import remarkGfm from 'remark-gfm';
 
 import { cn } from '@/lib/utils';
 
-interface Props {
+function MarkdownRenderer({
+  classNames,
+  text,
+  components,
+}: {
   classNames?: {
     h1?: string;
     h2?: string;
@@ -30,9 +34,7 @@ interface Props {
   };
   components?: Components;
   text?: string;
-}
-
-function MarkdownRenderer({ classNames, text, components }: Props) {
+}) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}

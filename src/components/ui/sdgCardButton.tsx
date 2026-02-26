@@ -2,16 +2,17 @@ import React from 'react';
 
 import { cn } from '@/lib/utils';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  index: string | number;
-  text: string;
-  backgroundColor?: string;
-  textColor?: string;
-  indexClassName?: string;
-  textClassName?: string;
-}
-
-const SDGCardButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const SDGCardButton = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    index: string | number;
+    text: string;
+    backgroundColor?: string;
+    textColor?: string;
+    indexClassName?: string;
+    textClassName?: string;
+  }
+>(
   (
     {
       className,

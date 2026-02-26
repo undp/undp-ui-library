@@ -3,30 +3,18 @@ import { Menu, X } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
-  className?: string;
-  children?: React.ReactNode;
-}
-
-function Header({ className, children, ...props }: HeaderProps) {
+function Header({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
     <header
       {...props}
       className={cn(
-        'bg-primary-gray-100 dark:bg-primary-gray-650 shadow-header left-0 fixed top-0 w-full z-10 relative h-[75px] md:h-header',
+        'bg-primary-gray-100 dark:bg-primary-gray-650 shadow-header left-0 top-0 w-full z-10 max-w-full flex py-0 px-6 gap-4 justify-between items-center box-border relative h-[75px] md:h-header',
         className,
       )}
     >
-      <div className='max-w-full flex py-0 px-6 gap-4 justify-between items-center'>{children}</div>
+      {children}
     </header>
   );
-}
-
-interface HeaderLogoUnitProps extends React.HTMLAttributes<HTMLElement> {
-  className?: string;
-  siteSubName?: string;
-  siteName: string;
-  hyperlink?: string;
 }
 
 function HeaderLogoUnit({
@@ -35,7 +23,11 @@ function HeaderLogoUnit({
   siteSubName,
   hyperlink,
   ...props
-}: HeaderLogoUnitProps) {
+}: React.HTMLAttributes<HTMLDivElement> & {
+  siteName: string;
+  siteSubName?: string;
+  hyperlink?: string;
+}) {
   return (
     <div {...props} className={cn('flex items-center', className)}>
       <a
@@ -63,12 +55,11 @@ function HeaderLogoUnit({
   );
 }
 
-interface HeaderMainNavUnitProps extends React.HTMLAttributes<HTMLElement> {
-  children?: React.ReactNode;
-  className?: string;
-}
-
-function HeaderMainNavUnit({ className, children, ...props }: HeaderMainNavUnitProps) {
+function HeaderMainNavUnit({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   const [showMenu, setShowMenu] = React.useState(false);
   return (
     <>
@@ -101,17 +92,20 @@ function HeaderMainNavUnit({ className, children, ...props }: HeaderMainNavUnitP
   );
 }
 
-interface HeaderMenuUnitProps extends React.HTMLAttributes<HTMLElement> {
-  children?: React.ReactNode;
-  className?: string;
-}
-
-function HeaderMenuUnit({ className, children, ...props }: HeaderMenuUnitProps) {
+function HeaderMenuUnit({
+  className,
+  children,
+  align = 'center',
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & {
+  align?: 'center' | 'end';
+}) {
   return (
     <div
       {...props}
       className={cn(
-        'grid gap-4 md:gap-8 tracking-[0.42px] font-medium text-primary-black dark:text-primary-gray-200 md:flex grow items-center md:justify-center md:gap-12 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black dark:[&>a]:text-primary-gray-200 md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600 dark:[&>a:hover]:text-primary-gray-100',
+        'grid gap-4 md:gap-8 tracking-[0.42px] font-medium text-primary-black dark:text-primary-gray-200 md:flex grow items-center md:gap-12 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black dark:[&>a]:text-primary-gray-200 md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600 dark:[&>a:hover]:text-primary-gray-100',
+        align === 'end' ? 'md:justify-end' : 'md:justify-center',
         className,
       )}
     >
@@ -120,12 +114,7 @@ function HeaderMenuUnit({ className, children, ...props }: HeaderMenuUnitProps) 
   );
 }
 
-interface HeaderActionsProps extends React.HTMLAttributes<HTMLElement> {
-  children?: React.ReactNode;
-  className?: string;
-}
-
-function HeaderActions({ className, children, ...props }: HeaderActionsProps) {
+function HeaderActions({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       {...props}

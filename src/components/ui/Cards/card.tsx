@@ -44,14 +44,14 @@ const cardVariants = cva('flex flex-col justify-between items-stretch', {
   },
 });
 
-export interface CardProps
+interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
   border?: boolean;
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, border, size, variant, backgroundColor, ...props }, ref) => (
+  ({ className, border = true, size, variant, backgroundColor, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
@@ -127,16 +127,15 @@ const CardDescription = React.forwardRef<
 ));
 CardDescription.displayName = 'CardDescription';
 
-interface CardImageProps extends React.HTMLAttributes<HTMLImageElement> {
-  src: string;
-  alt?: string;
-}
-
-const CardImage = React.forwardRef<HTMLImageElement, CardImageProps>(
-  ({ className, ...props }, ref) => (
-    <img ref={ref} alt='card' {...props} className={cn('w-full h-64 object-cover', className)} />
-  ),
-);
+const CardImage = React.forwardRef<
+  HTMLImageElement,
+  React.HTMLAttributes<HTMLImageElement> & {
+    src: string;
+    alt?: string;
+  }
+>(({ className, ...props }, ref) => (
+  <img ref={ref} alt='card' {...props} className={cn('w-full h-64 object-cover', className)} />
+));
 CardImage.displayName = 'CardImage';
 
 export { Card, CardTag, CardTitle, CardDescription, CardImage, CardFooter, CardHeader };

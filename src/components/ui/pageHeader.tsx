@@ -2,13 +2,14 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  backgroundImage?: string;
-  minHeight?: boolean;
-  contentMode?: 'light' | 'dark';
-}
-
-const PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(
+const PageHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    backgroundImage?: string;
+    minHeight?: boolean;
+    contentMode?: 'light' | 'dark';
+  }
+>(
   (
     { className, style, backgroundImage, minHeight = true, contentMode = 'dark', ...props },
     ref,

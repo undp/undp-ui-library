@@ -101,34 +101,33 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
 );
 Sidebar.displayName = 'Sidebar';
 
-interface SidebarItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  value?: string;
-}
-
-const SidebarItem = React.forwardRef<HTMLDivElement, SidebarItemProps>(
-  ({ className, children, value, ...props }, ref) => {
-    const { selectedValue, classNames, onValueChange } = React.useContext(SidebarContext);
-    return (
-      <div
-        {...props}
-        ref={ref}
-        className={cn(
-          'text-primary-black dark:text-primary-white text-base bg-transparent p-4 flex gap-2 items-center cursor-pointer hover:bg-primary-gray-300 dark:hover:bg-primary-gray-600',
-          className,
-          classNames?.controls,
-          selectedValue === value && classNames?.active,
-        )}
-        onClick={() => {
-          if (value) {
-            onValueChange(value);
-          }
-        }}
-      >
-        {children}
-      </div>
-    );
-  },
-);
+const SidebarItem = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    value?: string;
+  }
+>(({ className, children, value, ...props }, ref) => {
+  const { selectedValue, classNames, onValueChange } = React.useContext(SidebarContext);
+  return (
+    <div
+      {...props}
+      ref={ref}
+      className={cn(
+        'text-primary-black dark:text-primary-white text-base bg-transparent p-4 flex gap-2 items-center cursor-pointer hover:bg-primary-gray-300 dark:hover:bg-primary-gray-600',
+        className,
+        classNames?.controls,
+        selectedValue === value && classNames?.active,
+      )}
+      onClick={() => {
+        if (value) {
+          onValueChange(value);
+        }
+      }}
+    >
+      {children}
+    </div>
+  );
+});
 SidebarItem.displayName = 'SidebarItem';
 
 export { Sidebar, SidebarItem };

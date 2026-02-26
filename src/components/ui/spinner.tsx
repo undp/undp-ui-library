@@ -24,15 +24,19 @@ const loaderVariants = cva('animate-spin border-[5px] rounded-full inline-block 
   },
 });
 
-interface SpinnerContentProps extends VariantProps<typeof loaderVariants> {
+export function Spinner({
+  size,
+  variant,
+  show = true,
+  children,
+  className,
+}: VariantProps<typeof loaderVariants> & {
   show?: boolean;
   className?: string;
   variant?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
   size?: 'sm' | 'base' | 'lg';
   children?: React.ReactNode;
-}
-
-export function Spinner({ size, variant, show = true, children, className }: SpinnerContentProps) {
+}) {
   return (
     <span className={cn('flex-col items-center justify-center', show ? 'flex' : 'hidden')}>
       <div className={cn(loaderVariants({ variant, size }), className)} />

@@ -126,16 +126,15 @@ const PageWideCardDescription = React.forwardRef<
 ));
 PageWideCardDescription.displayName = 'PageWideCardDescription';
 
-interface PageWideCardImageProps extends React.HTMLAttributes<HTMLImageElement> {
-  src: string;
-  alt?: string;
-}
-
-const PageWideCardImage = React.forwardRef<HTMLImageElement, PageWideCardImageProps>(
-  ({ className, ...props }, ref) => (
-    <img ref={ref} alt='card' {...props} className={cn('card-img object-cover', className)} />
-  ),
-);
+const PageWideCardImage = React.forwardRef<
+  HTMLImageElement,
+  React.HTMLAttributes<HTMLImageElement> & {
+    src: string;
+    alt?: string;
+  }
+>(({ className, ...props }, ref) => (
+  <img ref={ref} alt='card' {...props} className={cn('card-img object-cover', className)} />
+));
 PageWideCardImage.displayName = 'PageWideCardImage';
 
 export {

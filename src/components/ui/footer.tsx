@@ -4,12 +4,7 @@ import { H5, P } from './typography';
 
 import { cn } from '@/lib/utils';
 
-interface FooterProps extends React.HTMLAttributes<HTMLElement> {
-  className?: string;
-  children?: React.ReactNode;
-}
-
-function Footer({ className, children, ...props }: FooterProps) {
+function Footer({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer
       {...props}
@@ -23,13 +18,14 @@ function Footer({ className, children, ...props }: FooterProps) {
   );
 }
 
-interface FooterLogoUnitProps extends React.HTMLAttributes<HTMLElement> {
-  className?: string;
+function FooterLogoUnit({
+  className,
+  link,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & {
   link?: string;
-  children?: React.ReactNode;
-}
-
-function FooterLogoUnit({ className, link, children, ...props }: FooterLogoUnitProps) {
+}) {
   return (
     <div
       {...props}
@@ -57,12 +53,11 @@ function FooterLogoUnit({ className, link, children, ...props }: FooterLogoUnitP
   );
 }
 
-interface FooterMainNavUnitProps extends React.HTMLAttributes<HTMLElement> {
-  children?: React.ReactNode;
-  className?: string;
-}
-
-function FooterMainNavUnit({ className, children, ...props }: FooterMainNavUnitProps) {
+function FooterMainNavUnit({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props} className={className}>
       {children}
@@ -70,12 +65,11 @@ function FooterMainNavUnit({ className, children, ...props }: FooterMainNavUnitP
   );
 }
 
-interface FooterCopyrightUnitProps extends React.HTMLAttributes<HTMLElement> {
-  children?: React.ReactNode;
-  className?: string;
-}
-
-function FooterCopyrightUnit({ className, children, ...props }: FooterCopyrightUnitProps) {
+function FooterCopyrightUnit({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props} className={cn('flex justify-between flex-wrap items-center mt-6', className)}>
       <P className='m-0 md:m-0 py-0 px-0 text-base'>© United Nations Development Programme</P>

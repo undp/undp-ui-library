@@ -2,11 +2,6 @@ import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
-
-interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  className?: string;
-}
-
 const paragraphVariant = cva('mt-0 ml-0 mr-0', {
   variants: {
     size: {
@@ -74,7 +69,7 @@ function P({
   decoration,
   alignment,
   ...props
-}: ParagraphProps & VariantProps<typeof paragraphVariant>) {
+}: React.HTMLAttributes<HTMLParagraphElement> & VariantProps<typeof paragraphVariant>) {
   return (
     <p
       {...props}
@@ -86,9 +81,6 @@ function P({
       {children}
     </p>
   );
-}
-interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  className?: string;
 }
 
 const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase font-heading', {
@@ -135,7 +127,7 @@ function H1({
   size,
   alignment,
   ...props
-}: HeadingProps & VariantProps<typeof heading1Variant>) {
+}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading1Variant>) {
   return (
     <h1 {...props} className={cn(heading1Variant({ marginBottom, size, alignment }), className)}>
       {children}
@@ -182,7 +174,7 @@ function H2({
   weight,
   alignment,
   ...props
-}: HeadingProps & VariantProps<typeof heading2Variant>) {
+}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading2Variant>) {
   return (
     <h2 {...props} className={cn(heading2Variant({ marginBottom, weight, alignment }), className)}>
       {children}
@@ -228,7 +220,7 @@ function H3({
   weight,
   alignment,
   ...props
-}: HeadingProps & VariantProps<typeof heading3Variant>) {
+}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading3Variant>) {
   return (
     <h3 {...props} className={cn(heading3Variant({ marginBottom, weight, alignment }), className)}>
       {children}
@@ -274,7 +266,7 @@ function H4({
   weight,
   alignment,
   ...props
-}: HeadingProps & VariantProps<typeof heading4Variant>) {
+}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading4Variant>) {
   return (
     <h4 {...props} className={cn(heading4Variant({ marginBottom, weight, alignment }), className)}>
       {children}
@@ -320,7 +312,7 @@ function H5({
   weight,
   alignment,
   ...props
-}: HeadingProps & VariantProps<typeof heading5Variant>) {
+}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading5Variant>) {
   return (
     <h5 {...props} className={cn(heading5Variant({ marginBottom, weight, alignment }), className)}>
       {children}
@@ -366,7 +358,7 @@ function H6({
   weight,
   alignment,
   ...props
-}: HeadingProps & VariantProps<typeof heading6Variant>) {
+}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading6Variant>) {
   return (
     <h6 {...props} className={cn(heading6Variant({ marginBottom, weight, alignment }), className)}>
       {children}
@@ -403,7 +395,7 @@ function Cite({
   marginBottom,
   weight,
   ...props
-}: HeadingProps & VariantProps<typeof citeVariant>) {
+}: React.HTMLAttributes<HTMLElement> & VariantProps<typeof citeVariant>) {
   return (
     <cite {...props} className={cn(citeVariant({ marginBottom, weight }), className)}>
       {children}
@@ -434,16 +426,12 @@ function Code({
   className,
   weight,
   ...props
-}: HeadingProps & VariantProps<typeof codeVariant>) {
+}: React.HTMLAttributes<HTMLElement> & VariantProps<typeof codeVariant>) {
   return (
     <code {...props} className={cn(codeVariant({ weight }), className)}>
       {children}
     </code>
   );
-}
-
-interface BlockquoteProps extends React.HTMLAttributes<HTMLQuoteElement> {
-  className?: string;
 }
 
 const blockquoteVariant = cva(
@@ -470,7 +458,7 @@ function Blockquote({
   className,
   weight,
   ...props
-}: BlockquoteProps & VariantProps<typeof blockquoteVariant>) {
+}: React.HTMLAttributes<HTMLQuoteElement> & VariantProps<typeof blockquoteVariant>) {
   return (
     <blockquote {...props} className={cn(blockquoteVariant({ weight }), className)}>
       {children}
@@ -478,12 +466,14 @@ function Blockquote({
   );
 }
 
-interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  className?: string;
+function A({
+  children,
+  className,
+  weight,
+  ...props
+}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold';
-}
-
-function A({ children, className, weight, ...props }: LinkProps) {
+}) {
   return (
     <a
       {...props}

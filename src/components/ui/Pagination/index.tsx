@@ -12,21 +12,6 @@ import {
 
 import { cn } from '@/lib/utils';
 
-interface PaginationProps {
-  defaultPage?: number;
-  total: number;
-  pageSize: number;
-  onChange: (page: number) => void;
-  className?: string;
-  classNames?: {
-    control?: string;
-    list?: string;
-    navigation?: string;
-    ellipsis?: string;
-    active?: string;
-  };
-}
-
 const getPageNumbers = (currentPageNo: number, totalPages: number) => {
   const pages: (number | 'ellipsis')[] = [];
 
@@ -51,7 +36,20 @@ const getPageNumbers = (currentPageNo: number, totalPages: number) => {
   return pages;
 };
 
-function Pagination(props: PaginationProps) {
+function Pagination(props: {
+  defaultPage?: number;
+  total: number;
+  pageSize: number;
+  onChange: (page: number) => void;
+  className?: string;
+  classNames?: {
+    control?: string;
+    list?: string;
+    navigation?: string;
+    ellipsis?: string;
+    active?: string;
+  };
+}) {
   const { defaultPage = 1, total, pageSize, onChange, className, classNames } = props;
   const totalPages = Math.ceil(total / pageSize);
   const [currentPage, setCurrentPage] = useState(defaultPage);

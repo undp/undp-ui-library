@@ -1,10 +1,4 @@
-interface Props {
-  variant?: 'blue' | 'white';
-  width?: number;
-  className?: string;
-}
-
-function UNDPLogo(props: Props) {
+function UNDPLogo(props: { variant?: 'blue' | 'white'; width?: number; className?: string }) {
   const { variant, className, width } = props;
   switch (variant) {
     case 'blue':

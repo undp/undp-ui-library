@@ -8,7 +8,7 @@ import {
   LanguageSelectValue,
 } from './languageSelect';
 
-interface LanguageSwitcherProps {
+function LanguageSwitcher(props: {
   options: {
     label: string;
     id: string;
@@ -16,9 +16,7 @@ interface LanguageSwitcherProps {
   defaultValue: string;
   value?: string;
   onValueChange?: (_d: string) => void;
-}
-
-function LanguageSwitcher(props: LanguageSwitcherProps) {
+}) {
   const { options, value, onValueChange, defaultValue } = props;
   return (
     <LanguageSelect onValueChange={onValueChange} value={value} defaultValue={defaultValue}>

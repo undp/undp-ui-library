@@ -3,11 +3,6 @@ import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-interface OptionDataType {
-  label: React.ReactNode;
-  value: string;
-  disabled?: boolean;
-}
 const segmentedButtonVariants = cva(
   'inline-flex bg-primary-gray-300 dark:bg-primary-gray-600 rounded-none',
   {
@@ -60,8 +55,12 @@ const buttonUnselectedVariants = cva(
   },
 );
 
-interface Props {
-  options: OptionDataType[];
+function SegmentedControl(props: {
+  options: {
+    label: React.ReactNode;
+    value: string;
+    disabled?: boolean;
+  }[];
   defaultValue?: string;
   value?: string;
   onValueChange?: (d: string) => void;
@@ -79,9 +78,7 @@ interface Props {
     items?: string;
     active?: string;
   };
-}
-
-function SegmentedControl(props: Props) {
+}) {
   const {
     options,
     defaultValue,
