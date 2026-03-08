@@ -64,6 +64,7 @@ export {
   FooterLogoUnit,
   FooterCopyrightUnit,
   FooterMainNavUnit,
+  FooterContent,
 } from '@/components/ui/footer';
 export {
   Header,

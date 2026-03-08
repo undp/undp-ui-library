@@ -273,37 +273,43 @@ function H4({
     </h4>
   );
 }
-const heading5Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-[1.25rem] md:text-[1.563rem] leading-[1.15] font-sans',
-  {
-    variants: {
-      marginBottom: {
-        none: 'mb-0',
-        '2xs': 'mb-1',
-        xs: 'mb-2',
-        sm: 'mb-3',
-        'base-responsive': 'mb-3 md:mb-4',
-        base: 'mb-4',
-        lg: 'mb-5',
-        xl: 'mb-6',
-      },
-      weight: {
-        light: 'font-light',
-        normal: 'font-normal',
-        medium: 'font-medium',
-        semibold: 'font-semibold',
-        bold: 'font-bold',
-        extrabold: 'font-extrabold',
-      },
-      alignment: {
-        left: 'text-left',
-        right: 'text-right',
-        center: 'text-center',
-      },
+const heading5Variant = cva('mt-0 ml-0 mr-0 p-0 leading-[1.15] font-sans', {
+  variants: {
+    marginBottom: {
+      none: 'mb-0',
+      '2xs': 'mb-1',
+      xs: 'mb-2',
+      sm: 'mb-3',
+      'base-responsive': 'mb-3 md:mb-4',
+      base: 'mb-4',
+      lg: 'mb-5',
+      xl: 'mb-6',
     },
-    defaultVariants: { marginBottom: 'base-responsive', weight: 'normal', alignment: 'left' },
+    size: {
+      'base-responsive': 'text-[1.25rem] md:text-[1.563rem]',
+      base: 'text-[1.25rem]',
+    },
+    weight: {
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
+      extrabold: 'font-extrabold',
+    },
+    alignment: {
+      left: 'text-left',
+      right: 'text-right',
+      center: 'text-center',
+    },
   },
-);
+  defaultVariants: {
+    marginBottom: 'base-responsive',
+    weight: 'normal',
+    alignment: 'left',
+    size: 'base-responsive',
+  },
+});
 
 function H5({
   children,
@@ -311,10 +317,14 @@ function H5({
   marginBottom,
   weight,
   alignment,
+  size,
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading5Variant>) {
   return (
-    <h5 {...props} className={cn(heading5Variant({ marginBottom, weight, alignment }), className)}>
+    <h5
+      {...props}
+      className={cn(heading5Variant({ marginBottom, weight, alignment, size }), className)}
+    >
       {children}
     </h5>
   );

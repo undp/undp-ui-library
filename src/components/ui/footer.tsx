@@ -13,8 +13,16 @@ function Footer({ className, children, ...props }: React.HTMLAttributes<HTMLElem
         className,
       )}
     >
-      {children}
+      <div className={cn('w-full sm:w-[83.333%] mx-auto')}>{children}</div>
     </footer>
+  );
+}
+
+function FooterContent({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={cn('w-full sm:w-[83.333%] mx-auto h-auto', className)} {...props}>
+      {children}
+    </div>
   );
 }
 
@@ -30,7 +38,7 @@ function FooterLogoUnit({
     <div
       {...props}
       className={cn(
-        'flex justify-between mb-8 flex-wrap pt-0 px-3 pb-12 border-b-primary-white border-b items-center',
+        'flex gap-x-4 gap-y-6 justify-between mb-8 flex-wrap pt-0 px-3 pb-12 border-b-primary-white border-b items-center',
         className,
       )}
     >
@@ -39,10 +47,10 @@ function FooterLogoUnit({
           <img
             alt='undp logo'
             src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-white.svg'
-            className='w-[72px]'
+            className='w-[60px]'
           />
         </a>
-        <H5 className='mb-0 text-primary-white md:mb-0'>
+        <H5 className='text-primary-white' marginBottom='none' size='base'>
           United Nations
           <br />
           Development Programme
@@ -71,11 +79,14 @@ function FooterCopyrightUnit({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div {...props} className={cn('flex justify-between flex-wrap items-center mt-6', className)}>
+    <div
+      {...props}
+      className={cn('flex justify-between flex-wrap items-center mt-6 gap-y-6 gap-x-4', className)}
+    >
       <P className='m-0 md:m-0 py-0 px-0 text-base'>© United Nations Development Programme</P>
       <div>{children}</div>
     </div>
   );
 }
 
-export { Footer, FooterLogoUnit, FooterCopyrightUnit, FooterMainNavUnit };
+export { Footer, FooterLogoUnit, FooterCopyrightUnit, FooterMainNavUnit, FooterContent };

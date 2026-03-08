@@ -1,7 +1,13 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Footer, FooterLogoUnit, FooterCopyrightUnit, FooterMainNavUnit } from '@/index';
+import {
+  Footer,
+  FooterLogoUnit,
+  FooterCopyrightUnit,
+  FooterMainNavUnit,
+  FooterContent,
+} from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Footer>;
 
@@ -18,11 +24,13 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         }`}
       >
         <Footer>
-          <FooterLogoUnit>subscribe to email</FooterLogoUnit>
-          <FooterMainNavUnit>
-            <div>Navigation unit comes here</div>
-          </FooterMainNavUnit>
-          <FooterCopyrightUnit>Footnote can be added here</FooterCopyrightUnit>
+          <FooterContent>
+            <FooterLogoUnit>subscribe to email</FooterLogoUnit>
+            <FooterMainNavUnit>
+              <div>Navigation unit comes here</div>
+            </FooterMainNavUnit>
+            <FooterCopyrightUnit>Footnote can be added here</FooterCopyrightUnit>
+          </FooterContent>
         </Footer>
       </div>
     );
