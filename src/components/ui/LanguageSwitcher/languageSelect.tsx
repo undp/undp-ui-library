@@ -19,7 +19,7 @@ const LanguageSelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'cursor-pointer flex h-9 flex gap-2 rtl:[direction:rtl] items-center text-primary-blue-600 hover:text-primary-blue-400 dark:text-primary-white dark:hover:text-primary-white uppercase font-semibold text-sm justify-between whitespace-nowrap bg-transparent p-0 shadow-sm data-[placeholder]:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+      'cursor-pointer flex h-9 flex gap-2 rtl:[direction:rtl] items-center text-primary-blue-600 hover:text-primary-blue-400 dark:text-primary-white dark:hover:text-primary-white uppercase font-semibold text-sm justify-between whitespace-nowrap bg-transparent p-0 data-[placeholder]:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
       '[&[data-state=open]>.lucide-chevron-down]:rotate-180',
       className,
     )}
@@ -36,9 +36,11 @@ LanguageSelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 const LanguageSelectContent = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, position = 'popper', ...props }, ref) => (
-  <SelectPrimitive.Portal>
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content> & {
+    inPortal?: boolean;
+  }
+>(({ className, children, position = 'popper', inPortal = false, ...props }, ref) => {
+  const content = (
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
@@ -59,8 +61,13 @@ const LanguageSelectContent = React.forwardRef<
         {children}
       </SelectPrimitive.Viewport>
     </SelectPrimitive.Content>
-  </SelectPrimitive.Portal>
-));
+  );
+
+  if (inPortal) {
+    return <SelectPrimitive.Portal>{content}</SelectPrimitive.Portal>;
+  }
+  return content;
+});
 LanguageSelectContent.displayName = SelectPrimitive.Content.displayName;
 
 const LanguageSelectItem = React.forwardRef<

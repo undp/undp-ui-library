@@ -16,14 +16,15 @@ function LanguageSwitcher(props: {
   defaultValue: string;
   value?: string;
   onValueChange?: (_d: string) => void;
+  inPortal?: boolean;
 }) {
-  const { options, value, onValueChange, defaultValue } = props;
+  const { options, value, onValueChange, defaultValue, inPortal = false } = props;
   return (
     <LanguageSelect onValueChange={onValueChange} value={value} defaultValue={defaultValue}>
       <LanguageSelectTrigger>
         <LanguageSelectValue />
       </LanguageSelectTrigger>
-      <LanguageSelectContent>
+      <LanguageSelectContent inPortal={inPortal}>
         {options.map((d, i) => (
           <LanguageSelectItem key={i} value={d.id}>
             {d.label}
