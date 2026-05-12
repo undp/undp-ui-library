@@ -112,7 +112,7 @@ module.exports = {
         'sans-bn': ['UN Bangla', 'sans-serif'],
         'sans-he': ['Noto Sans Hebrew', 'sans-serif'],
         'sans-hi': ['Noto Sans Devanagari', 'sans-serif'],
-        'sans-jp': ['Noto Sans JP', 'sans-serif'],
+        'sans-ja': ['Noto Sans JP', 'sans-serif'],
         'sans-ka': ['Noto Sans Georgian', 'sans-serif'],
         'sans-km': ['Noto Sans Khmer', 'sans-serif'],
         'sans-ko': ['Noto Sans KR', 'sans-serif'],

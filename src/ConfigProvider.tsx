@@ -61,7 +61,7 @@ interface ConfigDataType {
     | 'bn'
     | 'he'
     | 'hi'
-    | 'jp'
+    | 'ja'
     | 'ka'
     | 'km'
     | 'ko'
@@ -116,7 +116,7 @@ export const ConfigProvider = ({ children, config }: ConfigProviderProps) => {
           bn: 'UN Bangla',
           he: 'Noto Sans Hebrew',
           hi: 'Noto Sans Devanagari',
-          jp: 'Noto Sans JP',
+          ja: 'Noto Sans JP',
           ka: 'Noto Sans Georgian',
           km: 'Noto Sans Khmer',
           ko: 'Noto Sans KR',

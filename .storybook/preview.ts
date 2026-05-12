@@ -58,7 +58,7 @@ const preview: Preview = {
           { value: 'cy', title: 'Cyrillic (Russian, Ukrainian etc.)' },
           { value: 'he', title: 'Hebrew' },
           { value: 'hi', title: 'Hindi' },
-          { value: 'jp', title: 'Japanese' },
+          { value: 'ja', title: 'Japanese' },
           { value: 'ka', title: 'Georgian' },
           { value: 'km', title: 'Khmer' },
           { value: 'ko', title: 'Korean' },
