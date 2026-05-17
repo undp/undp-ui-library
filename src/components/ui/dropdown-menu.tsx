@@ -64,21 +64,31 @@ DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayNam
 
 const DropdownMenuContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
-  <DropdownMenuPrimitive.Portal>
-    <DropdownMenuPrimitive.Content
-      {...props}
-      ref={ref}
-      sideOffset={sideOffset}
-      className={cn(
-        'z-50 min-w-[8rem] overflow-hidden rounded-none border border-primary-gray-200 bg-primary-gray-100 dark:bg-primary-gray-650 p-1 text-primary-black dark:text-primary-white shadow-md',
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
-        className,
-      )}
-    />
-  </DropdownMenuPrimitive.Portal>
-));
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> & {
+    inPortal?: boolean;
+  }
+>(({ className, sideOffset = 4, inPortal = true, ...props }, ref) => {
+  const content = (
+    <>
+      <DropdownMenuPrimitive.Content
+        {...props}
+        ref={ref}
+        sideOffset={sideOffset}
+        className={cn(
+          'z-50 min-w-[8rem] overflow-hidden rounded-none border border-primary-gray-200 bg-primary-gray-100 dark:bg-primary-gray-650 p-1 text-primary-black dark:text-primary-white shadow-md',
+          'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+          className,
+        )}
+      />
+    </>
+  );
+  return inPortal ? (
+    <DropdownMenuPrimitive.Portal>{content}</DropdownMenuPrimitive.Portal>
+  ) : (
+    content
+  );
+});
+
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
 const DropdownMenuItem = React.forwardRef<
