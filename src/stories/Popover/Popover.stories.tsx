@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Popover, PopoverTrigger, PopoverContent, Button, Input, H6, P } from '@/index';
 

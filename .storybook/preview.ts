@@ -1,6 +1,4 @@
-import type { Preview } from '@storybook/react';
-import '../src/index.css';
-import '../src/fonts.css';
+import type { Preview } from '@storybook/react-vite';
 
 const preview: Preview = {
   parameters: {
@@ -26,6 +24,7 @@ const preview: Preview = {
     },
     direction: {
       description: 'Direction',
+      defaultValue: 'ltr',
       toolbar: {
         // The label to show for this toolbar item
         title: 'Direction',
@@ -37,11 +36,11 @@ const preview: Preview = {
         ],
         // Change title based on selected value
         dynamicTitle: true,
-        default: 'ltr',
       },
     },
     language: {
       description: 'Language',
+      defaultValue: 'en',
       toolbar: {
         // The label to show for this toolbar item
         title: 'Language',
@@ -66,7 +65,6 @@ const preview: Preview = {
           { value: 'custom', title: 'Custom' },
         ],
         dynamicTitle: true,
-        default: 'en',
       },
     },
   },
