@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
-import { Popover, PopoverTrigger, PopoverContent, Button, Input, H6, P } from '@/index';
+import { Button, H6, Input, P, Popover, PopoverContent, PopoverTrigger } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Popover>;
 

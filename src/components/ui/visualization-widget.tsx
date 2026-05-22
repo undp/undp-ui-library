@@ -177,7 +177,7 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
           </Button>
         ) : null}
       </div>
-      {collapsible?.enabled !== false && collapsed ? null : <>{children}</>}
+      {collapsible?.enabled !== false && collapsed ? null : children}
     </div>
   );
 });

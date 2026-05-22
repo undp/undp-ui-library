@@ -1,5 +1,5 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import { DropdownSelect } from '@/index';
 
@@ -65,8 +65,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <DropdownSelect
           {...args}
-          // eslint-disable-next-line no-console
-          onChange={d => console.log(d)}
+          // biome-ignore lint/suspicious/noConsole: This is to test in storybook
+          onChange={(d) => console.log(d)}
           options={[
             {
               label: 'Fruits',

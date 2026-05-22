@@ -1,14 +1,14 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ChartBar } from 'lucide-react';
+import type React from 'react';
 
 import {
   VisualizationWidget,
+  VisualizationWidgetBody,
+  VisualizationWidgetBodyContent,
+  VisualizationWidgetBodySidebar,
   VisualizationWidgetHeader,
   VisualizationWidgetHeaderItem,
-  VisualizationWidgetBody,
-  VisualizationWidgetBodySidebar,
-  VisualizationWidgetBodyContent,
 } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof VisualizationWidgetHeader>;
@@ -32,8 +32,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     >
       <VisualizationWidget>
         <VisualizationWidgetHeader
-          onChange={d => {
-            // eslint-disable-next-line no-console
+          onChange={(d) => {
+            // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log(d);
           }}
           {...args}

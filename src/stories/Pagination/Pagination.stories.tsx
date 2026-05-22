@@ -1,5 +1,5 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import { Pagination } from '@/index';
 
@@ -38,8 +38,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <Pagination
           {...args}
-          onChange={d => {
-            // eslint-disable-next-line no-console
+          onChange={(d) => {
+            // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log(d);
           }}
         />

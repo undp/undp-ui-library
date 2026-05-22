@@ -55,7 +55,7 @@ const meta: Meta<typeof Button> = {
         <Button
           {...args}
           onClick={() => {
-            // eslint-disable-next-line no-console
+            // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log('Hello world');
           }}
         >

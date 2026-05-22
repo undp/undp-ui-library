@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/index';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Accordion>;
 

@@ -1,5 +1,5 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import { Search } from '@/index';
 
@@ -53,8 +53,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <Search
           {...args}
-          onSearch={d => {
-            // eslint-disable-next-line no-console
+          onSearch={(d) => {
+            // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log(d);
           }}
         />

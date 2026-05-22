@@ -1,6 +1,6 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { UploadIcon } from 'lucide-react';
+import type React from 'react';
 
 import { FileUpload } from '@/index';
 
@@ -19,8 +19,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         }`}
       >
         <FileUpload
-          onFileChange={d => {
-            // eslint-disable-next-line no-console
+          onFileChange={(d) => {
+            // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log(d);
           }}
         >

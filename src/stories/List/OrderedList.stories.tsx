@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
-import { Ol, Li } from '@/index';
+import { Li, Ol } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Ol>;
 

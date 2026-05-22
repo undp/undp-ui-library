@@ -1,10 +1,9 @@
-import path from 'path';
-
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
-import { visualizer } from 'rollup-plugin-visualizer';
+import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import { visualizer } from 'rollup-plugin-visualizer';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
 const entries = {
   index: path.resolve(__dirname, 'src/index.ts'),
@@ -92,8 +91,8 @@ export default defineConfig(() => {
         external: ['react', 'react-dom', 'react-markdown'],
         output: {
           manualChunks: undefined,
-          assetFileNames: assetInfo => {
-            if (assetInfo.names && assetInfo.names.includes('design-system-react.css')) {
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.names?.includes('design-system-react.css')) {
               return 'style.css';
             }
             return 'assets/[name][extname]';

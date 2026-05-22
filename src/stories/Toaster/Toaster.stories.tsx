@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/** biome-ignore-all lint/suspicious/noExplicitAny: Any for args */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Toaster, Button, useToast } from '@/index';
+import { Button, Toaster, useToast } from '@/index';
 
 function ToastButton() {
   const { toast } = useToast();
@@ -33,7 +33,7 @@ const meta: Meta<typeof ToastButton> = {
   args: {},
   argTypes: {},
   decorators: [
-    Story => (
+    (Story) => (
       <div>
         <Story />
       </div>
@@ -48,7 +48,6 @@ export const Default: Story = {};
 
 export const ConfigurableToast: Story = {
   render: (args, { globals: { theme, direction, language } }) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { toast } = useToast();
 
     return (
@@ -59,17 +58,6 @@ export const ConfigurableToast: Story = {
         }`}
       >
         <Button
-          /* 
-            define 'toast' as  const { toast } = useToast();
-            </div>onClick={() => {
-              toast({
-                title: args.title,
-                description: args.description,
-                variant: args.variant,
-                duration: args.duration,
-              });
-            }} 
-          */
           onClick={() => {
             toast({
               title: (args as any).title,

@@ -1,5 +1,5 @@
-import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -8,15 +8,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary:
-          'bg-accent-dark-red text-primary-white black-arrow hover:bg-accent-red',
+        primary: 'bg-accent-dark-red text-primary-white black-arrow hover:bg-accent-red',
         'primary-without-icon': 'bg-accent-dark-red text-primary-white hover:bg-accent-red',
-        secondary:
-          'bg-primary-blue-600 text-primary-white white-arrow hover:bg-primary-blue-400',
+        secondary: 'bg-primary-blue-600 text-primary-white white-arrow hover:bg-primary-blue-400',
         'secondary-without-icon':
           'bg-primary-blue-600 text-primary-white hover:bg-primary-blue-400',
-        custom:
-          'bg-custom-color-600 text-custom-foreground white-arrow hover:bg-custom-color-400',
+        custom: 'bg-custom-color-600 text-custom-foreground white-arrow hover:bg-custom-color-400',
         'custom-without-icon':
           'bg-custom-color-600 text-custom-foreground hover:bg-custom-color-400',
         tertiary:
@@ -82,7 +79,19 @@ const Button = React.forwardRef<
   return (
     <Comp
       {...props}
-      className={cn(buttonVariants({ variant, size, padding, arrow: variant === 'primary' || variant === 'secondary' || variant === 'custom' || variant === 'link' }), className)}
+      className={cn(
+        buttonVariants({
+          variant,
+          size,
+          padding,
+          arrow:
+            variant === 'primary' ||
+            variant === 'secondary' ||
+            variant === 'custom' ||
+            variant === 'link',
+        }),
+        className,
+      )}
       ref={ref}
     />
   );

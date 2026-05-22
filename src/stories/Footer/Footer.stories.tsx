@@ -1,12 +1,12 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import {
   Footer,
-  FooterLogoUnit,
-  FooterCopyrightUnit,
-  FooterMainNavUnit,
   FooterContent,
+  FooterCopyrightUnit,
+  FooterLogoUnit,
+  FooterMainNavUnit,
 } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Footer>;

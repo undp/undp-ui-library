@@ -1,17 +1,17 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import {
+  Button,
   PageWideCard,
+  PageWideCardContainer,
+  PageWideCardContent,
+  PageWideCardDescription,
+  PageWideCardFooter,
+  PageWideCardHeader,
+  PageWideCardImage,
   PageWideCardTag,
   PageWideCardTitle,
-  PageWideCardDescription,
-  PageWideCardImage,
-  PageWideCardFooter,
-  PageWideCardContent,
-  PageWideCardContainer,
-  PageWideCardHeader,
-  Button,
 } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof PageWideCard>;

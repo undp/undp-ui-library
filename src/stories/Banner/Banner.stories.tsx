@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
-import { Banner, BannerBody, BannerBodySidebar, BannerBodyContent, H3, P } from '@/index';
+import { Banner, BannerBody, BannerBodyContent, BannerBodySidebar, H3, P } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Banner>;
 

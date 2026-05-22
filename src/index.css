@@ -1,8 +1,8 @@
-@import 'rc-slider/assets/index.css';
+@import "rc-slider/assets/index.css";
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@config '../tailwind.config.js';
+@config "./tailwind.config.js";
 
 @theme {
   --container-2xl: 40rem;
@@ -100,7 +100,7 @@
   }
 }
 
-[hidden]:where(:not([hidden='until-found'])) {
+[hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
 
@@ -170,7 +170,7 @@
   animation: lineLoop-animation-for-links 2s linear infinite;
 }
 
-[dir='rtl'] .undp-link:hover {
+[dir="rtl"] .undp-link:hover {
   animation: lineLoop-animation-for-links-rtl 2s linear infinite;
 }
 

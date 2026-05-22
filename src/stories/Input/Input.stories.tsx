@@ -1,5 +1,5 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import { Input } from '@/index';
 
@@ -37,8 +37,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         <Input
           {...args}
           placeholder='Text here...'
-          onChange={d => {
-            // eslint-disable-next-line no-console
+          onChange={(d) => {
+            // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log(d.target.value);
           }}
         />

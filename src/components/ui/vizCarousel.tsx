@@ -99,6 +99,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
             .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
           if (visible.length > 0) {
+            // biome-ignore lint/complexity/useIndexOf: It give other linting error
             const index = slideRefs.current.findIndex((ref) => ref === visible[0].target);
             if (index !== -1) setSlide(index + 1);
           }

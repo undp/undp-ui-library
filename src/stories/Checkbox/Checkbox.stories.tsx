@@ -1,5 +1,5 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import { Checkbox } from '@/index';
 
@@ -40,8 +40,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <Checkbox
           {...args}
-          onCheckedChange={d => {
-            // eslint-disable-next-line no-console
+          onCheckedChange={(d) => {
+            // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log(d);
           }}
         />

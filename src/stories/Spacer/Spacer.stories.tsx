@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
-import { Spacer, H6 } from '@/index';
+import { H6, Spacer } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Spacer>;
 

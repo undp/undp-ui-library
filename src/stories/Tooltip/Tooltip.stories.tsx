@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
-import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent, Button, P } from '@/index';
+import { Button, P, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Tooltip>;
 

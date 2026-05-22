@@ -1,15 +1,15 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import {
+  Button,
   Card,
-  CardTag,
-  CardTitle,
   CardDescription,
-  CardImage,
   CardFooter,
   CardHeader,
-  Button,
+  CardImage,
+  CardTag,
+  CardTitle,
 } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof Card>;

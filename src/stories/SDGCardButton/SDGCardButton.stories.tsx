@@ -1,5 +1,5 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
 import { SDGCardButton } from '@/index';
 
@@ -45,8 +45,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       >
         <SDGCardButton
           {...args}
-          onClick={d => {
-            // eslint-disable-next-line no-console
+          onClick={(d) => {
+            // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log(d);
           }}
         />

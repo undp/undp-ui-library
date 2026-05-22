@@ -1,7 +1,7 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
-import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/index';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/index';
 
 type PagePropsAndCustomArgs = React.ComponentProps<typeof HoverCard>;
 
