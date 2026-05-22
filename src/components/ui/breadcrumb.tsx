@@ -1,5 +1,5 @@
-import React from 'react';
 import { MoreHorizontal } from 'lucide-react';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -49,7 +49,6 @@ const BreadcrumbPage = React.forwardRef<HTMLSpanElement, React.ComponentPropsWit
       <span
         {...props}
         ref={ref}
-        role='link'
         aria-disabled='true'
         aria-current='page'
         className={cn('text-primary-gray-700 text-xs dark:text-primary-white', className)}
@@ -85,10 +84,10 @@ BreadcrumbEllipsis.displayName = 'BreadcrumbElipssis';
 
 export {
   Breadcrumb,
-  BreadcrumbList,
+  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-  BreadcrumbEllipsis,
 };

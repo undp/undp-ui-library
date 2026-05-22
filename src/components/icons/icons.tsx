@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface SDGIconProps {
   size?: number;
   background: boolean;
@@ -15,6 +13,7 @@ export function SDG1(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 1 icon</title>
       {background === false ? null : (
         <path d='M0.800781 0H161.701V160.9H0.800781V0Z' fill='#E5243B' />
       )}
@@ -40,6 +39,7 @@ export function SDG2(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 2 icon</title>
       {background === false ? null : (
         <path d='M0.101562 0H161.002V160.9H0.101562V0Z' fill='#DDA63A' />
       )}
@@ -73,6 +73,7 @@ export function SDG3(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 3 icon</title>
       {background === false ? null : <path d='M0.5 0H161.4V160.9H0.5V0Z' fill='#4C9F38' />}
       <path
         d='M23.3984 46.4002C28.8984 46.4002 31.2984 43.5002 31.2984 39.0002V34.2002C31.2984 31.2002 29.9984 29.3002 27.2984 28.7002C29.4984 28.0002 30.9984 26.2002 30.9984 23.4002V20.6002C30.9984 16.0002 28.7984 13.2002 23.7984 13.2002C18.1984 13.2002 16.1985 16.5002 16.1985 21.3002V24.2002H21.1985V20.9002C21.1985 18.9002 21.7984 17.7002 23.4984 17.7002C25.1984 17.7002 25.7984 18.8002 25.7984 20.6002V24.1002C25.7984 25.8002 24.6984 26.7002 22.8984 26.7002H20.7984V30.9002H23.0984C24.9984 30.9002 25.7984 31.8002 25.7984 33.5002V38.9002C25.7984 40.6002 24.9984 41.8002 23.3984 41.8002C21.4984 41.8002 20.8984 40.6002 20.8984 38.6002V34.0002H15.8984V38.3002C15.8984 43.2002 17.8984 46.4002 23.3984 46.4002Z'
@@ -108,6 +109,7 @@ export function SDG4(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 4 icon</title>
       {background === false ? null : (
         <path d='M0.800781 0H161.701V160.9H0.800781V0Z' fill='#C5192D' />
       )}
@@ -145,6 +147,7 @@ export function SDG5(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 5 icon</title>
       {background === false ? null : (
         <path d='M0.199219 0H161.099V160.9H0.199219V0Z' fill='#FF3A21' />
       )}
@@ -182,6 +185,7 @@ export function SDG6(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 6 icon</title>
       {background === false ? null : <path d='M0.5 0H161.4V160.9H0.5V0Z' fill='#26BDE2' />}
       <path
         d='M24.8994 46.4002C30.6994 46.4002 32.8994 43.2002 32.8994 38.2002V33.4002C32.8994 28.1002 30.7994 25.4002 26.8994 25.4002C24.5994 25.4002 23.1994 26.5002 22.3994 28.0002V21.0002C22.3994 19.0002 22.9993 17.6002 24.9993 17.6002C26.9993 17.6002 27.4993 18.8002 27.4993 20.8002V23.0002H32.4993V21.3002C32.4993 16.5002 30.8994 13.2002 24.8994 13.2002C19.1994 13.2002 16.9993 16.9002 16.9993 22.0002V37.8002C16.8993 42.7002 19.0994 46.4002 24.8994 46.4002ZM22.3994 32.7002C22.4994 30.9002 23.2993 29.7002 24.9993 29.7002C26.8993 29.7002 27.5993 30.8002 27.5993 33.0002V38.6002C27.5993 40.7002 26.7993 41.9002 24.9993 41.9002C23.1993 41.9002 22.4993 40.7002 22.4993 38.6002L22.3994 32.7002ZM110.699 65.1002C110.599 65.0002 110.399 64.9002 110.199 64.9002H51.7994C51.5994 64.9002 51.3994 65.0002 51.2994 65.1002C51.1994 65.3002 51.0993 65.5002 51.1993 65.7002L60.9993 125C61.0993 125.3 61.2993 125.6 61.6993 125.6H73.6993L74.4993 135.3H69.3994L81.1993 147.1L92.9993 135.3H87.8994L88.6993 125.7H100.899C101.199 125.7 101.499 125.5 101.599 125.1L110.799 65.8002C110.899 65.4002 110.799 65.2002 110.699 65.1002V65.1002ZM88.1993 112.6C88.1993 112.6 85.4993 115.3 81.1993 115C76.8993 115.3 74.1993 112.6 74.1993 112.6C69.7993 108.2 71.3994 102.8 72.8994 100C73.7994 98.2002 80.5993 88.1002 81.0993 87.3002V87.2002V87.3002C81.6993 88.2002 88.3994 98.3002 89.2994 100C90.9994 102.8 92.4993 108.2 88.1993 112.6V112.6ZM106.699 77.6002C105.099 76.9002 103.099 77.2002 101.199 77.9002C93.9993 80.8002 88.9994 81.9002 81.3994 79.5002C76.5994 78.0002 72.0994 74.9002 66.7994 76.8002C63.2994 78.1002 59.9993 79.3002 55.9993 79.2002L53.6993 67.4002H108.299L106.699 77.6002V77.6002Z'
@@ -209,6 +213,7 @@ export function SDG7(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 7 icon</title>
       {background === false ? null : (
         <path d='M0.800781 0.600098H161.701V161.5H0.800781V0.600098Z' fill='#FCC30B' />
       )}
@@ -242,6 +247,7 @@ export function SDG8(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 8 icon</title>
       {background === false ? null : (
         <path d='M0.101562 0.600098H161.002V161.5H0.101562V0.600098Z' fill='#A21942' />
       )}
@@ -283,6 +289,7 @@ export function SDG9(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 9 icon</title>
       {background === false ? null : (
         <path d='M0.101562 0.200195H161.002V161.1H0.101562V0.200195Z' fill='#FD6925' />
       )}
@@ -312,6 +319,7 @@ export function SDG10(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 10 icon</title>
       {background === false ? null : (
         <path d='M0.800781 0.600098H161.701V161.5H0.800781V0.600098Z' fill='#DD1367' />
       )}
@@ -345,6 +353,7 @@ export function SDG11(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 11 icon</title>
       {background === false ? null : (
         <path d='M0.699219 0.600098H161.599V161.5H0.699219V0.600098Z' fill='#FD9D24' />
       )}
@@ -378,6 +387,7 @@ export function SDG12(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 12 icon</title>
       {background === false ? null : (
         <path d='M0.5 0.600098H161.4V161.5H0.5V0.600098Z' fill='#BF8B2E' />
       )}
@@ -411,6 +421,7 @@ export function SDG13(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 13 icon</title>
       {background === false ? null : (
         <path d='M0.800781 0.899902H161.701V161.8H0.800781V0.899902Z' fill='#3F7E44' />
       )}
@@ -432,6 +443,7 @@ export function SDG14(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 14 icon</title>
       {background === false ? null : (
         <path d='M0.101562 0.899902H161.002V161.8H0.101562V0.899902Z' fill='#0A97D9' />
       )}
@@ -457,6 +469,7 @@ export function SDG15(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 15 icon</title>
       {background === false ? null : (
         <path d='M0.5 0.899902H161.4V161.8H0.5V0.899902Z' fill='#56C02B' />
       )}
@@ -490,6 +503,7 @@ export function SDG16(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 16 icon</title>
       {background === false ? null : (
         <path d='M0.800781 0.899902H161.701V161.8H0.800781V0.899902Z' fill='#00689D' />
       )}
@@ -531,6 +545,7 @@ export function SDG17(props: SDGIconProps) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
+      <title>SDG 17 icon</title>
       {background === false ? null : (
         <path d='M0.199219 0.899902H161.099V161.8H0.199219V0.899902Z' fill='#19486A' />
       )}
@@ -553,6 +568,7 @@ export function SDG17(props: SDGIconProps) {
 export function LanguageSwitcherIcon() {
   return (
     <svg width='25' height='26' viewBox='0 0 25 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <title>LLanguage switcher icon</title>
       <g>
         <path
           d='M16.599 23.688C17.7895 22.3987 18.4193 20.6895 18.35 18.936H0.75V0.75H23.88V15.468L23.875 15.474C23.875 15.521 23.875 15.568 23.875 15.616C23.905 20.278 17.206 24.488 16.175 24.488C15.921 24.488 16.004 24.24 16.599 23.688Z'

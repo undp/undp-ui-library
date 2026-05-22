@@ -1,18 +1,16 @@
+import { cva, type VariantProps } from 'class-variance-authority';
+import { ChevronLeft, ChevronRight, PauseIcon, PlayIcon } from 'lucide-react';
 import {
-  CSSProperties,
+  type CSSProperties,
   forwardRef,
-  HTMLAttributes,
-  ReactNode,
+  type HTMLAttributes,
+  type ReactNode,
   useEffect,
   useRef,
   useState,
 } from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
-import { ChevronLeft, ChevronRight, PauseIcon, PlayIcon } from 'lucide-react';
-
-import { P } from './typography';
-
 import { cn } from '@/lib/utils';
+import { P } from './typography';
 
 const cardVariants = cva('flex box-border justify-between', {
   variants: {
@@ -95,13 +93,13 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
     const progressInterval = 50;
     useEffect(() => {
       const observer = new IntersectionObserver(
-        entries => {
+        (entries) => {
           const visible = entries
-            .filter(entry => entry.isIntersecting)
+            .filter((entry) => entry.isIntersecting)
             .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
           if (visible.length > 0) {
-            const index = slideRefs.current.findIndex(ref => ref === visible[0].target);
+            const index = slideRefs.current.findIndex((ref) => ref === visible[0].target);
             if (index !== -1) setSlide(index + 1);
           }
         },
@@ -111,13 +109,13 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
         },
       );
 
-      slideRefs.current.forEach(ref => {
+      slideRefs.current.forEach((ref) => {
         if (ref) observer.observe(ref);
       });
 
       return () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        slideRefs.current.forEach(ref => {
+        slideRefs.current.forEach((ref) => {
           if (ref) observer.unobserve(ref);
         });
       };
@@ -153,7 +151,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                 left: scrollBy,
                 behavior: 'smooth',
               });
-              setSlide(prev => prev + 1);
+              setSlide((prev) => prev + 1);
             }
           } else {
             setProgress(currentProgress);
@@ -168,6 +166,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
     }, [autoScroll, mouseOver, paused, slide, slides.length, progress]);
 
     return (
+      // biome-ignore lint/a11y/noStaticElementInteractions: Div here for carousel element
       <div
         ref={ref}
         onMouseEnter={() => setMouseOver(true)}
@@ -201,8 +200,9 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
         >
           {slides.map((d, i) => (
             <div
-              key={i}
-              ref={el => {
+              // biome-ignore lint/suspicious/noArrayIndexKey: order doesn't matter here
+              key={`slide_no_${i}`}
+              ref={(el) => {
                 slideRefs.current[i] = el;
               }}
               className={`flex box-border flex-wrap w-full shrink-0 snap-start ${vizWidth === 'full' ? 'flex-col items-start' : 'flex-row items-stretch'}`}
@@ -213,8 +213,9 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
               >
                 <div className='min-w-60 grow sm:grow-0'>{d.content}</div>
                 <div className={`flex ${slideNo ? 'gap-2' : 'gap-3'} items-center shrink-0`}>
-                  <div
+                  <button
                     style={styles?.arrowButton}
+                    type='button'
                     className={cn(
                       `rounded-full pr-1 w-9 h-9 @3xl:w-12 @3xl:h-12 border-0 flex items-center justify-center rtl:rotate-180`,
                       slide === 1
@@ -238,13 +239,13 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                         classNames?.arrows,
                       )}
                     />
-                  </div>
+                  </button>
                   {slideNo ? (
                     <P marginBottom='none' className='px-2! shrink-0'>
                       {slide} / {slides.length}
                     </P>
                   ) : null}
-                  <div
+                  <button
                     className={cn(
                       `rounded-full pl-1 w-9 h-9 @3xl:w-12 @3xl:h-12 border-0 flex items-center justify-center rtl:rotate-180`,
                       slide === slides.length
@@ -252,6 +253,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                         : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200',
                       classNames?.arrowButton,
                     )}
+                    type='button'
                     style={styles?.arrowButton}
                     onClick={() => {
                       if (WrapperRef.current && slide !== slides.length) {
@@ -269,9 +271,10 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                         classNames?.arrows,
                       )}
                     />
-                  </div>
+                  </button>
                   {autoScroll ? (
-                    <div
+                    <button
+                      type='button'
                       style={styles?.playPauseButton}
                       className={cn(
                         'rounded-full w-9 h-9 @3xl:w-12 @3xl:h-12 border-2 border-primary-gray-600 dark:border-primary-white flex items-center justify-center cursor-pointer bg-transparent hover:bg-primary-gray-100 dark:hover:bg-primary-gray-600',
@@ -300,7 +303,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                           )}
                         />
                       )}
-                    </div>
+                    </button>
                   ) : null}
                 </div>
               </div>

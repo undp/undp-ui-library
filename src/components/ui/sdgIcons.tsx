@@ -1,13 +1,5 @@
 import {
   SDG1,
-  SDG10,
-  SDG11,
-  SDG12,
-  SDG13,
-  SDG14,
-  SDG15,
-  SDG16,
-  SDG17,
   SDG2,
   SDG3,
   SDG4,
@@ -16,6 +8,14 @@ import {
   SDG7,
   SDG8,
   SDG9,
+  SDG10,
+  SDG11,
+  SDG12,
+  SDG13,
+  SDG14,
+  SDG15,
+  SDG16,
+  SDG17,
 } from '../icons/icons';
 
 interface Props {

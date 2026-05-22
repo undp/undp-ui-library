@@ -1,5 +1,5 @@
-import { useEffect, useEffectEvent, useState } from 'react';
 import { cva } from 'class-variance-authority';
+import { useEffect, useEffectEvent, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -109,7 +109,7 @@ function SegmentedControl(props: {
 
   return (
     <div className={cn(segmentedButtonVariants({ size, variant }), className, classNames?.control)}>
-      {options.map(option => (
+      {options.map((option) => (
         <button
           disabled={disabled || option.disabled}
           type='button'

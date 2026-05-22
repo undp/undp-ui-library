@@ -1,5 +1,5 @@
+import { cva, type VariantProps } from 'class-variance-authority';
 import React, { useEffect, useEffectEvent } from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
@@ -102,18 +102,18 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
 Sidebar.displayName = 'Sidebar';
 
 const SidebarItem = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & {
+  HTMLButtonElement,
+  React.HTMLAttributes<HTMLButtonElement> & {
     value?: string;
   }
 >(({ className, children, value, ...props }, ref) => {
   const { selectedValue, classNames, onValueChange } = React.useContext(SidebarContext);
   return (
-    <div
+    <button
       {...props}
       ref={ref}
       className={cn(
-        'text-primary-black dark:text-primary-white text-base bg-transparent p-4 flex gap-2 items-center cursor-pointer hover:bg-primary-gray-300 dark:hover:bg-primary-gray-600',
+        'text-primary-black dark:text-primary-white text-base bg-transparent p-4 flex gap-2 items-center border-0 cursor-pointer hover:bg-primary-gray-300 dark:hover:bg-primary-gray-600',
         className,
         classNames?.controls,
         selectedValue === value && classNames?.active,
@@ -125,7 +125,7 @@ const SidebarItem = React.forwardRef<
       }}
     >
       {children}
-    </div>
+    </button>
   );
 });
 SidebarItem.displayName = 'SidebarItem';

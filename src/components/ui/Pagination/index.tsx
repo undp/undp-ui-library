@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 import {
-  PaginationUnit,
   PaginationContent,
   PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
+  PaginationUnit,
 } from './pagination';
-
-import { cn } from '@/lib/utils';
 
 const getPageNumbers = (currentPageNo: number, totalPages: number) => {
   const pages: (number | 'ellipsis')[] = [];
@@ -79,8 +77,8 @@ function Pagination(props: {
           />
         </PaginationItem>
 
-        {pageNumbers.map((page, index) => (
-          <PaginationItem key={index}>
+        {pageNumbers.map((page) => (
+          <PaginationItem key={page}>
             {page === 'ellipsis' ? (
               <PaginationEllipsis className={classNames?.ellipsis} />
             ) : (

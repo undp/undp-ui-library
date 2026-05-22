@@ -1,8 +1,6 @@
-import React from 'react';
-
-import { H5, P } from './typography';
-
+import type React from 'react';
 import { cn } from '@/lib/utils';
+import { H5, P } from './typography';
 
 function Footer({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -46,7 +44,7 @@ function FooterLogoUnit({
         <a href={link || './'} target='_blank' rel='noreferrer'>
           <img
             alt='undp logo'
-            src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-white.svg'
+            src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/undp-logo-white.svg'
             className='w-[60px]'
           />
         </a>
@@ -89,4 +87,4 @@ function FooterCopyrightUnit({
   );
 }
 
-export { Footer, FooterLogoUnit, FooterCopyrightUnit, FooterMainNavUnit, FooterContent };
+export { Footer, FooterContent, FooterCopyrightUnit, FooterLogoUnit, FooterMainNavUnit };

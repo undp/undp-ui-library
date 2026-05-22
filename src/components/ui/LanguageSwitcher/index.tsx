@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
   LanguageSelect,
   LanguageSelectContent,
@@ -25,8 +23,8 @@ function LanguageSwitcher(props: {
         <LanguageSelectValue />
       </LanguageSelectTrigger>
       <LanguageSelectContent inPortal={inPortal}>
-        {options.map((d, i) => (
-          <LanguageSelectItem key={i} value={d.id}>
+        {options.map((d) => (
+          <LanguageSelectItem key={d.id} value={d.id}>
             {d.label}
           </LanguageSelectItem>
         ))}

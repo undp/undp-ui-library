@@ -1,5 +1,6 @@
+/** biome-ignore-all lint/a11y/noStaticElementInteractions: For carousel makes sense that outer div is not button but a div */
+import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
@@ -17,13 +18,24 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
           className,
         )}
         {...props}
-        onClick={e => {
+        onKeyDown={(e) => {
+          if (!WrapperRef.current) return;
+
+          if (e.key === 'ArrowRight') {
+            WrapperRef.current.scrollBy(280, 0);
+          }
+
+          if (e.key === 'ArrowLeft') {
+            WrapperRef.current.scrollBy(-280, 0);
+          }
+        }}
+        onClick={(e) => {
           if (WrapperRef.current) {
             if (e.clientX > window.innerWidth / 2) WrapperRef.current.scrollBy(280, 0);
             else WrapperRef.current.scrollBy(-280, 0);
           }
         }}
-        onMouseMove={e => {
+        onMouseMove={(e) => {
           if (e.clientX > window.innerWidth / 2)
             setCursor(
               'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-right.svg)',

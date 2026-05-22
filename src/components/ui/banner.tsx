@@ -1,5 +1,5 @@
-import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -175,4 +175,4 @@ const BannerBodyContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
 );
 BannerBodyContent.displayName = 'BannerBodyContent';
 
-export { Banner, BannerBody, BannerBodySidebar, BannerBodyContent };
+export { Banner, BannerBody, BannerBodyContent, BannerBodySidebar };

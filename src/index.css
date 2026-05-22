@@ -104,62 +104,21 @@
   display: none;
 }
 
-.undp-button.button-arrow::after {
-  transition: 0.2s ease;
-  content: '';
-  height: 20px;
-  margin-left: 0.75rem;
-  width: 13px;
-}
-
-.undp-button.button-arrow:not(.disabled):hover::after {
-  transform: translate(70%, 0);
-}
-
-.button-arrow.white-arrow::after {
+.white-arrow::after {
   background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-right-white.svg)
     no-repeat left center;
 }
 
-.button-arrow.black-arrow::after {
+.black-arrow::after {
   background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-right-black.svg)
     no-repeat left center;
 }
 
-.button-arrow.red-arrow::after {
+.red-arrow::after {
   background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-right.svg)
     no-repeat left center;
 }
 
-[dir='rtl'] .button-arrow.white-arrow::after {
-  margin-left: 0;
-  margin-right: 0.75rem;
-  background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-left-white.svg)
-    no-repeat left center;
-}
-
-[dir='rtl'] .button-arrow.black-arrow::after {
-  background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-right-black.svg)
-    no-repeat left center;
-  transform: scaleX(-1);
-  margin-left: 0;
-  margin-right: 0.75rem;
-}
-
-[dir='rtl'] .button-arrow.red-arrow::after {
-  background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-left.svg)
-    no-repeat left center;
-  margin-left: 0;
-  margin-right: 0.75rem;
-}
-
-[dir='rtl'] .undp-button.button-arrow:not(.disabled):hover::after {
-  transform: translate(-70%, 0);
-}
-
-[dir='rtl'] .undp-button.button-arrow.black-arrow:not(.disabled):hover::after {
-  transform: translate(-70%, 0) scaleX(-1);
-}
 @keyframes lineLoop-animation-for-links {
   0% {
     background-position:

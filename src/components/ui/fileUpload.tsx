@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Upload, Trash2 } from 'lucide-react';
-
-import { Badge } from './badge';
-import { P } from './typography';
-import { Label } from './label';
-
-import { cn, generateRandomId } from '@/lib/utils';
+import { Trash2, Upload } from 'lucide-react';
+import type React from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { cn, generateRandomId } from '@/lib/utils';
+import { Badge } from './badge';
+import { Label } from './label';
+import { P } from './typography';
 
 function FileUpload({
   onFileChange,
@@ -63,7 +62,7 @@ function FileUpload({
           <div className='w-full flex flex-wrap gap-2.5 justify-left mt-1'>
             {files?.map((file, index) => (
               <Badge
-                key={index}
+                key={file.name}
                 variant='gray'
                 className='flex gap-4 bg-primary-gray-200 dark:bg-primary-gray-600 border border-primary-gray-300 dark:border-primary-gray-600 pr-4 pl-4'
               >

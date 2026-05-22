@@ -1,14 +1,14 @@
-import React from 'react';
-import { X } from 'lucide-react';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { X } from 'lucide-react';
+import React from 'react';
 
 import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
@@ -49,7 +49,7 @@ function Modal(props: {
   return (
     <Dialog
       open={open}
-      onOpenChange={state => {
+      onOpenChange={(state) => {
         if (!state) onClose?.();
       }}
     >
@@ -64,7 +64,7 @@ function Modal(props: {
           className,
         )}
         overlayClassName={overlayClassName}
-        onOpenChange={state => {
+        onOpenChange={(state) => {
           if (!state) onClose?.();
         }}
         aria-describedby={description ? descriptionId : undefined}

@@ -1,9 +1,7 @@
+import type * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import React from 'react';
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-
-import { Checkbox } from './checkbox';
-
 import { cn } from '@/lib/utils';
+import { Checkbox } from './checkbox';
 
 interface CheckboxGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange'> {
   defaultValue?: string[];
@@ -39,7 +37,7 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
       (itemValue: string, checked: boolean) => {
         const newValue = checked
           ? [...selectedValues, itemValue]
-          : selectedValues.filter(v => v !== itemValue);
+          : selectedValues.filter((v) => v !== itemValue);
 
         // Update internal state if uncontrolled
         if (value === undefined) {
@@ -101,7 +99,7 @@ const CheckboxGroupItem = React.forwardRef<
       color={color}
       variant={variant}
       checked={selectedValues.includes(value)}
-      onCheckedChange={checked => onValueChange(value, checked === true)}
+      onCheckedChange={(checked) => onValueChange(value, checked === true)}
     />
   );
 });

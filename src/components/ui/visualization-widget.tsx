@@ -1,9 +1,7 @@
-import React from 'react';
 import { ChevronsLeft, ChevronsRight } from 'lucide-react';
-
-import { Button } from './button';
-
+import React from 'react';
 import { cn } from '@/lib/utils';
+import { Button } from './button';
 
 const VisualizationWidget = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, children, ...props }, ref) => {
@@ -206,9 +204,9 @@ VisualizationWidgetBodyContent.displayName = 'VisualizationWidgetBodyContent';
 
 export {
   VisualizationWidget,
+  VisualizationWidgetBody,
+  VisualizationWidgetBodyContent,
+  VisualizationWidgetBodySidebar,
   VisualizationWidgetHeader,
   VisualizationWidgetHeaderItem,
-  VisualizationWidgetBody,
-  VisualizationWidgetBodySidebar,
-  VisualizationWidgetBodyContent,
 };

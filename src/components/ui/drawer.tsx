@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Drawer as DrawerPrimitive } from 'vaul';
 import { X } from 'lucide-react';
+import type * as React from 'react';
+import { Drawer as DrawerPrimitive } from 'vaul';
 
 import { cn } from '@/lib/utils';
 
@@ -84,6 +84,7 @@ function DrawerContent({
               'group-data-[vaul-drawer-direction=bottom]/drawer-content:hidden',
               closeButtonClassName,
             )}
+            type='button'
           >
             <X size={32} strokeWidth={1} />
           </button>
@@ -161,14 +162,14 @@ function DrawerDescription({ ...props }: React.ComponentProps<typeof DrawerPrimi
 
 export {
   Drawer,
-  DrawerPortal,
-  DrawerOverlay,
-  DrawerTrigger,
+  DrawerBody,
   DrawerClose,
   DrawerContent,
-  DrawerHeader,
-  DrawerFooter,
-  DrawerTitle,
   DrawerDescription,
-  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
 };

@@ -1,9 +1,9 @@
+import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-const cardVariants = cva('flex flex-col justify-between items-stretch', {
+const cardVariants = cva('flex flex-col justify-between items-stretch group', {
   variants: {
     variant: {
       'with-image': '[&_.card-tag]:pb-[26px]',
@@ -138,4 +138,4 @@ const CardImage = React.forwardRef<
 ));
 CardImage.displayName = 'CardImage';
 
-export { Card, CardTag, CardTitle, CardDescription, CardImage, CardFooter, CardHeader };
+export { Card, CardDescription, CardFooter, CardHeader, CardImage, CardTag, CardTitle };

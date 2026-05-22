@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
 import * as SwitchPrimitives from '@radix-ui/react-switch';
-import { cva, VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { Check, X } from 'lucide-react';
-
-import { P } from './typography';
-
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { P } from './typography';
 
 const switchVariants = cva(
   'peer inline-flex h-[30px] w-[60px] shrink-0 cursor-pointer items-center rounded-full transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-offset-primary-blue-100 disabled:cursor-not-allowed disabled:opacity-50',
@@ -82,7 +80,7 @@ const Switch = React.forwardRef<
           {...props}
           className={cn(switchVariants({ color, size }), className)}
           ref={ref}
-          onCheckedChange={d => {
+          onCheckedChange={(d) => {
             setValue(d);
             onCheckedChange?.(d);
           }}

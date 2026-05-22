@@ -1,5 +1,5 @@
-import React from 'react';
 import { Menu, X } from 'lucide-react';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -22,11 +22,13 @@ function HeaderLogoUnit({
   siteName,
   siteSubName,
   hyperlink,
+  logoLocale,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
   siteName: string;
   siteSubName?: string;
   hyperlink?: string;
+  logoLocale?: 'en' | 'fr' | 'es';
 }) {
   return (
     <div {...props} className={cn('flex items-center', className)}>
@@ -36,7 +38,7 @@ function HeaderLogoUnit({
         className='logo-sub-head flex gap-6 items-center'
       >
         <img
-          src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/undp-logo-blue.svg'
+          src={`https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/${logoLocale === 'es' || logoLocale === 'fr' ? 'pnud' : 'undp'}-logo-blue.svg`}
           alt='UNDP Logo'
           className='w-[40px] h-[82px] md:w-[60px] md:h-[122px] z-100'
         />
@@ -125,4 +127,4 @@ function HeaderActions({ className, children, ...props }: React.HTMLAttributes<H
   );
 }
 
-export { Header, HeaderLogoUnit, HeaderMenuUnit, HeaderActions, HeaderMainNavUnit };
+export { Header, HeaderActions, HeaderLogoUnit, HeaderMainNavUnit, HeaderMenuUnit };

@@ -1,7 +1,7 @@
-import React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { ChevronDown } from 'lucide-react';
-import { cva, VariantProps } from 'class-variance-authority';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -130,4 +130,4 @@ const AccordionContent = React.forwardRef<
 });
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };

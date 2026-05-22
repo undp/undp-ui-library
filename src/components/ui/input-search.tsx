@@ -1,10 +1,8 @@
-import React from 'react';
 import { SearchIcon } from 'lucide-react';
-
+import React from 'react';
+import { cn } from '@/lib/utils';
 import { Button } from './button';
 import { Input } from './input';
-
-import { cn } from '@/lib/utils';
 
 const Search = React.forwardRef<
   HTMLInputElement,
@@ -47,14 +45,14 @@ const Search = React.forwardRef<
             variant={inputVariant}
             type='text'
             className={inputClassName}
-            onChange={d => {
+            onChange={(d) => {
               setQuery(d.target.value);
               if (!searchOnlyOnClick) {
                 onSearch?.(d.target.value);
               }
             }}
             inputSize={inputSize}
-            onKeyDown={event => {
+            onKeyDown={(event) => {
               if (event.key === 'Enter') {
                 onSearch?.(query);
               }

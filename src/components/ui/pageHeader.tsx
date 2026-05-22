@@ -53,4 +53,4 @@ const PageHeaderContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
 
 PageHeaderContent.displayName = 'PageHeaderContent';
 
-export { PageHeaderContent, PageHeader, PageHeaderHead };
+export { PageHeader, PageHeaderContent, PageHeaderHead };

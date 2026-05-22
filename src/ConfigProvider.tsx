@@ -1,4 +1,4 @@
-import { useEffect, ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 
 interface ConfigDataType {
   foreground?: string;

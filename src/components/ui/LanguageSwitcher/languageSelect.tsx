@@ -1,10 +1,8 @@
-import React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown } from 'lucide-react';
-
-import { LanguageSwitcherIcon } from '../../icons/icons';
-
+import React from 'react';
 import { cn } from '@/lib/utils';
+import { LanguageSwitcherIcon } from '../../icons/icons';
 
 const LanguageSelect = SelectPrimitive.Root;
 
@@ -94,9 +92,9 @@ LanguageSelectItem.displayName = SelectPrimitive.Item.displayName;
 
 export {
   LanguageSelect,
-  LanguageSelectGroup,
-  LanguageSelectValue,
-  LanguageSelectTrigger,
   LanguageSelectContent,
+  LanguageSelectGroup,
   LanguageSelectItem,
+  LanguageSelectTrigger,
+  LanguageSelectValue,
 };

@@ -1,4 +1,4 @@
-import ReactMarkdown, { Components } from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 import { cn } from '@/lib/utils';
@@ -40,7 +40,7 @@ function MarkdownRenderer({
       remarkPlugins={[remarkGfm]}
       components={{
         ...{
-          h1: props => (
+          h1: (props) => (
             <h1
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 font-bold uppercase mb-3 md:mb-4 text-[2.938rem] md:text-[5.125rem] lg:text-[6.25rem] tracking-[0.06rem] leading-[1.08]',
@@ -49,7 +49,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          h2: props => (
+          h2: (props) => (
             <h2
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] font-bold leading-[1.1]',
@@ -58,7 +58,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          h3: props => (
+          h3: (props) => (
             <h3
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[1.875rem] md:text-[2.188rem] font-semibold leading-[1.15]',
@@ -67,7 +67,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          h4: props => (
+          h4: (props) => (
             <h4
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[1.563rem] md:text-[2.188rem] font-normal leading-[1.15]',
@@ -76,7 +76,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          h5: props => (
+          h5: (props) => (
             <h5
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[1.25rem] md:text-[1.563rem] font-normal leading-[1.15]',
@@ -85,7 +85,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          h6: props => (
+          h6: (props) => (
             <h6
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-base font-bold leading-[1.15] uppercase tracking-[0.48px]',
@@ -94,7 +94,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          cite: props => (
+          cite: (props) => (
             <cite
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-xl md:text-2xl leading-[1.1] block font-normal',
@@ -103,7 +103,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          code: props => (
+          code: (props) => (
             <code
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 font-mono mt-0 text-base bg-primary-gray-200 dark:bg-primary-gray-600 px-2 pb-2 text-primary-black dark:text-primary-white',
@@ -112,7 +112,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          blockquote: props => (
+          blockquote: (props) => (
             <blockquote
               className={cn(
                 'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[1.625rem] md:text-[2.188rem] font-semibold leading-[1.1] md:leading-[1.25]',
@@ -121,7 +121,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          p: props => (
+          p: (props) => (
             <p
               className={cn(
                 'mt-0 ml-0 mr-0 text-base md:text-xl leading-[1.4] mb-5',
@@ -130,7 +130,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          a: props => (
+          a: (props) => (
             <a
               className={cn(
                 'undp-link light text-primary-black dark:text-primary-white dark:text-primary-white bg-double-red dark:bg-double-white',
@@ -140,15 +140,15 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          ul: props => <ul className={cn('pl-6 rtl:pr-6 rtl:pl-0', classNames?.ul)} {...props} />,
-          ol: props => <ol className={cn('pl-6 rtl:pr-6 rtl:pl-0', classNames?.ol)} {...props} />,
-          li: props => (
+          ul: (props) => <ul className={cn('pl-6 rtl:pr-6 rtl:pl-0', classNames?.ul)} {...props} />,
+          ol: (props) => <ol className={cn('pl-6 rtl:pr-6 rtl:pl-0', classNames?.ol)} {...props} />,
+          li: (props) => (
             <li
               className={cn('mb-6 pl-3 text-base md:text-xl rtl:pr-3 rtl:pl-0', classNames?.li)}
               {...props}
             />
           ),
-          hr: props => (
+          hr: (props) => (
             <hr
               className={cn(
                 'border-0 h-[1px] w-full bg-primary-gray-600 dark:bg-primary-gray-200 mb-4',
@@ -157,7 +157,7 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          pre: props => (
+          pre: (props) => (
             <pre
               className={cn(
                 'p-4 mb-3 md:mb-4 bg-primary-gray-200 dark:bg-primary-gray-600',
@@ -166,11 +166,11 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          table: props => (
+          table: (props) => (
             <table className={cn('w-full caption-bottom mb-4', classNames?.table)} {...props} />
           ),
-          thead: props => <thead className={classNames?.thead} {...props} />,
-          th: props => (
+          thead: (props) => <thead className={classNames?.thead} {...props} />,
+          th: (props) => (
             <th
               className={cn(
                 'bg-primary-gray-300 text-xl leading-[1.4] dark:bg-primary-gray-600 py-3 pl-3 pr-10 rtl:pr-3 rtl:pl-10 text-left rtl:text-right align-middle font-semibold whitespace-nowrap',
@@ -179,11 +179,11 @@ function MarkdownRenderer({
               {...props}
             />
           ),
-          tbody: props => <tbody className={classNames?.tbody} {...props} />,
-          tr: props => (
+          tbody: (props) => <tbody className={classNames?.tbody} {...props} />,
+          tr: (props) => (
             <tr className={cn('border-b border-primary-gray-400', classNames?.tr)} {...props} />
           ),
-          td: props => (
+          td: (props) => (
             <td
               className={cn(
                 'align-middle py-3 pl-3 pr-10 rtl:pr-3 text-xl rtl:pl-10 whitespace-nowrap',

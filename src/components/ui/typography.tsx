@@ -1,7 +1,8 @@
-import React from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
+import type React from 'react';
 
 import { cn } from '@/lib/utils';
+
 const paragraphVariant = cva('mt-0 ml-0 mr-0', {
   variants: {
     size: {
@@ -499,4 +500,4 @@ function A({
   );
 }
 
-export { H1, H2, H3, H4, H5, H6, Cite, Code, Blockquote, P, A };
+export { A, Blockquote, Cite, Code, H1, H2, H3, H4, H5, H6, P };

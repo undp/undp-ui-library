@@ -2,7 +2,6 @@ import path from 'path';
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import eslint from '@nabla/vite-plugin-eslint';
 import dts from 'vite-plugin-dts';
 import { visualizer } from 'rollup-plugin-visualizer';
 import tailwindcss from '@tailwindcss/vite';
@@ -70,7 +69,6 @@ const entries = {
 export default defineConfig(() => {
   const plugins = [
     react(),
-    eslint(),
     tailwindcss(),
     dts({
       include: ['src/'],

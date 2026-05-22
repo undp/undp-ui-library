@@ -1,5 +1,5 @@
+import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
@@ -139,12 +139,12 @@ PageWideCardImage.displayName = 'PageWideCardImage';
 
 export {
   PageWideCard,
+  PageWideCardContainer,
+  PageWideCardContent,
+  PageWideCardDescription,
+  PageWideCardFooter,
+  PageWideCardHeader,
+  PageWideCardImage,
   PageWideCardTag,
   PageWideCardTitle,
-  PageWideCardDescription,
-  PageWideCardImage,
-  PageWideCardFooter,
-  PageWideCardContent,
-  PageWideCardContainer,
-  PageWideCardHeader,
 };

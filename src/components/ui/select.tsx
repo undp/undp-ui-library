@@ -1,11 +1,11 @@
-import Select, { components, createFilter, Props } from 'react-select';
-import { ChevronDown, ChevronUp, X } from 'lucide-react';
+/** biome-ignore-all lint/suspicious/noExplicitAny: Any for some of the type tht does not exist */
 import { cva } from 'class-variance-authority';
-import { JSX } from 'react/jsx-runtime';
+import { ChevronDown, ChevronUp, X } from 'lucide-react';
+import type { JSX } from 'react/jsx-runtime';
+import Select, { components, createFilter, type Props } from 'react-select';
 
 import { cn } from '@/lib/utils';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MultiValue = (props: any, maxTagCount: number) => {
   const { index, getValue } = props;
   const selectedValues = getValue();
@@ -50,7 +50,6 @@ interface SelectPropsDataType extends Props {
   maxTagCount?: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CustomDropdownIndicator(props: any, isDisabled?: boolean) {
   const { selectProps } = props;
   return (
@@ -75,11 +74,8 @@ function CustomDropdownIndicator(props: any, isDisabled?: boolean) {
 }
 
 const customComponents = (maxTagCount?: number, isDisabled?: boolean) => ({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   DropdownIndicator: (props: any) => CustomDropdownIndicator(props, isDisabled),
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   MultiValue: (props: any) => MultiValue(props, maxTagCount || Infinity),
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   MultiValueRemove: (props: any) => {
     const { innerRef, innerProps } = props;
     return (
@@ -116,7 +112,7 @@ function DropdownSelect({
       classNames={{
         control: () =>
           cn(selectVariants({ variant, size, isDisabled: isDisabled || false }), className),
-        singleValue: state =>
+        singleValue: (state) =>
           cn(
             'text-base',
             state.isDisabled
@@ -136,7 +132,7 @@ function DropdownSelect({
           }`,
         multiValueRemove: () => 'hover:bg-primary-gray-400 dark:[&_svg]:stroke-primary-white!',
         valueContainer: () => 'px-2 py-[2px]',
-        option: state =>
+        option: (state) =>
           cn(
             'bg-transparent text-base',
             state.isSelected
@@ -153,4 +149,4 @@ function DropdownSelect({
   );
 }
 
-export { DropdownSelect, createFilter, components };
+export { components, createFilter, DropdownSelect };
