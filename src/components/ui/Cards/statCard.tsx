@@ -1,90 +1,53 @@
-import { cva } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
+import { H2, H4, P } from '@/components/ui/typography';
 import { cn } from '@/lib/utils';
-import { H2 } from '../typography';
 
-const StatCardContainer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        '@container w-full flex gap-0 items-stretch flex-wrap bg-primary-gray-700 dark:bg-primary-gray-100',
-        className,
-      )}
-      {...props}
-    />
-  ),
-);
-
-const hoverBGVariant = cva(
-  'w-full h-full absolute top-0 left-0 transition-all opacity-0 duration-400 ease-[cubic-bezier(0.64,0.05,0.35,1.05)] group-hover:opacity-100',
+const cardVariants = cva(
+  'group bg-primary-gray-200 dark:bg-primary-gray-600 box-border items-stretch p-8 transition-all duration-400',
   {
     variants: {
-      variant: {
-        blue: 'bg-[linear-gradient(0deg,_rgba(4,104,177,0.8),_transparent_140%)]',
-        azure: 'bg-[linear-gradient(0deg,_rgba(0,193,255,0.81),_transparent_140%)]',
-        yellow: 'bg-[linear-gradient(0deg,_rgba(255,235,0,0.8),_transparent_140%)]',
-        red: 'bg-[linear-gradient(0deg,_rgba(238,64,45,0.8),_transparent_140%)]',
-        green: 'bg-[linear-gradient(0deg,_rgba(89,186,71,0.8),_transparent_140%)]',
+      hoverColor: {
+        blue: 'hover:bg-primary-blue-600',
+        azure: 'hover:bg-accent-azure',
+        yellow: 'hover:bg-accent-yellow',
+        red: 'hover:bg-accent-red',
+        green: 'hover:bg-accent-green',
+        none: '',
+      },
+      size: {
+        sm: 'w-1/4',
+        base: 'w-1/3',
+        lg: 'w-1/2',
+        xl: 'w-2/3',
+        full: 'w-full',
       },
     },
     defaultVariants: {
-      variant: 'yellow',
+      hoverColor: 'yellow',
+      size: 'base',
     },
   },
 );
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  hoverColor?: 'yellow' | 'azure' | 'red' | 'green' | 'blue';
-  hoverImage?: string;
-}
-const StatCard = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, hoverColor = 'yellow', hoverImage, children, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        'group relative w-full min-h-[378px] box-border px-16 @2xl:min-h-[787px] @2xl:w-1/2 @3xl:w-1/4 flex',
-        className,
-      )}
-      {...props}
-    >
-      {hoverImage && (
-        <img
-          alt=''
-          src={hoverImage}
-          className='absolute top-0 transition-all opacity-0 duration-300 object-cover left-0 w-full h-full group-hover:opacity-100'
-        />
-      )}
-      <div className={hoverBGVariant({ variant: hoverColor })} />
+type StatCardProps = React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>;
+
+const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
+  ({ className, hoverColor = 'yellow', children, size, ...props }, ref) => (
+    <div ref={ref} className={cn(cardVariants({ size, hoverColor }), className)} {...props}>
       {children}
     </div>
   ),
 );
 StatCard.displayName = 'StatCard';
 
-const StatCardTitle = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'm-0 pl-6 pr-6 pt-4 pb-6 leading-[1.15] flex gap-2 font-normal text-[1.25rem] md:text-[1.563rem]',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </div>
-));
-StatCardTitle.displayName = 'StatCardTitle';
-
 const StatCardValue = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }) => (
+>(({ className, ...props }, ref) => (
   <H2
+    ref={ref}
     className={cn(
-      'm-0 pl-6 pr-6 pt-4 pb-6 leading-[1.15] flex gap-2 font-normal text-[1.25rem] md:text-[1.563rem]',
+      'leading-none [-webkit-text-stroke:2px_black] dark:[-webkit-text-stroke:2px_white] [text-shadow:none] font-heading text-left rtl:text-right transparent text-transparent group-hover:text-primary-black group-hover:dark:text-primary-white  group-hover:[-webkit-text-stroke:0px]',
       className,
     )}
     {...props}
@@ -92,18 +55,20 @@ const StatCardValue = React.forwardRef<
 ));
 StatCardValue.displayName = 'StatCardValue';
 
-const StatCardDescription = React.forwardRef<
+const StatCardTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(`pl-6 pr-6 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl`, className)}
-    {...props}
-  >
-    {children}
-  </div>
+>(({ className, ...props }, ref) => (
+  <H4 ref={ref} className={cn('text-black dark:text-white', className)} {...props} />
+));
+StatCardTitle.displayName = 'StatCardTitle';
+
+const StatCardDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <P ref={ref} className={cn('text-black dark:text-white', className)} {...props} />
 ));
 StatCardDescription.displayName = 'StatCardDescription';
 
-export { StatCard, StatCardContainer, StatCardDescription, StatCardTitle, StatCardValue };
+export { StatCard, StatCardDescription, StatCardTitle, StatCardValue };

@@ -2,7 +2,7 @@
 
 @import "tailwindcss";
 
-@config "./tailwind.config.js";
+@config "../tailwind.config.js";
 
 @theme {
   --container-2xl: 40rem;

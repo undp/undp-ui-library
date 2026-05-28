@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
@@ -288,6 +288,16 @@
       "types": "./dist/ConfigProvider.d.ts",
       "import": "./dist/ConfigProvider.js",
       "require": "./dist/ConfigProvider.cjs"
+    },
+    "./StatCard": {
+      "types": "./dist/StatCard.d.ts",
+      "import": "./dist/StatCard.js",
+      "require": "./dist/StatCard.cjs"
+    },
+    "./StatsPanel": {
+      "types": "./dist/StatsPanel.d.ts",
+      "import": "./dist/StatsPanel.js",
+      "require": "./dist/StatsPanel.cjs"
     }
   },
   "publishConfig": {

@@ -40,6 +40,12 @@ export {
   PageWideCardTag,
   PageWideCardTitle,
 } from '@/components/ui/Cards/cardPageWide';
+export {
+  StatCard,
+  StatCardDescription,
+  StatCardTitle,
+  StatCardValue,
+} from '@/components/ui/Cards/statCard';
 export { Carousel, CarouselCard } from '@/components/ui/carousel';
 export { Checkbox } from '@/components/ui/checkbox';
 export { CheckboxGroup, CheckboxGroupItem } from '@/components/ui/checkbox-group';
@@ -106,6 +112,13 @@ export { Sidebar, SidebarItem } from '@/components/ui/sidebar-nav';
 export { SliderUI } from '@/components/ui/slider';
 export { Spacer } from '@/components/ui/spacer';
 export { Spinner } from '@/components/ui/spinner';
+export {
+  StatsPanel,
+  StatsPanelCard,
+  StatsPanelCardDescription,
+  StatsPanelCardTitle,
+  StatsPanelCardValue,
+} from '@/components/ui/statsPanel';
 export { Stepper } from '@/components/ui/stepper';
 export { Switch } from '@/components/ui/switch';
 export {

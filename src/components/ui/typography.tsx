@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import type React from 'react';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -60,29 +60,29 @@ const paragraphVariant = cva('mt-0 ml-0 mr-0', {
     alignment: 'left',
   },
 });
-function P({
-  children,
-  className,
-  size,
-  leading,
-  marginBottom,
-  weight,
-  decoration,
-  alignment,
-  ...props
-}: React.HTMLAttributes<HTMLParagraphElement> & VariantProps<typeof paragraphVariant>) {
-  return (
-    <p
-      {...props}
-      className={cn(
-        paragraphVariant({ size, leading, marginBottom, weight, decoration, alignment }),
-        className,
-      )}
-    >
-      {children}
-    </p>
-  );
-}
+
+const P = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement> & VariantProps<typeof paragraphVariant>
+>(
+  (
+    { children, className, size, leading, marginBottom, weight, decoration, alignment, ...props },
+    ref,
+  ) => {
+    return (
+      <p
+        ref={ref}
+        {...props}
+        className={cn(
+          paragraphVariant({ size, leading, marginBottom, weight, decoration, alignment }),
+          className,
+        )}
+      >
+        {children}
+      </p>
+    );
+  },
+);
 
 const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase font-heading', {
   variants: {
@@ -121,20 +121,19 @@ const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase font-heading', {
     alignment: 'left',
   },
 });
-function H1({
-  children,
-  className,
-  marginBottom,
-  size,
-  alignment,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading1Variant>) {
-  return (
-    <h1 {...props} className={cn(heading1Variant({ marginBottom, size, alignment }), className)}>
-      {children}
-    </h1>
-  );
-}
+
+const H1 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading1Variant>
+>(({ children, className, marginBottom, size, alignment, ...props }, ref) => (
+  <h1
+    ref={ref}
+    {...props}
+    className={cn(heading1Variant({ marginBottom, size, alignment }), className)}
+  >
+    {children}
+  </h1>
+));
 
 const heading2Variant = cva(
   'mt-0 ml-0 mr-0 p-0 text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] leading-[1.1] font-sans',
@@ -168,20 +167,18 @@ const heading2Variant = cva(
   },
 );
 
-function H2({
-  children,
-  className,
-  marginBottom,
-  weight,
-  alignment,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading2Variant>) {
-  return (
-    <h2 {...props} className={cn(heading2Variant({ marginBottom, weight, alignment }), className)}>
-      {children}
-    </h2>
-  );
-}
+const H2 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading2Variant>
+>(({ children, className, marginBottom, weight, alignment, ...props }, ref) => (
+  <h2
+    ref={ref}
+    {...props}
+    className={cn(heading2Variant({ marginBottom, weight, alignment }), className)}
+  >
+    {children}
+  </h2>
+));
 
 const heading3Variant = cva(
   'mt-0 ml-0 mr-0 p-0 text-[1.875rem] md:text-[2.188rem] leading-[1.15] font-sans',
@@ -214,20 +211,19 @@ const heading3Variant = cva(
     defaultVariants: { marginBottom: 'base-responsive', weight: 'semibold', alignment: 'left' },
   },
 );
-function H3({
-  children,
-  className,
-  marginBottom,
-  weight,
-  alignment,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading3Variant>) {
-  return (
-    <h3 {...props} className={cn(heading3Variant({ marginBottom, weight, alignment }), className)}>
-      {children}
-    </h3>
-  );
-}
+
+const H3 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading3Variant>
+>(({ children, className, marginBottom, weight, alignment, ...props }, ref) => (
+  <h3
+    ref={ref}
+    {...props}
+    className={cn(heading3Variant({ marginBottom, weight, alignment }), className)}
+  >
+    {children}
+  </h3>
+));
 
 const heading4Variant = cva(
   'mt-0 ml-0 mr-0 p-0 text-[1.563rem] md:text-[2.188rem] leading-[1.15] font-sans',
@@ -260,20 +256,19 @@ const heading4Variant = cva(
     defaultVariants: { marginBottom: 'base-responsive', weight: 'normal', alignment: 'left' },
   },
 );
-function H4({
-  children,
-  className,
-  marginBottom,
-  weight,
-  alignment,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading4Variant>) {
-  return (
-    <h4 {...props} className={cn(heading4Variant({ marginBottom, weight, alignment }), className)}>
-      {children}
-    </h4>
-  );
-}
+const H4 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading4Variant>
+>(({ children, className, marginBottom, weight, alignment, ...props }, ref) => (
+  <h4
+    ref={ref}
+    {...props}
+    className={cn(heading4Variant({ marginBottom, weight, alignment }), className)}
+  >
+    {children}
+  </h4>
+));
+
 const heading5Variant = cva('mt-0 ml-0 mr-0 p-0 leading-[1.15] font-sans', {
   variants: {
     marginBottom: {
@@ -312,24 +307,19 @@ const heading5Variant = cva('mt-0 ml-0 mr-0 p-0 leading-[1.15] font-sans', {
   },
 });
 
-function H5({
-  children,
-  className,
-  marginBottom,
-  weight,
-  alignment,
-  size,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading5Variant>) {
-  return (
-    <h5
-      {...props}
-      className={cn(heading5Variant({ marginBottom, weight, alignment, size }), className)}
-    >
-      {children}
-    </h5>
-  );
-}
+const H5 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading5Variant>
+>(({ children, className, marginBottom, weight, size, alignment, ...props }, ref) => (
+  <h5
+    ref={ref}
+    {...props}
+    className={cn(heading5Variant({ marginBottom, weight, alignment, size }), className)}
+  >
+    {children}
+  </h5>
+));
+
 const heading6Variant = cva(
   'mt-0 ml-0 mr-0 p-0 text-base leading-[1.15] uppercase tracking-[0.48px] font-sans',
   {
@@ -362,20 +352,18 @@ const heading6Variant = cva(
   },
 );
 
-function H6({
-  children,
-  className,
-  marginBottom,
-  weight,
-  alignment,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading6Variant>) {
-  return (
-    <h6 {...props} className={cn(heading6Variant({ marginBottom, weight, alignment }), className)}>
-      {children}
-    </h6>
-  );
-}
+const H6 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading6Variant>
+>(({ children, className, marginBottom, weight, alignment, ...props }, ref) => (
+  <h6
+    ref={ref}
+    {...props}
+    className={cn(heading6Variant({ marginBottom, weight, alignment }), className)}
+  >
+    {children}
+  </h6>
+));
 
 const citeVariant = cva('mt-0 ml-0 mr-0 p-0 text-xl md:text-2xl leading-[1.1] block font-sans', {
   variants: {
@@ -400,19 +388,14 @@ const citeVariant = cva('mt-0 ml-0 mr-0 p-0 text-xl md:text-2xl leading-[1.1] bl
   },
   defaultVariants: { marginBottom: 'base-responsive', weight: 'normal' },
 });
-function Cite({
-  children,
-  className,
-  marginBottom,
-  weight,
-  ...props
-}: React.HTMLAttributes<HTMLElement> & VariantProps<typeof citeVariant>) {
-  return (
-    <cite {...props} className={cn(citeVariant({ marginBottom, weight }), className)}>
-      {children}
-    </cite>
-  );
-}
+const Cite = React.forwardRef<
+  HTMLElement,
+  React.HTMLAttributes<HTMLElement> & VariantProps<typeof citeVariant>
+>(({ children, className, marginBottom, weight, ...props }, ref) => (
+  <cite ref={ref} {...props} className={cn(citeVariant({ marginBottom, weight }), className)}>
+    {children}
+  </cite>
+));
 
 const codeVariant = cva(
   'mt-0 ml-0 mr-0 font-mono mt-0 text-base bg-primary-gray-200 dark:bg-primary-gray-600 px-2 pb-2 text-primary-black dark:text-primary-white',
@@ -432,18 +415,14 @@ const codeVariant = cva(
     },
   },
 );
-function Code({
-  children,
-  className,
-  weight,
-  ...props
-}: React.HTMLAttributes<HTMLElement> & VariantProps<typeof codeVariant>) {
-  return (
-    <code {...props} className={cn(codeVariant({ weight }), className)}>
-      {children}
-    </code>
-  );
-}
+const Code = React.forwardRef<
+  HTMLElement,
+  React.HTMLAttributes<HTMLElement> & VariantProps<typeof citeVariant>
+>(({ children, className, marginBottom, weight, ...props }, ref) => (
+  <code ref={ref} {...props} className={cn(codeVariant({ weight }), className)}>
+    {children}
+  </code>
+));
 
 const blockquoteVariant = cva(
   'mt-0 ml-0 mr-0 text-[1.625rem] md:text-[2.188rem] leading-[1.1] md:leading-[1.25] font-sans',
@@ -464,40 +443,33 @@ const blockquoteVariant = cva(
   },
 );
 
-function Blockquote({
-  children,
-  className,
-  weight,
-  ...props
-}: React.HTMLAttributes<HTMLQuoteElement> & VariantProps<typeof blockquoteVariant>) {
-  return (
-    <blockquote {...props} className={cn(blockquoteVariant({ weight }), className)}>
-      {children}
-    </blockquote>
-  );
-}
+const Blockquote = React.forwardRef<
+  HTMLQuoteElement,
+  React.QuoteHTMLAttributes<HTMLQuoteElement> & VariantProps<typeof blockquoteVariant>
+>(({ children, className, weight, ...props }, ref) => (
+  <blockquote ref={ref} {...props} className={cn(blockquoteVariant({ weight }), className)}>
+    {children}
+  </blockquote>
+));
 
-function A({
-  children,
-  className,
-  weight,
-  ...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold';
-}) {
-  return (
-    <a
-      {...props}
-      className={cn(
-        'undp-link light text-primary-black dark:text-primary-white dark:text-primary-white bg-double-red dark:bg-double-white',
-        'cursor-pointer no-underline focus-visible:outline-hidden focus-visible:shadow-[0_0_0_#0468b1]',
-        weight ? `font-${weight}` : 'font-normal',
-        className,
-      )}
-    >
-      {children}
-    </a>
-  );
-}
+const A = React.forwardRef<
+  HTMLAnchorElement,
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold';
+  }
+>(({ children, className, weight, ...props }, ref) => (
+  <a
+    ref={ref}
+    {...props}
+    className={cn(
+      'undp-link light text-primary-black dark:text-primary-white dark:text-primary-white bg-double-red dark:bg-double-white',
+      'cursor-pointer no-underline focus-visible:outline-hidden focus-visible:shadow-[0_0_0_#0468b1]',
+      weight ? `font-${weight}` : 'font-normal',
+      className,
+    )}
+  >
+    {children}
+  </a>
+));
 
 export { A, Blockquote, Cite, Code, H1, H2, H3, H4, H5, H6, P };
