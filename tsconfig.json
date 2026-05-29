@@ -22,6 +22,11 @@
     }
   },
   "files": [],
-  "include": ["eslint.config.js", "src", "tailwind.config.js"],
+  "exclude": [
+    "node_modules",
+    "src/App.tsx",
+    "src/main.tsx"
+  ],
+  "include": ["src", "tailwind.config.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

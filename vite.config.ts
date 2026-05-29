@@ -55,9 +55,6 @@ const entries = {
   ToasterHooks: path.resolve(__dirname, 'src/hooks/use-toast.ts'),
   Tooltip: path.resolve(__dirname, 'src/components/ui/tooltip.tsx'),
   Typography: path.resolve(__dirname, 'src/components/ui/typography.tsx'),
-  Cite: path.resolve(__dirname, 'src/components/ui/typography.tsx'),
-  Code: path.resolve(__dirname, 'src/components/ui/typography.tsx'),
-  Blockquote: path.resolve(__dirname, 'src/components/ui/typography.tsx'),
   VizCarousel: path.resolve(__dirname, 'src/components/ui/vizCarousel.tsx'),
   VisualizationWidget: path.resolve(__dirname, 'src/components/ui/visualization-widget.tsx'),
   Drawer: path.resolve(__dirname, 'src/components/ui/drawer.tsx'),
@@ -73,6 +70,11 @@ export default defineConfig(() => {
     tailwindcss(),
     dts({
       include: ['src/'],
+      entryRoot: 'src',
+      tsconfigPath: './tsconfig.json',
+      staticImport: true,
+      insertTypesEntry: true,
+      bundleTypes: false,
       exclude: ['**/*.mdx', '**/*.test.tsx', 'stories'],
     }),
     visualizer({ filename: 'stats.html', open: true }),
@@ -89,8 +91,11 @@ export default defineConfig(() => {
           return `${entryName}.js`; // ESM uses .js
         },
       },
+      outDir: 'dist',
+      emptyOutDir: true,
       rollupOptions: {
-        external: ['react', 'react-dom', 'react-markdown'],
+        input: entries,
+        external: ['react', 'react-dom', 'react-markdown', 'react/jsx-runtime'],
         output: {
           manualChunks: undefined,
           assetFileNames: (assetInfo) => {
@@ -103,7 +108,6 @@ export default defineConfig(() => {
         treeshake: true,
       },
       sourcemap: true,
-      emptyOutDir: true,
     },
     server: {
       cors: {
