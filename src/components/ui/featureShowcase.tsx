@@ -131,17 +131,18 @@ function FeatureShowcaseCard(props: {
                       className='h-full w-full object-cover object-center'
                     />
                   </div>
+
                   <div
-                    className={`grow box-border bg-white dark:bg-primary-gray-650 px-4 @5xl:px-10 pb-24 ${showTabs ? 'pt-24' : 'pt-10'}`}
+                    className={`grow box-border w-full bg-white dark:bg-primary-gray-650 px-4 @5xl:px-10 pb-24 ${showTabs ? 'pt-24' : 'pt-10'}`}
                   >
-                    {d.content}
+                    <div className='w-full @5xl:w-3/4'>{d.content}</div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
           {showTabs && (
-            <div className='absolute top-[40vh] px-4 @5xl:px-10 flex gap-2 pt-4 justify-between box-border w-full'>
+            <div className='absolute top-[40vh] px-4 @5xl:px-10 flex gap-2 pt-10 justify-between box-border w-full'>
               <div className='flex gap-4 items-center border-b-2 border-primary-gray-300 mb-[8px]'>
                 {sections.map((d) => (
                   <button
@@ -167,7 +168,7 @@ function FeatureShowcaseCard(props: {
               </div>
             </div>
           )}
-          <div className='absolute bottom-6 left-4 left-4 @5xl:left-auto @5xl:right-4 flex justify-between items-center w-[calc(100%-32px)] @5xl:w-auto'>
+          <div className='absolute bottom-10 left-4 left-4 @5xl:left-auto @5xl:right-4 flex justify-between items-center w-[calc(100%-32px)] @5xl:w-auto'>
             <div className='flex gap-1'>
               <button
                 type='button'
