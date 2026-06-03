@@ -10,7 +10,7 @@ const FeatureShowcase = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     <div
       ref={ref}
       className={cn(
-        '@container w-full flex gap-0 bg-primary-gray-200 dark:bg-primary-gray-250 items-stretch',
+        '@container w-full flex flex-wrap gap-0 bg-primary-gray-200 dark:bg-primary-gray-250 items-stretch',
         className,
       )}
       {...props}
@@ -23,7 +23,7 @@ const FeatureShowcaseIntro = React.forwardRef<HTMLDivElement, React.HTMLAttribut
     <div
       ref={ref}
       className={cn(
-        'flex flex-col justify-center box-border mx-0 @2xl:mx-[8.3333%] p-6 w-full @2xl:w-1/2 @2xl:p-8',
+        'flex flex-col justify-center box-border mx-0 @5xl:mx-[8.3333%] p-6 w-full @5xl:w-[calc(50%-16.6666%)] @5xl:p-8',
         className,
       )}
       {...props}
@@ -113,14 +113,14 @@ function FeatureShowcaseCard(props: {
     };
   }, [emblaApi]);
   return (
-    <div className={cn('flex flex-col gap-0 w-full @2xl:w-1/2', className)}>
+    <div className={cn('flex flex-col gap-0 w-full @5xl:w-1/2', className)}>
       <div className='mx-auto w-full'>
         <div className='relative overflow-hidden' ref={emblaRef}>
           <div className='flex'>
             {items.map((d) => (
               <div
                 className='flex-[0_0_100%] min-w-0 border-b-16'
-                key={d.index}
+                key={`${d.section}_${d.index}`}
                 style={{ borderColor: d.stripColor || 'var(--blue-600)' }}
               >
                 <div className='h-full flex flex-col'>
@@ -132,7 +132,7 @@ function FeatureShowcaseCard(props: {
                     />
                   </div>
                   <div
-                    className={`grow box-border bg-white dark:bg-primary-gray-650 px-10 pb-24 ${showTabs ? 'pt-24' : 'pt-10'}`}
+                    className={`grow box-border bg-white dark:bg-primary-gray-650 px-4 @5xl:px-10 pb-24 ${showTabs ? 'pt-24' : 'pt-10'}`}
                   >
                     {d.content}
                   </div>
@@ -141,13 +141,13 @@ function FeatureShowcaseCard(props: {
             ))}
           </div>
           {showTabs && (
-            <div className='absolute top-[40vh] px-10 flex gap-2 pt-4 justify-between box-border w-full'>
+            <div className='absolute top-[40vh] px-4 @5xl:px-10 flex gap-2 pt-4 justify-between box-border w-full'>
               <div className='flex gap-4 items-center border-b-2 border-primary-gray-300 mb-[8px]'>
                 {sections.map((d) => (
                   <button
                     type='button'
                     key={d.section}
-                    className={`uppercase font-sans bg-transparent border-b-2 ${items[selectedIndex].section === d.section ? 'border-accent-red' : 'border-primary-gray-300'} font-base font-bold -mb-[2px]`}
+                    className={`shrink-0 uppercase font-sans bg-transparent border-b-2 ${items[selectedIndex].section === d.section ? 'border-accent-red' : 'border-primary-gray-300'} font-base font-bold -mb-[2px]`}
                     onClick={() =>
                       emblaApi?.scrollTo(items.findIndex((el) => el.section === d.section))
                     }
@@ -156,6 +156,39 @@ function FeatureShowcaseCard(props: {
                   </button>
                 ))}
               </div>
+              <div className='hidden @5xl:inline'>
+                <P
+                  marginBottom='none'
+                  size='base'
+                  className='uppercase font-sans bg-transparent font-bold -mb-[2px]'
+                >
+                  {items[selectedIndex].index}/{items[selectedIndex].total}
+                </P>
+              </div>
+            </div>
+          )}
+          <div className='absolute bottom-6 left-4 left-4 @5xl:left-auto @5xl:right-4 flex justify-between items-center w-[calc(100%-32px)] @5xl:w-auto'>
+            <div className='flex gap-1'>
+              <button
+                type='button'
+                aria-label='Go to next page'
+                onClick={goToPrev}
+                disabled={!canPrev}
+                className='p-2 bg-primary-gray-700 dark:bg-primary-gray-100 rtl:scale-x-[-1] rounded-full disabled:bg-primary-gray-400'
+              >
+                <ChevronLeft className='h-6 w-6 stroke-primary-gray-100 dark:stroke-primary-gray-700' />
+              </button>
+              <button
+                type='button'
+                onClick={goToNext}
+                aria-label='Go to next page'
+                disabled={!canNext}
+                className='p-2 bg-primary-gray-700 dark:bg-primary-gray-100 rtl:scale-x-[-1] rounded-full disabled:bg-primary-gray-400'
+              >
+                <ChevronRight className='h-6 w-6 stroke-primary-gray-100 dark:stroke-primary-gray-700' />
+              </button>
+            </div>
+            <div className='inline @5xl:hidden'>
               <P
                 marginBottom='none'
                 size='base'
@@ -164,26 +197,6 @@ function FeatureShowcaseCard(props: {
                 {items[selectedIndex].index}/{items[selectedIndex].total}
               </P>
             </div>
-          )}
-          <div className='absolute bottom-6 right-4 flex gap-1'>
-            <button
-              type='button'
-              aria-label='Go to next page'
-              onClick={goToPrev}
-              disabled={!canPrev}
-              className='p-2 bg-primary-gray-700 dark:bg-primary-gray-100 rtl:scale-x-[-1] rounded-full disabled:bg-primary-gray-400'
-            >
-              <ChevronLeft className='h-6 w-6 stroke-primary-gray-100 dark:stroke-primary-gray-700' />
-            </button>
-            <button
-              type='button'
-              onClick={goToNext}
-              aria-label='Go to next page'
-              disabled={!canNext}
-              className='p-2 bg-primary-gray-700 dark:bg-primary-gray-100 rtl:scale-x-[-1] rounded-full disabled:bg-primary-gray-400'
-            >
-              <ChevronRight className='h-6 w-6 stroke-primary-gray-100 dark:stroke-primary-gray-700' />
-            </button>
           </div>
         </div>
       </div>
