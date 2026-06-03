@@ -59,6 +59,7 @@ const entries = {
   VisualizationWidget: path.resolve(__dirname, 'src/components/ui/visualization-widget.tsx'),
   Drawer: path.resolve(__dirname, 'src/components/ui/drawer.tsx'),
   SDGCardButton: path.resolve(__dirname, 'src/components/ui/sdgCardButton.tsx'),
+  FeatureShowcase: path.resolve(__dirname, 'src/components/ui/featureShowcase.tsx'),
   cn: path.resolve(__dirname, 'src/lib/utils.ts'),
   ConfigProvider: path.resolve(__dirname, 'src/ConfigProvider.tsx'),
 };

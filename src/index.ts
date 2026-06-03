@@ -74,6 +74,13 @@ export {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+export {
+  FeatureShowcase,
+  FeatureShowcaseCard,
+  FeatureShowcaseIntro,
+  FeatureShowcaseIntroBody,
+  FeatureShowcaseIntroTitle,
+} from '@/components/ui/featureShowcase';
 export { FileUpload } from '@/components/ui/fileUpload';
 export {
   Footer,
