@@ -1,7 +1,6 @@
 import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
@@ -75,10 +74,9 @@ export default defineConfig(() => {
       tsconfigPath: './tsconfig.json',
       staticImport: true,
       insertTypesEntry: true,
-      bundleTypes: false,
+      bundleTypes: true,
       exclude: ['**/*.mdx', '**/*.test.tsx', 'stories'],
     }),
-    visualizer({ filename: 'stats.html', open: true }),
   ];
   return {
     plugins,
@@ -99,6 +97,8 @@ export default defineConfig(() => {
         external: ['react', 'react-dom', 'react-markdown', 'react/jsx-runtime'],
         output: {
           manualChunks: undefined,
+          externalLiveBindings: false,
+          exports: 'named',
           assetFileNames: (assetInfo) => {
             if (assetInfo.names?.includes('design-system-react.css')) {
               return 'style.css';

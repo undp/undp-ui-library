@@ -1,9 +1,8 @@
 {
   "name": "@undp/design-system-react",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
-  "browser": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
   "sideEffects": [
     "*.css"
@@ -323,13 +322,13 @@
   "homepage": "https://react.design.undp.org/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 tsc && cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "clean": "rimraf node_modules && rimraf dist && rimraf package-lock.json",
-    "install:build": "npm install && tsc && vite build",
-    "install:build:publish": "npm install && tsc && vite build && npm publish",
+    "install:build": "npm install && cross-env NODE_OPTIONS=--max-old-space-size=8192 tsc && cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build",
+    "install:build:publish": "npm install && cross-env NODE_OPTIONS=--max-old-space-size=8192 tsc && cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build && npm publish",
     "lint": "biome check . --write"
   },
   "keywords": [
@@ -411,6 +410,8 @@
     "@vitejs/plugin-react": "^6.0.2",
     "autoprefixer": "^10.4.21",
     "baseline-browser-mapping": "^2.10.29",
+    "concurrently": "^10.0.3",
+    "cross-env": "^10.1.0",
     "postcss": "^8.5.6",
     "rimraf": "^6.0.1",
     "rollup-plugin-visualizer": "^6.0.3",
