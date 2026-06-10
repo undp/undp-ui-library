@@ -209,6 +209,10 @@
   height: auto;
 }
 
+.searchable-input {
+  cursor: text !important;
+}
+
 .undp-select-input input:focus {
   box-shadow: 0 0 0;
 }

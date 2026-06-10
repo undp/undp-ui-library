@@ -100,11 +100,13 @@ function DropdownSelect({
   maxTagCount,
   isDisabled,
   components,
+  isSearchable,
   ...props
 }: SelectPropsDataType): JSX.Element {
   return (
     <Select
       {...props}
+      isSearchable={isSearchable}
       isDisabled={isDisabled}
       hideSelectedOptions={false}
       closeMenuOnSelect={!props.isMulti}
@@ -117,13 +119,13 @@ function DropdownSelect({
             'text-base',
             state.isDisabled
               ? 'text-primary-gray-500! dark:text-primary-gray-500! '
-              : 'text-primary-black! dark:text-primary-white!',
+              : 'text-primary-black! dark:text-primary-white!'
           ),
         placeholder: () => 'text-primary-gray-550! dark:text-primary-400! text-base',
         group: () => 'py-0!',
         groupHeading: () =>
           'font-bold! text-base! normal-case! py-[12px]! m-0! bg-primary-gray-300 dark:bg-primary-gray-600 text-primary-gray-700! dark:text-primary-white!',
-        input: () => 'text-base undp-select-input',
+        input: () => `text-base undp-select-input${isSearchable ? ' searchable-input' : '' }`,
         multiValue: () =>
           'bg-primary-gray-300 dark:bg-primary-gray-550 rounded-sm border border-primary-gray-400 dark:border-primary-gray-600',
         multiValueLabel: () =>
