@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 const containerVariants = cva('', {
   variants: {
     backgroundColor: {
-      transparent: 'bg-primary-transparent text-primary-black dark:text-primary-white',
+      transparent: 'bg-transparent text-primary-black dark:text-primary-white',
       white: 'bg-primary-white dark:bg-primary-gray-700 text-primary-black dark:text-primary-white',
       gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 text-primary-black dark:text-primary-white',
       'dark-gray':

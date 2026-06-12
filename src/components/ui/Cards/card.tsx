@@ -10,7 +10,7 @@ const cardVariants = cva('flex flex-col justify-between items-stretch group', {
       'without-image': '[&_.card-tag]:pb-4',
     },
     backgroundColor: {
-      transparent: 'bg-primary-transparent text-primary-black dark:text-primary-white',
+      transparent: 'bg-transparent text-primary-black dark:text-primary-white',
       white:
         'bg-primary-white dark:bg-primary-gray-700 hover:bg-primary-gray-200 dark:hover:bg-primary-gray-600 text-primary-black dark:text-primary-white',
       gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 hover:bg-primary-gray-400 dark:hover:bg-primary-gray-500 text-primary-black dark:text-primary-white',

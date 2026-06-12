@@ -47,7 +47,7 @@ const StatCardValue = React.forwardRef<
   <H2
     ref={ref}
     className={cn(
-      'leading-none [-webkit-text-stroke:2px_black] dark:[-webkit-text-stroke:2px_white] [text-shadow:none] font-heading text-left rtl:text-right transparent text-transparent group-hover:text-primary-black group-hover:dark:text-primary-white  group-hover:[-webkit-text-stroke:0px]',
+      'leading-none [-webkit-text-stroke:2px_black] dark:[-webkit-text-stroke:2px_white] [text-shadow:none] font-heading text-left rtl:text-right text-transparent group-hover:text-primary-black group-hover:dark:text-primary-white  group-hover:[-webkit-text-stroke:0px]',
       className,
     )}
     {...props}
