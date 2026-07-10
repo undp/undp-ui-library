@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -49,6 +49,11 @@
       "types": "./dist/Card.d.ts",
       "import": "./dist/Card.js",
       "require": "./dist/Card.cjs"
+    },
+    "./FeaturedCard": {
+      "types": "./dist/FeaturedCard.d.ts",
+      "import": "./dist/FeaturedCard.js",
+      "require": "./dist/FeaturedCard.cjs"
     },
     "./PageWideCard": {
       "types": "./dist/PageWideCard.d.ts",

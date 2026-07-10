@@ -41,6 +41,13 @@ export {
   PageWideCardTitle,
 } from '@/components/ui/Cards/cardPageWide';
 export {
+  FeaturedCard,
+  FeaturedCardDescription,
+  FeaturedCardFooter,
+  FeaturedCardTag,
+  FeaturedCardTitle,
+} from '@/components/ui/Cards/featuredCard';
+export {
   StatCard,
   StatCardDescription,
   StatCardTitle,

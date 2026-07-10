@@ -12,6 +12,7 @@ const entries = {
   Breadcrumb: path.resolve(__dirname, 'src/components/ui/breadcrumb.tsx'),
   Button: path.resolve(__dirname, 'src/components/ui/button.tsx'),
   Card: path.resolve(__dirname, 'src/components/ui/Cards/card.tsx'),
+  FeaturedCard: path.resolve(__dirname, 'src/components/ui/Cards/featuredCard.tsx'),
   StatCard: path.resolve(__dirname, 'src/components/ui/Cards/statCard.tsx'),
   StatsPanel: path.resolve(__dirname, 'src/components/ui/statsPanel.tsx'),
   PageWideCard: path.resolve(__dirname, 'src/components/ui/Cards/cardPageWide.tsx'),
