@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "2.2.6",
+  "version": "2.3.0",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -421,5 +421,8 @@
     "typescript": "^5.9.2",
     "vite": "^8.0.13",
     "vite-plugin-dts": "^5.0.1"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
   }
 }
