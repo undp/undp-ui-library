@@ -75,48 +75,46 @@ const PageWideCardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes
 );
 PageWideCardFooter.displayName = 'PageWideCardFooter';
 
-const PageWideCardTag = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'flex gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 [dir-rtl]:pr-6 rtl:pl-6 pb-4 md:mb-0 text-xs font-bold leading-[1.15] text-primary-black dark:text-primary-white uppercase',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </div>
-));
+const PageWideCardTag = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'flex font-sans gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 [dir-rtl]:pr-6 rtl:pl-6 pb-4 md:mb-0 text-xs font-bold leading-[1.15] text-primary-black dark:text-primary-white uppercase',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  ),
+);
 PageWideCardTag.displayName = 'PageWideCardTag';
 
-const PageWideCardTitle = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'flex gap-2 m-0 pl-0 pr-0 pt-12 pb-8 text-primary-black dark:text-primary-white leading-[1.15] font-normal text-[1.563rem] md:text-[2.188rem]',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </div>
-));
+const PageWideCardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'flex gap-2 m-0 font-sans pl-0 pr-0 pt-12 pb-8 text-primary-black dark:text-primary-white leading-[1.15] font-normal text-[1.563rem] md:text-[2.188rem]',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  ),
+);
 PageWideCardTitle.displayName = 'PageWideCardTitle';
 
 const PageWideCardDescription = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ children, className, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      `pl-0 pr-0 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl flex flex-col gap-2 text-primary-black dark:text-primary-white`,
+      `pl-0 pr-0 pt-0 pb-6 mt-0 text-base font-sans leading-[1.4] md:text-xl flex flex-col gap-2 text-primary-black dark:text-primary-white`,
       className,
     )}
     {...props}

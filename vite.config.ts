@@ -13,6 +13,7 @@ const entries = {
   Button: path.resolve(__dirname, 'src/components/ui/button.tsx'),
   Card: path.resolve(__dirname, 'src/components/ui/Cards/card.tsx'),
   FeaturedCard: path.resolve(__dirname, 'src/components/ui/Cards/featuredCard.tsx'),
+  ResourceCard: path.resolve(__dirname, 'src/components/ui/Cards/resourceCard.tsx'),
   StatCard: path.resolve(__dirname, 'src/components/ui/Cards/statCard.tsx'),
   StatsPanel: path.resolve(__dirname, 'src/components/ui/statsPanel.tsx'),
   PageWideCard: path.resolve(__dirname, 'src/components/ui/Cards/cardPageWide.tsx'),
@@ -60,6 +61,7 @@ const entries = {
   Drawer: path.resolve(__dirname, 'src/components/ui/drawer.tsx'),
   SDGCardButton: path.resolve(__dirname, 'src/components/ui/sdgCardButton.tsx'),
   FeatureShowcase: path.resolve(__dirname, 'src/components/ui/featureShowcase.tsx'),
+  Grid: path.resolve(__dirname, 'src/components/ui/grid.tsx'),
   cn: path.resolve(__dirname, 'src/lib/utils.ts'),
   ConfigProvider: path.resolve(__dirname, 'src/ConfigProvider.tsx'),
 };

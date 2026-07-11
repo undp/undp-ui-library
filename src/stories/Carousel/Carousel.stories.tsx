@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type React from 'react';
 
-import { Carousel, CarouselCard } from '@/index';
+import { Carousel, CarouselItem } from '@/index';
 
-type PagePropsAndCustomArgs = React.ComponentProps<typeof CarouselCard>;
+type PagePropsAndCustomArgs = React.ComponentProps<typeof CarouselItem>;
 
 const meta: Meta<PagePropsAndCustomArgs> = {
   title: 'UI/Carousel or Slider',
@@ -26,18 +26,18 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         }`}
       >
         <Carousel>
-          <CarouselCard {...args}>
+          <CarouselItem {...args}>
             <div className='h-96 bg-primary-gray-300' />
-          </CarouselCard>
-          <CarouselCard {...args}>
+          </CarouselItem>
+          <CarouselItem {...args}>
             <div className='h-96 bg-primary-gray-300' />
-          </CarouselCard>
-          <CarouselCard {...args}>
+          </CarouselItem>
+          <CarouselItem {...args}>
             <div className='h-96 bg-primary-gray-300' />
-          </CarouselCard>
-          <CarouselCard {...args}>
+          </CarouselItem>
+          <CarouselItem {...args}>
             <div className='h-96 bg-primary-gray-300' />
-          </CarouselCard>
+          </CarouselItem>
         </Carousel>
       </div>
     );

@@ -72,12 +72,12 @@ const cardVariants = cva('shrink-0 min-w-[320px] snap-start', {
   },
   defaultVariants: { size: 'sm' },
 });
-const CarouselCard = React.forwardRef<
+const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>
 >(({ className, size, ...props }, ref) => (
   <div ref={ref} className={cn(cardVariants({ size }), className)} {...props} />
 ));
-CarouselCard.displayName = 'CarouselCard';
+CarouselItem.displayName = 'CarouselItem';
 
-export { Carousel, CarouselCard };
+export { Carousel, CarouselItem };

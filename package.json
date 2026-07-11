@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -50,10 +50,20 @@
       "import": "./dist/Card.js",
       "require": "./dist/Card.cjs"
     },
+    "./Grid": {
+      "types": "./dist/Grid.d.ts",
+      "import": "./dist/Grid.js",
+      "require": "./dist/Grid.cjs"
+    },
     "./FeaturedCard": {
       "types": "./dist/FeaturedCard.d.ts",
       "import": "./dist/FeaturedCard.js",
       "require": "./dist/FeaturedCard.cjs"
+    },
+    "./ResourceCard": {
+      "types": "./dist/ResourceCard.d.ts",
+      "import": "./dist/ResourceCard.js",
+      "require": "./dist/ResourceCard.cjs"
     },
     "./PageWideCard": {
       "types": "./dist/PageWideCard.d.ts",

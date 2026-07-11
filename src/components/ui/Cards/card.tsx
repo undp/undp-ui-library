@@ -74,7 +74,7 @@ const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('pl-6 pr-6 pt-4 pb-6 flex flex-wrap gap-4', className)}
+      className={cn('pl-6 pr-6 pt-4 pb-6 flex font-sans flex-wrap gap-4', className)}
       {...props}
     />
   ),
@@ -86,7 +86,7 @@ const CardTag = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHe
     <div
       ref={ref}
       className={cn(
-        'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-xs font-bold leading-[1.15] uppercase',
+        'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-xs font-bold font-sans leading-[1.15] uppercase',
         className,
       )}
       {...props}
@@ -97,12 +97,12 @@ const CardTag = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHe
 );
 CardTag.displayName = 'CardTag';
 
-const CardTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
+const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ children, className, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
-        'm-0 pl-6 pr-6 pt-4 pb-6 leading-[1.15] flex gap-2 font-normal text-[1.25rem] md:text-[1.563rem]',
+        'm-0 pl-6 pr-6 pt-4 pb-6 leading-[1.15] flex gap-2 font-normal font-sans text-[1.25rem] md:text-[1.563rem]',
         className,
       )}
       {...props}
@@ -113,18 +113,20 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTML
 );
 CardTitle.displayName = 'CardTitle';
 
-const CardDescription = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(`pl-6 pr-6 pt-0 pb-6 mt-0 text-base leading-[1.4] md:text-xl`, className)}
-    {...props}
-  >
-    {children}
-  </div>
-));
+const CardDescription = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        `pl-6 pr-6 pt-0 pb-6 mt-0 text-base font-sans leading-[1.4] md:text-xl`,
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  ),
+);
 CardDescription.displayName = 'CardDescription';
 
 const CardImage = React.forwardRef<

@@ -48,12 +48,20 @@ export {
   FeaturedCardTitle,
 } from '@/components/ui/Cards/featuredCard';
 export {
+  ResourceCard,
+  ResourceCardContent,
+  ResourceCardDescription,
+  ResourceCardFooter,
+  ResourceCardImage,
+  ResourceCardTitle,
+} from '@/components/ui/Cards/resourceCard';
+export {
   StatCard,
   StatCardDescription,
   StatCardTitle,
   StatCardValue,
 } from '@/components/ui/Cards/statCard';
-export { Carousel, CarouselCard } from '@/components/ui/carousel';
+export { Carousel, CarouselItem } from '@/components/ui/carousel';
 export { Checkbox } from '@/components/ui/checkbox';
 export { CheckboxGroup, CheckboxGroupItem } from '@/components/ui/checkbox-group';
 export { Container } from '@/components/ui/container';
@@ -96,6 +104,7 @@ export {
   FooterLogoUnit,
   FooterMainNavUnit,
 } from '@/components/ui/footer';
+export { Grid, GridItem } from '@/components/ui/grid';
 export {
   Header,
   HeaderActions,

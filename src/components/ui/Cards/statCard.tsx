@@ -25,7 +25,7 @@ const cardVariants = cva(
     },
     defaultVariants: {
       hoverColor: 'yellow',
-      size: 'base',
+      size: 'full',
     },
   },
 );

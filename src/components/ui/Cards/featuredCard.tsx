@@ -66,47 +66,45 @@ const FeaturedCardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes
 );
 FeaturedCardFooter.displayName = 'FeaturedCardFooter';
 
-const FeaturedCardTag = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-xs font-bold leading-[1.15] uppercase',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </div>
-));
+const FeaturedCardTag = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 font-sans pr-6 md:mb-0 text-xs font-bold leading-[1.15] uppercase',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  ),
+);
 FeaturedCardTag.displayName = 'FeaturedCardTag';
 
-const FeaturedCardTitle = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'flex flex-col justify-end grow m-0 pl-6 pr-6 mt-8 mb-3 leading-[1.15] flex gap-2 font-normal text-[2rem]',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </div>
-));
+const FeaturedCardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'flex flex-col justify-end grow m-0 pl-6 pr-6 mt-8 mb-3 leading-[1.15] flex gap-2 font-normal font-sans text-[2rem]',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  ),
+);
 FeaturedCardTitle.displayName = 'FeaturedCardTitle';
 
 const FeaturedCardDescription = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ children, className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(`pl-6 pr-6 pt-0 pb-6 mt-0 text-base leading-[1.4]`, className)}
+    className={cn(`pl-6 pr-6 pt-0 pb-6 mt-0 text-base font-sans leading-[1.4]`, className)}
     {...props}
   >
     {children}
