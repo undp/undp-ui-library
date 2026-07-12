@@ -1,6 +1,5 @@
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { H4, P } from '@/components/ui/typography';
 import { cn } from '@/lib/utils';
 
 const ResourceCard = React.forwardRef<
@@ -82,28 +81,27 @@ const ResourceCardContent = React.forwardRef<HTMLDivElement, React.HTMLAttribute
 );
 ResourceCardContent.displayName = 'ResourceCardContent';
 
-const ResourceCardTitle = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <H4
-    ref={ref}
-    marginBottom='none'
-    className={cn('text-black font-sans dark:text-white', className)}
-    {...props}
-  />
-));
+const ResourceCardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'mb-1 leading-[1.15] flex gap-2 font-normal font-sans text-[1.25rem]',
+        className,
+      )}
+      {...props}
+    />
+  ),
+);
 ResourceCardTitle.displayName = 'ResourceCardTitle';
 
 const ResourceCardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <P
+  <div
     ref={ref}
-    marginBottom='none'
-    size='base'
-    className={cn('text-black font-sans dark:text-white', className)}
+    className={cn(`mb-4 text-[1rem] font-sans font-normal leading-[1.4]`, className)}
     {...props}
   />
 ));
@@ -111,7 +109,7 @@ ResourceCardDescription.displayName = 'ResourceCardDescription';
 
 const ResourceCardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('p-6 font-sans', className)} {...props} />
+    <div ref={ref} className={cn('font-sans', className)} {...props} />
   ),
 );
 ResourceCardFooter.displayName = 'ResourceCardFooter';
