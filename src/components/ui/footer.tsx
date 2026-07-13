@@ -48,7 +48,7 @@ function FooterLogoUnit({
             className='w-[60px]'
           />
         </a>
-        <H5 className='text-primary-white' marginBottom='none' size='base'>
+        <H5 className='text-primary-white leading-[1.15]' marginBottom='none'>
           United Nations
           <br />
           Development Programme
@@ -81,7 +81,9 @@ function FooterCopyrightUnit({
       {...props}
       className={cn('flex justify-between flex-wrap items-center mt-6 gap-y-6 gap-x-4', className)}
     >
-      <P className='m-0 md:m-0 py-0 px-0 text-base'>© United Nations Development Programme</P>
+      <P className='m-0 md:m-0 py-0 px-0 text-[14px] md:text-base'>
+        © United Nations Development Programme
+      </P>
       <div>{children}</div>
     </div>
   );

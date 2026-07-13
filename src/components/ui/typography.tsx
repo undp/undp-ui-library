@@ -282,7 +282,7 @@ const heading5Variant = cva('mt-0 ml-0 mr-0 p-0 leading-[1.15] font-sans', {
       xl: 'mb-6',
     },
     size: {
-      'base-responsive': 'text-[1.25rem] md:text-[1.563rem]',
+      'base-responsive': 'text-[1.25rem] md:text-[1.5rem]',
       base: 'text-[1.25rem]',
     },
     weight: {

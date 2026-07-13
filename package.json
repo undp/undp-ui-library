@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "2.4.1",
+  "version": "2.4.3",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -317,6 +317,31 @@
       "types": "./dist/StatsPanel.d.ts",
       "import": "./dist/StatsPanel.js",
       "require": "./dist/StatsPanel.cjs"
+    },
+    "./Calendar": {
+      "types": "./dist/Calendar.d.ts",
+      "import": "./dist/Calendar.js",
+      "require": "./dist/Calendar.cjs"
+    },
+    "./DatePicker": {
+      "types": "./dist/DatePicker.d.ts",
+      "import": "./dist/DatePicker.js",
+      "require": "./dist/DatePicker.cjs"
+    },
+    "./DateRangePicker": {
+      "types": "./dist/DateRangePicker.d.ts",
+      "import": "./dist/DateRangePicker.js",
+      "require": "./dist/DateRangePicker.cjs"
+    },
+    "./DateTimePicker": {
+      "types": "./dist/DateTimePicker.d.ts",
+      "import": "./dist/DateTimePicker.js",
+      "require": "./dist/DateTimePicker.cjs"
+    },
+    "./DateTimeRangePicker": {
+      "types": "./dist/DateTimeRangePicker.d.ts",
+      "import": "./dist/DateTimeRangePicker.js",
+      "require": "./dist/DateTimeRangePicker.cjs"
     }
   },
   "publishConfig": {
@@ -384,7 +409,7 @@
     "lucide-react": "^0.542.0",
     "next-themes": "^0.4.6",
     "rc-slider": "^11.1.8",
-    "react-day-picker": "^9.9.0",
+    "react-day-picker": "^10.0.1",
     "react-markdown": "^10.1.0",
     "react-select": "^5.10.2",
     "remark-gfm": "^4.0.1",

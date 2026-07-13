@@ -62,6 +62,11 @@ const entries = {
   SDGCardButton: path.resolve(__dirname, 'src/components/ui/sdgCardButton.tsx'),
   FeatureShowcase: path.resolve(__dirname, 'src/components/ui/featureShowcase.tsx'),
   Grid: path.resolve(__dirname, 'src/components/ui/grid.tsx'),
+  Calendar: path.resolve(__dirname, 'src/components/ui/calendar-card.tsx'),
+  DatePicker: path.resolve(__dirname, 'src/components/ui/date-picker.tsx'),
+  DateRangePicker: path.resolve(__dirname, 'src/components/ui/date-range-picker.tsx'),
+  DateTimePicker: path.resolve(__dirname, 'src/components/ui/date-time-picker.tsx'),
+  DateTimeRangePicker: path.resolve(__dirname, 'src/components/ui/date-time-range-picker.tsx'),
   cn: path.resolve(__dirname, 'src/lib/utils.ts'),
   ConfigProvider: path.resolve(__dirname, 'src/ConfigProvider.tsx'),
 };
