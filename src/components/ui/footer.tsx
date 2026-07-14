@@ -81,10 +81,20 @@ function FooterCopyrightUnit({
       {...props}
       className={cn('flex justify-between flex-wrap items-center mt-6 gap-y-6 gap-x-4', className)}
     >
-      <P className='m-0 md:m-0 py-0 px-0 text-[14px] md:text-base'>
+      <P className='m-0 md:m-0 py-0 px-0 text-[14px] md:text-base font-sans'>
         © United Nations Development Programme
       </P>
-      <div>{children}</div>
+      <div className='flex gap-x-4 gap-y-6 flex-wrap'>
+        {children}
+        <a
+          href='https://www.undp.org/copyright-terms-use'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='font-sans text-[14px] md:text-base text-primary-white hover:text-primary-blue-100'
+        >
+          Terms of use
+        </a>
+      </div>
     </div>
   );
 }
