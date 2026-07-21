@@ -11,17 +11,6 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #232e3d;
-    --custom-color-100: #b5d5f5;
-    --custom-color-200: #94c4f5;
-    --custom-color-300: #6babeb;
-    --custom-color-400: #4f95dd;
-    --custom-color-500: #3288ce;
-    --custom-color-600: #0468b1;
-    --custom-color-700: #1f5a95;
-    --custom-foreground: #232e3d;
-    --ring: #b5d5f5;
     --blue-100: #b5d5f5;
     --blue-200: #94c4f5;
     --blue-300: #6babeb;
@@ -29,29 +18,36 @@
     --blue-500: #3288ce;
     --blue-600: #0468b1;
     --blue-700: #1f5a95;
+
     --white: #ffffff;
     --gray-100: #fafafa;
     --gray-200: #f7f7f7;
     --gray-300: #edeff0;
     --gray-400: #d4d6d8;
     --gray-500: #a9b1b7;
-    --gray-550: #879099;
+    --gray-530: #84929d;
+    --gray-560: #677383;
     --gray-600: #55606e;
     --gray-650: #3b4859;
     --gray-700: #232e3d;
     --black: #000000;
-    --light-yellow: #ffeb00;
-    --yellow: #ffeb00;
-    --dark-yellow: #fbc412;
-    --light-red: #ffbcb7;
-    --red: #ee402d;
-    --dark-red: #d12800;
-    --light-green: #b8ecb6;
-    --green: #6de354;
-    --dark-green: #59ba47;
-    --light-azure: #a2daf3;
-    --azure: #60d4f2;
-    --dark-azure: #00c1ff;
+
+    --yellow-200: #ffeb00;
+    --yellow-400: #ffeb00;
+    --yellow-600: #fbc412;
+
+    --red-200: #ffbcb7;
+    --red-400: #ee402d;
+    --red-600: #d12800;
+
+    --green-200: #b8ecb6;
+    --green-400: #6de354;
+    --green-600: #59ba47;
+
+    --azure-200: #a2daf3;
+    --azure-400: #60d4f2;
+    --azure-600: #00c1ff;
+
     --sdg-1: #e5243b;
     --sdg-2: #dda63a;
     --sdg-3: #4c9f38;
@@ -69,8 +65,136 @@
     --sdg-15: #56c02b;
     --sdg-16: #00689d;
     --sdg-17: #19486a;
-    --font-sans: ProximaNova, sans-serif;
+
+    --background: var(--white);
+    --background-soft: var(--gray-100);
+    --foreground: var(--black);
+    --foreground-soft: var(--gray-700);
+    --ring: var(--blue-100);
+
+    --error: var(--red-600);
+    --error-hover: var(--red-400);
+    --error-light: var(--red-200);
+
+    --warning: var(--yellow-400);
+    --warning-hover: var(--yellow-600);
+    --warning-light: var(--yellow-200);
+
+    --success: var(--green-600);
+    --success-hover: var(--green-400);
+    --success-light: var(--green-200);
+
+    --info: var(--blue-600);
+    --info-hover: var(--blue-400);
+    --info-light: var(--blue-200);
+
+    --primary: var(--red-600);
+    --primary-hover: var(--red-400);
+    --primary-light: var(--red-200);
+
+    --secondary: var(--blue-600);
+    --secondary-hover: var(--blue-400);
+    --secondary-light: var(--blue-200);
+
+    --tertiary: var(--azure-600);
+    --tertiary-hover: var(--azure-400);
+    --tertiary-light: var(--azure-200);
+
+    --quaternary: var(--yellow-600);
+    --quaternary-hover: var(--yellow-400);
+    --quaternary-light: var(--yellow-200);
+
+    --content-primary: var(--black);
+    --content-secondary: var(--gray-560);
+    --content-tertiary: var(--gray-530);
+    --content-quaternary: var(--gray-500);
+    --content-placeholder: var(--gray-530);
+    --content-disabled: var(--gray-530);
+    --content-reverse: var(--white);
+
+    --surface: var(--gray-200);
+    --surface-hover: var(--gray-300);
+    --surface-hard: var(--gray-400);
+    --surface-hard-hover: var(--gray-530);
+    --surface-2xs: var(--gray-100);
+    --surface-xs: var(--gray-200);
+    --surface-sm: var(--gray-300);
+    --surface-md: var(--gray-400);
+    --surface-lg: var(--gray-500);
+    --surface-xl: var(--gray-530);
+    --surface-2xl: var(--gray-560);
+    --surface-3xl: var(--gray-600);
+    --surface-4xl: var(--gray-700);
+
+    --stroke: var(--gray-400);
+    --stroke-hover: var(--gray-600);
+    --stroke-2xs: var(--gray-100);
+    --stroke-xs: var(--gray-200);
+    --stroke-sm: var(--gray-300);
+    --stroke-md: var(--gray-400);
+    --stroke-lg: var(--gray-500);
+    --stroke-xl: var(--gray-530);
+    --stroke-2xl: var(--gray-560);
+    --stroke-3xl: var(--gray-600);
+    --stroke-4xl: var(--gray-700);
+
+    --opacity-disabled: 0.5;
+
+    --font-body: ProximaNova, sans-serif;
+    --font-sans: var(--font-body);
     --font-heading: SohneBreit, ProximaNova, sans-serif;
+
+    --text-h1: 6.25rem;
+    --text-h1-sm: 5.125rem;
+    --text-h1-xs: 3rem;
+    --text-h2: 3.5rem;
+    --text-h2-sm: 2.875rem;
+    --text-h2-xs: 2.5rem;
+    --text-h3: 3rem;
+    --text-h3-sm: 3rem;
+    --text-h3-xs: 2.5rem;
+    --text-h4: 2rem;
+    --text-h4-sm: 2rem;
+    --text-h4-xs: 1.875rem;
+    --text-h5: 1.5rem;
+    --text-h5-sm: 1.5rem;
+    --text-h5-xs: 1.25rem;
+    --text-h6: 1rem;
+    --text-h6-sm: 1rem;
+    --text-h6-xs: 1rem;
+    --text-p: 1.25rem;
+    --text-p-sm: 1rem;
+    --text-p-xs: 1rem;
+    --text-2xl: 1.5rem;
+    --text-xl: 1.25rem;
+    --text-lg: 1.125rem;
+    --text-base: 1rem;
+    --text-sm: 0.875rem;
+    --text-xs: 0.75rem;
+    --text-2xs: 0.625rem;
+
+    --leading-h1: 1.08;
+    --leading-h2: 1.1;
+    --leading-h3: 1.15;
+    --leading-h4: 1.15;
+    --leading-h5: 1.15;
+    --leading-h6: 1.15;
+    --leading-p: 1.4;
+    --leading-2xl: 2;
+    --leading-xl: 1.8;
+    --leading-lg: 1.6;
+    --leading-base: 1.4;
+    --leading-sm: 1.2;
+    --leading-xs: 1;
+
+    --rounded-base: 0;
+    --rounded-sm: 0.125rem;
+    --rounded-md: 0.25rem;
+    --rounded-lg: 0.5rem;
+    --rounded-xl: 1rem;
+    --rounded-2xl: 2rem;
+
+    --blur-frosted: 18px;
   }
 
   *,
@@ -78,17 +202,13 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--gray-200, currentcolor);
+    border-color: var(--stroke, currentcolor);
   }
 
   body {
     margin: 0;
     line-height: inherit;
-    color: var(--black);
-  }
-
-  .dark {
-    color: var(--white);
+    color: var(--foreground);
   }
 
   ul {
@@ -104,19 +224,37 @@
   display: none;
 }
 
-.white-arrow::after {
-  background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-right-white.svg)
-    no-repeat left center;
+.background-arrow::after {
+  background-color: var(--background);
+  -webkit-mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
+    no-repeat center;
+  mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
+    no-repeat center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
-.black-arrow::after {
-  background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-right-black.svg)
-    no-repeat left center;
+.foreground-arrow::after {
+  background-color: var(--foreground);
+  -webkit-mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
+    no-repeat center;
+  mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
+    no-repeat center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
-.red-arrow::after {
-  background: url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/chevron-right.svg)
-    no-repeat left center;
+.primary-arrow::after {
+  background-color: var(--primary);
+  -webkit-mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
+    no-repeat center;
+  mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
+    no-repeat center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 @keyframes lineLoop-animation-for-links {
@@ -184,25 +322,15 @@
   width: 5px;
 }
 .undp-scrollbar::-webkit-scrollbar-track {
-  background: var(--black);
+  background: var(--foreground);
   background-clip: padding-box;
-  border: 2px solid rgba(255, 255, 255, 0);
+  border: none;
 }
 .undp-scrollbar::-webkit-scrollbar-corner {
   display: none;
 }
 .undp-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--black);
-}
-
-.dark .undp-scrollbar::-webkit-scrollbar-track {
-  background: var(--gray-100);
-  background-clip: padding-box;
-  border: 2px solid rgba(0, 0, 0, 0);
-}
-
-.dark .undp-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--gray-100);
+  background: var(--foreground);
 }
 
 .undp-select-input input {
@@ -210,7 +338,7 @@
 }
 
 .searchable-input {
-  cursor: text !important;
+  cursor: text;
 }
 
 .undp-select-input input:focus {

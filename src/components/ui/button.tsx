@@ -1,29 +1,20 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
-
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'cursor-pointer m-0! tracking-[0.48px] inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded-none text-lg font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'cursor-pointer m-0! tracking-[0.48px] inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
-        primary: 'bg-accent-dark-red text-primary-white black-arrow hover:bg-accent-red',
-        'primary-without-icon': 'bg-accent-dark-red text-primary-white hover:bg-accent-red',
-        secondary: 'bg-primary-blue-600 text-primary-white white-arrow hover:bg-primary-blue-400',
-        'secondary-without-icon':
-          'bg-primary-blue-600 text-primary-white hover:bg-primary-blue-400',
-        custom: 'bg-custom-color-600 text-custom-foreground white-arrow hover:bg-custom-color-400',
-        'custom-without-icon':
-          'bg-custom-color-600 text-custom-foreground hover:bg-custom-color-400',
-        tertiary:
-          'bg-primary-gray-300 text-primary-gray-700 dark:bg-primary-gray-600 dark:text-primary-white red-arrow hover:bg-primary-gray-400 dark:hover:bg-primary-gray-550',
-        link: 'text-primary-gray-700 dark:text-primary-white red-arrow',
-        'link-without-icon':
-          'text-primary-gray-700 dark:text-primary-white dark:hover:text-primary-gray-500 hover:text-primary-gray-500',
+        primary: 'bg-primary text-content-reverse hover:bg-primary-hover',
+        secondary: 'bg-secondary text-content-reverse hover:bg-secondary-hover',
+        tertiary: 'bg-tertiary text-content-primary hover:bg-tertiary-hover',
+        quaternary: 'bg-quaternary text-content-primary hover:bg-quaternary-hover',
+        link: 'text-content-primary hover:text-content-secondary',
         outline:
-          'bg-transparent text-primary-black dark:text-primary-white border-2 border-primary-gray-700 dark:border-primary-gray-100 dark:hover:bg-primary-gray-550 hover:bg-primary-gray-300',
-        icon: 'bg-transparent dark:text-primary-gray-100 text-primary-gray-700 dark:hover:text-primary-gray-500 hover:text-primary-gray-500',
+          'bg-transparent text-content-primary border-2 border-foreground hover:bg-surface-xs',
+        icon: 'bg-transparent text-content-primary hover:text-content-secondary',
       },
       arrow: {
         true: `
@@ -51,10 +42,19 @@ const buttonVariants = cva(
         `,
       },
       size: {
-        base: 'leading-none text-base!',
-        xs: 'leading-none text-xs!',
-        sm: 'leading-none text-sm!',
-        xl: 'leading-none text-xl!',
+        base: 'text-base leading-none',
+        xs: 'text-xs leading-none',
+        sm: 'text-sm leading-none',
+        xl: 'text-xl leading-none',
+      },
+      rounded: {
+        base: 'rounded-base',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-xl',
+        '2xl': 'rounded-2xl',
+        full: 'rounded-full',
       },
       padding: {
         base: 'py-4 px-6',
@@ -66,7 +66,8 @@ const buttonVariants = cva(
       variant: 'primary',
       size: 'base',
       padding: 'base',
-      arrow: false,
+      rounded: 'base',
+      arrow: true,
     },
   },
 );
@@ -74,7 +75,7 @@ const buttonVariants = cva(
 const Button = React.forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
->(({ className, variant, size, padding, ...props }, ref) => {
+>(({ className, variant, size, arrow = true, rounded, padding, ...props }, ref) => {
   const Comp = 'button';
   return (
     <Comp
@@ -83,13 +84,25 @@ const Button = React.forwardRef<
         buttonVariants({
           variant,
           size,
+          rounded,
           padding,
-          arrow:
-            variant === 'primary' ||
-            variant === 'secondary' ||
-            variant === 'custom' ||
-            variant === 'link',
+          arrow: variant === 'icon' ? false : arrow,
         }),
+        arrow
+          ? variant === 'primary'
+            ? 'foreground-arrow'
+            : variant === 'secondary'
+              ? 'background-arrow'
+              : variant === 'link'
+                ? 'primary-arrow'
+                : variant === 'tertiary'
+                  ? 'foreground-arrow'
+                  : variant === 'quaternary'
+                    ? 'primary-arrow'
+                    : variant === 'outline'
+                      ? 'primary-arrow'
+                      : ''
+          : '',
         className,
       )}
       ref={ref}

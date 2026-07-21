@@ -21,17 +21,23 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       options: ['light', 'normal'],
       defaultValue: { summary: 'normal' },
     },
+    rounded: {
+      control: { type: 'select' },
+      options: ['base', 'sm', 'md', 'lg', 'xl', '2xl', 'full'],
+      defaultValue: 'base',
+    },
   },
   args: {
     inputSize: 'base',
     variant: 'normal',
+    rounded: 'base',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Input

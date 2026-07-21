@@ -10,23 +10,23 @@ const cardVariants = cva('flex flex-col justify-between items-stretch group', {
       'without-image': '[&_.card-tag]:pb-4',
     },
     backgroundColor: {
-      transparent: 'bg-transparent text-primary-black dark:text-primary-white',
-      white:
-        'bg-primary-white dark:bg-primary-gray-700 hover:bg-primary-gray-200 dark:hover:bg-primary-gray-600 text-primary-black dark:text-primary-white',
-      gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 hover:bg-primary-gray-400 dark:hover:bg-primary-gray-500 text-primary-black dark:text-primary-white',
-      'dark-gray':
-        'bg-primary-gray-600 dark:bg-primary-gray-300 hover:bg-primary-gray-500 dark:hover:bg-primary-gray-400 text-primary-white dark:text-primary-black',
-      black:
-        'bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-650 dark:hover:bg-primary-gray-300 text-primary-white dark:text-primary-black',
-      blue: 'bg-primary-blue-200 hover:bg-primary-blue-300 dark:bg-primary-blue-600 dark:hover:bg-primary-blue-500 text-primary-black dark:text-primary-white',
-      azure:
-        'bg-accent-light-azure hover:bg-accent-azure dark:bg-accent-dark-azure dark:hover:bg-accent-azure text-primary-black dark:text-primary-white',
-      yellow:
-        'bg-accent-light-yellow hover:bg-accent-yellow dark:bg-accent-dark-yellow dark:hover:bg-accent-yellow text-primary-black',
-      red: 'bg-accent-light-red hover:bg-accent-red dark:bg-accent-dark-red dark:hover:bg-accent-red text-primary-black dark:text-primary-white',
-      green:
-        'bg-accent-light-green hover:bg-accent-green dark:bg-accent-dark-green dark:hover:bg-accent-green text-primary-black dark:text-primary-white',
-      custom: 'bg-custom-color-200 hover:bg-custom-color-300 text-custom-foreground',
+      transparent: 'bg-transparent text-content-primary',
+      background: 'bg-background hover:bg-surface text-content-primary',
+      'background-soft': 'bg-background-soft hover:bg-surface-hover text-content-primary',
+      foreground: 'bg-foreground hover:bg-surface-3xl text-content-reverse',
+      'foreground-soft': 'bg-foreground-soft hover:bg-surface-3xl text-content-reverse',
+      surface: 'bg-surface hover:bg-surface-hover text-content-primary',
+      'surface-xl': 'bg-surface-xl hover:bg-surface-2xl text-content-reverse ',
+      'surface-2xl': 'bg-surface-2xl hover:bg-surface-3xl text-content-reverse ',
+      'surface-3xl': 'bg-surface-3xl hover:bg-surface-4xl text-content-reverse ',
+      primary: 'bg-primary hover:bg-primary-hover text-content-reverse',
+      secondary: 'bg-secondary hover:bg-secondary-hover text-content-reverse',
+      tertiary: 'bg-tertiary hover:bg-tertiary-hover text-content-reverse',
+      quaternary: 'bg-quaternary hover:bg-quaternary-hover text-content-primary',
+      success: 'bg-success hover:bg-success-hover text-content-reverse',
+      error: 'bg-error hover:bg-error-hover text-content-reverse',
+      info: 'bg-info hover:bg-info-hover text-content-reverse',
+      warning: 'bg-warning hover:bg-warning-hover text-content-primary',
     },
     size: {
       xs: 'w-1/4',
@@ -40,7 +40,7 @@ const cardVariants = cva('flex flex-col justify-between items-stretch group', {
   defaultVariants: {
     size: 'full',
     variant: 'with-image',
-    backgroundColor: 'white',
+    backgroundColor: 'background',
   },
 });
 
@@ -56,7 +56,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       ref={ref}
       className={cn(
         cardVariants({ size, backgroundColor, variant }),
-        border === false ? '' : 'border-t-2 border-primary-black dark:border-primary-gray-100',
+        border === false ? '' : 'border-foreground border-t-2',
         className,
       )}
       {...props}
@@ -74,7 +74,7 @@ const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('pl-6 pr-6 pt-4 pb-6 flex font-sans flex-wrap gap-4', className)}
+      className={cn('flex flex-wrap gap-4 pt-4 pr-6 pb-6 pl-6 font-body', className)}
       {...props}
     />
   ),
@@ -86,7 +86,7 @@ const CardTag = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHe
     <div
       ref={ref}
       className={cn(
-        'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 pr-6 md:mb-0 text-xs font-bold font-sans leading-[1.15] uppercase',
+        'card-tag mt-0 mb-0 flex gap-2 pt-4 pr-6 pl-6 font-body font-bold text-xs uppercase leading-[1.15] md:mb-0',
         className,
       )}
       {...props}
@@ -102,7 +102,7 @@ const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivE
     <div
       ref={ref}
       className={cn(
-        'm-0 pl-6 pr-6 pt-4 pb-6 leading-[1.15] flex gap-2 font-normal font-sans text-[1.25rem] md:text-[1.563rem]',
+        'm-0 flex gap-2 pt-4 pr-6 pb-6 pl-6 font-body font-normal text-h4-xs md:text-h4-sm lg:text-h4',
         className,
       )}
       {...props}
@@ -118,7 +118,7 @@ const CardDescription = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     <div
       ref={ref}
       className={cn(
-        `pl-6 pr-6 pt-0 pb-6 mt-0 text-base font-sans leading-[1.4] md:text-xl`,
+        'mt-0 pt-0 pr-6 pb-6 pl-6 font-body text-p-xs md:text-p-sm lg:text-p',
         className,
       )}
       {...props}
@@ -136,7 +136,7 @@ const CardImage = React.forwardRef<
     alt?: string;
   }
 >(({ className, ...props }, ref) => (
-  <img ref={ref} alt='card' {...props} className={cn('w-full h-64 object-cover', className)} />
+  <img ref={ref} alt='card' {...props} className={cn('h-64 w-full object-cover', className)} />
 ));
 CardImage.displayName = 'CardImage';
 

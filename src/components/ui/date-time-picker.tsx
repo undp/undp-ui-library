@@ -11,12 +11,21 @@ import { Separator } from './separator';
 type SingleCalendarProps = Omit<PropsSingle, 'mode'>;
 
 const dateTimePickerVariants = cva(
-  'w-full h-auto flex gap-2 items-center bg-primary-white dark:bg-primary-gray-650 text-primary-black dark:text-primary-white text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-primary-gray-700 dark:file:text-primary-white focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-primary-gray-550 dark:placeholder:text-primary-gray-400',
+  'w-full h-auto bg-background rounded-base text-content-primary text-base transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-disabled placeholder:text-content-placeholder',
   {
     variants: {
       variant: {
-        light: 'border border-primary-gray-400 dark:border-primary-gray-500',
-        normal: 'border-2 border-primary-black dark:border-primary-gray-300',
+        light: 'border border-stroke',
+        normal: 'border-2 border-foreground',
+      },
+      rounded: {
+        base: 'rounded',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-xl',
+        '2xl': 'rounded-2xl',
+        full: 'rounded-full',
       },
       inputSize: {
         sm: 'px-2.5 py-1',
@@ -26,6 +35,7 @@ const dateTimePickerVariants = cva(
     defaultVariants: {
       inputSize: 'base',
       variant: 'normal',
+      rounded: 'base',
     },
   },
 );
@@ -69,15 +79,15 @@ export function DateTimePicker({
       <PopoverTrigger
         className={cn(dateTimePickerVariants({ inputSize, variant }), classNames?.popOverTrigger)}
       >
-        <CalendarIcon className={cn('text-input-border size-4', classNames?.popOverTriggerIcon)} />
+        <CalendarIcon
+          className={cn('size-4 text-content-placeholder', classNames?.popOverTriggerIcon)}
+        />
         {date ? (
-          <p className='font-sans mt-1 p-0 text-primary-gray-700 dark:text-primary-gray-100'>
+          <p className='mt-1 p-0 font-body text-content-primary'>
             {format(date, 'MMM d, yyyy HH:mm')}
           </p>
         ) : (
-          <p className='font-sans mt-1 p-0 text-primary-gray-700 dark:text-primary-gray-100'>
-            {placeHolder}
-          </p>
+          <p className='mt-1 p-0 font-body text-content-placeholder'>{placeHolder}</p>
         )}
       </PopoverTrigger>
       <PopoverContent className={cn('w-auto p-0', classNames?.popOverContent)} align='start'>
@@ -99,24 +109,14 @@ export function DateTimePicker({
             disabled={disabled}
             {...props}
           />
-          <Separator orientation='vertical' />
+          <Separator orientation='vertical' color='surface-lg' />
           <div className='flex flex-col gap-4 px-2 pt-2'>
-            <p
-              className='
-                text-foreground mb-0 flex h-7 items-center justify-center
-                text-[14px]
-              '
-            >
+            <p className='mb-0 flex h-7 items-center justify-center text-content-primary text-sm'>
               {String(hour).padStart(2, '0')}:{String(minute).padStart(2, '0')}
             </p>
             <div className='flex max-h-[204px]'>
-              <div
-                className='
-                  flex flex-col items-center gap-1.5 overflow-x-hidden overflow-y-auto
-                  px-4 undp-scrollbar
-                '
-              >
-                <p className='text-primary-gray-700 dark:text-primary-gray-100 mb-0 text-[14px] font-bold sticky top-0 bg-primary-gray-100 dark:bg-primary-gray-600'>
+              <div className='undp-scrollbar flex flex-col items-center gap-1.5 overflow-y-auto overflow-x-hidden px-4'>
+                <p className='sticky top-0 mb-0 bg-surface font-bold text-[14px] text-content-primary'>
                   HH
                 </p>
                 {Array.from({ length: 24 }, (_, i) => (
@@ -125,21 +125,9 @@ export function DateTimePicker({
                     key={i}
                     type='button'
                     className={cn(
-                      `                      
-                        text-primary-gray-700 dark:text-primary-gray-100
-                        hover:text-foreground
-                        hover:bg-primary-gray-400
-                        dark:hover:bg-primary-gray-500
-                        disabled:opacity-50
-                        mb-0 cursor-pointer p-1 rounded-sm text-base
-                        disabled:pointer-events-none text-[14px]
-                      `,
+                      'mb-0 cursor-pointer rounded-sm p-1 text-content-primary text-sm hover:bg-surface hover:text-content-primary disabled:pointer-events-none disabled:opacity-disabled',
                       i === hour &&
-                        `
-                          bg-primary-gray-400 dark:bg-primary-gray-600
-                          hover:bg-primary-gray-200 dark:hover:bg-primary-gray-550
-                          text-primary-gray-700 dark:text-primary-gray-100 font-bold
-                        `,
+                        'bg-surface-hard font-bold text-content-primary hover:bg-surface-hard-hover',
                     )}
                     onClick={() => {
                       setHour(i);
@@ -156,13 +144,8 @@ export function DateTimePicker({
                 ))}
               </div>
               <Separator orientation='vertical' />
-              <div
-                className='
-                  flex flex-col items-center gap-1.5 overflow-x-hidden!
-                  overflow-y-auto px-4 undp-scrollbar
-                '
-              >
-                <p className='text-primary-gray-700 dark:text-primary-gray-100 mb-0 text-[14px] font-bold sticky top-0 bg-primary-gray-100 dark:bg-primary-gray-600'>
+              <div className='overflow-x-hidden! undp-scrollbar flex flex-col items-center gap-1.5 overflow-y-auto px-4'>
+                <p className='sticky top-0 mb-0 bg-surface font-bold text-[14px] text-content-primary'>
                   MM
                 </p>
                 {Array.from({ length: 60 }, (_, i) => (
@@ -171,21 +154,9 @@ export function DateTimePicker({
                     key={i}
                     type='button'
                     className={cn(
-                      `
-                        text-primary-gray-700 dark:text-primary-gray-100
-                        hover:text-foreground
-                        hover:bg-primary-gray-400
-                        dark:hover:bg-primary-gray-500
-                        disabled:opacity-50
-                        mb-0 cursor-pointer p-1 rounded-sm text-base
-                        disabled:pointer-events-none text-[14px]
-                      `,
+                      'mb-0 cursor-pointer rounded-sm p-1 text-content-primary text-sm hover:bg-surface hover:text-content-primary disabled:pointer-events-none disabled:opacity-disabled',
                       i === minute &&
-                        `
-                          bg-primary-gray-400 dark:bg-primary-gray-600
-                          hover:bg-primary-gray-200 dark:hover:bg-primary-gray-550
-                          text-primary-gray-700 dark:text-primary-gray-100 font-bold
-                        `,
+                        'bg-surface-hard font-bold text-content-primary hover:bg-surface-hard-hover',
                     )}
                     onClick={() => {
                       setMinute(i);

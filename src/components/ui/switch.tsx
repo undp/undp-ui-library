@@ -6,15 +6,15 @@ import { cn } from '@/lib/utils';
 import { P } from './typography';
 
 const switchVariants = cva(
-  'peer inline-flex h-[30px] w-[60px] shrink-0 cursor-pointer items-center rounded-full transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-offset-primary-blue-100 disabled:cursor-not-allowed disabled:opacity-50',
+  'peer inline-flex h-[30px] w-[60px] shrink-0 cursor-pointer items-center rounded-full transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-offset-ring disabled:cursor-not-allowed disabled:opacity-disabled',
   {
     variants: {
       color: {
-        blue: 'bg-primary-gray-400 data-[state=checked]:bg-primary-blue-600 dark:bg-primary-gray-550 dark:data-[state=checked]:bg-primary-blue-400',
-        red: 'bg-primary-gray-400 data-[state=checked]:bg-accent-dark-red dark:bg-primary-gray-550 dark:data-[state=checked]:bg-accent-red',
-        black:
-          'bg-primary-gray-400 data-[state=checked]:bg-primary-gray-600 dark:bg-primary-gray-550 dark:data-[state=checked]:bg-primary-gray-300',
-        custom: 'bg-primary-gray-400 data-[state=checked]:bg-custom-color-600',
+        primary: 'bg-surface-hard data-[state=checked]:bg-primary',
+        secondary: 'bg-surface-hard data-[state=checked]:bg-secondary',
+        tertiary: 'bg-surface-hard data-[state=checked]:bg-tertiary',
+        quaternary: 'bg-surface-hard data-[state=checked]:bg-quaternary',
+        foreground: 'bg-surface-hard data-[state=checked]:bg-foreground',
       },
       size: {
         small: 'h-[20px] w-[40px]',
@@ -22,14 +22,14 @@ const switchVariants = cva(
       },
     },
     defaultVariants: {
-      color: 'blue',
+      color: 'primary',
       size: 'normal',
     },
   },
 );
 
 const thumbVariant = cva(
-  'bg-primary-white pointer-events-none block rounded-full shadow-lg ring-0 transition-transform data-[state=unchecked]:translate-x-[4px] data-[state=unchecked]:rtl:translate-x-[-2px]',
+  'bg-background pointer-events-none block rounded-full shadow-lg ring-0 transition-transform data-[state=unchecked]:translate-x-[4px] data-[state=unchecked]:rtl:translate-x-[-2px]',
   {
     variants: {
       size: {
@@ -75,7 +75,7 @@ const Switch = React.forwardRef<
   ) => {
     const [value, setValue] = useState(props.defaultChecked || false);
     return (
-      <div className='flex gap-2 items-center'>
+      <div className='flex items-center gap-2'>
         <SwitchPrimitives.Root
           {...props}
           className={cn(switchVariants({ color, size }), className)}
@@ -90,8 +90,8 @@ const Switch = React.forwardRef<
               size={size === 'normal' ? 14 : 10}
               className={
                 size === 'normal'
-                  ? 'ml-2 rtl:mr-2 rtl:ml-0 text-primary-white'
-                  : 'ml-1 rtl:mr-1 rtl:ml-0 text-primary-white'
+                  ? 'ml-2 text-content-reverse rtl:mr-2 rtl:ml-0'
+                  : 'ml-1 text-content-reverse rtl:mr-1 rtl:ml-0'
               }
             />
           ) : null}

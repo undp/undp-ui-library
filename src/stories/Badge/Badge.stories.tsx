@@ -11,18 +11,19 @@ const meta: Meta<typeof Badge> = {
     variant: {
       control: { type: 'select' },
       options: [
-        'light-gray',
-        'gray',
-        'dark-gray',
-        'blue',
-        'yellow',
-        'green',
-        'red',
-        'azure',
+        'surface-sm',
+        'surface',
+        'surface-xl',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'warning',
+        'success',
+        'error',
         'outline',
-        'custom',
       ],
-      defaultValue: { summary: 'light-gray' },
+      defaultValue: { summary: 'surface' },
     },
     size: {
       control: { type: 'select' },
@@ -33,12 +34,12 @@ const meta: Meta<typeof Badge> = {
     rounded: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['none', 'xs', 'sm', 'full'],
+      options: ['base', 'sm', 'md', 'lg', 'xl', '2xl', 'full'],
       defaultValue: { summary: 'full' },
     },
   },
   args: {
-    variant: 'light-gray',
+    variant: 'surface',
     size: 'base',
     rounded: 'full',
   },
@@ -47,7 +48,7 @@ const meta: Meta<typeof Badge> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Badge {...args}>Badge</Badge>

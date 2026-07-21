@@ -10,27 +10,53 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Separator,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: { type: 'inline-radio' },
-      options: ['dark', 'light'],
-      defaultValue: { summary: 'dark' },
+    color: {
+      control: { type: 'select' },
+      type: 'string',
+      options: [
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'background',
+        'background-soft',
+        'foreground',
+        'foreground-soft',
+        'surface',
+        'surface-2xs',
+        'surface-xs',
+        'surface-sm',
+        'surface-md',
+        'surface-lg',
+        'surface-xl',
+        'surface-2xl',
+        'surface-3xl',
+        'surface-4xl',
+      ],
+      defaultValue: { summary: 'surface' },
     },
     orientation: {
       control: { type: 'inline-radio' },
       options: ['horizontal', 'vertical'],
       defaultValue: { summary: 'horizontal' },
     },
+    thickness: {
+      control: { type: 'select' },
+      options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      defaultValue: { summary: 'xs' },
+    },
   },
   args: {
-    variant: 'dark',
+    color: 'surface',
     orientation: 'horizontal',
+    thickness: 'xs',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Separator {...args} />

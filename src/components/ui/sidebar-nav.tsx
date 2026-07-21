@@ -7,8 +7,8 @@ const sidebarVariants = cva('w-full @2xl:w-1/2 @3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5'
   variants: {
     variant: {
       noEffect: '',
-      background: 'bg-primary-gray-100 dark:bg-primary-gray-650',
-      border: 'border-r border-r-primary-gray-300 dark:border-r-primary-gray-600',
+      background: 'bg-surface',
+      border: 'border-r border-r-stroke',
     },
   },
   defaultVariants: { variant: 'background' },
@@ -113,7 +113,7 @@ const SidebarItem = React.forwardRef<
       {...props}
       ref={ref}
       className={cn(
-        'text-primary-black dark:text-primary-white text-base bg-transparent p-4 flex gap-2 items-center border-0 cursor-pointer hover:bg-primary-gray-300 dark:hover:bg-primary-gray-600',
+        'flex w-full cursor-pointer items-center gap-2 border-0 bg-transparent p-4 text-base text-content-primary hover:bg-surface-hover',
         className,
         classNames?.controls,
         selectedValue === value && classNames?.active,

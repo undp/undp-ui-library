@@ -31,7 +31,7 @@ const Li = React.forwardRef<HTMLLIElement, React.ComponentPropsWithoutRef<'li'>>
     <li
       {...props}
       ref={ref}
-      className={cn('mb-6 pl-3 text-base md:text-xl rtl:pr-3 rtl:pl-0', className)}
+      className={cn('mb-6 pl-3 text-p-xs md:text-p-sm lg:text-p-md rtl:pr-3 rtl:pl-0', className)}
     />
   ),
 );

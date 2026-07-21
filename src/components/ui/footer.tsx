@@ -6,19 +6,16 @@ function Footer({ className, children, ...props }: React.HTMLAttributes<HTMLElem
   return (
     <footer
       {...props}
-      className={cn(
-        'bg-primary-blue-600 text-primary-white w-full pt-14 px-3 pb-12 h-auto',
-        className,
-      )}
+      className={cn('h-auto w-full bg-secondary px-3 pt-14 pb-12 text-content-reverse', className)}
     >
-      <div className={cn('w-full sm:w-[83.333%] mx-auto')}>{children}</div>
+      <div className={cn('mx-auto w-full sm:w-[83.333%]')}>{children}</div>
     </footer>
   );
 }
 
 function FooterContent({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('w-full sm:w-[83.333%] mx-auto h-auto', className)} {...props}>
+    <div className={cn('mx-auto h-auto w-full sm:w-[83.333%]', className)} {...props}>
       {children}
     </div>
   );
@@ -28,27 +25,29 @@ function FooterLogoUnit({
   className,
   link,
   children,
+  locale = 'en',
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
   link?: string;
+  locale?: 'en' | 'fr' | 'es';
 }) {
   return (
     <div
       {...props}
       className={cn(
-        'flex gap-x-4 gap-y-6 justify-between mb-8 flex-wrap pt-0 px-3 pb-12 border-b-primary-white border-b items-center',
+        'mb-8 flex flex-wrap items-center justify-between gap-x-4 gap-y-6 border-b border-b-background px-3 pt-0 pb-12',
         className,
       )}
     >
-      <div className='flex items-center m-0 gap-4'>
+      <div className='m-0 flex items-center gap-4'>
         <a href={link || './'} target='_blank' rel='noreferrer'>
           <img
             alt='undp logo'
-            src='https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/undp-logo-white.svg'
+            src={`https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/${locale === 'es' || locale === 'fr' ? 'pnud' : 'undp'}-logo-white.svg`}
             className='w-[60px]'
           />
         </a>
-        <H5 className='text-primary-white leading-[1.15]' marginBottom='none'>
+        <H5 className='text-content-reverse' marginBottom='none'>
           United Nations
           <br />
           Development Programme
@@ -79,18 +78,18 @@ function FooterCopyrightUnit({
   return (
     <div
       {...props}
-      className={cn('flex justify-between flex-wrap items-center mt-6 gap-y-6 gap-x-4', className)}
+      className={cn('mt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-6', className)}
     >
-      <P className='m-0 md:m-0 py-0 px-0 text-[14px] md:text-base font-sans'>
+      <P className='m-0 px-0 py-0 text-content-reverse text-sm md:m-0 md:text-base lg:text-base'>
         © United Nations Development Programme
       </P>
-      <div className='flex gap-x-4 gap-y-6 flex-wrap'>
+      <div className='flex flex-wrap gap-x-4 gap-y-6'>
         {children}
         <a
           href='https://www.undp.org/copyright-terms-use'
           target='_blank'
           rel='noopener noreferrer'
-          className='font-sans text-[14px] md:text-base text-primary-white hover:text-primary-blue-100'
+          className='text-content-reverse text-sm hover:text-blue-100 md:text-base'
         >
           Terms of use
         </a>

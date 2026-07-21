@@ -35,7 +35,7 @@ function FileUpload({
 
   return (
     <>
-      <div className={cn('flex flex-col items-center gap-4 mb-2.5 w-full', props.className)}>
+      <div className={cn('mb-2.5 flex w-full flex-col items-center gap-4', props.className)}>
         <input
           {...props}
           id={idForHtml}
@@ -47,9 +47,9 @@ function FileUpload({
         {/* Custom Upload Button */}
         <label htmlFor={idForHtml} className='flex w-full'>
           {children || (
-            <div className='flex flex-col w-full bg-primary-gray-200 dark:bg-primary-gray-600 px-4 py-6 items-center gap-2 border border-primary-gray-300 dark:border-primary-gray-550'>
-              <Upload className='w-7 h-7 stroke-1 stroke-primary-gray-500 dark:stroke-primary-gray-400' />
-              <P className='text-primary-gray-550 dark:text-primary-gray-300 text-sm md:text-sm'>
+            <div className='flex w-full cursor-pointer flex-col items-center gap-2 rounded-base bg-surface px-4 py-6 text-content-primary hover:bg-surface-hover'>
+              <Upload className='h-7 w-7' strokeWidth={1} />
+              <P className='text-content-primary' size='sm' marginBottom='none'>
                 Click on this area to upload
               </P>
             </div>
@@ -59,18 +59,16 @@ function FileUpload({
       {files.length > 0 ? (
         <>
           <Label>File(s) uploaded</Label>
-          <div className='w-full flex flex-wrap gap-2.5 justify-left mt-1'>
+          <div className='justify-left mt-1 flex w-full flex-wrap gap-2.5'>
             {files?.map((file, index) => (
               <Badge
                 key={file.name}
-                variant='gray'
-                className='flex gap-4 bg-primary-gray-200 dark:bg-primary-gray-600 border border-primary-gray-300 dark:border-primary-gray-600 pr-4 pl-4'
+                variant='surface'
+                className='flex gap-4 border border-stroke bg-surface pr-4 pl-4'
               >
-                <span className='truncate text-primary-gray-500 dark:text-primary-gray-400 text-base'>
-                  {file.name}
-                </span>
+                <span className='truncate text-base text-content-primary'>{file.name}</span>
                 <Button variant='icon' padding='none' onClick={() => handleRemoveFile(index)}>
-                  <Trash2 className='w-4 h-4 stroke-accent-red' />
+                  <Trash2 className='h-4 w-4 stroke-error' />
                 </Button>
               </Badge>
             ))}

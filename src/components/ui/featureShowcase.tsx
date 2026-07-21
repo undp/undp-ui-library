@@ -9,10 +9,7 @@ const FeatureShowcase = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(
-        '@container w-full flex flex-wrap gap-0 bg-primary-gray-200 dark:bg-primary-gray-250 items-stretch',
-        className,
-      )}
+      className={cn('@container flex w-full flex-wrap items-stretch gap-0 bg-surface', className)}
       {...props}
     />
   ),
@@ -23,7 +20,7 @@ const FeatureShowcaseIntro = React.forwardRef<HTMLDivElement, React.HTMLAttribut
     <div
       ref={ref}
       className={cn(
-        'flex flex-col justify-center box-border mx-0 @5xl:mx-[8.3333%] p-6 w-full @5xl:w-[calc(50%-16.6666%)] @5xl:p-8',
+        '@5xl:mx-[8.3333%] mx-0 box-border flex @5xl:w-[calc(50%-16.6666%)] w-full flex-col justify-center @5xl:p-8 p-6',
         className,
       )}
       {...props}
@@ -39,10 +36,7 @@ const FeatureShowcaseIntroTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <H2
     ref={ref}
-    className={cn(
-      'text-left rtl:text-right text-primary-gray-700 dark:text-primary-gray-100',
-      className,
-    )}
+    className={cn('text-left text-content-primary rtl:text-right', className)}
     {...props}
   />
 ));
@@ -55,10 +49,7 @@ const FeatureShowcaseIntroBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <P
     ref={ref}
-    className={cn(
-      'text-left rtl:text-right text-primary-gray-700 dark:text-primary-gray-100',
-      className,
-    )}
+    className={cn('text-left text-content-primary rtl:text-right', className)}
     {...props}
   />
 ));
@@ -113,17 +104,17 @@ function FeatureShowcaseCard(props: {
     };
   }, [emblaApi]);
   return (
-    <div className={cn('flex flex-col gap-0 w-full @5xl:w-1/2', className)}>
+    <div className={cn('flex @5xl:w-1/2 w-full flex-col gap-0', className)}>
       <div className='mx-auto w-full'>
         <div className='relative overflow-hidden' ref={emblaRef}>
           <div className='flex'>
             {items.map((d) => (
               <div
-                className='flex-[0_0_100%] min-w-0 border-b-16'
+                className='min-w-0 flex-[0_0_100%] border-b-16'
                 key={`${d.section}_${d.index}`}
                 style={{ borderColor: d.stripColor || 'var(--blue-600)' }}
               >
-                <div className='h-full flex flex-col'>
+                <div className='flex h-full flex-col'>
                   <div className='h-[40vh] w-full overflow-hidden'>
                     <img
                       alt='card header'
@@ -133,22 +124,22 @@ function FeatureShowcaseCard(props: {
                   </div>
 
                   <div
-                    className={`grow box-border w-full bg-white dark:bg-primary-gray-650 px-4 @5xl:px-10 pb-24 ${showTabs ? 'pt-24' : 'pt-10'}`}
+                    className={`box-border w-full grow bg-white @5xl:px-10 px-4 pb-24 ${showTabs ? 'pt-24' : 'pt-10'}`}
                   >
-                    <div className='w-full @5xl:w-3/4'>{d.content}</div>
+                    <div className='@5xl:w-3/4 w-full'>{d.content}</div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
           {showTabs && (
-            <div className='absolute top-[40vh] px-4 @5xl:px-10 flex gap-2 pt-10 justify-between box-border w-full'>
-              <div className='flex gap-4 items-center border-b-2 border-primary-gray-300 mb-[8px]'>
+            <div className='absolute top-[40vh] box-border flex w-full justify-between gap-2 @5xl:px-10 px-4 pt-10'>
+              <div className='mb-[8px] flex items-center gap-4 border-stroke border-b-2'>
                 {sections.map((d) => (
                   <button
                     type='button'
                     key={d.section}
-                    className={`shrink-0 uppercase font-sans bg-transparent border-b-2 ${items[selectedIndex].section === d.section ? 'border-accent-red' : 'border-primary-gray-300'} font-base font-bold -mb-[2px]`}
+                    className={`shrink-0 border-b-2 bg-transparent font-body uppercase ${items[selectedIndex].section === d.section ? 'border-primary' : 'border-stroke'} -mb-[2px] font-base font-bold`}
                     onClick={() =>
                       emblaApi?.scrollTo(items.findIndex((el) => el.section === d.section))
                     }
@@ -157,43 +148,43 @@ function FeatureShowcaseCard(props: {
                   </button>
                 ))}
               </div>
-              <div className='hidden @5xl:inline'>
+              <div className='@5xl:inline hidden'>
                 <P
                   marginBottom='none'
                   size='base'
-                  className='uppercase font-sans bg-transparent font-bold -mb-[2px]'
+                  className='-mb-[2px] bg-transparent font-body font-bold uppercase'
                 >
                   {items[selectedIndex].index}/{items[selectedIndex].total}
                 </P>
               </div>
             </div>
           )}
-          <div className='absolute bottom-10 left-4 left-4 @5xl:left-auto @5xl:right-4 flex justify-between items-center w-[calc(100%-32px)] @5xl:w-auto'>
+          <div className='absolute @5xl:right-4 bottom-10 @5xl:left-auto left-4 left-4 flex @5xl:w-auto w-[calc(100%-32px)] items-center justify-between'>
             <div className='flex gap-1'>
               <button
                 type='button'
                 aria-label='Go to next page'
                 onClick={goToPrev}
                 disabled={!canPrev}
-                className='p-2 bg-primary-gray-700 dark:bg-primary-gray-100 rtl:scale-x-[-1] rounded-full disabled:bg-primary-gray-400'
+                className='rounded-full bg-foreground-soft p-2 text-content-reverse disabled:opacity-disabled rtl:scale-x-[-1]'
               >
-                <ChevronLeft className='h-6 w-6 stroke-primary-gray-100 dark:stroke-primary-gray-700' />
+                <ChevronLeft className='h-6 w-6' />
               </button>
               <button
                 type='button'
                 onClick={goToNext}
                 aria-label='Go to next page'
                 disabled={!canNext}
-                className='p-2 bg-primary-gray-700 dark:bg-primary-gray-100 rtl:scale-x-[-1] rounded-full disabled:bg-primary-gray-400'
+                className='rounded-full bg-foreground-soft p-2 text-content-reverse disabled:opacity-disabled rtl:scale-x-[-1]'
               >
-                <ChevronRight className='h-6 w-6 stroke-primary-gray-100 dark:stroke-primary-gray-700' />
+                <ChevronRight className='h-6 w-6' />
               </button>
             </div>
             <div className='inline @5xl:hidden'>
               <P
                 marginBottom='none'
                 size='base'
-                className='uppercase font-sans bg-transparent font-bold -mb-[2px]'
+                className='-mb-[2px] bg-transparent font-body font-bold uppercase'
               >
                 {items[selectedIndex].index}/{items[selectedIndex].total}
               </P>

@@ -21,7 +21,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${direction} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Header>

@@ -8,6 +8,7 @@ export function DateTimeRangePicker({
   classNames,
   variant,
   inputSize,
+  rounded,
   onValueChange,
   value,
   defaultValue,
@@ -15,6 +16,7 @@ export function DateTimeRangePicker({
 }: {
   variant?: 'light' | 'normal';
   inputSize?: 'sm' | 'base';
+  rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   classNames?: {
     popOverTrigger?: string;
     popOverContent?: string;
@@ -49,6 +51,7 @@ export function DateTimeRangePicker({
           setStartDate(value);
         }}
         placeHolder='Start date and time'
+        rounded={rounded}
         disablePopover={disablePopover}
         variant={variant}
         inputSize={inputSize}
@@ -82,7 +85,7 @@ export function DateTimeRangePicker({
             : []
         }
       />
-      <div className='text-input-border size-4'>
+      <div className='size-4 text-input-border'>
         <ArrowRight size={16} />
       </div>
       <DateTimePicker
@@ -90,6 +93,7 @@ export function DateTimeRangePicker({
           setEndDate(value);
         }}
         placeHolder='End date and time'
+        rounded={rounded}
         disablePopover={disablePopover}
         variant={variant}
         inputSize={inputSize}

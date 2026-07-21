@@ -177,7 +177,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
         {autoScroll ? (
           <div
             className={cn(
-              'w-full h-4 bg-primary-gray-300 dark:bg-primary-gray-600 rounded-full overflow-hidden mb-4',
+              'mb-4 h-4 w-full overflow-hidden rounded-full bg-surface-sm',
               classNames?.progressBarBg,
             )}
             style={styles?.progressBarBg}
@@ -194,7 +194,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
         <div
           ref={WrapperRef}
           className={cn(
-            'mr-auto ml-auto mb-0 undp-scrollbar w-full pb-4 gap-6 flex snap-x snap-mandatory scroll-p-0 scroll-pl-0 overflow-x-auto',
+            'undp-scrollbar mr-auto mb-0 ml-auto flex w-full snap-x snap-mandatory scroll-p-0 scroll-pl-0 gap-6 overflow-x-auto pb-4',
             className,
           )}
           {...props}
@@ -206,22 +206,22 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
               ref={(el) => {
                 slideRefs.current[i] = el;
               }}
-              className={`flex box-border flex-wrap w-full shrink-0 snap-start ${vizWidth === 'full' ? 'flex-col items-start' : 'flex-row items-stretch'}`}
+              className={`box-border flex w-full shrink-0 snap-start flex-wrap ${vizWidth === 'full' ? 'flex-col items-start' : 'flex-row items-stretch'}`}
             >
               <div
                 style={styles?.content}
                 className={cn(cardVariants({ vizWidth }), classNames?.content)}
               >
                 <div className='min-w-60 grow sm:grow-0'>{d.content}</div>
-                <div className={`flex ${slideNo ? 'gap-2' : 'gap-3'} items-center shrink-0`}>
+                <div className={`flex ${slideNo ? 'gap-2' : 'gap-3'} shrink-0 items-center`}>
                   <button
                     style={styles?.arrowButton}
                     type='button'
                     className={cn(
-                      `rounded-full pr-1 w-9 h-9 @3xl:w-12 @3xl:h-12 border-0 flex items-center justify-center rtl:rotate-180`,
+                      `flex @3xl:h-12 h-9 @3xl:w-12 w-9 items-center justify-center rounded-full border-0 bg-foreground pr-1 rtl:rotate-180`,
                       slide === 1
-                        ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed'
-                        : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200',
+                        ? 'cursor-not-allowed opacity-disabled'
+                        : 'cursor-pointer hover:bg-forground-soft',
                       classNames?.arrowButton,
                     )}
                     onClick={() => {
@@ -235,23 +235,20 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                   >
                     <ChevronLeft
                       style={styles?.arrows}
-                      className={cn(
-                        'w-6 h-6 text-primary-white dark:text-primary-gray-700',
-                        classNames?.arrows,
-                      )}
+                      className={cn('h-6 w-6 text-content-reverse', classNames?.arrows)}
                     />
                   </button>
                   {slideNo ? (
-                    <P marginBottom='none' className='px-2! shrink-0'>
+                    <P marginBottom='none' className='shrink-0 px-2!'>
                       {slide} / {slides.length}
                     </P>
                   ) : null}
                   <button
                     className={cn(
-                      `rounded-full pl-1 w-9 h-9 @3xl:w-12 @3xl:h-12 border-0 flex items-center justify-center rtl:rotate-180`,
+                      `flex @3xl:h-12 h-9 @3xl:w-12 w-9 items-center justify-center rounded-full border-0 bg-foreground pl-1 rtl:rotate-180`,
                       slide === slides.length
-                        ? 'bg-primary-gray-400 dark:bg-primary-gray-550 cursor-not-allowed'
-                        : 'cursor-pointer bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-600 dark:hover:bg-primary-gray-200',
+                        ? 'cursor-not-allowed opacity-disabled'
+                        : 'cursor-pointer hover:bg-forground-soft',
                       classNames?.arrowButton,
                     )}
                     type='button'
@@ -267,10 +264,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                   >
                     <ChevronRight
                       style={styles?.arrows}
-                      className={cn(
-                        'w-6 h-6 text-primary-white dark:text-primary-gray-700',
-                        classNames?.arrows,
-                      )}
+                      className={cn('h-6 w-6 text-content-reverse', classNames?.arrows)}
                     />
                   </button>
                   {autoScroll ? (
@@ -278,7 +272,7 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                       type='button'
                       style={styles?.playPauseButton}
                       className={cn(
-                        'rounded-full w-9 h-9 @3xl:w-12 @3xl:h-12 border-2 border-primary-gray-600 dark:border-primary-white flex items-center justify-center cursor-pointer bg-transparent hover:bg-primary-gray-100 dark:hover:bg-primary-gray-600',
+                        'flex @3xl:h-12 h-9 @3xl:w-12 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-stroke-2xl bg-transparent hover:bg-surface-hover',
                         classNames?.playPauseButton,
                       )}
                       onClick={() => {
@@ -289,19 +283,13 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                         <PlayIcon
                           style={styles?.playPauseIcon}
                           strokeWidth={2}
-                          className={cn(
-                            'w-6 h-6 text-primary-gray-700 dark:text-primary-white',
-                            classNames?.playPauseIcon,
-                          )}
+                          className={cn('h-6 w-6 text-content-primary', classNames?.playPauseIcon)}
                         />
                       ) : (
                         <PauseIcon
                           strokeWidth={2}
                           style={styles?.playPauseIcon}
-                          className={cn(
-                            'w-6 h-6 text-primary-gray-700 dark:text-primary-white',
-                            classNames?.playPauseIcon,
-                          )}
+                          className={cn('h-6 w-6 text-content-primary', classNames?.playPauseIcon)}
                         />
                       )}
                     </button>

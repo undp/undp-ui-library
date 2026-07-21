@@ -29,7 +29,7 @@ const PageWideCard = React.forwardRef<HTMLDivElement, CardProps>(
       ref={ref}
       className={cn(
         cardVariants({ imageWidth }),
-        border === false ? '' : 'border-t-2 border-primary-black dark:border-primary-gray-100',
+        border === false ? '' : 'border-foreground border-t-2',
         className,
       )}
       {...props}
@@ -43,7 +43,7 @@ const PageWideCardContent = React.forwardRef<HTMLDivElement, CardProps>(
     <div
       ref={ref}
       {...props}
-      className={cn('card-content flex flex-col justify-between pl-4 rtl:pl-0 rtl:pr-4', className)}
+      className={cn('card-content flex flex-col justify-between pl-4 rtl:pr-4 rtl:pl-0', className)}
     />
   ),
 );
@@ -56,7 +56,7 @@ PageWideCardHeader.displayName = 'PageWideCardHeader';
 
 const PageWideCardContainer = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} {...props} className={cn('flex flex-row gap-6 items-stretch', className)} />
+    <div ref={ref} {...props} className={cn('flex flex-row items-stretch gap-6', className)} />
   ),
 );
 PageWideCardContainer.displayName = 'PageWideCardContainer';
@@ -65,10 +65,7 @@ const PageWideCardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(
-        'pt-4 pb-2 flex flex-wrap gap-4 text-primary-black dark:text-primary-white',
-        className,
-      )}
+      className={cn('flex flex-wrap gap-4 pt-4 pb-2 text-content-primary', className)}
       {...props}
     />
   ),
@@ -80,7 +77,7 @@ const PageWideCardTag = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     <div
       ref={ref}
       className={cn(
-        'flex font-sans gap-2 w-full mt-0 mb-0 pt-4 pl-6 pr-6 [dir-rtl]:pr-6 rtl:pl-6 pb-4 md:mb-0 text-xs font-bold leading-[1.15] text-primary-black dark:text-primary-white uppercase',
+        'mt-0 mb-0 flex w-full gap-2 pt-4 pr-6 pb-4 pl-6 font-body font-bold text-content-primary text-xs uppercase leading-[1.15] md:mb-0 rtl:pl-6 [dir-rtl]:pr-6',
         className,
       )}
       {...props}
@@ -96,7 +93,7 @@ const PageWideCardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
     <div
       ref={ref}
       className={cn(
-        'flex gap-2 m-0 font-sans pl-0 pr-0 pt-12 pb-8 text-primary-black dark:text-primary-white leading-[1.15] font-normal text-[1.563rem] md:text-[2.188rem]',
+        'm-0 flex gap-2 pt-12 pr-0 pb-8 pl-0 font-body font-normal text-content-primary text-h4-xs md:text-h4-sm lg:text-h4',
         className,
       )}
       {...props}
@@ -114,7 +111,7 @@ const PageWideCardDescription = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      `pl-0 pr-0 pt-0 pb-6 mt-0 text-base font-sans leading-[1.4] md:text-xl flex flex-col gap-2 text-primary-black dark:text-primary-white`,
+      'mt-0 flex flex-col gap-2 pt-0 pr-0 pb-6 pl-0 font-body text-content-primary text-p-xs md:text-p-sm lg:text-p',
       className,
     )}
     {...props}

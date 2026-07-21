@@ -13,18 +13,18 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     color: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: { summary: 'red' },
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'foreground'],
+      defaultValue: { summary: 'primary' },
     },
     defaultValue: { control: { type: 'text' } },
   },
-  args: { defaultValue: 'tab 1', color: 'red' },
+  args: { defaultValue: 'tab 1', color: 'primary' },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Tabs {...args}>

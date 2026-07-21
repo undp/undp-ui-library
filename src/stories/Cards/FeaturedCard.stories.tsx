@@ -19,8 +19,26 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   argTypes: {
     backgroundColor: {
       control: { type: 'select' },
-      options: ['blue', 'azure', 'yellow', 'red', 'green', 'none'],
-      defaultValue: { summary: 'yellow' },
+      options: [
+        'transparent',
+        'background',
+        'background-soft',
+        'foreground',
+        'foreground-soft',
+        'surface',
+        'surface-xl',
+        'surface-2xl',
+        'surface-3xl',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'success',
+        'error',
+        'info',
+        'warning',
+      ],
+      defaultValue: { summary: 'white' },
     },
     size: {
       control: { type: 'select' },
@@ -29,7 +47,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'background',
     size: 'base',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
@@ -37,7 +55,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <FeaturedCard {...args}>

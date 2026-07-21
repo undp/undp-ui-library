@@ -43,7 +43,7 @@ function MarkdownRenderer({
           h1: (props) => (
             <h1
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 font-bold uppercase mb-3 md:mb-4 text-[2.938rem] md:text-[5.125rem] lg:text-[6.25rem] tracking-[0.06rem] leading-[1.08]',
+                'mt-0 mr-0 mb-3 ml-0 p-0 font-bold font-heading text-h1-xs uppercase tracking-[0.06rem] md:mb-4 md:text-h1-sm lg:text-h1',
                 classNames?.h1,
               )}
               {...props}
@@ -52,7 +52,7 @@ function MarkdownRenderer({
           h2: (props) => (
             <h2
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] font-bold leading-[1.1]',
+                'mt-0 mr-0 mb-3 ml-0 p-0 font-bold font-inherit text-h2-xs md:mb-4 md:text-h2-sm lg:text-h2',
                 classNames?.h2,
               )}
               {...props}
@@ -61,7 +61,7 @@ function MarkdownRenderer({
           h3: (props) => (
             <h3
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[1.875rem] md:text-[2.188rem] font-semibold leading-[1.15]',
+                'mt-0 mr-0 mb-3 ml-0 p-0 font-inherit font-semibold text-h3-xs md:mb-4 md:text-h3-sm lg:text-h3',
                 classNames?.h3,
               )}
               {...props}
@@ -70,7 +70,7 @@ function MarkdownRenderer({
           h4: (props) => (
             <h4
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[1.563rem] md:text-[2.188rem] font-normal leading-[1.15]',
+                'mt-0 mr-0 mb-3 ml-0 p-0 font-inherit font-normal text-h4-xs md:mb-4 md:text-h4-sm lg:text-h4',
                 classNames?.h4,
               )}
               {...props}
@@ -79,7 +79,7 @@ function MarkdownRenderer({
           h5: (props) => (
             <h5
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[1.25rem] md:text-[1.563rem] font-normal leading-[1.15]',
+                'mt-0 mr-0 mb-3 ml-0 p-0 font-inherit font-normal text-h5-xs md:mb-4 md:text-h5-sm lg:text-h5',
                 classNames?.h5,
               )}
               {...props}
@@ -88,7 +88,7 @@ function MarkdownRenderer({
           h6: (props) => (
             <h6
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-base font-bold leading-[1.15] uppercase tracking-[0.48px]',
+                'mt-0 mr-0 mb-3 ml-0 p-0 font-bold font-inherit text-h6-xs uppercase tracking-[0.48px] md:mb-4 md:text-h6-sm lg:text-h6',
                 classNames?.h6,
               )}
               {...props}
@@ -97,7 +97,7 @@ function MarkdownRenderer({
           cite: (props) => (
             <cite
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-xl md:text-2xl leading-[1.1] block font-normal',
+                'mt-0 mr-0 mb-3 ml-0 block p-0 font-inherit font-normal text-h5-xs md:mb-4 md:text-h5-sm lg:text-h5',
                 classNames?.cite,
               )}
               {...props}
@@ -106,7 +106,7 @@ function MarkdownRenderer({
           code: (props) => (
             <code
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 font-mono mt-0 text-base bg-primary-gray-200 dark:bg-primary-gray-600 px-2 pb-2 text-primary-black dark:text-primary-white',
+                'm-0 bg-surface px-1 pb-1 font-mono text-content-primary text-p-xs md:text-p-sm lg:text-p',
                 classNames?.code,
               )}
               {...props}
@@ -115,7 +115,7 @@ function MarkdownRenderer({
           blockquote: (props) => (
             <blockquote
               className={cn(
-                'mt-0 ml-0 mr-0 p-0 mb-3 md:mb-4 text-[1.625rem] md:text-[2.188rem] font-semibold leading-[1.1] md:leading-[1.25]',
+                'm-0 font-inherit font-semibold text-h4-xs md:text-h4-sm lg:text-h4',
                 classNames?.blockquote,
               )}
               {...props}
@@ -123,18 +123,15 @@ function MarkdownRenderer({
           ),
           p: (props) => (
             <p
-              className={cn(
-                'mt-0 ml-0 mr-0 text-base md:text-xl leading-[1.4] mb-5',
-                classNames?.p,
-              )}
+              className={cn('mt-0 mr-0 mb-5 ml-0 text-p-xs md:text-p-sm lg:text-p', classNames?.p)}
               {...props}
             />
           ),
           a: (props) => (
             <a
               className={cn(
-                'undp-link light text-primary-black dark:text-primary-white dark:text-primary-white bg-double-red dark:bg-double-white',
-                'cursor-pointer no-underline focus-visible:outline-hidden focus-visible:shadow-[0_0_0_#0468b1]',
+                'undp-link bg-double-primary font-inherit text-content-primary',
+                'cursor-pointer no-underline focus-visible:shadow-[0_0_0_var(--ring)] focus-visible:outline-hidden',
                 classNames?.a,
               )}
               {...props}
@@ -144,49 +141,41 @@ function MarkdownRenderer({
           ol: (props) => <ol className={cn('pl-6 rtl:pr-6 rtl:pl-0', classNames?.ol)} {...props} />,
           li: (props) => (
             <li
-              className={cn('mb-6 pl-3 text-base md:text-xl rtl:pr-3 rtl:pl-0', classNames?.li)}
+              className={cn(
+                'mb-6 pl-3 text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-0',
+                classNames?.li,
+              )}
               {...props}
             />
           ),
           hr: (props) => (
             <hr
-              className={cn(
-                'border-0 h-[1px] w-full bg-primary-gray-600 dark:bg-primary-gray-200 mb-4',
-                classNames?.hr,
-              )}
+              className={cn('mb-4 h-[1px] w-full border-0 bg-surface-hard', classNames?.hr)}
               {...props}
             />
           ),
           pre: (props) => (
-            <pre
-              className={cn(
-                'p-4 mb-3 md:mb-4 bg-primary-gray-200 dark:bg-primary-gray-600',
-                classNames?.pre,
-              )}
-              {...props}
-            />
+            <pre className={cn('mb-3 bg-surface p-4 md:mb-4', classNames?.pre)} {...props} />
           ),
           table: (props) => (
-            <table className={cn('w-full caption-bottom mb-4', classNames?.table)} {...props} />
+            <table className={cn('mb-4 w-full caption-bottom', classNames?.table)} {...props} />
           ),
           thead: (props) => <thead className={classNames?.thead} {...props} />,
           th: (props) => (
             <th
               className={cn(
-                'bg-primary-gray-300 text-xl leading-[1.4] dark:bg-primary-gray-600 py-3 pl-3 pr-10 rtl:pr-3 rtl:pl-10 text-left rtl:text-right align-middle font-semibold whitespace-nowrap',
+                'whitespace-nowrap bg-surface py-3 pr-10 pl-3 text-left align-middle font-semibold text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 rtl:text-right [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
                 classNames?.th,
               )}
               {...props}
             />
           ),
           tbody: (props) => <tbody className={classNames?.tbody} {...props} />,
-          tr: (props) => (
-            <tr className={cn('border-b border-primary-gray-400', classNames?.tr)} {...props} />
-          ),
+          tr: (props) => <tr className={cn('border-stroke border-b', classNames?.tr)} {...props} />,
           td: (props) => (
             <td
               className={cn(
-                'align-middle py-3 pl-3 pr-10 rtl:pr-3 text-xl rtl:pl-10 whitespace-nowrap',
+                'whitespace-nowrap py-3 pr-10 pl-3 align-middle text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
                 classNames?.td,
               )}
               {...props}

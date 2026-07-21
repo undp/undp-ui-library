@@ -23,7 +23,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <H3 {...args}>Heading 3</H3>

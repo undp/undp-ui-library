@@ -1,6 +1,6 @@
 import * as ToastPrimitives from '@radix-ui/react-toast';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { CircleCheckBig, CircleX, TriangleAlert, X } from 'lucide-react';
+import { CircleCheckBig, CircleX, Info, TriangleAlert, X } from 'lucide-react';
 import React from 'react';
 
 import { cn } from '@/lib/utils';
@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 const ToastProvider = ToastPrimitives.Provider;
 
 const ToastContext = React.createContext<{
-  variant: 'default' | 'success' | 'warning' | 'destructive' | null | undefined;
+  variant: 'default' | 'success' | 'warning' | 'destructive' | 'info' | null | undefined;
 } | null>(null);
 
 const ToastViewport = React.forwardRef<
@@ -19,7 +19,7 @@ const ToastViewport = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'fixed top-0 z-100 flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]',
+      'fixed top-0 z-100 flex max-h-screen w-full flex-col-reverse p-4 sm:top-auto sm:right-0 sm:bottom-0 sm:flex-col md:max-w-[420px]',
       className,
     )}
   />
@@ -27,17 +27,15 @@ const ToastViewport = React.forwardRef<
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
 
 const toastVariants = cva(
-  'group pointer-events-auto relative shadow-xs bg-primary-white dark:bg-primary-gray-650 flex w-full text-primary-black dark:text-primary-white items-center justify-between flex gap-2 overflow-hidden rounded-sm border border-primary-gray-400 p-2 pr-6 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full sm:data-[state=open]:slide-in-from-bottom-full',
+  'group pointer-events-auto relative shadow-xs bg-primary-white flex w-full text-content-primary items-center justify-between flex gap-2 overflow-hidden rounded-sm border border-stroke p-2 pr-6 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full sm:data-[state=open]:slide-in-from-bottom-full',
   {
     variants: {
       variant: {
-        default: 'border border-primary-gray-400 dark:border-0',
-        success:
-          'border-t-4 border-accent-dark-green dark:border-b-0 dark:border-l-0 dark:border-r-0',
-        warning:
-          'border-t-4 border-accent-dark-yellow dark:border-b-0 dark:border-l-0 dark:border-r-0',
-        destructive:
-          'border-t-4 border-accent-dark-red dark:border-b-0 dark:border-l-0 dark:border-r-0',
+        default: 'border border-stroke',
+        success: 'border-t-4 border-success',
+        warning: 'border-t-4 border-warning',
+        info: 'border-t-4 border-info',
+        destructive: 'border-t-4 border-error',
       },
     },
     defaultVariants: { variant: 'default' },
@@ -47,10 +45,11 @@ const toastVariants = cva(
 const toastTitleVariants = cva('', {
   variants: {
     variant: {
-      default: 'text-primary-black dark:text-primary-white',
-      success: 'text-accent-dark-green',
-      warning: 'text-accent-dark-yellow',
-      destructive: 'text-accent-dark-red',
+      default: 'text-content-primary',
+      success: 'text-success',
+      warning: 'text-warning',
+      info: 'text-info',
+      destructive: 'text-error',
     },
   },
   defaultVariants: { variant: 'default' },
@@ -80,7 +79,7 @@ const ToastAction = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'inline-flex h-8 shrink-0 items-center text-primary-gray-700 dark:text-primary-gray-100 justify-center rounded-none bg-transparent px-3 text-sm font-medium transition-colors hover:bg-primary-gray-200 dark:hover:bg-primary-gray-600 focus:outline-hidden focus:ring-1 disabled:pointer-events-none disabled:opacity-50',
+      'inline-flex h-8 shrink-0 items-center justify-center rounded-none bg-transparent px-3 font-medium text-content-primary text-sm transition-colors hover:bg-surface focus:outline-hidden focus:ring-1 disabled:pointer-events-none disabled:opacity-disabled',
       className,
     )}
   />
@@ -95,7 +94,7 @@ const ToastClose = React.forwardRef<
     {...props}
     ref={ref}
     className={cn(
-      'absolute right-1 top-1 rounded-md p-1 text-primary-gray-700/50 dark:text-primary-gray-100/50 opacity-0 transition-opacity hover:text-primary-gray-700 dark:hover:text-primary-gray-100 focus:opacity-100 focus:outline-hidden focus:ring-1 group-hover:opacity-100',
+      'absolute top-1 right-1 rounded-md p-1 text-content-primary/50 opacity-0 transition-opacity hover:text-content-primary focus:opacity-100 focus:outline-hidden focus:ring-1 group-hover:opacity-100',
       className,
     )}
     toast-close=''
@@ -119,20 +118,23 @@ const ToastTitle = React.forwardRef<
   let icon: React.ReactNode = null;
   switch (context?.variant) {
     case 'destructive':
-      icon = <CircleX className='h-4 w-4 stroke-accent-dark-red' strokeWidth={2} />;
+      icon = <CircleX className='h-4 w-4 stroke-error' strokeWidth={2} />;
       break;
     case 'success':
-      icon = <CircleCheckBig className='h-4 w-4 stroke-accent-dark-green' strokeWidth={2} />;
+      icon = <CircleCheckBig className='h-4 w-4 stroke-success' strokeWidth={2} />;
       break;
     case 'warning':
-      icon = <TriangleAlert className='h-4 w-4 stroke-accent-dark-yellow' strokeWidth={2} />;
+      icon = <TriangleAlert className='h-4 w-4 stroke-warning' strokeWidth={2} />;
+      break;
+    case 'info':
+      icon = <Info className='h-4 w-4 stroke-info' strokeWidth={2} />;
       break;
     default:
       icon = null;
       break;
   }
   return (
-    <div className='flex gap-x-1 items-center'>
+    <div className='flex items-center gap-x-1'>
       {icon}
       <ToastPrimitives.Title {...props} ref={ref} className={combinedClasses} />
     </div>
@@ -147,7 +149,7 @@ const ToastDescription = React.forwardRef<
   <ToastPrimitives.Description
     {...props}
     ref={ref}
-    className={cn('text-base opacity-90 dark:text-primary-white', className)}
+    className={cn('text-base text-content-secondary opacity-90', className)}
   />
 ));
 ToastDescription.displayName = ToastPrimitives.Description.displayName;

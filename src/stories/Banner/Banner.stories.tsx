@@ -14,16 +14,17 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'select' },
       options: [
         'transparent',
-        'white',
-        'gray',
-        'dark-gray',
-        'black',
-        'blue',
-        'azure',
-        'yellow',
-        'red',
-        'green',
-        'custom',
+        'background',
+        'background-soft',
+        'foreground',
+        'foreground-soft',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'success',
+        'warning',
+        'error',
       ],
       defaultValue: { summary: 'transparent' },
     },
@@ -49,7 +50,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {
-    backgroundColor: 'gray',
+    backgroundColor: 'transparent',
     padding: 'base',
     bodyMaxWidth: 'full',
     bodyGap: 'base',
@@ -60,7 +61,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Banner {...args}>

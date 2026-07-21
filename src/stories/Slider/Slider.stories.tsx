@@ -10,11 +10,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: SliderUI,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
+    color: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: 'red',
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'foreground'],
+      defaultValue: 'primary',
     },
     min: {
       control: { type: 'number' },
@@ -53,13 +53,14 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     showHandleValue: false,
     disabled: false,
     range: false,
+    color: 'primary',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <SliderUI

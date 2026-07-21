@@ -16,6 +16,12 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       options: ['light', 'normal'],
       defaultValue: { summary: 'normal' },
     },
+    color: {
+      control: { type: 'inline-radio' },
+      type: 'string',
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'foreground'],
+      defaultValue: { summary: 'primary' },
+    },
     size: {
       control: { type: 'inline-radio' },
       type: 'string',
@@ -42,6 +48,10 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       type: 'boolean',
       defaultValue: { summary: false },
     },
+    showCheck: {
+      type: 'boolean',
+      defaultValue: { summary: true },
+    },
     maxTagCount: {
       type: 'number',
     },
@@ -49,18 +59,20 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   args: {
     variant: 'normal',
     size: 'base',
+    color: 'primary',
     truncateLabel: false,
     isClearable: false,
     isSearchable: false,
     isMulti: false,
     isDisabled: false,
+    showCheck: true,
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <DropdownSelect
@@ -71,7 +83,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             {
               label: 'Fruits',
               options: [
-                { value: 'apple', label: 'Apple' },
+                {
+                  value: 'apple',
+                  label:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed ultricies felis, vitae congue sapien. Donec et facilisis nisi, a placerat justo. In hac habitasse platea dictumst. Cras fermentum congue iaculis. Suspendisse urna urna, lacinia vitae efficitur ac, posuere et arcu. Duis elementum, diam quis consequat scelerisque, purus nisl porttitor libero, cursus volutpat diam lectus et lectus. Duis vitae magna et eros fermentum lobortis.',
+                },
                 { value: 'orange', label: 'Orange' },
               ],
             },

@@ -7,7 +7,8 @@ interface CheckboxGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
   defaultValue?: string[];
   value?: string[];
   onValueChange?: (value: string[]) => void;
-  color?: 'blue' | 'red' | 'black' | 'custom' | undefined;
+  color?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'foreground' | undefined;
+  rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   variant?: 'light' | 'normal' | undefined;
 }
 
@@ -15,17 +16,22 @@ interface CheckboxGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
 const CheckboxGroupContext = React.createContext<{
   selectedValues: string[];
   onValueChange: (value: string, checked: boolean) => void;
-  color?: 'blue' | 'red' | 'black' | 'custom' | undefined;
+  color?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'foreground' | undefined;
+  rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   variant?: 'light' | 'normal' | undefined;
 }>({
   selectedValues: [],
   onValueChange: () => {},
   color: undefined,
+  rounded: undefined,
   variant: undefined,
 });
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
-  ({ className, children, value, variant, color, onValueChange, defaultValue, ...props }, ref) => {
+  (
+    { className, children, value, rounded, variant, color, onValueChange, defaultValue, ...props },
+    ref,
+  ) => {
     // Internal state for uncontrolled usage
     const [internalValue, setInternalValue] = React.useState<string[]>(defaultValue || []);
 
@@ -65,7 +71,7 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
       <CheckboxGroupContext.Provider value={contextValue}>
         <div
           {...props}
-          className={cn('flex gap-x-4 gap-y-2 flex-row flex-wrap', className)}
+          className={cn('flex flex-row flex-wrap gap-x-4 gap-y-2', className)}
           ref={ref}
         >
           {children}
@@ -89,7 +95,8 @@ const CheckboxGroupItem = React.forwardRef<
   React.ComponentRef<typeof CheckboxPrimitive.Root>,
   CheckboxGroupItemProps
 >(({ value, ...props }, ref) => {
-  const { selectedValues, onValueChange, color, variant } = React.useContext(CheckboxGroupContext);
+  const { selectedValues, onValueChange, color, rounded, variant } =
+    React.useContext(CheckboxGroupContext);
 
   return (
     <Checkbox
@@ -97,6 +104,7 @@ const CheckboxGroupItem = React.forwardRef<
       {...props}
       value={value}
       color={color}
+      rounded={rounded}
       variant={variant}
       checked={selectedValues.includes(value)}
       onCheckedChange={(checked) => onValueChange(value, checked === true)}

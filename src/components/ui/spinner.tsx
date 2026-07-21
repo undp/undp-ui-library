@@ -5,12 +5,12 @@ import { cn } from '@/lib/utils';
 
 const loaderVariants = cva('animate-spin border-[5px] rounded-full inline-block box-border', {
   variants: {
-    variant: {
-      red: 'border-accent-dark-red dark:border-accent-red !border-b-primary-gray-300 dark:!border-b-primary-gray-550',
-      blue: 'border-primary-blue-600 dark:border-primary-blue-500 !border-b-primary-gray-300 dark:!border-b-primary-gray-550',
-      black:
-        'border-primary-gray-600 dark:border-primary-gray-200 !border-b-primary-gray-300 dark:!border-b-primary-gray-550',
-      custom: 'border-custom-color-600 !border-b-primary-gray-300 dark:!border-b-primary-gray-550',
+    color: {
+      primary: 'border-primary !border-b-stroke',
+      secondary: 'border-secondary !border-b-stroke',
+      tertiary: 'border-tertiary !border-b-stroke',
+      quaternary: 'border-stroke !border-b-quaternary',
+      foreground: 'border-foreground !border-b-stroke',
     },
     size: {
       sm: 'border-[2px] h-6 w-6',
@@ -20,26 +20,24 @@ const loaderVariants = cva('animate-spin border-[5px] rounded-full inline-block 
   },
   defaultVariants: {
     size: 'base',
-    variant: 'blue',
+    color: 'primary',
   },
 });
 
 export function Spinner({
   size,
-  variant,
+  color,
   show = true,
   children,
   className,
 }: VariantProps<typeof loaderVariants> & {
   show?: boolean;
   className?: string;
-  variant?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
-  size?: 'sm' | 'base' | 'lg';
   children?: React.ReactNode;
 }) {
   return (
     <span className={cn('flex-col items-center justify-center', show ? 'flex' : 'hidden')}>
-      <div className={cn(loaderVariants({ variant, size }), className)} />
+      <div className={cn(loaderVariants({ color, size }), className)} />
       {children}
     </span>
   );

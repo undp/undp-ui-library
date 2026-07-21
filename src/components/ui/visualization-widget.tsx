@@ -6,14 +6,7 @@ import { Button } from './button';
 const VisualizationWidget = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, children, ...props }, ref) => {
     return (
-      <div
-        className={cn(
-          '@container w-full border border-primary-gray-300 dark:border-primary-gray-600',
-          className,
-        )}
-        ref={ref}
-        {...props}
-      >
+      <div className={cn('@container w-full border border-stroke', className)} ref={ref} {...props}>
         {children}
       </div>
     );
@@ -69,14 +62,7 @@ const VisualizationWidgetHeader = React.forwardRef<HTMLDivElement, Visualization
     );
     return (
       <VisualizationWidgetHeaderContext.Provider value={contextValue}>
-        <div
-          className={cn(
-            'flex gap-0 w-full bg-primary-gray-300 dark:bg-primary-gray-600',
-            className,
-          )}
-          ref={ref}
-          {...props}
-        >
+        <div className={cn('flex w-full gap-0 bg-surface-sm', className)} ref={ref} {...props}>
           {children}
         </div>
       </VisualizationWidgetHeaderContext.Provider>
@@ -99,13 +85,9 @@ const VisualizationWidgetHeaderItem = React.forwardRef<
       {...props}
       onClick={() => onValueChange(value)}
       className={cn(
-        'flex border-0 flex-col grow cursor-pointer gap-1 items-center justify-center p-3 font-medium bg-primary-gray-100 dark:bg-primary-gray-650 text-primary-gray-500 dark:text-primary-white text-sm font-medium border-r border-r-primary-gray-400 dark:border-r-primary-gray-550 last:border-r-0',
-        selectedValue === value
-          ? activeItemClass || 'bg-primary-white text-primary-blue-600 dark:bg-primary-gray-700'
-          : '',
-        hoverItemClass
-          ? `hover:${hoverItemClass} dark:hover:${hoverItemClass}`
-          : 'hover:bg-primary-white dark:hover:bg-primary-gray-700',
+        'flex grow cursor-pointer flex-col items-center justify-center gap-1 border-0 border-r border-r-stroke bg-surface-2xs p-3 font-medium font-medium text-content-secondary text-sm last:border-r-0',
+        selectedValue === value ? activeItemClass || 'bg-background text-primary' : '',
+        hoverItemClass ? `hover:${hoverItemClass}` : 'hover:bg-background',
         className,
       )}
     >
@@ -122,7 +104,7 @@ const VisualizationWidgetBody = React.forwardRef<
   return (
     <div
       className={cn(
-        'flex gap-0 flex-wrap items-stretch max-h-none flex-col @3xl:max-h-[80vh] @3xl:flex-row',
+        'flex @3xl:max-h-[80vh] max-h-none @3xl:flex-row flex-col flex-wrap items-stretch gap-0',
         className,
       )}
       ref={ref}
@@ -150,16 +132,16 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
   return (
     <div
       className={cn(
-        'undp-scrollbar max-h-none @3xl:max-h-[80vh] bg-primary-gray-100 dark:bg-primary-gray-650 border-r-0 @3xl:border-r @3xl:border-r-primary-gray-400 dark:@3xl:border-r-primary-gray-600',
+        'undp-scrollbar @3xl:max-h-[80vh] max-h-none @3xl:border-r @3xl:border-r-stroke border-r-0 bg-surface',
         collapsed
-          ? 'w-full @3xl:w-[40px] py-4 px-2'
-          : 'w-full @3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5 p-4',
+          ? '@3xl:w-[40px] w-full px-2 py-4'
+          : '@3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5 w-full p-4',
         className,
       )}
       ref={ref}
       {...props}
     >
-      <div className='w-full hidden @3xl:block relative'>
+      <div className='relative @3xl:block hidden w-full'>
         {collapsible?.enabled !== false ? (
           <Button
             type='button'
@@ -167,7 +149,7 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
             size='sm'
             onClick={() => setCollapsed(!collapsed)}
             className={cn(
-              'flex rounded-full normal-case text-primary-gray-700 dark:text-primary-gray-700 w-6 h-6 absolute top-0 right-0 p-0',
+              'absolute top-0 right-0 flex h-6 w-6 rounded-full p-0 text-content-primary normal-case',
               collapsible?.triggerButtonClassName,
             )}
             style={collapsible?.triggerButtonStyles}
@@ -190,7 +172,7 @@ const VisualizationWidgetBodyContent = React.forwardRef<
   return (
     <div
       className={cn(
-        'flex flex-wrap undp-scrollbar flex-1 bg-primary-white dark:bg-primary-gray-700 max-h-none @3xl:max-h-[80vh] w-full',
+        'undp-scrollbar flex @3xl:max-h-[80vh] max-h-none w-full flex-1 flex-wrap bg-background',
         className,
       )}
       ref={ref}

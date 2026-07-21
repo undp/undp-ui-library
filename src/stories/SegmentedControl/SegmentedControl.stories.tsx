@@ -25,22 +25,28 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
     color: {
       control: { type: 'inline-radio' },
-      options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: { summary: 'red' },
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'foreground'],
+      defaultValue: { summary: 'primary' },
+    },
+    rounded: {
+      control: { type: 'inline-radio' },
+      options: ['base', 'sm', 'md', 'lg', 'xl', '2xl', 'full'],
+      defaultValue: { summary: 'base' },
     },
   },
   args: {
     defaultValue: 'option 1',
     size: 'base',
     variant: 'normal',
-    color: 'red',
+    color: 'primary',
+    rounded: 'base',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <SegmentedControl

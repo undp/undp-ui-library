@@ -13,8 +13,8 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     color: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: { summary: 'red' },
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'foreground'],
+      defaultValue: { summary: 'primary' },
     },
     size: {
       control: { type: 'inline-radio' },
@@ -25,7 +25,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     className: { control: { type: 'text' } },
   },
   args: {
-    color: 'red',
+    color: 'primary',
     size: 'normal',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
@@ -33,7 +33,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Switch

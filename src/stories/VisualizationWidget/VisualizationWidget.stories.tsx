@@ -27,7 +27,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     <div
       dir={direction}
       className={`p-4 ${theme} ${language} ${
-        theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+        theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
       }`}
     >
       <VisualizationWidget>
@@ -56,7 +56,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             <div className='bg-primary-blue-100' />
           </VisualizationWidgetBodySidebar>
           <VisualizationWidgetBodyContent>
-            <div className='h-96 bg-primary-gray-300 w-full dark:bg-primary-gray-700' />
+            <div className='h-96 w-full bg-surface-sm dark:bg-surface-2xl' />
           </VisualizationWidgetBodyContent>
         </VisualizationWidgetBody>
       </VisualizationWidget>

@@ -26,7 +26,7 @@ function Stepper({
     <ol
       {...props}
       className={cn(
-        'flex items-center list-none w-full text-base text-center text-primary-gray-700 dark:text-primary-white justify-between gap-3',
+        'flex w-full list-none items-center justify-between gap-3 text-center text-base text-content-primary',
         className,
       )}
     >
@@ -34,7 +34,7 @@ function Stepper({
         <li
           key={d.title}
           className={cn(
-            'flex items-center grow',
+            'flex grow items-center',
             i === steps.length - 1 ? 'grow-0' : 'grow',
             i + 1 < currentStep
               ? finishedStepsClassName
@@ -43,55 +43,47 @@ function Stepper({
                 : unfinishedStepsClassName,
           )}
         >
-          <div className='flex items-center gap-3 grow'>
+          <div className='flex grow items-center gap-3'>
             <div
               className={cn(
-                'w-8 h-8 rounded-full flex items-center justify-center shrink-0',
+                'flex h-8 w-8 shrink-0 items-center justify-center rounded-full',
                 i + 1 < currentStep
-                  ? 'bg-primary-blue-600 dark:bg-primary-blue-300'
+                  ? 'bg-info'
                   : i + 1 === currentStep
-                    ? 'bg-primary-gray-600 dark:bg-primary-gray-550'
-                    : 'bg-primary-gray-300 dark:bg-primary-gray-650',
+                    ? 'bg-foreground-soft'
+                    : 'bg-surface',
               )}
             >
               {i + 1 < currentStep ? (
-                <CheckIcon className='h-4 w-4 shrink-0 stroke-primary-white dark:stroke-primary-gray-700' />
+                <CheckIcon className='h-4 w-4 shrink-0 stroke-background' />
               ) : (
                 <div
                   className={
                     i + 1 === currentStep
-                      ? 'text-sm text-primary-white'
-                      : 'text-sm text-primary-gray-700 dark:text-primary-white'
+                      ? 'text-content-reverse text-sm'
+                      : 'text-content-primary text-sm'
                   }
                 >
                   {i + 1}
                 </div>
               )}
             </div>
-            <div className='flex flex-col shrink-0'>
+            <div className='flex shrink-0 flex-col'>
               <div
                 className={cn(
-                  'text-base text-left rtl:text-right font-normal',
-                  i + 1 < currentStep
-                    ? 'text-primary-blue-600 dark:text-primary-blue-300'
-                    : 'text-primary-gray-700 dark:text-primary-white',
+                  'text-left font-normal text-base rtl:text-right',
+                  i + 1 < currentStep ? 'text-info' : 'text-content-primary',
                 )}
               >
                 {d.title}
               </div>
               {d.description ? (
-                <div
-                  className={cn(
-                    'text-sm text-primary-gray-500 text-left rtl:text-right dark:text-primary-gray-400',
-                  )}
-                >
+                <div className={cn('text-left text-content-tertiary text-sm rtl:text-right')}>
                   {d.description}
                 </div>
               ) : null}
             </div>
-            {i === steps.length - 1 ? null : (
-              <div className='h-px bg-primary-gray-400 grow w-full dark:bg-primary-gray-550' />
-            )}
+            {i === steps.length - 1 ? null : <div className='h-px w-full grow bg-surface' />}
           </div>
         </li>
       ))}

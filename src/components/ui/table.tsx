@@ -20,7 +20,7 @@ function TableBody({ className, ...props }: React.ComponentProps<'tbody'>) {
   return (
     <tbody
       data-slot='table-body'
-      className={cn('[&>tr]:border-b [&>tr]:border-primary-gray-400', className)}
+      className={cn('[&>tr]:border-stroke [&>tr]:border-b', className)}
       {...props}
     />
   );
@@ -30,7 +30,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<'tfoot'>) {
   return (
     <tfoot
       data-slot='table-footer'
-      className={cn('font-medium border-b border-primary-gray-400', className)}
+      className={cn('border-stroke border-b font-medium', className)}
       {...props}
     />
   );
@@ -45,7 +45,7 @@ function TableHead({ className, ...props }: React.ComponentProps<'th'>) {
     <th
       data-slot='table-head'
       className={cn(
-        'bg-primary-gray-300 text-xl leading-[1.4] dark:bg-primary-gray-600 py-3 pl-3 pr-10 rtl:pr-3 rtl:pl-10 text-left rtl:text-right align-middle font-semibold whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+        'whitespace-nowrap bg-surface py-3 pr-10 pl-3 text-left align-middle font-semibold text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 rtl:text-right [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
         className,
       )}
       {...props}
@@ -58,7 +58,7 @@ function TableCell({ className, ...props }: React.ComponentProps<'td'>) {
     <td
       data-slot='table-cell'
       className={cn(
-        'align-middle py-3 pl-3 pr-10 rtl:pr-3 text-xl rtl:pl-10 whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+        'whitespace-nowrap py-3 pr-10 pl-3 align-middle text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
         className,
       )}
       {...props}
@@ -70,7 +70,7 @@ function TableCaption({ className, ...props }: React.ComponentProps<'caption'>) 
   return (
     <caption
       data-slot='table-caption'
-      className={cn('text-muted-foreground mt-4 text-sm', className)}
+      className={cn('mt-4 text-content-tertiary text-sm', className)}
       {...props}
     />
   );

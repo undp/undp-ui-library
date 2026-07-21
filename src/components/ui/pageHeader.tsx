@@ -30,10 +30,11 @@ const PageHeader = React.forwardRef<
           <div
             ref={ref}
             className={cn(
-              `${contentMode} w-full relative isolate flex flex-col @2xl:flex-row @2xl:items-stretch`,
+              'relative isolate flex w-full @2xl:flex-row flex-col @2xl:items-stretch',
+              contentMode === 'dark' ? 'text-content-reverse' : 'text-content-primary',
               minHeight
                 ? minHeight === true
-                  ? 'min-h-auto @2xl:min-h-[642px] @5xl:min-h-[746px]'
+                  ? '@2xl:min-h-[642px] @5xl:min-h-[746px] min-h-auto'
                   : minHeight
                 : '',
               className,
@@ -42,16 +43,16 @@ const PageHeader = React.forwardRef<
             {...props}
           >
             <div
-              className='absolute inset-0 @2xl:hidden bg-cover bg-center'
+              className='absolute inset-0 @2xl:hidden bg-center bg-cover'
               style={{
                 backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
               }}
             />
-            <div className='relative w-full @2xl:w-1/2 py-20 pl-4 @2xl:pl-[8.3333%] rtl:pr-4 rtl:pl-0 @2xl:rtl:pr-0 flex flex-col gap-4'>
+            <div className='relative flex @2xl:w-1/2 w-full flex-col gap-4 py-20 @2xl:pl-[8.3333%] pl-4 @2xl:rtl:pr-0 rtl:pr-4 rtl:pl-0'>
               {children}
             </div>
             <div
-              className='hidden @2xl:block @2xl:w-1/2 bg-cover bg-center'
+              className='@2xl:block hidden @2xl:w-1/2 bg-center bg-cover'
               style={{
                 backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
               }}
@@ -65,10 +66,10 @@ const PageHeader = React.forwardRef<
         <div
           ref={ref}
           className={cn(
-            `${contentMode} bg-cover bg-center w-full py-20 pl-4 @2xl:pl-[8.3333%] rtl:pr-4 rtl:pl-0 @2xl:rtl:pr-[8.3333%] @2xl:rtl:pl-0 flex flex-col gap-4`,
+            `${contentMode} flex w-full flex-col gap-4 bg-center bg-cover py-20 @2xl:pl-[8.3333%] pl-4 @2xl:rtl:pr-[8.3333%] rtl:pr-4 @2xl:rtl:pl-0 rtl:pl-0`,
             minHeight
               ? minHeight === true
-                ? 'min-h-auto @2xl:min-h-[642px] @5xl:min-h-[746px]'
+                ? '@2xl:min-h-[642px] @5xl:min-h-[746px] min-h-auto'
                 : minHeight
               : '',
             className,
@@ -89,7 +90,7 @@ PageHeader.displayName = 'PageHeader';
 
 const PageHeaderHead = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('py-0 px-4 @2xl:py-4 @2xl:px-4', className)} {...props} />
+    <div ref={ref} className={cn('@2xl:px-4 px-4 @2xl:py-4 py-0', className)} {...props} />
   ),
 );
 PageHeaderHead.displayName = 'PageHeaderHead';
@@ -99,7 +100,7 @@ const PageHeaderContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
     <div
       ref={ref}
       className={cn(
-        'p-4 w-full @2xl:w-[66.667%] grow flex flex-col gap-6 justify-center',
+        'flex @2xl:w-[66.667%] w-full grow flex-col justify-center gap-6 p-4',
         className,
       )}
       {...props}

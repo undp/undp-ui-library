@@ -10,12 +10,21 @@ import { Popover, PopoverContent, PopoverTrigger } from './popover';
 type SingleCalendarProps = Omit<PropsSingle, 'mode' | 'onSelect'>;
 
 const datePickerVariants = cva(
-  'w-full h-auto flex gap-2 items-center bg-primary-white dark:bg-primary-gray-650 text-primary-black dark:text-primary-white text-base transition-colors file:border-0 file:bg-transparent file:font-medium file:text-primary-gray-700 dark:file:text-primary-white focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-primary-gray-550 dark:placeholder:text-primary-gray-400',
+  'w-full h-auto bg-background rounded-base text-content-primary text-base transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-disabled placeholder:text-content-placeholder',
   {
     variants: {
       variant: {
-        light: 'border border-primary-gray-400 dark:border-primary-gray-500',
-        normal: 'border-2 border-primary-black dark:border-primary-gray-300',
+        light: 'border border-stroke',
+        normal: 'border-2 border-foreground',
+      },
+      rounded: {
+        base: 'rounded',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-xl',
+        '2xl': 'rounded-2xl',
+        full: 'rounded-full',
       },
       inputSize: {
         sm: 'px-2.5 py-1',
@@ -25,6 +34,7 @@ const datePickerVariants = cva(
     defaultVariants: {
       inputSize: 'base',
       variant: 'normal',
+      rounded: 'base',
     },
   },
 );
@@ -92,32 +102,30 @@ export function DateRangePicker({
       <PopoverTrigger
         className={cn(datePickerVariants({ inputSize, variant }), classNames?.popOverTrigger)}
       >
-        <CalendarIcon className={cn('text-input-border size-4', classNames?.popOverTriggerIcon)} />
+        <CalendarIcon
+          className={cn('size-4 text-content-placeholder', classNames?.popOverTriggerIcon)}
+        />
         {range.from ? (
           <div className='flex grow items-center gap-4'>
-            <p className='font-sans mt-1 p-0 text-primary-gray-700 dark:text-primary-gray-100 grow text-left'>
+            <p className='mt-1 grow p-0 text-left font-body text-content-primary'>
               {format(range.from, 'MMM d, yyyy')}
             </p>
-            <ArrowRight size={14} className='text-foreground' />
+            <ArrowRight size={14} className='text-content-primary' />
             {range.to ? (
-              <p className='font-sans mt-1 p-0 text-primary-gray-700 dark:text-primary-gray-100 grow text-left'>
+              <p className='mt-1 grow p-0 text-left font-body text-content-primary'>
                 {format(range.to, 'MMM d, yyyy')}
               </p>
             ) : (
-              <div className='text-primary-gray-550 dark:text-primary-gray-400 grow text-left'>
+              <div className='grow text-left text-content-placeholder'>
                 {selectingStart ? 'Start date' : 'End date'}
               </div>
             )}
           </div>
         ) : (
           <div className='flex grow items-center gap-4'>
-            <p className='font-sans mt-1 p-0 text-primary-gray-550 dark:text-primary-gray-400 grow text-left'>
-              Start date
-            </p>
-            <ArrowRight size={14} className='text-foreground' />
-            <p className='font-sans mt-1 p-0 text-primary-gray-550 dark:text-primary-gray-400 grow text-left'>
-              End date
-            </p>
+            <p className='mt-1 grow p-0 text-left font-body text-content-placeholder'>Start date</p>
+            <ArrowRight size={14} className='text-content-primary' />
+            <p className='mt-1 grow p-0 text-left font-body text-content-placeholder'>End date</p>
           </div>
         )}
       </PopoverTrigger>

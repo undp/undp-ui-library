@@ -12,32 +12,33 @@ interface SliderProps extends React.ComponentPropsWithoutRef<typeof Slider> {
   railClassName?: string;
   handleClassName?: string;
   showHandleValue?: boolean;
-  variant?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
+  color?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'foreground' | null | undefined;
 }
 
 const trackVariants = cva('h-1', {
   variants: {
-    variant: {
-      red: 'bg-accent-red!',
-      blue: 'bg-primary-blue-400!',
-      black: 'bg-primary-gray-600! dark:bg-primary-gray-200!',
-      custom: 'bg-custom-color-400!',
+    color: {
+      primary: 'bg-primary!',
+      secondary: 'bg-secondary!',
+      tertiary: 'bg-tertiary!',
+      quaternary: 'bg-quaternary!',
+      foreground: 'bg-foreground!',
     },
   },
-  defaultVariants: { variant: 'red' },
+  defaultVariants: { color: 'primary' },
 });
 
 const handleVariants = cva('rounded-full border-2 opacity-100!', {
   variants: {
-    variant: {
-      red: 'border-accent-red! bg-accent-red!',
-      blue: 'border-primary-blue-600! bg-primary-blue-600!',
-      black:
-        'border-primary-gray-600! bg-primary-gray-600! dark:border-primary-gray-200! dark:bg-primary-gray-200!',
-      custom: 'bg-custom-color-600! border-custom-color-600!',
+    color: {
+      primary: 'border-primary! bg-primary!',
+      secondary: 'border-secondary! bg-secondary!',
+      tertiary: 'border-tertiary! bg-tertiary!',
+      quaternary: 'border-quaternary! bg-quaternary!',
+      foreground: 'border-foreground! bg-foreground!',
     },
   },
-  defaultVariants: { variant: 'red' },
+  defaultVariants: { color: 'primary' },
 });
 
 function SliderUI(sliderProps: SliderProps) {
@@ -50,11 +51,11 @@ function SliderUI(sliderProps: SliderProps) {
     railClassName,
     sliderClassName,
     handleClassName,
-    variant,
+    color,
     showHandleValue = false,
   } = sliderProps;
   return (
-    <div className={cn('w-full py-6 px-4', className)}>
+    <div className={cn('[&_.rc-slider-disabled]:!bg-transparent w-full px-4 py-6', className)}>
       <Slider
         {...sliderProps}
         min={min}
@@ -65,7 +66,7 @@ function SliderUI(sliderProps: SliderProps) {
               {node}
               {showHandleValue ? (
                 <div
-                  className='px-1 bg-primary-gray-200 text-primary-black dark:text-primary-white dark:bg-primary-gray-650 border border-primary-gray-200 dark:border-primary-gray-600 text-sm mb-4'
+                  className='mb-4 border border-primary-gray-200 bg-surface px-1 text-content-primary text-sm'
                   style={{
                     left: node.props.style?.left,
                     position: 'absolute',
@@ -81,22 +82,28 @@ function SliderUI(sliderProps: SliderProps) {
         }}
         className={cn(
           'h-2',
-          disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
+          disabled ? 'cursor-not-allowed opacity-disabled' : 'cursor-pointer',
           sliderClassName,
         )}
         classNames={{
-          rail: cn('bg-primary-gray-300! h-1 dark:bg-primary-gray-550!', railClassName),
-          track: cn(trackVariants({ variant }), trackClassName),
-          handle: cn(handleVariants({ variant }), handleClassName),
+          rail: cn('bg-surface-sm! h-1', railClassName),
+          track: cn(trackVariants({ color }), trackClassName),
+          handle: cn(handleVariants({ color }), handleClassName),
         }}
-        dotStyle={{ borderColor: 'var(--gray-400)' }}
+        dotStyle={{ borderColor: 'var(--surface-md)' }}
         activeDotStyle={{
           borderColor:
-            variant === 'blue'
-              ? 'var(--blue-400)'
-              : variant === 'black'
-                ? 'var(--gray-550)'
-                : 'var(--red)',
+            color === 'primary'
+              ? 'var(--primary-hover)'
+              : color === 'secondary'
+                ? 'var(--secondary-hover)'
+                : color === 'tertiary'
+                  ? 'var(--tertiary-hover)'
+                  : color === 'quaternary'
+                    ? 'var(--quaternary-hover)'
+                    : color === 'foreground'
+                      ? 'var(--foreground-soft)'
+                      : 'var(--primary-hover)',
         }}
       />
     </div>

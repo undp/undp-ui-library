@@ -1,21 +1,21 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { cva } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { Circle } from 'lucide-react';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { cn, generateRandomId } from '@/lib/utils';
 import { Label } from './label';
 
 const radioVariants = cva(
-  'aspect-square h-4 w-4 bg-primary-white dark:bg-primary-gray-650 rounded-full text-primary-gray-700 dark:text-primary-white shadow-sm focus:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50',
+  'peer aspect-square h-4 w-4 bg-background rounded-full text-content-primary focus:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-disabled',
   {
     variants: {
       color: {
-        blue: 'border-primary-blue-600 hover:bg-primary-blue-100 dark:border-primary-blue-400 dark:hover:bg-primary-blue-200',
-        red: 'border-accent-dark-red hover:bg-accent-light-red dark:border-accent-red dark:hover:bg-accent-light-red',
-        black:
-          'border-primary-gray-700 hover:bg-primary-gray-400 dark:border-primary-gray-100 dark:hover:bg-primary-gray-550',
-        custom:
-          'border-custom-color-600 hover:bg-custom-color-100 dark:border-custom-color-400 dark:hover:bg-custom-color-200',
+        primary: 'border-primary group-hover:border-primary-light',
+        secondary: 'border-secondary group-hover:border-secondary-light',
+        tertiary: 'border-tertiary group-hover:border-tertiary-light',
+        quaternary: 'border-quaternary group-hover:border-quaternary-light',
+        foreground: 'border-foreground group-hover:border-foreground-soft',
+        surface: 'border-stroke group-hover:border-stroke-hover',
       },
       variant: {
         light: 'border',
@@ -23,7 +23,7 @@ const radioVariants = cva(
       },
     },
     defaultVariants: {
-      color: 'red',
+      color: 'primary',
       variant: 'normal',
     },
   },
@@ -32,10 +32,12 @@ const radioVariants = cva(
 const radioCheckVariants = cva('stroke-0', {
   variants: {
     color: {
-      blue: 'fill-primary-blue-600 dark:fill-primary-blue-400',
-      red: 'fill-accent-dark-red dark:fill-accent-red',
-      black: 'fill-primary-gray-700 dark:fill-primary-gray-100',
-      custom: 'fill-custom-color-600 dark:fill-custom-color-400',
+      primary: 'fill-primary',
+      secondary: 'fill-secondary',
+      tertiary: 'fill-tertiary',
+      quaternary: 'fill-quaternary',
+      foreground: 'fill-foreground',
+      surface: 'fill-surface',
     },
     variant: {
       light: 'h-1.5 w-1.5',
@@ -43,25 +45,20 @@ const radioCheckVariants = cva('stroke-0', {
     },
   },
   defaultVariants: {
-    color: 'red',
+    color: 'primary',
     variant: 'normal',
   },
 });
 
-const RadioGroupContext = React.createContext<{
-  color?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
-  variant?: 'light' | 'normal' | null | undefined;
-}>({
-  color: null,
-  variant: null,
+const RadioGroupContext = React.createContext<VariantProps<typeof radioVariants>>({
+  color: undefined,
+  variant: undefined,
 });
 
 const RadioGroup = React.forwardRef<
   React.ComponentRef<typeof RadioGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> & {
-    color?: 'blue' | 'red' | 'black' | 'custom' | null | undefined;
-    variant?: 'light' | 'normal' | null | undefined;
-  }
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> &
+    VariantProps<typeof radioVariants>
 >(({ className, color, variant, ...props }, ref) => {
   const contextValue = React.useMemo(
     () => ({
@@ -74,7 +71,7 @@ const RadioGroup = React.forwardRef<
     <RadioGroupContext.Provider value={contextValue}>
       <RadioGroupPrimitive.Root
         {...props}
-        className={cn('flex gap-x-4 gap-y-2 flex-row flex-wrap rtl:[direction:rtl]', className)}
+        className={cn('flex flex-row flex-wrap gap-x-4 gap-y-2 rtl:[direction:rtl]', className)}
         ref={ref}
       />
     </RadioGroupContext.Provider>
@@ -90,10 +87,10 @@ const RadioGroupItem = React.forwardRef<
     labelClassName?: string;
   }
 >(({ className, radioClassName, labelClassName, label, ...props }, ref) => {
-  const id = props.id || generateRandomId();
+  const id = useMemo(() => props.id || generateRandomId(), [props.id]);
   const { color, variant } = React.useContext(RadioGroupContext);
   return (
-    <div className={cn('flex flex-row gap-2 items-center', className)}>
+    <div className={cn('group flex flex-row items-center gap-2', className)}>
       <RadioGroupPrimitive.Item
         {...props}
         ref={ref}

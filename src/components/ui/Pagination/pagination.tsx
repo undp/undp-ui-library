@@ -19,7 +19,7 @@ const PaginationContent = React.forwardRef<HTMLUListElement, React.ComponentProp
     <ul
       {...props}
       ref={ref}
-      className={cn('flex flex-row items-center gap-1 list-none', className)}
+      className={cn('flex list-none flex-row items-center gap-1', className)}
     />
   ),
 );
@@ -41,10 +41,7 @@ function PaginationLink({
     <button
       {...props}
       type='button'
-      className={cn(
-        'p-4 text-base text-primary-black dark:text-primary-gray-100 dark:hover:bg-primary-gray-600',
-        className,
-      )}
+      className={cn('p-4 text-base text-content-primary', className)}
     >
       {children}
     </button>
@@ -58,11 +55,11 @@ function PaginationPrevious({ className, ...props }: React.ComponentProps<typeof
       {...props}
       aria-label='Go to previous page'
       className={cn(
-        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rtl:scale-x-[-1] rounded-full hover:bg-primary-gray-400 dark:hover:bg-primary-gray-550',
+        'rounded-full bg-surface p-2 hover:bg-surface-hover rtl:scale-x-[-1]',
         className,
       )}
     >
-      <ChevronLeft className='h-6 w-6 stroke-primary-gray-700 dark:stroke-primary-gray-100' />
+      <ChevronLeft className='h-6 w-6 stroke-foreground' />
     </PaginationLink>
   );
 }
@@ -74,11 +71,11 @@ function PaginationNext({ className, ...props }: React.ComponentProps<typeof Pag
       {...props}
       aria-label='Go to next page'
       className={cn(
-        'p-2 bg-primary-gray-300 dark:bg-primary-gray-600 rtl:scale-x-[-1] rounded-full hover:bg-primary-gray-400 dark:hover:bg-primary-gray-550',
+        'rounded-full bg-surface p-2 hover:bg-surface-hover rtl:scale-x-[-1]',
         className,
       )}
     >
-      <ChevronRight className='h-6 w-6 stroke-primary-gray-700 dark:stroke-primary-gray-100' />
+      <ChevronRight className='h-6 w-6 stroke-foreground' />
     </PaginationLink>
   );
 }
@@ -91,7 +88,7 @@ function PaginationEllipsis({ className, ...props }: React.ComponentProps<'span'
       aria-hidden
       className={cn('flex h-9 w-9 items-center justify-center', className)}
     >
-      <MoreHorizontal className='h-4 w-4 text-primary-gray-700 dark:text-primary-gray-100' />
+      <MoreHorizontal className='h-4 w-4 text-content-primary' />
       <span className='sr-only'>More pages</span>
     </span>
   );

@@ -9,7 +9,7 @@ function Calendar({
   classNames,
   showOutsideDays = true,
   captionLayout = 'label',
-  buttonVariant = 'link-without-icon',
+  buttonVariant = 'link',
   formatters,
   components,
   ...props
@@ -22,7 +22,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        'bg-primary-gray-100 group/calendar p-3 [--cell-size:2rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent',
+        'group/calendar bg-surface-2xs p-3 [--cell-size:2rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent',
         String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className,
@@ -42,12 +42,12 @@ function Calendar({
         ),
         button_previous: cn(
           buttonVariants({ variant: buttonVariant }),
-          'h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50',
+          'h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-disabled',
           defaultClassNames.button_previous,
         ),
         button_next: cn(
           buttonVariants({ variant: buttonVariant }),
-          'h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50',
+          'h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-disabled',
           defaultClassNames.button_next,
         ),
         month_caption: cn(
@@ -59,7 +59,7 @@ function Calendar({
           defaultClassNames.dropdowns,
         ),
         dropdown_root: cn(
-          'has-focus:border-primary-gray-700 border-input has-focus:ring-primary-gray-550 has-focus:ring-[1px] relative border',
+          'border-input has-focus:border-stroke has-focus:ring-ring has-focus:ring-[1px] relative border',
           defaultClassNames.dropdown_root,
         ),
         dropdown: cn('bg-popover absolute inset-0 opacity-0', defaultClassNames.dropdown),
@@ -67,37 +67,37 @@ function Calendar({
           'select-none font-medium',
           captionLayout === 'label'
             ? 'text-sm'
-            : '[&>svg]:text-muted-foreground flex h-8 items-center gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5',
+            : '[&>svg]:text-content-tertiary flex h-8 items-center gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5',
           defaultClassNames.caption_label,
         ),
         month_grid: cn('w-full border-collapse', defaultClassNames.month_grid),
         weekdays: cn('flex', defaultClassNames.weekdays),
         weekday: cn(
-          'text-muted-foreground flex-1 select-none rounded-md text-[0.8rem] font-normal',
+          'text-content-tertiary flex-1 select-none rounded-md text-[0.8rem] font-normal',
           defaultClassNames.weekday,
         ),
         week: cn('mt-2 flex w-full', defaultClassNames.week),
         week_number_header: cn('w-[--cell-size] select-none', defaultClassNames.week_number_header),
         week_number: cn(
-          'text-muted-foreground select-none text-[0.8rem]',
+          'text-content-tertiary select-none text-[0.8rem]',
           defaultClassNames.week_number,
         ),
         day: cn(
           'group/day relative aspect-square h-full w-full select-none p-0 text-center [&:first-child[data-selected=true]_button]:rounded-l-md [&:last-child[data-selected=true]_button]:rounded-r-md',
           defaultClassNames.day,
         ),
-        range_start: cn('bg-accent rounded-l-md', defaultClassNames.range_start),
+        range_start: cn('bg-surface-hard rounded-l-full', defaultClassNames.range_start),
         range_middle: cn('rounded-none', defaultClassNames.range_middle),
-        range_end: cn('bg-accent rounded-r-md', defaultClassNames.range_end),
+        range_end: cn('bg-surface-hard rounded-r-full', defaultClassNames.range_end),
         today: cn(
-          'bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none',
+          'bg-surface-hard text-content-primary rounded-md data-[selected=true]:rounded-none',
           defaultClassNames.today,
         ),
         outside: cn(
-          'text-muted-foreground aria-selected:text-muted-foreground',
+          'text-content-disabled aria-selected:text-content-disabled',
           defaultClassNames.outside,
         ),
-        disabled: cn('text-muted-foreground opacity-50', defaultClassNames.disabled),
+        disabled: cn('text-content-disabled', defaultClassNames.disabled),
         hidden: cn('invisible', defaultClassNames.hidden),
         ...classNames,
       }}
@@ -149,7 +149,8 @@ function CalendarDayButton({
   return (
     <Button
       ref={ref}
-      variant='link-without-icon'
+      variant='link'
+      arrow={false}
       data-day={day.date.toLocaleDateString()}
       data-selected-single={
         modifiers.selected &&
@@ -161,7 +162,7 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        'p-2 text-[14px]! data-[selected-single=true]:bg-primary-gray-400 data-[selected-single=true]:font-bold data-[selected-single=true]:text-primary-gray-700 data-[range-middle=true]:bg-primary-gray-300 data-[range-middle=true]:text-primary-gray-700 data-[range-start=true]:bg-primary-gray-400 data-[range-start=true]:text-primary-gray-700 data-[range-end=true]:bg-primary-gray-400 data-[range-end=true]:text-primary-gray-700 group-data-[focused=true]/day:border-primary-gray-600 group-data-[focused=true]/day:ring-primary-gray-600/50 flex aspect-square h-auto w-full min-w-[--cell-size] flex-col gap-1 font-normal leading-none data-[range-end=true]:rounded-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[1px] [&>span]:text-xs [&>span]:opacity-70',
+        'flex aspect-square h-auto w-full min-w-[--cell-size] flex-col gap-1 p-2 font-normal text-sm! leading-none data-[range-end=true]:rounded-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-end=true]:bg-surface-md data-[range-middle=true]:bg-surface data-[range-start=true]:bg-surface-hard data-[selected-single=true]:bg-surface-hard data-[selected-single=true]:font-bold data-[range-end=true]:text-content-primary data-[range-middle=true]:text-content-primary data-[range-start=true]:text-content-primary data-[selected-single=true]:text-content-primary group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:border-stroke-2xl group-data-[focused=true]/day:ring-[1px] group-data-[focused=true]/day:ring-stroke-2xl/50 [&>span]:text-xs [&>span]:opacity-70',
         defaultClassNames.day,
         className,
       )}

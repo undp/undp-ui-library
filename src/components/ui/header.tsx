@@ -8,7 +8,7 @@ function Header({ className, children, ...props }: React.HTMLAttributes<HTMLElem
     <header
       {...props}
       className={cn(
-        'bg-primary-gray-100 dark:bg-primary-gray-650 shadow-header left-0 top-0 w-full z-10 max-w-full flex py-0 px-6 gap-4 justify-between items-center box-border relative h-[75px] md:h-header',
+        'relative top-0 left-0 z-10 box-border flex h-[75px] w-full max-w-full items-center justify-between gap-4 bg-surface-2xs px-6 py-0 shadow-header md:h-header',
         className,
       )}
     >
@@ -35,20 +35,20 @@ function HeaderLogoUnit({
       <a
         href={hyperlink || './'}
         style={{ textDecoration: 'none' }}
-        className='logo-sub-head flex gap-6 items-center'
+        className='logo-sub-head flex items-center gap-6'
       >
         <img
           src={`https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/${logoLocale === 'es' || logoLocale === 'fr' ? 'pnud' : 'undp'}-logo-blue.svg`}
           alt='UNDP Logo'
-          className='w-[40px] h-[82px] md:w-[60px] md:h-[122px] z-100'
+          className='z-100 h-[82px] w-[40px] md:h-[122px] md:w-[60px]'
         />
         <div>
           {siteSubName ? (
-            <div className='leading-[1.142] border-b border-b-primary-gray-500 dark:border-b-primary-gray-550 pb-px uppercase font-semibold text-primary-gray-600 dark:text-primary-gray-200 pb-px mx-0 mt-0 mb-[4.8px] text-xs inline-block no-underline'>
+            <div className='mx-0 mt-0 mb-[4.8px] inline-block border-b border-b-primary-gray-500 pb-px pb-px font-semibold text-primary-gray-600 text-xs uppercase leading-[1.142] no-underline'>
               {siteSubName}
             </div>
           ) : null}
-          <div className='text-primary-black dark:text-primary-white p-0 m-0 no-underline text-base lg:text-xl font-semibold leading-[1.142]'>
+          <div className='m-0 p-0 font-semibold text-base text-content-primary leading-[1.142] no-underline lg:text-xl'>
             {siteName}
           </div>
         </div>
@@ -67,11 +67,11 @@ function HeaderMainNavUnit({
     <>
       <div
         {...props}
-        className={cn('grow justify-between gap-8 hidden text-sm uppercase md:flex', className)}
+        className={cn('hidden grow justify-between gap-8 text-sm uppercase md:flex', className)}
       >
         {children}
       </div>
-      <div {...props} className={cn('grow justify-end gap-8 flex md:hidden', className)}>
+      <div {...props} className={cn('flex grow justify-end gap-8 md:hidden', className)}>
         <button
           type='button'
           onClick={() => {
@@ -79,13 +79,24 @@ function HeaderMainNavUnit({
           }}
         >
           {showMenu ? (
-            <X className='w-6 h-6 stroke-primary-blue-600' />
+            <X className='h-6 w-6 stroke-secondary' />
           ) : (
-            <Menu className='w-6 h-6 stroke-primary-blue-600' />
+            <Menu className='h-6 w-6 stroke-secondary' />
           )}
         </button>
         {showMenu ? (
-          <div className='box-border h-[calc(100vh-75px)] left-0 m-0 overflow-y-auto p-[5.625rem_1.5rem_3.75rem] absolute top-full w-full backdrop-blur-[18px] bg-[rgba(247,247,247,0.8)] dark:bg-[rgba(59,72,89,0.8)]'>
+          // biome-ignore lint/a11y/noStaticElementInteractions: this is see if what is clicked is a link or not
+          <div
+            onClick={(e) => {
+              const target = e.target as HTMLElement;
+
+              if (target.closest('a')) {
+                setShowMenu(false);
+              }
+            }}
+            onKeyDown={() => {}}
+            className='absolute top-full left-0 m-0 box-border h-[calc(100vh-75px)] w-full overflow-y-auto bg-surface/80 p-[5.625rem_1.5rem_3.75rem] backdrop-blur-frosted'
+          >
             {children}
           </div>
         ) : null}
@@ -106,7 +117,7 @@ function HeaderMenuUnit({
     <div
       {...props}
       className={cn(
-        'grid gap-4 md:gap-8 tracking-[0.42px] font-medium text-primary-black dark:text-primary-gray-200 md:flex grow items-center md:gap-12 [&>a]:text-base [&>a]:font-bold [&>a]:uppercase [&>a]:text-primary-black dark:[&>a]:text-primary-gray-200 md:[&>a]:text-sm md:[&>a]:font-medium [&>a]:no-underline [&>a:hover]:text-primary-blue-600 dark:[&>a:hover]:text-primary-gray-100',
+        'grid grow items-center gap-4 font-medium text-content-primary tracking-[0.42px] md:flex md:gap-12 md:gap-8 [&>a:hover]:text-secondary [&>a]:font-bold [&>a]:text-base [&>a]:text-content-primary [&>a]:uppercase [&>a]:no-underline md:[&>a]:font-medium md:[&>a]:text-sm',
         align === 'end' ? 'md:justify-end' : 'md:justify-center',
         className,
       )}
@@ -120,7 +131,7 @@ function HeaderActions({ className, children, ...props }: React.HTMLAttributes<H
   return (
     <div
       {...props}
-      className={cn('flex mt-6 md:mt-0 md:justify-center gap-8 items-center', className)}
+      className={cn('mt-6 flex items-center gap-8 md:mt-0 md:justify-center', className)}
     >
       {children}
     </div>

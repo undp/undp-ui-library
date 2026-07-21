@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { UploadIcon } from 'lucide-react';
 import type React from 'react';
 
 import { FileUpload } from '@/index';
@@ -15,7 +14,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <FileUpload
@@ -23,12 +22,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             // biome-ignore lint/suspicious/noConsole: This is to test in storybook
             console.log(d);
           }}
-        >
-          <div className='flex flex-col px-4 py-6 gap-2 justify-center items-center w-full bg-primary-gray-200 border border-primary-gray-300'>
-            <UploadIcon />
-            Upload files
-          </div>
-        </FileUpload>
+        />
       </div>
     );
   },

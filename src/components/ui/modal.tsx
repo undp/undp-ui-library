@@ -56,8 +56,8 @@ function Modal(props: {
       <DialogContent
         inPortal={inPortal}
         className={cn(
-          'rounded-none p-16 max-w-(--breakpoint-xl) undp-scrollbar',
-          'data-[state=open]:animate-in data-[state=closed]:animate-out',
+          'undp-scrollbar max-w-(--breakpoint-xl) p-16',
+          'data-[state=closed]:animate-out data-[state=open]:animate-in',
           'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
           'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
           'data-[state=closed]:slide-out-to-top-[2%] data-[state=open]:slide-in-from-top-[2%]',
@@ -77,11 +77,11 @@ function Modal(props: {
               onClose?.();
             }}
             className={cn(
-              'absolute right-6 top-6 p-2 bg-primary-gray-200 dark:bg-primary-gray-600 rounded-full ring-offset-background transition-opacity hover:bg-primary-gray-300 dark:hover:bg-primary-gray-500 disabled:pointer-events-none data-[state=open]:bg-primary-gray-200 dark:data-[state=open]:bg-primary-gray-600 data-[state=open]:text-primary-gray-600',
+              'absolute top-6 right-6 rounded-full border border-stroke bg-surface p-2 ring-offset-background transition-opacity hover:bg-surface-hover disabled:pointer-events-none data-[state=open]:bg-surface data-[state=open]:text-content-primary',
               closeButtonClassName,
             )}
           >
-            <X className='h-6 w-6 stroke-primary-black dark:stroke-primary-gray-100' />
+            <X className='h-6 w-6' />
           </button>
         )}
 

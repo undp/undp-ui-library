@@ -8,23 +8,23 @@ const featuredCardVariants = cva(
   {
     variants: {
       backgroundColor: {
-        transparent: 'bg-transparent text-primary-black dark:text-primary-white',
-        white:
-          'bg-primary-white dark:bg-primary-gray-700 hover:bg-primary-gray-200 dark:hover:bg-primary-gray-600 text-primary-black dark:text-primary-white',
-        gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 hover:bg-primary-gray-300 dark:hover:bg-primary-gray-500 text-primary-black dark:text-primary-white',
-        'dark-gray':
-          'bg-primary-gray-600 dark:bg-primary-gray-300 hover:bg-primary-gray-500 dark:hover:bg-primary-gray-400 text-primary-white dark:text-primary-black',
-        black:
-          'bg-primary-gray-700 dark:bg-primary-gray-100 hover:bg-primary-gray-650 dark:hover:bg-primary-gray-300 text-primary-white dark:text-primary-black',
-        blue: 'bg-primary-blue-200 hover:bg-primary-blue-300 dark:bg-primary-blue-600 dark:hover:bg-primary-blue-500 text-primary-black dark:text-primary-white',
-        azure:
-          'bg-accent-light-azure hover:bg-accent-azure dark:bg-accent-dark-azure dark:hover:bg-accent-azure text-primary-black dark:text-primary-white',
-        yellow:
-          'bg-accent-light-yellow hover:bg-accent-yellow dark:bg-accent-dark-yellow dark:hover:bg-accent-yellow text-primary-black',
-        red: 'bg-accent-light-red hover:bg-accent-red dark:bg-accent-dark-red dark:hover:bg-accent-red text-primary-black dark:text-primary-white',
-        green:
-          'bg-accent-light-green hover:bg-accent-green dark:bg-accent-dark-green dark:hover:bg-accent-green text-primary-black dark:text-primary-white',
-        custom: 'bg-custom-color-200 hover:bg-custom-color-300 text-custom-foreground',
+        transparent: 'bg-transparent text-content-primary',
+        background: 'bg-background hover:bg-surface text-content-primary',
+        'background-soft': 'bg-background-soft hover:bg-surface-hover text-content-primary',
+        foreground: 'bg-foreground hover:bg-surface-3xl text-content-reverse',
+        'foreground-soft': 'bg-foreground-soft hover:bg-surface-3xl text-content-reverse',
+        surface: 'bg-surface hover:bg-surface-hover text-content-primary',
+        'surface-xl': 'bg-surface-xl hover:bg-surface-2xl text-content-reverse ',
+        'surface-2xl': 'bg-surface-2xl hover:bg-surface-3xl text-content-reverse ',
+        'surface-3xl': 'bg-surface-3xl hover:bg-surface-4xl text-content-reverse ',
+        primary: 'bg-primary hover:bg-primary-hover text-content-reverse',
+        secondary: 'bg-secondary hover:bg-secondary-hover text-content-reverse',
+        tertiary: 'bg-tertiary hover:bg-tertiary-hover text-content-reverse',
+        quaternary: 'bg-quaternary hover:bg-quaternary-hover text-content-primary',
+        success: 'bg-success hover:bg-success-hover text-content-reverse',
+        error: 'bg-error hover:bg-error-hover text-content-reverse',
+        warning: 'bg-warning hover:bg-warning-hover text-content-primary',
+        info: 'bg-info hover:bg-info-hover text-content-reverse',
       },
       size: {
         xs: 'w-1/4',
@@ -37,7 +37,7 @@ const featuredCardVariants = cva(
     },
     defaultVariants: {
       size: 'full',
-      backgroundColor: 'white',
+      backgroundColor: 'background',
     },
   },
 );
@@ -61,7 +61,7 @@ FeaturedCard.displayName = 'FeaturedCard';
 
 const FeaturedCardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('pl-6 pr-6 pb-6 flex flex-wrap gap-4', className)} {...props} />
+    <div ref={ref} className={cn('flex flex-wrap gap-4 pr-6 pb-6 pl-6', className)} {...props} />
   ),
 );
 FeaturedCardFooter.displayName = 'FeaturedCardFooter';
@@ -71,7 +71,7 @@ const FeaturedCardTag = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     <div
       ref={ref}
       className={cn(
-        'card-tag flex gap-2 mt-0 mb-0 pt-4 pl-6 font-sans pr-6 md:mb-0 text-xs font-bold leading-[1.15] uppercase',
+        'card-tag mt-0 mb-0 flex gap-2 pt-4 pr-6 pl-6 font-body font-bold text-xs uppercase leading-[1.15] md:mb-0',
         className,
       )}
       {...props}
@@ -87,7 +87,7 @@ const FeaturedCardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
     <div
       ref={ref}
       className={cn(
-        'flex flex-col justify-end grow m-0 pl-6 pr-6 mt-8 mb-3 leading-[1.15] flex gap-2 font-normal font-sans text-[2rem]',
+        'm-0 mt-8 mb-3 flex flex grow flex-col justify-end gap-2 pr-6 pl-6 font-body font-normal text-h4-xs md:text-h4-sm lg:text-h4',
         className,
       )}
       {...props}
@@ -104,7 +104,10 @@ const FeaturedCardDescription = React.forwardRef<
 >(({ children, className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(`pl-6 pr-6 pt-0 pb-6 mt-0 text-base font-sans leading-[1.4]`, className)}
+    className={cn(
+      'mt-0 pt-0 pr-6 pb-6 pl-6 font-body text-sm leading-[1.4] lg:text-base',
+      className,
+    )}
     {...props}
   >
     {children}

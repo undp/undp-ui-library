@@ -17,6 +17,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       options: ['sm', 'base'],
       defaultValue: { summary: 'base' },
     },
+    rounded: {
+      control: { type: 'select' },
+      options: ['base', 'sm', 'md', 'lg', 'xl', '2xl', 'full'],
+      defaultValue: 'base',
+    },
     inputVariant: {
       control: { type: 'inline-radio' },
       options: ['light', 'normal'],
@@ -24,7 +29,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
     buttonVariant: {
       control: { type: 'inline-radio' },
-      options: ['tertiary', 'icon'],
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'icon'],
       defaultValue: { summary: 'icon' },
     },
     searchOnlyOnClick: {
@@ -42,13 +47,14 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     inputSize: 'base',
     searchOnlyOnClick: false,
     showSearchButton: true,
+    rounded: 'base',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Search

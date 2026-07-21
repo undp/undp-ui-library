@@ -8,8 +8,8 @@ const paragraphVariant = cva('mt-0 ml-0 mr-0', {
     size: {
       xs: 'text-xs',
       sm: 'text-sm',
-      base: 'text-base',
-      'base-responsive': 'text-base md:text-xl',
+      base: 'text-p-sm',
+      'base-responsive': 'text-p-xs md:text-p-sm lg:text-p',
       lg: 'text-lg',
       xl: 'text-xl',
     },
@@ -84,7 +84,7 @@ const P = React.forwardRef<
   },
 );
 
-const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase font-heading', {
+const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase font-heading tracking-[0.06rem]', {
   variants: {
     marginBottom: {
       none: 'mb-0',
@@ -105,8 +105,8 @@ const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase font-heading', {
       extrabold: 'font-extrabold',
     },
     size: {
-      base: 'text-[2.938rem] md:text-[5.125rem] lg:text-[6.25rem] tracking-[0.06rem] leading-[1.08]',
-      sm: 'text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] leading-[1.1]',
+      base: 'text-h1-xs md:text-h1-sm lg:text-h1',
+      sm: 'text-h2-xs md:text-h2-sm lg:text-h2',
     },
     alignment: {
       left: 'text-left',
@@ -135,37 +135,34 @@ const H1 = React.forwardRef<
   </h1>
 ));
 
-const heading2Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-[2.5rem] md:text-[2.813rem] lg:text-[3.438rem] leading-[1.1] font-sans',
-  {
-    variants: {
-      marginBottom: {
-        none: 'mb-0',
-        '2xs': 'mb-1',
-        xs: 'mb-2',
-        sm: 'mb-3',
-        'base-responsive': 'mb-3 md:mb-4',
-        base: 'mb-4',
-        lg: 'mb-5',
-        xl: 'mb-6',
-      },
-      weight: {
-        light: 'font-light',
-        normal: 'font-normal',
-        medium: 'font-medium',
-        semibold: 'font-semibold',
-        bold: 'font-bold',
-        extrabold: 'font-extrabold',
-      },
-      alignment: {
-        left: 'text-left',
-        right: 'text-right',
-        center: 'text-center',
-      },
+const heading2Variant = cva('mt-0 ml-0 mr-0 p-0 font-body text-h2-xs md:text-h2-sm lg:text-h2', {
+  variants: {
+    marginBottom: {
+      none: 'mb-0',
+      '2xs': 'mb-1',
+      xs: 'mb-2',
+      sm: 'mb-3',
+      'base-responsive': 'mb-3 md:mb-4',
+      base: 'mb-4',
+      lg: 'mb-5',
+      xl: 'mb-6',
     },
-    defaultVariants: { marginBottom: 'base-responsive', weight: 'bold', alignment: 'left' },
+    weight: {
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
+      extrabold: 'font-extrabold',
+    },
+    alignment: {
+      left: 'text-left',
+      right: 'text-right',
+      center: 'text-center',
+    },
   },
-);
+  defaultVariants: { marginBottom: 'base-responsive', weight: 'bold', alignment: 'left' },
+});
 
 const H2 = React.forwardRef<
   HTMLHeadingElement,
@@ -180,37 +177,34 @@ const H2 = React.forwardRef<
   </h2>
 ));
 
-const heading3Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-[1.875rem] md:text-[2.188rem] leading-[1.15] font-sans',
-  {
-    variants: {
-      marginBottom: {
-        none: 'mb-0',
-        '2xs': 'mb-1',
-        xs: 'mb-2',
-        sm: 'mb-3',
-        'base-responsive': 'mb-3 md:mb-4',
-        base: 'mb-4',
-        lg: 'mb-5',
-        xl: 'mb-6',
-      },
-      weight: {
-        light: 'font-light',
-        normal: 'font-normal',
-        medium: 'font-medium',
-        semibold: 'font-semibold',
-        bold: 'font-bold',
-        extrabold: 'font-extrabold',
-      },
-      alignment: {
-        left: 'text-left',
-        right: 'text-right',
-        center: 'text-center',
-      },
+const heading3Variant = cva('mt-0 ml-0 mr-0 p-0 font-body text-h3-xs md:text-h3-sm lg:text-h3', {
+  variants: {
+    marginBottom: {
+      none: 'mb-0',
+      '2xs': 'mb-1',
+      xs: 'mb-2',
+      sm: 'mb-3',
+      'base-responsive': 'mb-3 md:mb-4',
+      base: 'mb-4',
+      lg: 'mb-5',
+      xl: 'mb-6',
     },
-    defaultVariants: { marginBottom: 'base-responsive', weight: 'semibold', alignment: 'left' },
+    weight: {
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
+      extrabold: 'font-extrabold',
+    },
+    alignment: {
+      left: 'text-left',
+      right: 'text-right',
+      center: 'text-center',
+    },
   },
-);
+  defaultVariants: { marginBottom: 'base-responsive', weight: 'semibold', alignment: 'left' },
+});
 
 const H3 = React.forwardRef<
   HTMLHeadingElement,
@@ -225,37 +219,34 @@ const H3 = React.forwardRef<
   </h3>
 ));
 
-const heading4Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-[1.563rem] md:text-[2.188rem] leading-[1.15] font-sans',
-  {
-    variants: {
-      marginBottom: {
-        none: 'mb-0',
-        '2xs': 'mb-1',
-        xs: 'mb-2',
-        sm: 'mb-3',
-        'base-responsive': 'mb-3 md:mb-4',
-        base: 'mb-4',
-        lg: 'mb-5',
-        xl: 'mb-6',
-      },
-      weight: {
-        light: 'font-light',
-        normal: 'font-normal',
-        medium: 'font-medium',
-        semibold: 'font-semibold',
-        bold: 'font-bold',
-        extrabold: 'font-extrabold',
-      },
-      alignment: {
-        left: 'text-left',
-        right: 'text-right',
-        center: 'text-center',
-      },
+const heading4Variant = cva('mt-0 ml-0 mr-0 p-0 font-body text-h4-xs md:text-h4-sm lg:text-h4', {
+  variants: {
+    marginBottom: {
+      none: 'mb-0',
+      '2xs': 'mb-1',
+      xs: 'mb-2',
+      sm: 'mb-3',
+      'base-responsive': 'mb-3 md:mb-4',
+      base: 'mb-4',
+      lg: 'mb-5',
+      xl: 'mb-6',
     },
-    defaultVariants: { marginBottom: 'base-responsive', weight: 'normal', alignment: 'left' },
+    weight: {
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
+      extrabold: 'font-extrabold',
+    },
+    alignment: {
+      left: 'text-left',
+      right: 'text-right',
+      center: 'text-center',
+    },
   },
-);
+  defaultVariants: { marginBottom: 'base-responsive', weight: 'normal', alignment: 'left' },
+});
 const H4 = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading4Variant>
@@ -269,7 +260,7 @@ const H4 = React.forwardRef<
   </h4>
 ));
 
-const heading5Variant = cva('mt-0 ml-0 mr-0 p-0 leading-[1.15] font-sans', {
+const heading5Variant = cva('mt-0 ml-0 mr-0 p-0 font-body', {
   variants: {
     marginBottom: {
       none: 'mb-0',
@@ -282,8 +273,8 @@ const heading5Variant = cva('mt-0 ml-0 mr-0 p-0 leading-[1.15] font-sans', {
       xl: 'mb-6',
     },
     size: {
-      'base-responsive': 'text-[1.25rem] md:text-[1.5rem]',
-      base: 'text-[1.25rem]',
+      'base-responsive': 'text-h5-xs md:text-h5-sm lg:text-h5',
+      base: 'text-h5-xs',
     },
     weight: {
       light: 'font-light',
@@ -321,7 +312,7 @@ const H5 = React.forwardRef<
 ));
 
 const heading6Variant = cva(
-  'mt-0 ml-0 mr-0 p-0 text-base leading-[1.15] uppercase tracking-[0.48px] font-sans',
+  'mt-0 ml-0 mr-0 p-0 font-body text-h6-xs md:text-h6-sm lg:text-h6 uppercase tracking-[0.48px]',
   {
     variants: {
       marginBottom: {
@@ -365,7 +356,7 @@ const H6 = React.forwardRef<
   </h6>
 ));
 
-const citeVariant = cva('mt-0 ml-0 mr-0 p-0 text-xl md:text-2xl leading-[1.1] block font-sans', {
+const citeVariant = cva('mt-0 ml-0 mr-0 block p-0 font-body text-h5-xs md:text-h5-sm lg:text-h5', {
   variants: {
     marginBottom: {
       none: 'mb-0',
@@ -398,7 +389,7 @@ const Cite = React.forwardRef<
 ));
 
 const codeVariant = cva(
-  'mt-0 ml-0 mr-0 font-mono mt-0 text-base bg-primary-gray-200 dark:bg-primary-gray-600 px-2 pb-2 text-primary-black dark:text-primary-white',
+  'm-0 bg-surface px-1 pb-1 font-mono text-content-primary text-p-xs md:text-p-sm lg:text-p',
   {
     variants: {
       weight: {
@@ -424,10 +415,47 @@ const Code = React.forwardRef<
   </code>
 ));
 
-const blockquoteVariant = cva(
-  'mt-0 ml-0 mr-0 text-[1.625rem] md:text-[2.188rem] leading-[1.1] md:leading-[1.25] font-sans',
+const blockquoteVariant = cva('m-0 font-body text-h4-xs md:text-h4-sm lg:text-h4', {
+  variants: {
+    weight: {
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
+      extrabold: 'font-extrabold',
+    },
+  },
+  defaultVariants: {
+    weight: 'semibold',
+  },
+});
+
+const Blockquote = React.forwardRef<
+  HTMLQuoteElement,
+  React.QuoteHTMLAttributes<HTMLQuoteElement> & VariantProps<typeof blockquoteVariant>
+>(({ children, className, weight, ...props }, ref) => (
+  <blockquote ref={ref} {...props} className={cn(blockquoteVariant({ weight }), className)}>
+    {children}
+  </blockquote>
+));
+
+const linkVariant = cva(
+  'undp-link light font-inherit text-inherit cursor-pointer no-underline focus-visible:shadow-[0_0_0_var(--ring)] focus-visible:outline-hidden',
   {
     variants: {
+      variant: {
+        primary: 'bg-double-primary',
+        secondary: 'bg-double-secondary',
+        tertiary: 'bg-double-tertiary',
+        quaternary: 'bg-double-quaternary',
+        background: 'bg-double-background',
+        foreground: 'bg-double-foreground',
+        success: 'bg-double-success',
+        warning: 'bg-double-warning',
+        info: 'bg-double-info',
+        error: 'bg-double-error',
+      },
       weight: {
         light: 'font-light',
         normal: 'font-normal',
@@ -439,35 +467,15 @@ const blockquoteVariant = cva(
     },
     defaultVariants: {
       weight: 'normal',
+      variant: 'primary',
     },
   },
 );
-
-const Blockquote = React.forwardRef<
-  HTMLQuoteElement,
-  React.QuoteHTMLAttributes<HTMLQuoteElement> & VariantProps<typeof blockquoteVariant>
->(({ children, className, weight, ...props }, ref) => (
-  <blockquote ref={ref} {...props} className={cn(blockquoteVariant({ weight }), className)}>
-    {children}
-  </blockquote>
-));
-
 const A = React.forwardRef<
   HTMLAnchorElement,
-  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold';
-  }
->(({ children, className, weight, ...props }, ref) => (
-  <a
-    ref={ref}
-    {...props}
-    className={cn(
-      'undp-link light text-primary-black dark:text-primary-white dark:text-primary-white bg-double-red dark:bg-double-white',
-      'cursor-pointer no-underline focus-visible:outline-hidden focus-visible:shadow-[0_0_0_#0468b1]',
-      weight ? `font-${weight}` : 'font-normal',
-      className,
-    )}
-  >
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & VariantProps<typeof linkVariant>
+>(({ children, className, weight, variant, ...props }, ref) => (
+  <a ref={ref} {...props} className={cn(linkVariant({ variant, weight }), className)}>
     {children}
   </a>
 ));

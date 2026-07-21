@@ -13,26 +13,33 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     color: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['red', 'blue', 'black', 'custom'],
-      defaultValue: { summary: 'red' },
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'foreground', 'surface'],
+      defaultValue: { summary: 'primary' },
     },
     variant: {
       control: { type: 'inline-radio' },
       type: 'string',
       options: ['light', 'normal'],
-      defaultValue: { summary: 'red' },
+      defaultValue: { summary: 'normal' },
+    },
+    rounded: {
+      control: { type: 'select' },
+      type: 'string',
+      options: ['base', 'sm', 'md', 'lg', 'xl', '2xl', 'full'],
+      defaultValue: { summary: 'base' },
     },
   },
   args: {
-    color: 'red',
+    color: 'primary',
     variant: 'normal',
+    rounded: 'base',
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
     return (
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <CheckboxGroup

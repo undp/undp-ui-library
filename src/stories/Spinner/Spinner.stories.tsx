@@ -10,11 +10,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   component: Spinner,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
+    color: {
       control: { type: 'inline-radio' },
       type: 'string',
-      options: ['blue', 'black', 'custom'],
-      defaultValue: { summary: 'blue' },
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'foreground'],
+      defaultValue: { summary: 'primary' },
     },
     size: {
       control: { type: 'select' },
@@ -27,7 +27,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
     },
   },
   args: {
-    variant: 'blue',
+    color: 'primary',
     size: 'base',
     show: true,
   },
@@ -36,7 +36,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Spinner {...args} />

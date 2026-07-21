@@ -14,7 +14,7 @@ const BreadcrumbList = React.forwardRef<HTMLOListElement, React.ComponentPropsWi
       {...props}
       ref={ref}
       className={cn(
-        'flex flex-wrap items-center gap-1.5 break-words font-semibold text-xs uppercase list-none sm:gap-2.5',
+        'flex list-none flex-wrap items-center gap-1.5 break-words font-semibold text-xs uppercase sm:gap-2.5',
         className,
       )}
     />
@@ -29,51 +29,74 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, React.ComponentPropsWitho
 );
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
-const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<'a'>>(
-  ({ className, ...props }, ref) => {
-    const Comp = 'a';
+const BreadcrumbLink = React.forwardRef<
+  HTMLAnchorElement,
+  React.ComponentPropsWithoutRef<'a'> & { variant?: 'default' | 'reverse' }
+>(({ className, variant = 'default', ...props }, ref) => {
+  const Comp = 'a';
 
-    const combinedClasses = cn(
-      'transition-colors text-accent-dark-red hover:text-accent-light-red dark:text-primary-white dark:hover:text-primary-gray-500',
-      className,
-    );
+  const combinedClasses = cn(
+    'transition-all',
+    variant === 'reverse'
+      ? 'text-content-reverse hover:opacity-80'
+      : 'text-primary hover:text-primary-hover',
+    className,
+  );
 
-    return <Comp ref={ref} className={combinedClasses} {...props} />;
-  },
-);
+  return <Comp ref={ref} className={combinedClasses} {...props} />;
+});
 BreadcrumbLink.displayName = 'BreadcrumbLink';
 
-const BreadcrumbPage = React.forwardRef<HTMLSpanElement, React.ComponentPropsWithoutRef<'span'>>(
-  ({ className, ...props }, ref) => {
-    return (
-      <span
-        {...props}
-        ref={ref}
-        aria-disabled='true'
-        aria-current='page'
-        className={cn('text-primary-gray-700 text-xs dark:text-primary-white', className)}
-      />
-    );
-  },
-);
+const BreadcrumbPage = React.forwardRef<
+  HTMLSpanElement,
+  React.ComponentPropsWithoutRef<'span'> & { variant?: 'default' | 'reverse' }
+>(({ className, variant = 'default', ...props }, ref) => {
+  return (
+    <span
+      {...props}
+      ref={ref}
+      aria-disabled='true'
+      aria-current='page'
+      className={cn(
+        'text-xs',
+        variant === 'reverse' ? 'text-content-reverse' : 'text-content-primary',
+        className,
+      )}
+    />
+  );
+});
 BreadcrumbPage.displayName = 'BreadcrumbPage';
 
-function BreadcrumbSeparator() {
+function BreadcrumbSeparator({ variant = 'default' }: { variant?: 'default' | 'reverse' }) {
   return (
     <li role='presentation' aria-hidden='true'>
-      <div className='text-accent-dark-red dark:text-primary-white'>/</div>
+      <div
+        className={cn(
+          variant === 'reverse' ? 'text-content-reverse text-xs' : 'text-primary text-xs',
+        )}
+      >
+        /
+      </div>
     </li>
   );
 }
 BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
 
-function BreadcrumbEllipsis({ className, ...props }: React.ComponentProps<'span'>) {
+function BreadcrumbEllipsis({
+  className,
+  variant = 'default',
+  ...props
+}: React.ComponentProps<'span'> & { variant?: 'default' | 'reverse' }) {
   return (
     <span
       {...props}
       role='presentation'
       aria-hidden='true'
-      className={cn('flex h-9 w-9 items-center justify-center', className)}
+      className={cn(
+        'flex h-9 w-9 items-center justify-center',
+        variant === 'reverse' ? 'text-content-reverse' : 'text-content-primary',
+        className,
+      )}
     >
       <MoreHorizontal className='h-4 w-4' />
       <span className='sr-only'>More</span>

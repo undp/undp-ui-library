@@ -1,30 +1,40 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Check } from 'lucide-react';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { cn, generateRandomId } from '@/lib/utils';
 import { Label } from './label';
 
 const checkBoxVariants = cva(
-  'peer h-4 w-4 shrink-0 rounded-0 bg-primary-white dark:bg-primary-gray-650 focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50',
+  'peer h-4 w-4 shrink-0 rounded bg-background focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-disabled',
   {
     variants: {
       color: {
-        blue: 'border-primary-blue-600 hover:bg-primary-blue-100 dark:border-primary-blue-400 dark:hover:bg-primary-blue-200',
-        red: 'border-accent-dark-red hover:bg-accent-light-red dark:border-accent-red dark:hover:bg-accent-light-red',
-        black:
-          'border-primary-gray-700 hover:bg-primary-gray-400 dark:border-primary-gray-100 dark:hover:bg-primary-gray-550',
-        custom:
-          'border-custom-color-600 hover:bg-custom-color-100 dark:border-custom-color-400 dark:hover:bg-custom-color-200',
+        primary: 'border-primary group-hover:border-primary-light',
+        secondary: 'border-secondary group-hover:border-secondary-light',
+        tertiary: 'border-tertiary group-hover:border-tertiary-light',
+        quaternary: 'border-quaternary group-hover:border-quaternary-light',
+        foreground: 'border-foreground group-hover:border-foreground-soft',
+        surface: 'border-stroke group-hover:border-stroke-hover',
       },
       variant: {
         light: 'border',
         normal: 'border-2',
       },
+      rounded: {
+        base: 'rounded-base',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-xl',
+        '2xl': 'rounded-2xl',
+        full: 'rounded-full',
+      },
     },
     defaultVariants: {
-      color: 'red',
+      color: 'primary',
       variant: 'normal',
+      rounded: 'base',
     },
   },
 );
@@ -32,10 +42,12 @@ const checkBoxVariants = cva(
 const checkVariants = cva('h-4 w-4', {
   variants: {
     color: {
-      blue: 'stroke-primary-blue-600 dark:stroke-primary-blue-400',
-      red: 'stroke-accent-dark-red dark:stroke-accent-red',
-      black: 'stroke-primary-gray-700 dark:stroke-primary-gray-100',
-      custom: 'stroke-custom-color-600 dark:stroke-custom-color-400',
+      primary: 'stroke-primary',
+      secondary: 'stroke-secondary',
+      tertiary: 'stroke-tertiary',
+      quaternary: 'stroke-quaternary',
+      foreground: 'stroke-foreground',
+      surface: 'stroke-surface',
     },
     variant: {
       light: '-mt-px',
@@ -43,7 +55,7 @@ const checkVariants = cva('h-4 w-4', {
     },
   },
   defaultVariants: {
-    color: 'red',
+    color: 'primary',
     variant: 'normal',
   },
 });
@@ -65,18 +77,19 @@ const Checkbox = React.forwardRef<
       checkIconClassName,
       label,
       color,
+      rounded,
       variant,
       ...props
     },
     ref,
   ) => {
-    const id = props.id || generateRandomId();
+    const id = useMemo(() => props.id || generateRandomId(), [props.id]);
     return (
-      <div className={cn('flex flex-row gap-2 items-center', className)}>
+      <div className={cn('group flex flex-row items-center gap-2', className)}>
         <CheckboxPrimitive.Root
           {...props}
           ref={ref}
-          className={cn(checkBoxVariants({ color, variant }), checkBoxClassName)}
+          className={cn(checkBoxVariants({ color, variant, rounded }), checkBoxClassName)}
           id={id}
         >
           <CheckboxPrimitive.Indicator
@@ -89,7 +102,7 @@ const Checkbox = React.forwardRef<
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
         {label ? (
-          <Label className={cn('mt-0.5 text-base!', labelClassName)} htmlFor={id}>
+          <Label className={cn('mt-0.5 text-base', labelClassName)} htmlFor={id}>
             {label}
           </Label>
         ) : null}

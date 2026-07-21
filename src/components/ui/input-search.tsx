@@ -10,7 +10,8 @@ const Search = React.forwardRef<
     inputVariant?: 'light' | 'normal';
     inputClassName?: string;
     buttonClassName?: string;
-    buttonVariant?: 'tertiary' | 'icon';
+    buttonVariant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'icon';
+    rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
     showSearchButton?: boolean;
     searchOnlyOnClick?: boolean;
     buttonChildren?: React.ReactNode;
@@ -30,6 +31,7 @@ const Search = React.forwardRef<
       showSearchButton,
       inputVariant,
       inputSize,
+      rounded,
       placeholder,
       ...props
     },
@@ -38,7 +40,7 @@ const Search = React.forwardRef<
     const [query, setQuery] = React.useState<string | undefined>(undefined);
     const [isFocused, setIsFocused] = React.useState(false);
     return (
-      <div className={cn('flex gap-0', className)} ref={ref}>
+      <div className={cn('flex items-stretch gap-0', className)} ref={ref}>
         <div className='relative w-full'>
           <Input
             {...props}
@@ -52,6 +54,7 @@ const Search = React.forwardRef<
               }
             }}
             inputSize={inputSize}
+            rounded={rounded}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
                 onSearch?.(query);
@@ -61,13 +64,11 @@ const Search = React.forwardRef<
             onBlur={() => setIsFocused(false)}
           />
           {!isFocused && (query === '' || !query) && (
-            <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
+            <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
               {!buttonChildren ? (
-                <SearchIcon className='h-4 w-4 text-primary-gray-500 dark:text-primary-gray-400 mr-2' />
+                <SearchIcon className='mr-2 h-4 w-4 text-content-placeholder' />
               ) : null}
-              <span className='text-primary-gray-500 dark:text-primary-gray-400'>
-                {placeholder || 'Search...'}
-              </span>
+              <span className='text-content-placeholder'>{placeholder || 'Search...'}</span>
             </div>
           )}
         </div>
@@ -76,6 +77,7 @@ const Search = React.forwardRef<
             variant={buttonVariant || 'icon'}
             className={buttonClassName}
             padding={inputSize}
+            arrow={false}
             onClick={() => {
               onSearch?.(query);
             }}

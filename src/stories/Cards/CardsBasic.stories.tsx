@@ -28,16 +28,22 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       control: { type: 'select' },
       options: [
         'transparent',
-        'white',
-        'gray',
-        'dark-gray',
-        'black',
-        'blue',
-        'azure',
-        'yellow',
-        'red',
-        'green',
-        'custom',
+        'background',
+        'background-soft',
+        'foreground',
+        'foreground-soft',
+        'surface',
+        'surface-xl',
+        'surface-2xl',
+        'surface-3xl',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'success',
+        'error',
+        'info',
+        'warning',
       ],
       defaultValue: { summary: 'white' },
     },
@@ -53,7 +59,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
   },
   args: {
     variant: 'with-image',
-    backgroundColor: 'white',
+    backgroundColor: 'background',
     size: 'full',
     border: true,
   },
@@ -62,7 +68,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Card {...args}>

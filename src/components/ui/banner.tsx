@@ -6,19 +6,19 @@ import { cn } from '@/lib/utils';
 const bannerVariants = cva('', {
   variants: {
     backgroundColor: {
-      transparent: 'bg-transparent text-primary-black dark:text-primary-white',
-      white: 'bg-primary-white dark:bg-primary-gray-700 text-primary-black dark:text-primary-white',
-      gray: 'bg-primary-gray-200 dark:bg-primary-gray-600 text-primary-black dark:text-primary-white',
-      'dark-gray':
-        'bg-primary-gray-600 dark:bg-primary-gray-300 text-primary-white dark:text-primary-black',
-      black:
-        'bg-primary-gray-700 dark:bg-primary-gray-100 text-primary-white dark:text-primary-black',
-      blue: 'bg-primary-blue-600 dark:bg-primary-blue-500 text-primary-white',
-      azure: 'bg-accent-azure',
-      yellow: 'bg-accent-yellow',
-      red: 'bg-accent-red text-primary-white',
-      green: 'bg-accent-green',
-      custom: 'bg-custom-color-600 text-custom-foreground',
+      transparent: 'bg-transparent text-content-primary',
+      background: 'bg-background text-content-primary',
+      'background-soft': 'bg-background-soft text-content-primary',
+      foreground: 'bg-foreground text-content-reverse',
+      'foreground-soft': 'bg-foreground-soft text-content-reverse',
+      primary: 'bg-primary text-content-reverse',
+      secondary: 'bg-secondary text-content-reverse',
+      tertiary: 'bg-tertiary text-content-reverse',
+      quaternary: 'bg-quaternary text-content-primary',
+      success: 'bg-success text-content-reverse',
+      warning: 'bg-warning text-content-reverse',
+      info: 'bg-info text-content-reverse',
+      error: 'bg-error text-content-reverse',
     },
     padding: {
       none: 'py-24 px-0',
@@ -81,16 +81,18 @@ const sidebarVariants = cva('w-full', {
 const BannerContext = React.createContext<{
   backgroundColor:
     | 'transparent'
-    | 'white'
-    | 'gray'
-    | 'dark-gray'
-    | 'black'
-    | 'blue'
-    | 'azure'
-    | 'yellow'
-    | 'red'
-    | 'green'
-    | 'custom'
+    | 'background'
+    | 'background-soft'
+    | 'foreground'
+    | 'foreground-soft'
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'quaternary'
+    | 'success'
+    | 'warning'
+    | 'info'
+    | 'error'
     | null
     | undefined;
   padding: 'none' | '2xs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | null | undefined;

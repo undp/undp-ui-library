@@ -22,21 +22,21 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Carousel>
           <CarouselItem {...args}>
-            <div className='h-96 bg-primary-gray-300' />
+            <div className='h-96 bg-surface-sm' />
           </CarouselItem>
           <CarouselItem {...args}>
-            <div className='h-96 bg-primary-gray-300' />
+            <div className='h-96 bg-surface-sm' />
           </CarouselItem>
           <CarouselItem {...args}>
-            <div className='h-96 bg-primary-gray-300' />
+            <div className='h-96 bg-surface-sm' />
           </CarouselItem>
           <CarouselItem {...args}>
-            <div className='h-96 bg-primary-gray-300' />
+            <div className='h-96 bg-surface-sm' />
           </CarouselItem>
         </Carousel>
       </div>

@@ -8,7 +8,7 @@ const StatsPanel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
     <div
       ref={ref}
       className={cn(
-        '@container w-full flex gap-0 items-stretch flex-wrap bg-primary-gray-700 dark:bg-primary-gray-100 justify-start',
+        '@container flex w-full flex-wrap items-stretch justify-start gap-0 bg-surface-2xl',
         className,
       )}
       {...props}
@@ -44,7 +44,7 @@ const StatsPanelCard = React.forwardRef<HTMLDivElement, CardProps>(
     <div
       ref={ref}
       className={cn(
-        'group bg-primary-gray-700 dark:bg-primary-gray-100 relative w-full min-h-[378px] box-border px-16 @2xl:min-h-[787px] @2xl:w-1/2 @3xl:w-1/4 flex items-center',
+        'group relative box-border flex @2xl:min-h-[787px] min-h-[378px] @2xl:w-1/2 @3xl:w-1/4 w-full items-center bg-foreground-soft px-16',
         className,
       )}
       {...props}
@@ -53,7 +53,7 @@ const StatsPanelCard = React.forwardRef<HTMLDivElement, CardProps>(
         <img
           alt=''
           src={hoverImage}
-          className='absolute top-0 transition-all opacity-0 duration-300 object-cover left-0 w-full h-full group-hover:opacity-100'
+          className='absolute top-0 left-0 h-full w-full object-cover opacity-0 transition-all duration-300 group-hover:opacity-100'
         />
       )}
       <div className={hoverBGVariant({ variant: hoverColor })} />
@@ -71,7 +71,7 @@ const StatsPanelCardValue = React.forwardRef<
   <H2
     ref={ref}
     className={cn(
-      'leading-none text-transparent transition-all duration-400 [-webkit-text-stroke:2px_white] dark:[-webkit-text-stroke:2px_black] font-heading text-left rtl:text-right group-hover:text-primary-gray-700 group-hover:dark:text-primary-gray-100 group-hover:[-webkit-text-stroke:0px]',
+      'text-left font-heading text-transparent leading-none transition-all duration-400 [-webkit-text-stroke:2px_var(--background)] group-hover:text-content-primary rtl:text-right group-hover:[-webkit-text-stroke:0px]',
       className,
     )}
     {...props}
@@ -87,7 +87,7 @@ const StatsPanelCardTitle = React.forwardRef<
   <H4
     ref={ref}
     className={cn(
-      'text-white transition-all duration-400 dark:text-black group-hover:text-primary-gray-700 group-hover:dark:text-primary-gray-100',
+      'text-white transition-all duration-400 group-hover:text-content-primary',
       className,
     )}
     {...props}
@@ -103,7 +103,7 @@ const StatsPanelCardDescription = React.forwardRef<
   <P
     ref={ref}
     className={cn(
-      'h-auto @2xl:h-[100px] transition-all duration-400 text-white dark:text-black group-hover:text-primary-gray-700 group-hover:dark:text-primary-gray-100',
+      '@2xl:h-[100px] h-auto text-white transition-all duration-400 group-hover:text-content-primary',
       className,
     )}
     {...props}

@@ -4,15 +4,20 @@ import { H2, H4, P } from '@/components/ui/typography';
 import { cn } from '@/lib/utils';
 
 const cardVariants = cva(
-  'group bg-primary-gray-200 dark:bg-primary-gray-600 box-border items-stretch p-8 transition-all duration-400',
+  'group bg-surface box-border items-stretch p-8 transition-all duration-400',
   {
     variants: {
       hoverColor: {
-        blue: 'hover:bg-primary-blue-600',
-        azure: 'hover:bg-accent-azure',
-        yellow: 'hover:bg-accent-yellow',
-        red: 'hover:bg-accent-red',
-        green: 'hover:bg-accent-green',
+        primary: 'hover:bg-primary',
+        secondary: 'hover:bg-secondary',
+        tertiary: 'hover:bg-tertiary',
+        quaternary: 'hover:bg-quaternary',
+        foreground: 'hover:bg-foreground',
+        background: 'hover:bg-background',
+        success: 'hover:bg-success',
+        warning: 'hover:bg-warning',
+        info: 'hover:bg-info',
+        error: 'hover:bg-error',
         none: '',
       },
       size: {
@@ -24,7 +29,7 @@ const cardVariants = cva(
       },
     },
     defaultVariants: {
-      hoverColor: 'yellow',
+      hoverColor: 'warning',
       size: 'full',
     },
   },
@@ -32,7 +37,7 @@ const cardVariants = cva(
 type StatCardProps = React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>;
 
 const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
-  ({ className, hoverColor = 'yellow', children, size, ...props }, ref) => (
+  ({ className, hoverColor = 'primary', children, size, ...props }, ref) => (
     <div ref={ref} className={cn(cardVariants({ size, hoverColor }), className)} {...props}>
       {children}
     </div>
@@ -47,7 +52,7 @@ const StatCardValue = React.forwardRef<
   <H2
     ref={ref}
     className={cn(
-      'leading-none [-webkit-text-stroke:2px_black] dark:[-webkit-text-stroke:2px_white] [text-shadow:none] font-heading text-left rtl:text-right text-transparent group-hover:text-primary-black group-hover:dark:text-primary-white  group-hover:[-webkit-text-stroke:0px]',
+      'text-left font-heading text-transparent leading-none [-webkit-text-stroke:2px_var(--foreground)] [text-shadow:none] group-hover:text-content-primary rtl:text-right group-hover:[-webkit-text-stroke:0px]',
       className,
     )}
     {...props}
@@ -59,7 +64,7 @@ const StatCardTitle = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-  <H4 ref={ref} className={cn('text-black dark:text-white', className)} {...props} />
+  <H4 ref={ref} className={cn('text-content-primary', className)} {...props} />
 ));
 StatCardTitle.displayName = 'StatCardTitle';
 
@@ -67,7 +72,7 @@ const StatCardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <P ref={ref} className={cn('text-black dark:text-white', className)} {...props} />
+  <P ref={ref} className={cn('text-content-primary', className)} {...props} />
 ));
 StatCardDescription.displayName = 'StatCardDescription';
 

@@ -42,7 +42,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             </p>
           </div>
         ),
-        viz: <div className='w-full h-full bg-primary-gray-300 min-h-[320px]' />,
+        viz: <div className='h-full min-h-[320px] w-full bg-surface-sm' />,
       },
       {
         content: (
@@ -55,7 +55,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             </p>
           </div>
         ),
-        viz: <div className='w-full h-full bg-primary-gray-500' />,
+        viz: <div className='h-full w-full bg-surface-lg' />,
       },
       {
         content: (
@@ -68,7 +68,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
             </p>
           </div>
         ),
-        viz: <div className='w-full h-full bg-primary-gray-300' />,
+        viz: <div className='h-full w-full bg-surface-sm' />,
       },
     ],
   },
@@ -77,7 +77,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <VizCarousel {...args} />

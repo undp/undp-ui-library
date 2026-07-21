@@ -12,23 +12,24 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: [
-        'primary',
-        'primary-without-icon',
-        'secondary',
-        'secondary-without-icon',
-        'tertiary',
-        'link',
-        'link-without-icon',
-        'outline',
-        'icon',
-      ],
+      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'link', 'outline', 'icon'],
       defaultValue: { summary: 'primary' },
+    },
+    arrow: {
+      control: { type: 'boolean' },
+      type: 'boolean',
+      defaultValue: { summary: true },
     },
     size: {
       control: { type: 'select' },
       type: 'string',
       options: ['base', 'xs', 'sm', 'xl'],
+      defaultValue: { summary: 'base' },
+    },
+    rounded: {
+      control: { type: 'select' },
+      type: 'string',
+      options: ['base', 'sm', 'md', 'lg', 'xl', '2xl', 'full'],
       defaultValue: { summary: 'base' },
     },
     padding: {
@@ -41,7 +42,9 @@ const meta: Meta<typeof Button> = {
   args: {
     variant: 'primary',
     size: 'base',
+    rounded: 'base',
     padding: 'base',
+    arrow: true,
   },
   parameters: { docs: { source: 'auto' } },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {
@@ -49,7 +52,7 @@ const meta: Meta<typeof Button> = {
       <div
         dir={direction}
         className={`p-4 ${theme} ${language} ${
-          theme === 'dark' ? 'bg-primary-gray-700' : 'bg-primary-white'
+          theme === 'dark' ? 'bg-surface-2xl' : 'bg-primary-white'
         }`}
       >
         <Button

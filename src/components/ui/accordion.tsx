@@ -8,20 +8,18 @@ import { cn } from '@/lib/utils';
 const accordionVariants = cva('', {
   variants: {
     variant: {
-      primary:
-        'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary-gray-700 dark:text-primary-white mb-4 px-4 py-1',
+      primary: 'bg-surface text-content-primary mb-4 px-4 py-1',
       secondary:
-        'bg-primary-gray-200 dark:bg-primary-gray-650 text-primary-gray-700 dark:text-primary-white mb-0 px-4 py-1 border-b border-b-primary-gray-400 dark:border-b-primary-gray-550 last:border-b-0',
-      tertiary:
-        'bg-transparent text-primary-gray-700 dark:text-primary-white mb-0 py-2 px-0 border-b border-b-primary-gray-400 dark:border-b-primary-gray-500',
-      quaternary: 'bg-transparent text-primary-gray-700 dark:text-primary-white mb-0 py-0 px-0',
+        'bg-surface text-content-primary mb-0 px-4 py-1 border-b border-b-stroke last:border-b-0',
+      tertiary: 'bg-transparent text-content-primary mb-0 py-2 px-0 border-b border-b-stroke',
+      quaternary: 'bg-transparent text-content-primary mb-0 py-0 px-0',
     },
   },
   defaultVariants: { variant: 'primary' },
 });
 
 const accordionTitleVariants = cva(
-  'flex flex-1 items-center transition-all text-left text-primary-gray-700 dark:text-primary-white [&[data-state=open]>svg]:rotate-180',
+  'flex flex-1 items-center transition-all text-left text-content-primary [&[data-state=open]>svg]:rotate-180',
   {
     variants: {
       variant: {
@@ -36,7 +34,7 @@ const accordionTitleVariants = cva(
 );
 
 const accordionContentVariants = cva(
-  'overflow-hidden text-primary-gray-700 dark:text-primary-white text-base data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+  'overflow-hidden text-content-primary text-base data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
   {
     variants: {
       variant: {
@@ -90,7 +88,7 @@ const AccordionTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => {
   const context = React.useContext(AccordionContext);
   return (
-    <AccordionPrimitive.Header className='flex my-4'>
+    <AccordionPrimitive.Header className='my-4 flex'>
       <AccordionPrimitive.Trigger
         {...props}
         ref={ref}
@@ -98,13 +96,13 @@ const AccordionTrigger = React.forwardRef<
       >
         {context?.variant === 'quaternary' ? (
           <>
-            <ChevronDown className='h-6 w-6 shrink-0 text-accent-red dark:text-primary-white transition-transform duration-200' />
+            <ChevronDown className='h-6 w-6 shrink-0 text-accent-red transition-transform duration-200' />
             {children}
           </>
         ) : (
           <>
             {children}
-            <ChevronDown className='h-6 w-6 shrink-0 text-accent-red dark:text-primary-white transition-transform duration-200' />
+            <ChevronDown className='h-6 w-6 shrink-0 text-accent-red transition-transform duration-200' />
           </>
         )}
       </AccordionPrimitive.Trigger>

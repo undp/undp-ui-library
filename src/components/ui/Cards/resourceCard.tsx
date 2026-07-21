@@ -9,7 +9,7 @@ const ResourceCard = React.forwardRef<
   <a
     ref={ref}
     className={cn(
-      'group w-full flex flex-col gap-0 bg-primary-gray-200 dark:bg-primary-gray-600 box-border items-stretch transition-all duration-400',
+      'group box-border flex w-full flex-col items-stretch gap-0 bg-surface transition-all duration-400',
       className,
     )}
     {...props}
@@ -44,19 +44,7 @@ const ResourceCardImage = React.forwardRef<HTMLDivElement, ResourceCardImageProp
     <div
       ref={ref}
       className={cn(
-        `relative box-border w-full px-12 py-9 bg-[linear-gradient(180deg,_#c9d0d6_70%,_#c9d0d6_0,_#414648_70.5%,_#9ea5ac_0,_#9ea5ac)]
-     before:pointer-events-none
-     before:absolute
-     before:content-['']
-     before:bottom-[37px]
-     before:left-8
-     before:h-[27px]
-     before:w-[calc(100%-100px)]
-     before:rounded-[21%]
-     before:bg-primary-gray-600
-     dark:before:bg-primary-gray-300
-     before:blur-[4px]
-     before:[transform:skewX(64deg)]`,
+        `relative box-border w-full bg-[linear-gradient(180deg,_#c9d0d6_70%,_#c9d0d6_0,_#414648_70.5%,_#9ea5ac_0,_#9ea5ac)] px-12 py-9 before:pointer-events-none before:absolute before:bottom-[37px] before:left-8 before:h-[27px] before:w-[calc(100%-100px)] before:rounded-[21%] before:bg-surface-xl before:blur-[4px] before:content-[''] before:[transform:skewX(64deg)]`,
         className,
       )}
       {...props}
@@ -67,7 +55,7 @@ const ResourceCardImage = React.forwardRef<HTMLDivElement, ResourceCardImageProp
         className={cn(imgVariants({ aspectRatio }), imageClassNames)}
       />
       {hoverColor ? (
-        <div className='h-full w-full absolute z-[1] top-0 left-0 bg-[linear-gradient(27.66deg,#FFEB00,transparent_70.49%)] opacity-0 group-hover:opacity-75' />
+        <div className='absolute top-0 left-0 z-[1] h-full w-full bg-[linear-gradient(27.66deg,#FFEB00,transparent_70.49%)] opacity-0 group-hover:opacity-75' />
       ) : null}
     </div>
   ),
@@ -76,7 +64,7 @@ ResourceCardImage.displayName = 'ResourceCardImage';
 
 const ResourceCardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('p-6 grow flex flex-col', className)} {...props} />
+    <div ref={ref} className={cn('flex grow flex-col p-6', className)} {...props} />
   ),
 );
 ResourceCardContent.displayName = 'ResourceCardContent';
@@ -86,7 +74,7 @@ const ResourceCardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
     <div
       ref={ref}
       className={cn(
-        'mb-1 leading-[1.15] flex gap-2 font-normal font-sans text-[1.25rem]',
+        'mb-1 flex gap-2 font-body font-normal text-p-xs md:text-p-sm lg:text-p',
         className,
       )}
       {...props}
@@ -101,7 +89,7 @@ const ResourceCardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(`mb-4 text-[1rem] font-sans font-normal leading-[1.4]`, className)}
+    className={cn('mb-4 font-body font-normal text-sm md:text-base lg:text-base', className)}
     {...props}
   />
 ));
@@ -109,7 +97,7 @@ ResourceCardDescription.displayName = 'ResourceCardDescription';
 
 const ResourceCardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('font-sans', className)} {...props} />
+    <div ref={ref} className={cn('font-body', className)} {...props} />
   ),
 );
 ResourceCardFooter.displayName = 'ResourceCardFooter';

@@ -8,13 +8,13 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
   ({ className, children, ...props }, ref) => {
     const WrapperRef = React.useRef<HTMLDivElement>(null);
     const [cursor, setCursor] = React.useState(
-      'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-right.svg)',
+      'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/arrow-right.svg)',
     );
     return (
       <div
         ref={WrapperRef}
         className={cn(
-          'mr-auto ml-auto mb-0 undp-scrollbar w-full pb-4 flex snap-x snap-mandatory scroll-p-0 scroll-pl-0 overflow-x-auto',
+          'undp-scrollbar mr-auto mb-0 ml-auto flex w-full snap-x snap-mandatory scroll-p-0 scroll-pl-0 overflow-x-auto pb-4',
           className,
         )}
         {...props}
@@ -38,17 +38,17 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
         onMouseMove={(e) => {
           if (e.clientX > window.innerWidth / 2)
             setCursor(
-              'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-right.svg)',
+              'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/arrow-right.svg)',
             );
           else
             setCursor(
-              'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets@1.6.1/images/arrow-left.svg)',
+              'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/arrow-left.svg)',
             );
         }}
       >
         <div
           ref={ref}
-          className='flex gap-4 items-stretch w-full'
+          className='flex w-full items-stretch gap-4'
           style={{ cursor: `${cursor}, auto` }}
         >
           {children}

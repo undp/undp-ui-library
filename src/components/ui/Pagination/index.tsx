@@ -72,7 +72,7 @@ function Pagination(props: {
             className={cn(
               'cursor-pointer',
               classNames?.navigation,
-              currentPage <= 1 && 'cursor-not-allowed pointer-events-none opacity-35',
+              currentPage <= 1 && 'pointer-events-none cursor-not-allowed opacity-35',
             )}
           />
         </PaginationItem>
@@ -88,10 +88,10 @@ function Pagination(props: {
                   onChange(page);
                 }}
                 className={cn(
-                  'cursor-pointer w-[32px] h-[32px] flex items-center justify-center rounded-full hover:bg-primary-gray-300',
+                  'flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full hover:bg-surface-hover',
                   classNames?.list,
                   page === currentPage && [
-                    'bg-primary-blue-600 hover:bg-primary-blue-700 dark:bg-primary-blue-500 dark:hover:bg-primary-blue-400 hover:text-primary-white text-primary-white',
+                    'bg-secondary text-content-reverse hover:bg-secondary-hover',
                     classNames?.active,
                   ],
                 )}
@@ -113,7 +113,7 @@ function Pagination(props: {
             className={cn(
               'cursor-pointer',
               classNames?.navigation,
-              currentPage >= totalPages && 'cursor-not-allowed pointer-events-none opacity-35',
+              currentPage >= totalPages && 'pointer-events-none cursor-not-allowed opacity-35',
             )}
           />
         </PaginationItem>

@@ -37,7 +37,7 @@ function DrawerOverlay({
     <DrawerPrimitive.Overlay
       data-slot='drawer-overlay'
       className={cn(
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 backdrop-blur-[30px]',
+        'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 backdrop-blur-[30px] data-[state=closed]:animate-out data-[state=open]:animate-in',
         className,
       )}
       {...props}
@@ -65,7 +65,7 @@ function DrawerContent({
       <DrawerPrimitive.Content
         data-slot='drawer-content'
         className={cn(
-          'group/drawer-content bg-primary-white dark:bg-primary-black fixed z-50 flex h-auto flex-col px-[6px] sm:px-3',
+          'group/drawer-content fixed z-50 flex h-auto flex-col bg-background px-[6px] sm:px-3',
           'data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh]',
           'data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh]',
           'data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-[95%] sm:data-[vaul-drawer-direction=right]:w-[83.33%]',
@@ -77,9 +77,9 @@ function DrawerContent({
         <DrawerClose asChild>
           <button
             className={cn(
-              'fixed top-4 p-2 rounded-full bg-primary-gray-200 dark:bg-primary-gray-650 transition-all',
-              'group-data-[vaul-drawer-direction=right]/drawer-content:mr-4 group-data-[vaul-drawer-direction=right]/drawer-content:right-0 sm:group-data-[vaul-drawer-direction=right]/drawer-content:mr-[8.33%] sm:group-data-[vaul-drawer-direction=right]/drawer-content:right-[100%]',
-              'group-data-[vaul-drawer-direction=left]/drawer-content:ml-4 group-data-[vaul-drawer-direction=left]/drawer-content:left-0 sm:group-data-[vaul-drawer-direction=left]/drawer-content:ml-[8.33%] sm:group-data-[vaul-drawer-direction=left]/drawer-content:left-[100%]',
+              'fixed top-4 rounded-full border border-stroke bg-surface p-2 text-content-primary transition-all hover:bg-surface-hover',
+              'group-data-[vaul-drawer-direction=right]/drawer-content:right-0 group-data-[vaul-drawer-direction=right]/drawer-content:mr-4 sm:group-data-[vaul-drawer-direction=right]/drawer-content:right-[100%] sm:group-data-[vaul-drawer-direction=right]/drawer-content:mr-[8.33%]',
+              'group-data-[vaul-drawer-direction=left]/drawer-content:left-0 group-data-[vaul-drawer-direction=left]/drawer-content:ml-4 sm:group-data-[vaul-drawer-direction=left]/drawer-content:left-[100%] sm:group-data-[vaul-drawer-direction=left]/drawer-content:ml-[8.33%]',
               'group-data-[vaul-drawer-direction=top]/drawer-content:hidden',
               'group-data-[vaul-drawer-direction=bottom]/drawer-content:hidden',
               closeButtonClassName,
@@ -94,7 +94,7 @@ function DrawerContent({
             userSelect: 'text',
             touchAction: 'auto',
           }}
-          className='pt-[4.375rem] px-[0.75rem] md:pt-0 md:pr-[1.5rem] md:pl-[2rem] h-screen undp-scrollbar'
+          className='undp-scrollbar h-screen bg-background px-[0.75rem] pt-[4.375rem] md:pt-0 md:pr-[1.5rem] md:pl-[2rem]'
         >
           {children}
         </div>
@@ -112,7 +112,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot='drawer-header'
       className={cn(
-        'mt-0 mr-0 ml-[1.875rem] md:mt-[6rem] md:ml-[6rem] group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=right]:mt-24 group-data-[vaul-drawer-direction=right]:mr-24 group-data-[vaul-drawer-direction=top]:mt-24 group-data-[vaul-drawer-direction=bottom]:mt-24 group-data-[vaul-drawer-direction=top]:ml-24 group-data-[vaul-drawer-direction=bottom]:ml-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-1.5 md:text-left',
+        'mt-0 mr-0 ml-[1.875rem] group-data-[vaul-drawer-direction=bottom]:mt-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=right]:mt-24 group-data-[vaul-drawer-direction=top]:mt-24 group-data-[vaul-drawer-direction=right]:mr-24 group-data-[vaul-drawer-direction=bottom]:ml-24 group-data-[vaul-drawer-direction=top]:ml-24 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:mt-[6rem] md:ml-[6rem] md:gap-1.5 md:text-left',
         className,
       )}
       {...props}
@@ -128,7 +128,7 @@ function DrawerFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot='drawer-footer'
-      className={cn('mt-auto flex flex-col gap-2 p-4 absolute bottom-0', className)}
+      className={cn('absolute bottom-0 mt-auto flex flex-col gap-2 p-4', className)}
       {...props}
     />
   );
@@ -140,7 +140,7 @@ function DrawerTitle({ ...props }: React.ComponentProps<typeof DrawerPrimitive.T
       data-slot='drawer-title'
       {...props}
       className={cn(
-        'font-heading mb-4 text-[1.563rem] leading-[1.1] uppercase font-bold md:text-[3.438rem]',
+        'mb-4 font-bold font-heading text-h2-xs uppercase md:text-h2-sm lg:text-h2',
         props.className,
       )}
     />
@@ -152,10 +152,7 @@ function DrawerDescription({ ...props }: React.ComponentProps<typeof DrawerPrimi
     <DrawerPrimitive.Description
       data-slot='drawer-description'
       {...props}
-      className={cn(
-        'text-[1.25rem] mb-4 leading-[1.15] font-semibold md:text-[2.188rem]',
-        props.className,
-      )}
+      className={cn('mb-4 font-semibold text-h4-xs md:text-h4-sm lg:text-h4', props.className)}
     />
   );
 }
