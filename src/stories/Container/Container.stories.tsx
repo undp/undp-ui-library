@@ -25,6 +25,7 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'success',
         'warning',
         'error',
+        'surface',
         'surface-2xs',
         'surface-xs',
         'surface-sm',

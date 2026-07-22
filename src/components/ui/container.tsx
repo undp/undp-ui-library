@@ -19,6 +19,7 @@ const containerVariants = cva('box-border', {
       warning: 'bg-warning text-content-primary',
       info: 'bg-info text-content-reverse',
       error: 'bg-error text-content-reverse',
+      'surface': 'bg-surface text-content-primary',
       'surface-2xs': 'bg-surface-2xs text-content-primary',
       'surface-xs': 'bg-surface-xs text-content-primary',
       'surface-sm': 'bg-surface-sm text-content-primary',

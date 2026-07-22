@@ -75,7 +75,7 @@ const Search = React.forwardRef<
         {showSearchButton === false ? null : (
           <Button
             variant={buttonVariant || 'icon'}
-            className={buttonClassName}
+            className={cn('py-0', buttonClassName)}
             padding={inputSize}
             arrow={false}
             onClick={() => {
