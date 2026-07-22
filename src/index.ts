@@ -154,6 +154,14 @@ export { Li, Ol, Ul } from '@/components/ui/list';
 export { UNDPLogo } from '@/components/ui/logo.tsx';
 export { MarkdownRenderer } from '@/components/ui/md-renderer';
 export {
+  Message,
+  MessageAvatar,
+  MessageContent,
+  MessageFooter,
+  MessageGroup,
+  MessageHeader,
+} from '@/components/ui/message';
+export {
   MessageScroller,
   MessageScrollerButton,
   MessageScrollerContent,

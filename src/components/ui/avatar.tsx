@@ -15,7 +15,7 @@ function Avatar({
       data-slot='avatar'
       data-size={size}
       className={cn(
-        'group/avatar relative flex size-8 shrink-0 select-none rounded-full after:absolute after:inset-0 after:rounded-full after:border after:border-border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten',
+        'group/avatar relative flex size-8 shrink-0 select-none rounded-full after:absolute after:inset-0 after:rounded-full data-[size=lg]:size-10 data-[size=sm]:size-6',
         className,
       )}
       {...props}
@@ -33,17 +33,75 @@ function AvatarImage({ className, ...props }: React.ComponentProps<typeof Avatar
   );
 }
 
+const avatarColorVariants = cva(
+  'flex size-full items-center justify-center rounded-full border-0 text-sm group-data-[size=sm]/avatar:text-xs',
+  {
+    variants: {
+      color: {
+        transparent: 'bg-transparent text-content-primary border border-stroke',
+        background: 'bg-background text-content-primary border border-stroke',
+        'background-soft': 'bg-background-soft text-content-primary border border-stroke',
+        foreground: 'bg-foreground text-content-reverse',
+        'foreground-soft': 'bg-foreground-soft text-content-reverse',
+        primary: 'bg-primary text-content-reverse',
+        secondary: 'bg-secondary text-content-reverse',
+        tertiary: 'bg-tertiary text-content-reverse',
+        quaternary: 'bg-quaternary text-content-primary',
+        success: 'bg-success text-content-reverse',
+        warning: 'bg-warning text-content-primary',
+        info: 'bg-info text-content-reverse',
+        error: 'bg-error text-content-reverse',
+        surface: 'bg-surface text-content-primary border border-stroke',
+        'surface-2xs': 'bg-surface-2xs text-content-primary',
+        'surface-xs': 'bg-surface-xs text-content-primary',
+        'surface-sm': 'bg-surface-sm text-content-primary',
+        'surface-md': 'bg-surface-md text-content-primary',
+        'surface-lg': 'bg-surface-lg text-content-primary',
+        'surface-xl': 'bg-surface-xl text-content-reverse',
+        'surface-2xl': 'bg-surface-2xl text-content-reverse',
+        'surface-3xl': 'bg-surface-3xl text-content-reverse',
+        'surface-4xl': 'bg-surface-4xl text-content-reverse',
+        'sgd-1': 'bg-sdg-1 text-content-reverse',
+        'sgd-2': 'bg-sdg-2 text-content-reverse',
+        'sgd-3': 'bg-sdg-3 text-content-reverse',
+        'sgd-4': 'bg-sdg-4 text-content-reverse',
+        'sgd-5': 'bg-sdg-5 text-content-reverse',
+        'sgd-6': 'bg-sdg-6 text-content-reverse',
+        'sgd-7': 'bg-sdg-7 text-content-reverse',
+        'sgd-8': 'bg-sdg-8 text-content-reverse',
+        'sgd-9': 'bg-sdg-9 text-content-reverse',
+        'sgd-10': 'bg-sdg-10 text-content-reverse',
+        'sgd-11': 'bg-sdg-11 text-content-reverse',
+        'sgd-12': 'bg-sdg-12 text-content-reverse',
+        'sgd-13': 'bg-sdg-13 text-content-reverse',
+        'sgd-14': 'bg-sdg-14 text-content-reverse',
+        'sgd-15': 'bg-sdg-15 text-content-reverse',
+        'sgd-16': 'bg-sdg-16 text-content-reverse',
+        'sgd-17': 'bg-sdg-17 text-content-reverse',
+      },
+      border: {
+        true: 'border border-stroke',
+        false: '',
+      },
+    },
+    defaultVariants: {
+      color: 'surface',
+      border: true,
+    },
+  },
+);
+
 function AvatarFallback({
   className,
+  color,
+  border,
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {
+}: React.ComponentProps<typeof AvatarPrimitive.Fallback> &
+  VariantProps<typeof avatarColorVariants>) {
   return (
     <AvatarPrimitive.Fallback
       data-slot='avatar-fallback'
-      className={cn(
-        'flex size-full items-center justify-center rounded-full bg-surface text-content-secondary text-sm group-data-[size=sm]/avatar:text-xs',
-        className,
-      )}
+      className={cn(avatarColorVariants({ color, border }), className)}
       {...props}
     />
   );

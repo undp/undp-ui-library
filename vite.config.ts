@@ -74,6 +74,7 @@ const entries = {
   Bubble: path.resolve(__dirname, 'src/components/ui/bubble.tsx'),
   InputGroup: path.resolve(__dirname, 'src/components/ui/input-group.tsx'),
   MessageScroller: path.resolve(__dirname, 'src/components/ui/message-scroller.tsx'),
+  Message: path.resolve(__dirname, 'src/components/ui/message.tsx'),
 };
 
 // https://vitejs.dev/config/

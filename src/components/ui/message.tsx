@@ -74,7 +74,7 @@ function MessageFooter({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot='message-footer'
       className={cn(
-        'flex min-w-0 max-w-full items-center px-3 font-medium text-tertiary text-xs group-has-data-[variant=ghost]/message:px-0 group-data-[align=end]/message:justify-end',
+        'flex min-w-0 max-w-full items-center px-3 font-medium text-content-tertiary text-xs group-has-data-[variant=ghost]/message:px-0 group-data-[align=end]/message:justify-end',
         className,
       )}
       {...props}

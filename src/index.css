@@ -213,7 +213,7 @@
     margin: 0;
     line-height: inherit;
     color: var(--foreground);
-    @apply bg-background text-foreground;
+    font-family: var(--font-body);
   }
 
   ul {
@@ -222,9 +222,6 @@
 
   ol {
     list-style-type: decimal;
-  }
-  html {
-    @apply font-sans;
   }
 }
 

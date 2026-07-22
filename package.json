@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -367,6 +367,11 @@
       "types": "./dist/MessageScroller.d.ts",
       "import": "./dist/MessageScroller.js",
       "require": "./dist/MessageScroller.cjs"
+    },
+    "./Message": {
+      "types": "./dist/Message.d.ts",
+      "import": "./dist/Message.js",
+      "require": "./dist/Message.cjs"
     }
   },
   "publishConfig": {
