@@ -8,6 +8,25 @@ export {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+export {
+  Attachment,
+  AttachmentAction,
+  AttachmentActions,
+  AttachmentContent,
+  AttachmentDescription,
+  AttachmentGroup,
+  AttachmentMedia,
+  AttachmentTitle,
+  AttachmentTrigger,
+} from '@/components/ui/attachment';
+export {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImage,
+} from '@/components/ui/avatar';
 export { Badge } from '@/components/ui/badge';
 export { Banner, BannerBody, BannerBodyContent, BannerBodySidebar } from '@/components/ui/banner';
 export {
@@ -19,6 +38,7 @@ export {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+export { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from '@/components/ui/bubble';
 export { Button } from '@/components/ui/button';
 export {
   Card,
@@ -119,12 +139,31 @@ export {
 } from '@/components/ui/header';
 export { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 export { Input } from '@/components/ui/input';
+export {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from '@/components/ui/input-group';
 export { Search } from '@/components/ui/input-search';
 export { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 export { Label } from '@/components/ui/label';
 export { Li, Ol, Ul } from '@/components/ui/list';
 export { UNDPLogo } from '@/components/ui/logo.tsx';
 export { MarkdownRenderer } from '@/components/ui/md-renderer';
+export {
+  MessageScroller,
+  MessageScrollerButton,
+  MessageScrollerContent,
+  MessageScrollerItem,
+  MessageScrollerProvider,
+  MessageScrollerViewport,
+  useMessageScroller,
+  useMessageScrollerScrollable,
+  useMessageScrollerVisibility,
+} from '@/components/ui/message-scroller';
 export { Modal } from '@/components/ui/modal';
 export { Pagination } from '@/components/ui/Pagination';
 export { PageHeader, PageHeaderContent, PageHeaderHead } from '@/components/ui/pageHeader';

@@ -1,5 +1,5 @@
-import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { Slot as SlotPrimitive } from 'radix-ui';
 import type * as React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -62,7 +62,7 @@ const bubbleVariants = cva(
   },
 );
 function Bubble({
-  variant = 'primary',
+  variant,
   align = 'start',
   className,
   ...props
@@ -87,7 +87,7 @@ function BubbleContent({
 }: React.ComponentProps<'div'> & {
   asChild?: boolean;
 }) {
-  const Comp = asChild ? Slot : 'div';
+  const Comp = asChild ? SlotPrimitive.Slot : 'div';
   return (
     <Comp
       data-slot='bubble-content'
@@ -100,7 +100,7 @@ function BubbleContent({
   );
 }
 const bubbleReactionsVariants = cva(
-  'absolute z-10 flex w-fit shrink-0 items-center justify-center gap-1 rounded-full bg-surface border border-surface-hard px-1.5 py-0.5 text-sm ring-3 ring-card has-[button]:p-0',
+  'absolute z-10 flex w-fit shrink-0 items-center justify-center gap-1 rounded-full bg-surface border border-stroke px-1.5 py-0.5 text-sm has-[button]:p-0',
   {
     variants: {
       side: {

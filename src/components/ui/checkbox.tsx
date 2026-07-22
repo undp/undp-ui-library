@@ -1,6 +1,6 @@
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Check } from 'lucide-react';
+import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import React, { useMemo } from 'react';
 import { cn, generateRandomId } from '@/lib/utils';
 import { Label } from './label';

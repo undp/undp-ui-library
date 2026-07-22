@@ -1,6 +1,6 @@
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Circle } from 'lucide-react';
+import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import React, { useMemo } from 'react';
 import { cn, generateRandomId } from '@/lib/utils';
 import { Label } from './label';

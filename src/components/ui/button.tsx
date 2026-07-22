@@ -17,6 +17,16 @@ const buttonVariants = cva(
         outline:
           'bg-transparent text-content-primary border-2 border-foreground hover:bg-surface-xs',
         icon: 'bg-transparent text-content-primary hover:text-content-secondary',
+        success: 'bg-success text-content-reverse hover:bg-success-hover',
+        warning: 'bg-warning text-content-primary hover:bg-warning-hover',
+        info: 'bg-info text-content-reverse hover:bg-info-hover',
+        error: 'bg-error text-content-reverse hover:bg-error-hover',
+        surface: 'bg-surface text-content-primary hover:bg-surface-hover',
+        'surface-hard': 'bg-surface-hard text-content-primary hover:bg-surface-hard-hover',
+        background: 'bg-background text-content-primary hover:bg-background-soft',
+        'background-soft': 'bg-background-soft text-content-primary hover:bg-background',
+        foreground: 'bg-foreground text-content-reverse hover:bg-foreground-soft',
+        'foreground-soft': 'bg-foreground-soft text-content-reverse hover:bg-foreground',
       },
       arrow: {
         true: `
@@ -75,7 +85,7 @@ const buttonVariants = cva(
 );
 function Button({
   className,
-  variant,
+  variant = 'primary',
   size,
   arrow = true,
   rounded,
@@ -104,17 +114,23 @@ function Button({
         arrow
           ? variant === 'primary'
             ? 'foreground-arrow'
-            : variant === 'secondary'
+            : variant === 'secondary' ||
+                variant === 'foreground' ||
+                variant === 'foreground-soft' ||
+                variant === 'success' ||
+                variant === 'error' ||
+                variant === 'info'
               ? 'background-arrow'
-              : variant === 'link'
+              : variant === 'link' ||
+                  variant === 'tertiary' ||
+                  variant === 'quaternary' ||
+                  variant === 'surface' ||
+                  variant === 'surface-hard' ||
+                  variant === 'outline' ||
+                  variant === 'background' ||
+                  variant === 'background-soft'
                 ? 'primary-arrow'
-                : variant === 'tertiary'
-                  ? 'foreground-arrow'
-                  : variant === 'quaternary'
-                    ? 'primary-arrow'
-                    : variant === 'outline'
-                      ? 'primary-arrow'
-                      : ''
+                : ''
           : '',
         className,
       )}

@@ -119,7 +119,7 @@
     --surface: var(--gray-200);
     --surface-hover: var(--gray-300);
     --surface-hard: var(--gray-400);
-    --surface-hard-hover: var(--gray-530);
+    --surface-hard-hover: var(--gray-500);
     --surface-2xs: var(--gray-100);
     --surface-xs: var(--gray-200);
     --surface-sm: var(--gray-300);

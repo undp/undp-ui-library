@@ -1,6 +1,6 @@
-import * as SwitchPrimitives from '@radix-ui/react-switch';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Check, X } from 'lucide-react';
+import { Switch as SwitchPrimitives } from 'radix-ui';
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { P } from './typography';

@@ -278,6 +278,5 @@ module.exports = {
       textAlign: ['rtl'],
     },
   },
-  plugins: [require('tailwindcss-animate')],
   corePlugins: { preflight: false },
 };

@@ -69,6 +69,11 @@ const entries = {
   DateTimeRangePicker: path.resolve(__dirname, 'src/components/ui/date-time-range-picker.tsx'),
   cn: path.resolve(__dirname, 'src/lib/utils.ts'),
   ConfigProvider: path.resolve(__dirname, 'src/ConfigProvider.tsx'),
+  Attachment: path.resolve(__dirname, 'src/components/ui/attachment.tsx'),
+  Avatar: path.resolve(__dirname, 'src/components/ui/avatar.tsx'),
+  Bubble: path.resolve(__dirname, 'src/components/ui/bubble.tsx'),
+  InputGroup: path.resolve(__dirname, 'src/components/ui/input-group.tsx'),
+  MessageScroller: path.resolve(__dirname, 'src/components/ui/message-scroller.tsx'),
 };
 
 // https://vitejs.dev/config/
