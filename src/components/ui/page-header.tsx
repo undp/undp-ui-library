@@ -72,6 +72,7 @@ const PageHeader = React.forwardRef<
                 ? '@2xl:min-h-[642px] @5xl:min-h-[746px] min-h-auto'
                 : minHeight
               : '',
+            contentMode === 'dark' ? 'text-content-reverse' : 'text-content-primary',
             className,
           )}
           style={{

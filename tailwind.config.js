@@ -32,6 +32,8 @@ module.exports = {
         'foreground-soft': 'var(--foreground-soft)',
         'background-soft': 'var(--background-soft)',
         ring: 'var(--ring)',
+        'card-hover-color': 'var(--card-hover-color)',
+        'footer-background': 'var(--footer-background)',
         error: {
           DEFAULT: 'var(--error)',
           hover: 'var(--error-hover)',

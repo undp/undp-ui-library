@@ -55,7 +55,7 @@ const ResourceCardImage = React.forwardRef<HTMLDivElement, ResourceCardImageProp
         className={cn(imgVariants({ aspectRatio }), imageClassNames)}
       />
       {hoverColor ? (
-        <div className='absolute top-0 left-0 z-[1] h-full w-full bg-[linear-gradient(27.66deg,#FFEB00,transparent_70.49%)] opacity-0 group-hover:opacity-75' />
+        <div className='absolute top-0 left-0 z-[1] h-full w-full bg-[linear-gradient(27.66deg,var(--card-hover-color),transparent_70.49%)] opacity-0 group-hover:opacity-75' />
       ) : null}
     </div>
   ),

@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,10 +20,21 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+
     "./Accordion": {
       "types": "./dist/Accordion.d.ts",
       "import": "./dist/Accordion.js",
       "require": "./dist/Accordion.cjs"
+    },
+    "./Attachment": {
+      "types": "./dist/Attachment.d.ts",
+      "import": "./dist/Attachment.js",
+      "require": "./dist/Attachment.cjs"
+    },
+    "./Avatar": {
+      "types": "./dist/Avatar.d.ts",
+      "import": "./dist/Avatar.js",
+      "require": "./dist/Avatar.cjs"
     },
     "./Badge": {
       "types": "./dist/Badge.d.ts",
@@ -40,40 +51,25 @@
       "import": "./dist/Breadcrumb.js",
       "require": "./dist/Breadcrumb.cjs"
     },
+    "./Bubble": {
+      "types": "./dist/Bubble.d.ts",
+      "import": "./dist/Bubble.js",
+      "require": "./dist/Bubble.cjs"
+    },
     "./Button": {
       "types": "./dist/Button.d.ts",
       "import": "./dist/Button.js",
       "require": "./dist/Button.cjs"
     },
+    "./Calendar": {
+      "types": "./dist/Calendar.d.ts",
+      "import": "./dist/Calendar.js",
+      "require": "./dist/Calendar.cjs"
+    },
     "./Card": {
       "types": "./dist/Card.d.ts",
       "import": "./dist/Card.js",
       "require": "./dist/Card.cjs"
-    },
-    "./Grid": {
-      "types": "./dist/Grid.d.ts",
-      "import": "./dist/Grid.js",
-      "require": "./dist/Grid.cjs"
-    },
-    "./FeaturedCard": {
-      "types": "./dist/FeaturedCard.d.ts",
-      "import": "./dist/FeaturedCard.js",
-      "require": "./dist/FeaturedCard.cjs"
-    },
-    "./ResourceCard": {
-      "types": "./dist/ResourceCard.d.ts",
-      "import": "./dist/ResourceCard.js",
-      "require": "./dist/ResourceCard.cjs"
-    },
-    "./PageWideCard": {
-      "types": "./dist/PageWideCard.d.ts",
-      "import": "./dist/PageWideCard.js",
-      "require": "./dist/PageWideCard.cjs"
-    },
-    "./PageHeader": {
-      "types": "./dist/PageHeader.d.ts",
-      "import": "./dist/PageHeader.js",
-      "require": "./dist/PageHeader.cjs"
     },
     "./Carousel": {
       "types": "./dist/Carousel.d.ts",
@@ -95,6 +91,31 @@
       "import": "./dist/Container.js",
       "require": "./dist/Container.cjs"
     },
+    "./DatePicker": {
+      "types": "./dist/DatePicker.d.ts",
+      "import": "./dist/DatePicker.js",
+      "require": "./dist/DatePicker.cjs"
+    },
+    "./DateRangePicker": {
+      "types": "./dist/DateRangePicker.d.ts",
+      "import": "./dist/DateRangePicker.js",
+      "require": "./dist/DateRangePicker.cjs"
+    },
+    "./DateTimePicker": {
+      "types": "./dist/DateTimePicker.d.ts",
+      "import": "./dist/DateTimePicker.js",
+      "require": "./dist/DateTimePicker.cjs"
+    },
+    "./DateTimeRangePicker": {
+      "types": "./dist/DateTimeRangePicker.d.ts",
+      "import": "./dist/DateTimeRangePicker.js",
+      "require": "./dist/DateTimeRangePicker.cjs"
+    },
+    "./Drawer": {
+      "types": "./dist/Drawer.d.ts",
+      "import": "./dist/Drawer.js",
+      "require": "./dist/Drawer.cjs"
+    },
     "./DropdownMenu": {
       "types": "./dist/DropdownMenu.d.ts",
       "import": "./dist/DropdownMenu.js",
@@ -104,6 +125,16 @@
       "types": "./dist/DropdownSelect.d.ts",
       "import": "./dist/DropdownSelect.js",
       "require": "./dist/DropdownSelect.cjs"
+    },
+    "./FeaturedCard": {
+      "types": "./dist/FeaturedCard.d.ts",
+      "import": "./dist/FeaturedCard.js",
+      "require": "./dist/FeaturedCard.cjs"
+    },
+    "./FeatureShowcase": {
+      "types": "./dist/FeatureShowcase.d.ts",
+      "import": "./dist/FeatureShowcase.js",
+      "require": "./dist/FeatureShowcase.cjs"
     },
     "./FileUpload": {
       "types": "./dist/FileUpload.d.ts",
@@ -115,6 +146,11 @@
       "import": "./dist/Footer.js",
       "require": "./dist/Footer.cjs"
     },
+    "./Grid": {
+      "types": "./dist/Grid.d.ts",
+      "import": "./dist/Grid.js",
+      "require": "./dist/Grid.cjs"
+    },
     "./Header": {
       "types": "./dist/Header.d.ts",
       "import": "./dist/Header.js",
@@ -125,15 +161,15 @@
       "import": "./dist/HoverCard.js",
       "require": "./dist/HoverCard.cjs"
     },
-    "./Search": {
-      "types": "./dist/Search.d.ts",
-      "import": "./dist/Search.js",
-      "require": "./dist/Search.cjs"
-    },
     "./Input": {
       "types": "./dist/Input.d.ts",
       "import": "./dist/Input.js",
       "require": "./dist/Input.cjs"
+    },
+    "./InputGroup": {
+      "types": "./dist/InputGroup.d.ts",
+      "import": "./dist/InputGroup.js",
+      "require": "./dist/InputGroup.cjs"
     },
     "./Label": {
       "types": "./dist/Label.d.ts",
@@ -150,20 +186,40 @@
       "import": "./dist/List.js",
       "require": "./dist/List.cjs"
     },
-    "./UNDPLogo": {
-      "types": "./dist/UNDPLogo.d.ts",
-      "import": "./dist/UNDPLogo.js",
-      "require": "./dist/UNDPLogo.cjs"
+    "./MarkdownRenderer": {
+      "types": "./dist/MarkdownRenderer.d.ts",
+      "import": "./dist/MarkdownRenderer.js",
+      "require": "./dist/MarkdownRenderer.cjs"
+    },
+    "./Marker": {
+      "types": "./dist/Marker.d.ts",
+      "import": "./dist/Marker.js",
+      "require": "./dist/Marker.cjs"
+    },
+    "./Message": {
+      "types": "./dist/Message.d.ts",
+      "import": "./dist/Message.js",
+      "require": "./dist/Message.cjs"
+    },
+    "./MessageScroller": {
+      "types": "./dist/MessageScroller.d.ts",
+      "import": "./dist/MessageScroller.js",
+      "require": "./dist/MessageScroller.cjs"
     },
     "./Modal": {
       "types": "./dist/Modal.d.ts",
       "import": "./dist/Modal.js",
       "require": "./dist/Modal.cjs"
     },
-    "./MarkdownRenderer": {
-      "types": "./dist/MarkdownRenderer.d.ts",
-      "import": "./dist/MarkdownRenderer.js",
-      "require": "./dist/MarkdownRenderer.cjs"
+    "./PageHeader": {
+      "types": "./dist/PageHeader.d.ts",
+      "import": "./dist/PageHeader.js",
+      "require": "./dist/PageHeader.cjs"
+    },
+    "./PageWideCard": {
+      "types": "./dist/PageWideCard.d.ts",
+      "import": "./dist/PageWideCard.js",
+      "require": "./dist/PageWideCard.cjs"
     },
     "./Pagination": {
       "types": "./dist/Pagination.d.ts",
@@ -180,15 +236,30 @@
       "import": "./dist/RadioGroup.js",
       "require": "./dist/RadioGroup.cjs"
     },
-    "./SdgBorder": {
-      "types": "./dist/SdgBorder.d.ts",
-      "import": "./dist/SdgBorder.js",
-      "require": "./dist/SdgBorder.cjs"
+    "./ResourceCard": {
+      "types": "./dist/ResourceCard.d.ts",
+      "import": "./dist/ResourceCard.js",
+      "require": "./dist/ResourceCard.cjs"
+    },
+    "./SDGBorder": {
+      "types": "./dist/SDGBorder.d.ts",
+      "import": "./dist/SDGBorder.js",
+      "require": "./dist/SDGBorder.cjs"
+    },
+    "./SDGCardButton": {
+      "types": "./dist/SDGCardButton.d.ts",
+      "import": "./dist/SDGCardButton.js",
+      "require": "./dist/SDGCardButton.cjs"
     },
     "./SDGIcons": {
       "types": "./dist/SDGIcons.d.ts",
       "import": "./dist/SDGIcons.js",
       "require": "./dist/SDGIcons.cjs"
+    },
+    "./Search": {
+      "types": "./dist/Search.d.ts",
+      "import": "./dist/Search.js",
+      "require": "./dist/Search.cjs"
     },
     "./SegmentedControl": {
       "types": "./dist/SegmentedControl.d.ts",
@@ -219,6 +290,16 @@
       "types": "./dist/Spinner.d.ts",
       "import": "./dist/Spinner.js",
       "require": "./dist/Spinner.cjs"
+    },
+    "./StatCard": {
+      "types": "./dist/StatCard.d.ts",
+      "import": "./dist/StatCard.js",
+      "require": "./dist/StatCard.cjs"
+    },
+    "./StatsPanel": {
+      "types": "./dist/StatsPanel.d.ts",
+      "import": "./dist/StatsPanel.js",
+      "require": "./dist/StatsPanel.cjs"
     },
     "./Stepper": {
       "types": "./dist/Stepper.d.ts",
@@ -265,36 +346,33 @@
       "import": "./dist/Typography.js",
       "require": "./dist/Typography.cjs"
     },
-    "./VizCarousel": {
-      "types": "./dist/VizCarousel.d.ts",
-      "import": "./dist/VizCarousel.js",
-      "require": "./dist/VizCarousel.cjs"
+    "./UNDPLogo": {
+      "types": "./dist/UNDPLogo.d.ts",
+      "import": "./dist/UNDPLogo.js",
+      "require": "./dist/UNDPLogo.cjs"
     },
     "./VisualizationWidget": {
       "types": "./dist/VisualizationWidget.d.ts",
       "import": "./dist/VisualizationWidget.js",
       "require": "./dist/VisualizationWidget.cjs"
     },
-    "./Drawer": {
-      "types": "./dist/Drawer.d.ts",
-      "import": "./dist/Drawer.js",
-      "require": "./dist/Drawer.cjs"
+    "./VizCarousel": {
+      "types": "./dist/VizCarousel.d.ts",
+      "import": "./dist/VizCarousel.js",
+      "require": "./dist/VizCarousel.cjs"
     },
-    "./SDGCardButton": {
-      "types": "./dist/SDGCardButton.d.ts",
-      "import": "./dist/SDGCardButton.js",
-      "require": "./dist/SDGCardButton.cjs"
-    },
-    "./FeatureShowcase": {
-      "types": "./dist/FeatureShowcase.d.ts",
-      "import": "./dist/FeatureShowcase.js",
-      "require": "./dist/FeatureShowcase.cjs"
-    },
+
     "./cn": {
       "types": "./dist/cn.d.ts",
       "import": "./dist/cn.js",
       "require": "./dist/cn.cjs"
     },
+    "./ConfigProvider": {
+      "types": "./dist/ConfigProvider.d.ts",
+      "import": "./dist/ConfigProvider.js",
+      "require": "./dist/ConfigProvider.cjs"
+    },
+    
     "./style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
@@ -302,76 +380,6 @@
     "./tailwind.config": {
       "import": "./tailwind.config.js",
       "require": "./tailwind.config.js"
-    },
-    "./ConfigProvider": {
-      "types": "./dist/ConfigProvider.d.ts",
-      "import": "./dist/ConfigProvider.js",
-      "require": "./dist/ConfigProvider.cjs"
-    },
-    "./StatCard": {
-      "types": "./dist/StatCard.d.ts",
-      "import": "./dist/StatCard.js",
-      "require": "./dist/StatCard.cjs"
-    },
-    "./StatsPanel": {
-      "types": "./dist/StatsPanel.d.ts",
-      "import": "./dist/StatsPanel.js",
-      "require": "./dist/StatsPanel.cjs"
-    },
-    "./Calendar": {
-      "types": "./dist/Calendar.d.ts",
-      "import": "./dist/Calendar.js",
-      "require": "./dist/Calendar.cjs"
-    },
-    "./DatePicker": {
-      "types": "./dist/DatePicker.d.ts",
-      "import": "./dist/DatePicker.js",
-      "require": "./dist/DatePicker.cjs"
-    },
-    "./DateRangePicker": {
-      "types": "./dist/DateRangePicker.d.ts",
-      "import": "./dist/DateRangePicker.js",
-      "require": "./dist/DateRangePicker.cjs"
-    },
-    "./DateTimePicker": {
-      "types": "./dist/DateTimePicker.d.ts",
-      "import": "./dist/DateTimePicker.js",
-      "require": "./dist/DateTimePicker.cjs"
-    },
-    "./DateTimeRangePicker": {
-      "types": "./dist/DateTimeRangePicker.d.ts",
-      "import": "./dist/DateTimeRangePicker.js",
-      "require": "./dist/DateTimeRangePicker.cjs"
-    },
-    "./Attachment": {
-      "types": "./dist/Attachment.d.ts",
-      "import": "./dist/Attachment.js",
-      "require": "./dist/Attachment.cjs"
-    },
-    "./Avatar": {
-      "types": "./dist/Avatar.d.ts",
-      "import": "./dist/Avatar.js",
-      "require": "./dist/Avatar.cjs"
-    },
-    "./Bubble": {
-      "types": "./dist/Bubble.d.ts",
-      "import": "./dist/Bubble.js",
-      "require": "./dist/Bubble.cjs"
-    },
-    "./InputGroup": {
-      "types": "./dist/InputGroup.d.ts",
-      "import": "./dist/InputGroup.js",
-      "require": "./dist/InputGroup.cjs"
-    },
-    "./MessageScroller": {
-      "types": "./dist/MessageScroller.d.ts",
-      "import": "./dist/MessageScroller.js",
-      "require": "./dist/MessageScroller.cjs"
-    },
-    "./Message": {
-      "types": "./dist/Message.d.ts",
-      "import": "./dist/Message.js",
-      "require": "./dist/Message.cjs"
     }
   },
   "publishConfig": {

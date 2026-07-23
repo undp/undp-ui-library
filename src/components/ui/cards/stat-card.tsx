@@ -8,6 +8,7 @@ const cardVariants = cva(
   {
     variants: {
       hoverColor: {
+        default: 'hover:bg-card-hover-color',
         primary: 'hover:bg-primary',
         secondary: 'hover:bg-secondary',
         tertiary: 'hover:bg-tertiary',
@@ -29,7 +30,7 @@ const cardVariants = cva(
       },
     },
     defaultVariants: {
-      hoverColor: 'warning',
+      hoverColor: 'default',
       size: 'full',
     },
   },

@@ -6,7 +6,10 @@ function Footer({ className, children, ...props }: React.HTMLAttributes<HTMLElem
   return (
     <footer
       {...props}
-      className={cn('h-auto w-full bg-secondary px-3 pt-14 pb-12 text-content-reverse', className)}
+      className={cn(
+        'h-auto w-full bg-footer-background px-3 pt-14 pb-12 text-content-reverse',
+        className,
+      )}
     >
       <div className={cn('mx-auto w-full sm:w-[83.333%]')}>{children}</div>
     </footer>
@@ -89,7 +92,7 @@ function FooterCopyrightUnit({
           href='https://www.undp.org/copyright-terms-use'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-content-reverse text-sm hover:text-blue-100 md:text-base'
+          className='text-content-reverse text-sm opacity-100 hover:opacity-70 md:text-base'
         >
           Terms of use
         </a>

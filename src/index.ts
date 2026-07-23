@@ -40,6 +40,7 @@ export {
 } from '@/components/ui/breadcrumb';
 export { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from '@/components/ui/bubble';
 export { Button } from '@/components/ui/button';
+export { Calendar } from '@/components/ui/calendar-card';
 export {
   Card,
   CardDescription,
@@ -48,7 +49,7 @@ export {
   CardImage,
   CardTag,
   CardTitle,
-} from '@/components/ui/Cards/card';
+} from '@/components/ui/cards/card';
 export {
   PageWideCard,
   PageWideCardContainer,
@@ -59,14 +60,14 @@ export {
   PageWideCardImage,
   PageWideCardTag,
   PageWideCardTitle,
-} from '@/components/ui/Cards/cardPageWide';
+} from '@/components/ui/cards/card-page-wide';
 export {
   FeaturedCard,
   FeaturedCardDescription,
   FeaturedCardFooter,
   FeaturedCardTag,
   FeaturedCardTitle,
-} from '@/components/ui/Cards/featuredCard';
+} from '@/components/ui/cards/featured-card';
 export {
   ResourceCard,
   ResourceCardContent,
@@ -74,14 +75,13 @@ export {
   ResourceCardFooter,
   ResourceCardImage,
   ResourceCardTitle,
-} from '@/components/ui/Cards/resourceCard';
+} from '@/components/ui/cards/resource-card';
 export {
   StatCard,
   StatCardDescription,
   StatCardTitle,
   StatCardValue,
-} from '@/components/ui/Cards/statCard';
-export { Calendar } from '@/components/ui/calendar-card';
+} from '@/components/ui/cards/stat-card';
 export { Carousel, CarouselItem } from '@/components/ui/carousel';
 export { Checkbox } from '@/components/ui/checkbox';
 export { CheckboxGroup, CheckboxGroupItem } from '@/components/ui/checkbox-group';
@@ -120,8 +120,8 @@ export {
   FeatureShowcaseIntro,
   FeatureShowcaseIntroBody,
   FeatureShowcaseIntroTitle,
-} from '@/components/ui/featureShowcase';
-export { FileUpload } from '@/components/ui/fileUpload';
+} from '@/components/ui/feature-showcase';
+export { FileUpload } from '@/components/ui/file-upload';
 export {
   Footer,
   FooterContent,
@@ -148,10 +148,11 @@ export {
   InputGroupTextarea,
 } from '@/components/ui/input-group';
 export { Search } from '@/components/ui/input-search';
-export { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 export { Label } from '@/components/ui/label';
+export { LanguageSwitcher } from '@/components/ui/language-switcher';
 export { Li, Ol, Ul } from '@/components/ui/list';
 export { UNDPLogo } from '@/components/ui/logo.tsx';
+export { Marker, MarkerContent, MarkerIcon } from '@/components/ui/marker.tsx';
 export { MarkdownRenderer } from '@/components/ui/md-renderer';
 export {
   Message,
@@ -174,13 +175,13 @@ export {
 } from '@/components/ui/message-scroller';
 export { Modal } from '@/components/ui/modal';
 export { Pagination } from '@/components/ui/Pagination';
-export { PageHeader, PageHeaderContent, PageHeaderHead } from '@/components/ui/pageHeader';
+export { PageHeader, PageHeaderContent, PageHeaderHead } from '@/components/ui/page-header';
 export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 export { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-export { SdgBorder } from '@/components/ui/sdgBorder';
-export { SDGCardButton } from '@/components/ui/sdgCardButton';
-export { SDGIcons } from '@/components/ui/sdgIcons.tsx';
-export { SegmentedControl } from '@/components/ui/segmentedControl';
+export { SdgBorder } from '@/components/ui/sdg-border';
+export { SDGCardButton } from '@/components/ui/sdg-card-button';
+export { SDGIcons } from '@/components/ui/sdg-icons';
+export { SegmentedControl } from '@/components/ui/segmented-control';
 export { components, createFilter, DropdownSelect } from '@/components/ui/select';
 export { Separator } from '@/components/ui/separator';
 export { Sidebar, SidebarItem } from '@/components/ui/sidebar-nav';
@@ -193,7 +194,7 @@ export {
   StatsPanelCardDescription,
   StatsPanelCardTitle,
   StatsPanelCardValue,
-} from '@/components/ui/statsPanel';
+} from '@/components/ui/stats-panel';
 export { Stepper } from '@/components/ui/stepper';
 export { Switch } from '@/components/ui/switch';
 export {
@@ -218,6 +219,6 @@ export {
   VisualizationWidgetHeader,
   VisualizationWidgetHeaderItem,
 } from '@/components/ui/visualization-widget';
-export { VizCarousel } from '@/components/ui/vizCarousel';
+export { VizCarousel } from '@/components/ui/viz-carousel';
 export { toast, useToast } from '@/hooks/use-toast.ts';
 export { cn } from '@/lib/utils';

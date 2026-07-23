@@ -135,6 +135,8 @@ interface ConfigDataType {
   background?: string;
   backgroundSoft?: string;
   ring?: string;
+  cardHoverColor?: string;
+  footerBackground?: string;
 
   error?: SemanticGroup;
   warning?: SemanticGroup;
@@ -276,6 +278,8 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
       setVar(root, '--background', config.background);
       setVar(root, '--background-soft', config.backgroundSoft);
       setVar(root, '--ring', config.ring);
+      setVar(root, '--card-hover-color', config.cardHoverColor);
+      setVar(root, '--footer-background', config.footerBackground);
 
       setVar(root, '--opacity-disabled', config.opacityDisabled);
 

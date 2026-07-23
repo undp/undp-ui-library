@@ -1,5 +1,5 @@
 @import "rc-slider/assets/index.css";
-
+@import "shadcn/tailwind.css";
 @import "tailwindcss";
 
 @import "tw-animate-css";
@@ -36,7 +36,7 @@
     --gray-700: #232e3d;
     --black: #000000;
 
-    --yellow-200: #ffeb00;
+    --yellow-200: #ffe17e;
     --yellow-400: #ffeb00;
     --yellow-600: #fbc412;
 
@@ -80,7 +80,7 @@
     --error-hover: var(--red-400);
     --error-light: var(--red-200);
 
-    --warning: var(--yellow-400);
+    --warning: var(--yellow-600);
     --warning-hover: var(--yellow-600);
     --warning-light: var(--yellow-200);
 
@@ -141,6 +141,10 @@
     --stroke-2xl: var(--gray-560);
     --stroke-3xl: var(--gray-600);
     --stroke-4xl: var(--gray-700);
+
+    --footer-background: var(--blue-600);
+
+    --card-hover-color: var(--yellow-400);
 
     --opacity-disabled: 0.5;
 
