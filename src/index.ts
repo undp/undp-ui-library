@@ -49,7 +49,7 @@ export {
   CardImage,
   CardTag,
   CardTitle,
-} from '@/components/ui/cards/card';
+} from '@/components/ui/card';
 export {
   PageWideCard,
   PageWideCardContainer,
@@ -60,28 +60,7 @@ export {
   PageWideCardImage,
   PageWideCardTag,
   PageWideCardTitle,
-} from '@/components/ui/cards/card-page-wide';
-export {
-  FeaturedCard,
-  FeaturedCardDescription,
-  FeaturedCardFooter,
-  FeaturedCardTag,
-  FeaturedCardTitle,
-} from '@/components/ui/cards/featured-card';
-export {
-  ResourceCard,
-  ResourceCardContent,
-  ResourceCardDescription,
-  ResourceCardFooter,
-  ResourceCardImage,
-  ResourceCardTitle,
-} from '@/components/ui/cards/resource-card';
-export {
-  StatCard,
-  StatCardDescription,
-  StatCardTitle,
-  StatCardValue,
-} from '@/components/ui/cards/stat-card';
+} from '@/components/ui/card-page-wide';
 export { Carousel, CarouselItem } from '@/components/ui/carousel';
 export { Checkbox } from '@/components/ui/checkbox';
 export { CheckboxGroup, CheckboxGroupItem } from '@/components/ui/checkbox-group';
@@ -121,6 +100,13 @@ export {
   FeatureShowcaseIntroBody,
   FeatureShowcaseIntroTitle,
 } from '@/components/ui/feature-showcase';
+export {
+  FeaturedCard,
+  FeaturedCardDescription,
+  FeaturedCardFooter,
+  FeaturedCardTag,
+  FeaturedCardTitle,
+} from '@/components/ui/featured-card';
 export { FileUpload } from '@/components/ui/file-upload';
 export {
   Footer,
@@ -178,6 +164,14 @@ export { Pagination } from '@/components/ui/Pagination';
 export { PageHeader, PageHeaderContent, PageHeaderHead } from '@/components/ui/page-header';
 export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 export { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+export {
+  ResourceCard,
+  ResourceCardContent,
+  ResourceCardDescription,
+  ResourceCardFooter,
+  ResourceCardImage,
+  ResourceCardTitle,
+} from '@/components/ui/resource-card';
 export { SdgBorder } from '@/components/ui/sdg-border';
 export { SDGCardButton } from '@/components/ui/sdg-card-button';
 export { SDGIcons } from '@/components/ui/sdg-icons';
@@ -188,6 +182,12 @@ export { Sidebar, SidebarItem } from '@/components/ui/sidebar-nav';
 export { SliderUI } from '@/components/ui/slider';
 export { Spacer } from '@/components/ui/spacer';
 export { Spinner } from '@/components/ui/spinner';
+export {
+  StatCard,
+  StatCardDescription,
+  StatCardTitle,
+  StatCardValue,
+} from '@/components/ui/stat-card';
 export {
   StatsPanel,
   StatsPanelCard,
