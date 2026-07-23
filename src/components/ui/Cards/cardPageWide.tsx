@@ -77,7 +77,7 @@ const PageWideCardTag = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     <div
       ref={ref}
       className={cn(
-        'mt-0 mb-0 flex w-full gap-2 pt-4 pr-6 pb-4 pl-6 font-body font-bold text-content-primary text-xs uppercase leading-[1.15] md:mb-0 rtl:pl-6 [dir-rtl]:pr-6',
+        'mt-0 mb-0 flex w-full gap-2 pt-4 pr-6 pb-4 pl-6 font-body font-bold text-content-primary text-xs uppercase leading-xs md:mb-0 rtl:pl-6 [dir-rtl]:pr-6',
         className,
       )}
       {...props}

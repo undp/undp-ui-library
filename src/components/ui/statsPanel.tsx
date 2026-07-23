@@ -71,7 +71,7 @@ const StatsPanelCardValue = React.forwardRef<
   <H2
     ref={ref}
     className={cn(
-      'text-left font-heading text-transparent leading-none transition-all duration-400 [-webkit-text-stroke:2px_var(--background)] group-hover:text-content-primary rtl:text-right group-hover:[-webkit-text-stroke:0px]',
+      'text-left font-heading text-transparent leading-xs transition-all duration-400 [-webkit-text-stroke:2px_var(--content-reverse)] group-hover:text-content-primary rtl:text-right group-hover:[-webkit-text-stroke:0px]',
       className,
     )}
     {...props}

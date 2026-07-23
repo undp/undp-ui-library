@@ -86,7 +86,7 @@ const CardTag = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHe
     <div
       ref={ref}
       className={cn(
-        'card-tag mt-0 mb-0 flex gap-2 pt-4 pr-6 pl-6 font-body font-bold text-xs uppercase leading-[1.15] md:mb-0',
+        'card-tag mt-0 mb-0 flex gap-2 pt-4 pr-6 pl-6 font-body font-bold text-xs uppercase leading-h6 md:mb-0',
         className,
       )}
       {...props}

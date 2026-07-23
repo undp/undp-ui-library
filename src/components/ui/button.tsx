@@ -54,10 +54,10 @@ const buttonVariants = cva(
         `,
       },
       size: {
-        base: 'text-base leading-none',
-        xs: 'text-xs leading-none',
-        sm: 'text-sm leading-none',
-        xl: 'text-xl leading-none',
+        base: 'text-base leading-xs',
+        xs: 'text-xs leading-xs',
+        sm: 'text-sm leading-xs',
+        xl: 'text-xl leading-xs',
       },
       rounded: {
         base: 'rounded-base',

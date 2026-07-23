@@ -108,13 +108,13 @@
     --quaternary-hover: var(--yellow-400);
     --quaternary-light: var(--yellow-200);
 
-    --content-primary: var(--black);
+    --content-primary: var(--foreground);
     --content-secondary: var(--gray-560);
     --content-tertiary: var(--gray-530);
     --content-quaternary: var(--gray-500);
     --content-placeholder: var(--gray-530);
     --content-disabled: var(--gray-530);
-    --content-reverse: var(--white);
+    --content-reverse: var(--background);
 
     --surface: var(--gray-200);
     --surface-hover: var(--gray-300);
@@ -190,6 +190,7 @@
     --leading-base: 1.4;
     --leading-sm: 1.2;
     --leading-xs: 1;
+    --leading-none: 0;
 
     --rounded-base: 0;
     --rounded-sm: 0.125rem;

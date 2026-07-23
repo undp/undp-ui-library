@@ -84,7 +84,7 @@ function AttachmentContent({ className, ...props }: React.ComponentProps<'div'>)
     <div
       data-slot='attachment-content'
       className={cn(
-        'min-w-0 max-w-full flex-1 leading-tight group-data-[orientation=vertical]/attachment:px-1',
+        'min-w-0 max-w-full flex-1 leading-sm group-data-[orientation=vertical]/attachment:px-1',
         className,
       )}
       {...props}

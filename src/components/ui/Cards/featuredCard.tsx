@@ -71,7 +71,7 @@ const FeaturedCardTag = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     <div
       ref={ref}
       className={cn(
-        'card-tag mt-0 mb-0 flex gap-2 pt-4 pr-6 pl-6 font-body font-bold text-xs uppercase leading-[1.15] md:mb-0',
+        'card-tag mt-0 mb-0 flex gap-2 pt-4 pr-6 pl-6 font-body font-bold text-xs uppercase leading-xs md:mb-0',
         className,
       )}
       {...props}
@@ -105,7 +105,7 @@ const FeaturedCardDescription = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'mt-0 pt-0 pr-6 pb-6 pl-6 font-body text-sm leading-[1.4] lg:text-base',
+      'mt-0 pt-0 pr-6 pb-6 pl-6 font-body text-sm leading-base lg:text-base',
       className,
     )}
     {...props}

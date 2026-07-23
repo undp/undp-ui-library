@@ -44,11 +44,11 @@ function HeaderLogoUnit({
         />
         <div>
           {siteSubName ? (
-            <div className='mx-0 mt-0 mb-[4.8px] inline-block border-b border-b-primary-gray-500 pb-px pb-px font-semibold text-primary-gray-600 text-xs uppercase leading-[1.142] no-underline'>
+            <div className='mx-0 mt-0 mb-[4.8px] inline-block border-b border-b-primary-gray-500 pb-px pb-px font-semibold text-primary-gray-600 text-xs uppercase leading-base no-underline'>
               {siteSubName}
             </div>
           ) : null}
-          <div className='m-0 p-0 font-semibold text-base text-content-primary leading-[1.142] no-underline lg:text-xl'>
+          <div className='m-0 p-0 font-semibold text-base text-content-primary leading-base no-underline lg:text-xl'>
             {siteName}
           </div>
         </div>
