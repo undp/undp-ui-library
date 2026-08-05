@@ -65,7 +65,7 @@ function DrawerContent({
       <DrawerPrimitive.Content
         data-slot='drawer-content'
         className={cn(
-          'group/drawer-content fixed z-50 flex h-auto flex-col bg-background px-[6px] sm:px-3',
+          'group/drawer-content fixed z-50 flex h-auto flex-col bg-background px-1.5 sm:px-3',
           'data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh]',
           'data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh]',
           'data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-[95%] sm:data-[vaul-drawer-direction=right]:w-[83.33%]',
@@ -78,8 +78,8 @@ function DrawerContent({
           <button
             className={cn(
               'fixed top-4 rounded-full border border-stroke bg-surface p-2 text-content-primary transition-all hover:bg-surface-hover',
-              'group-data-[vaul-drawer-direction=right]/drawer-content:right-0 group-data-[vaul-drawer-direction=right]/drawer-content:mr-4 sm:group-data-[vaul-drawer-direction=right]/drawer-content:right-[100%] sm:group-data-[vaul-drawer-direction=right]/drawer-content:mr-[8.33%]',
-              'group-data-[vaul-drawer-direction=left]/drawer-content:left-0 group-data-[vaul-drawer-direction=left]/drawer-content:ml-4 sm:group-data-[vaul-drawer-direction=left]/drawer-content:left-[100%] sm:group-data-[vaul-drawer-direction=left]/drawer-content:ml-[8.33%]',
+              'group-data-[vaul-drawer-direction=right]/drawer-content:right-0 group-data-[vaul-drawer-direction=right]/drawer-content:mr-4 sm:group-data-[vaul-drawer-direction=right]/drawer-content:right-full sm:group-data-[vaul-drawer-direction=right]/drawer-content:mr-[8.33%]',
+              'group-data-[vaul-drawer-direction=left]/drawer-content:left-0 group-data-[vaul-drawer-direction=left]/drawer-content:ml-4 sm:group-data-[vaul-drawer-direction=left]/drawer-content:left-full sm:group-data-[vaul-drawer-direction=left]/drawer-content:ml-[8.33%]',
               'group-data-[vaul-drawer-direction=top]/drawer-content:hidden',
               'group-data-[vaul-drawer-direction=bottom]/drawer-content:hidden',
               closeButtonClassName,
@@ -94,7 +94,7 @@ function DrawerContent({
             userSelect: 'text',
             touchAction: 'auto',
           }}
-          className='undp-scrollbar h-screen bg-background px-[0.75rem] pt-[4.375rem] md:pt-0 md:pr-[1.5rem] md:pl-[2rem]'
+          className='undp-scrollbar h-screen bg-background px-3 pt-17.5 md:pt-0 md:pr-6 md:pl-8'
         >
           {children}
         </div>
@@ -112,7 +112,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot='drawer-header'
       className={cn(
-        'mt-0 mr-0 ml-[1.875rem] group-data-[vaul-drawer-direction=bottom]:mt-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=right]:mt-24 group-data-[vaul-drawer-direction=top]:mt-24 group-data-[vaul-drawer-direction=right]:mr-24 group-data-[vaul-drawer-direction=bottom]:ml-24 group-data-[vaul-drawer-direction=top]:ml-24 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:mt-[6rem] md:ml-[6rem] md:gap-1.5 md:text-left',
+        'mt-0 mr-0 ml-7.5 group-data-[vaul-drawer-direction=bottom]:mt-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=right]:mt-24 group-data-[vaul-drawer-direction=top]:mt-24 group-data-[vaul-drawer-direction=right]:mr-24 group-data-[vaul-drawer-direction=bottom]:ml-24 group-data-[vaul-drawer-direction=top]:ml-24 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:mt-24 md:ml-24 md:gap-1.5 md:text-left',
         className,
       )}
       {...props}

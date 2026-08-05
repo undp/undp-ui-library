@@ -55,7 +55,7 @@ function SliderUI(sliderProps: SliderProps) {
     showHandleValue = false,
   } = sliderProps;
   return (
-    <div className={cn('[&_.rc-slider-disabled]:!bg-transparent w-full px-4 py-6', className)}>
+    <div className={cn('w-full px-4 py-6 [&_.rc-slider-disabled]:bg-transparent!', className)}>
       <Slider
         {...sliderProps}
         min={min}

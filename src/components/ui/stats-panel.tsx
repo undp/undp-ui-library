@@ -61,7 +61,7 @@ const StatsPanelCard = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'group relative box-border flex @2xl:min-h-[787px] min-h-[378px] @2xl:w-1/2 @3xl:w-1/4 w-full items-center bg-foreground-soft px-16',
+      'group relative box-border flex @2xl:min-h-196.75 min-h-94.5 @2xl:w-1/2 @3xl:w-1/4 w-full items-center bg-foreground-soft px-16',
       className,
     )}
     {...props}
@@ -119,7 +119,7 @@ const StatsPanelCardDescription = React.forwardRef<
   <P
     ref={ref}
     className={cn(
-      '@2xl:h-[100px] h-auto text-white transition-all duration-400 group-hover:text-content-primary',
+      '@2xl:h-25 h-auto text-white transition-all duration-400 group-hover:text-content-primary',
       className,
     )}
     {...props}

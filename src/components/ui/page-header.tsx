@@ -34,7 +34,7 @@ const PageHeader = React.forwardRef<
               contentMode === 'dark' ? 'text-content-reverse' : 'text-content-primary',
               minHeight
                 ? minHeight === true
-                  ? '@2xl:min-h-[642px] @5xl:min-h-[746px] min-h-auto'
+                  ? '@2xl:min-h-160.5 @5xl:min-h-186.5 min-h-auto'
                   : minHeight
                 : '',
               className,
@@ -69,7 +69,7 @@ const PageHeader = React.forwardRef<
             `${contentMode} flex w-full flex-col gap-4 bg-center bg-cover py-20 @2xl:pl-[8.3333%] pl-4 @2xl:rtl:pr-[8.3333%] rtl:pr-4 @2xl:rtl:pl-0 rtl:pl-0`,
             minHeight
               ? minHeight === true
-                ? '@2xl:min-h-[642px] @5xl:min-h-[746px] min-h-auto'
+                ? '@2xl:min-h-160.5 @5xl:min-h-186.5 min-h-auto'
                 : minHeight
               : '',
             contentMode === 'dark' ? 'text-content-reverse' : 'text-content-primary',

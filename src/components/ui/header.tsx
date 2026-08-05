@@ -8,7 +8,7 @@ function Header({ className, children, ...props }: React.HTMLAttributes<HTMLElem
     <header
       {...props}
       className={cn(
-        'relative top-0 left-0 z-10 box-border flex h-[75px] w-full max-w-full items-center justify-between gap-4 bg-surface-2xs px-6 py-0 shadow-header md:h-header',
+        'relative top-0 left-0 z-10 box-border flex h-18.75 w-full max-w-full items-center justify-between gap-4 bg-surface-2xs px-6 py-0 shadow-header md:h-header',
         className,
       )}
     >
@@ -40,11 +40,11 @@ function HeaderLogoUnit({
         <img
           src={`https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/${logoLocale === 'es' || logoLocale === 'fr' ? 'pnud' : 'undp'}-logo-blue.svg`}
           alt='UNDP Logo'
-          className='z-100 h-[82px] w-[40px] md:h-[122px] md:w-[60px]'
+          className='z-100 h-20.5 w-10 md:h-30.5 md:w-15'
         />
         <div>
           {siteSubName ? (
-            <div className='mx-0 mt-0 mb-[4.8px] inline-block border-b border-b-primary-gray-500 pb-px pb-px font-semibold text-primary-gray-600 text-xs uppercase leading-base no-underline'>
+            <div className='mx-0 mt-0 mb-[4.8px] inline-block border-b border-b-primary-gray-500 pb-px font-semibold text-primary-gray-600 text-xs uppercase leading-base no-underline'>
               {siteSubName}
             </div>
           ) : null}
@@ -117,7 +117,7 @@ function HeaderMenuUnit({
     <div
       {...props}
       className={cn(
-        'grid grow items-center gap-4 font-medium text-content-primary tracking-[0.42px] md:flex md:gap-12 md:gap-8 [&>a:hover]:text-secondary [&>a]:font-bold [&>a]:text-base [&>a]:text-content-primary [&>a]:uppercase [&>a]:no-underline md:[&>a]:font-medium md:[&>a]:text-sm',
+        'grid grow items-center gap-4 font-medium text-content-primary tracking-[0.42px] md:flex md:gap-8 [&>a:hover]:text-secondary [&>a]:font-bold [&>a]:text-base [&>a]:text-content-primary [&>a]:uppercase [&>a]:no-underline md:[&>a]:font-medium md:[&>a]:text-sm',
         align === 'end' ? 'md:justify-end' : 'md:justify-center',
         className,
       )}

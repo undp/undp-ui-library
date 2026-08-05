@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,7 +20,6 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-
     "./Accordion": {
       "types": "./dist/Accordion.d.ts",
       "import": "./dist/Accordion.js",
@@ -361,7 +360,6 @@
       "import": "./dist/VizCarousel.js",
       "require": "./dist/VizCarousel.cjs"
     },
-
     "./cn": {
       "types": "./dist/cn.d.ts",
       "import": "./dist/cn.js",
@@ -372,7 +370,6 @@
       "import": "./dist/ConfigProvider.js",
       "require": "./dist/ConfigProvider.cjs"
     },
-    
     "./style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
@@ -455,7 +452,7 @@
     "@chromatic-com/storybook": "^5.2.1",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
-    "@microsoft/api-extractor": "^7.52.12",
+    "@microsoft/api-extractor": "^7.58.12",
     "@storybook/addon-docs": "^10.4.0",
     "@storybook/mdx2-csf": "^1.1.0",
     "@storybook/react": "^10.4.0",
@@ -479,7 +476,7 @@
     "tailwindcss": "^4.2.4",
     "typescript": "^5.9.2",
     "vite": "^8.0.13",
-    "vite-plugin-dts": "^5.0.1"
+    "vite-plugin-dts": "^5.0.3"
   },
   "allowScripts": {
     "esbuild@0.25.12": true

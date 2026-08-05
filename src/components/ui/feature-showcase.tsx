@@ -20,7 +20,7 @@ const FeatureShowcaseIntro = React.forwardRef<HTMLDivElement, React.HTMLAttribut
     <div
       ref={ref}
       className={cn(
-        '@5xl:mx-[8.3333%] mx-0 box-border flex @5xl:w-[calc(50%-16.6666%)] w-full flex-col justify-center @5xl:p-8 p-6',
+        '@5xl:mx-[8.3333%] mx-0 box-border flex @5xl:w-[33.3334%] w-full flex-col justify-center @5xl:p-8 p-6',
         className,
       )}
       {...props}
@@ -134,12 +134,12 @@ function FeatureShowcaseCard(props: {
           </div>
           {showTabs && (
             <div className='absolute top-[40vh] box-border flex w-full justify-between gap-2 @5xl:px-10 px-4 pt-10'>
-              <div className='mb-[8px] flex items-center gap-4 border-stroke border-b-2'>
+              <div className='mb-2 flex items-center gap-4 border-stroke border-b-2'>
                 {sections.map((d) => (
                   <button
                     type='button'
                     key={d.section}
-                    className={`shrink-0 border-b-2 bg-transparent font-body uppercase ${items[selectedIndex].section === d.section ? 'border-primary' : 'border-stroke'} -mb-[2px] font-base font-bold`}
+                    className={`shrink-0 border-b-2 bg-transparent font-body uppercase ${items[selectedIndex].section === d.section ? 'border-primary' : 'border-stroke'} -mb-0.5 font-base font-bold`}
                     onClick={() =>
                       emblaApi?.scrollTo(items.findIndex((el) => el.section === d.section))
                     }
@@ -152,14 +152,14 @@ function FeatureShowcaseCard(props: {
                 <P
                   marginBottom='none'
                   size='base'
-                  className='-mb-[2px] bg-transparent font-body font-bold uppercase'
+                  className='-mb-0.5 bg-transparent font-body font-bold uppercase'
                 >
                   {items[selectedIndex].index}/{items[selectedIndex].total}
                 </P>
               </div>
             </div>
           )}
-          <div className='absolute @5xl:right-4 bottom-10 @5xl:left-auto left-4 left-4 flex @5xl:w-auto w-[calc(100%-32px)] items-center justify-between'>
+          <div className='absolute @5xl:right-4 bottom-10 @5xl:left-auto left-4 flex @5xl:w-auto w-[calc(100%-32px)] items-center justify-between'>
             <div className='flex gap-1'>
               <button
                 type='button'
@@ -184,7 +184,7 @@ function FeatureShowcaseCard(props: {
               <P
                 marginBottom='none'
                 size='base'
-                className='-mb-[2px] bg-transparent font-body font-bold uppercase'
+                className='-mb-0.5 bg-transparent font-body font-bold uppercase'
               >
                 {items[selectedIndex].index}/{items[selectedIndex].total}
               </P>

@@ -85,7 +85,7 @@ const VisualizationWidgetHeaderItem = React.forwardRef<
       {...props}
       onClick={() => onValueChange(value)}
       className={cn(
-        'flex grow cursor-pointer flex-col items-center justify-center gap-1 border-0 border-r border-r-stroke bg-surface-2xs p-3 font-medium font-medium text-content-secondary text-sm last:border-r-0',
+        'flex grow cursor-pointer flex-col items-center justify-center gap-1 border-0 border-r border-r-stroke bg-surface-2xs p-3 font-medium text-content-secondary text-sm last:border-r-0',
         selectedValue === value ? activeItemClass || 'bg-background text-primary' : '',
         hoverItemClass ? `hover:${hoverItemClass}` : 'hover:bg-background',
         className,
@@ -133,9 +133,7 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
     <div
       className={cn(
         'undp-scrollbar @3xl:max-h-[80vh] max-h-none @3xl:border-r @3xl:border-r-stroke border-r-0 bg-surface',
-        collapsed
-          ? '@3xl:w-[40px] w-full px-2 py-4'
-          : '@3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5 w-full p-4',
+        collapsed ? '@3xl:w-10 w-full px-2 py-4' : '@3xl:w-1/3 @7xl:w-1/4 @8xl:w-1/5 w-full p-4',
         className,
       )}
       ref={ref}

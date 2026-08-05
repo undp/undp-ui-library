@@ -150,7 +150,7 @@ function MarkdownRenderer({
           ),
           hr: (props) => (
             <hr
-              className={cn('mb-4 h-[1px] w-full border-0 bg-surface-hard', classNames?.hr)}
+              className={cn('mb-4 h-px w-full border-0 bg-surface-hard', classNames?.hr)}
               {...props}
             />
           ),
@@ -164,7 +164,7 @@ function MarkdownRenderer({
           th: (props) => (
             <th
               className={cn(
-                'whitespace-nowrap bg-surface py-3 pr-10 pl-3 text-left align-middle font-semibold text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 rtl:text-right [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+                'whitespace-nowrap bg-surface py-3 pr-10 pl-3 text-left align-middle font-semibold text-p-xs has-[[role=checkbox]]:pr-0 md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 rtl:text-right *:[[role=checkbox]]:translate-y-0.5',
                 classNames?.th,
               )}
               {...props}
@@ -175,7 +175,7 @@ function MarkdownRenderer({
           td: (props) => (
             <td
               className={cn(
-                'whitespace-nowrap py-3 pr-10 pl-3 align-middle text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+                'whitespace-nowrap py-3 pr-10 pl-3 align-middle text-p-xs has-[[role=checkbox]]:pr-0 md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 *:[[role=checkbox]]:translate-y-0.5',
                 classNames?.td,
               )}
               {...props}
