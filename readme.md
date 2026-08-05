@@ -16,13 +16,13 @@ NPM Package can be found [here](https://www.npmjs.com/package/@undp/design-syste
 
 **Using npm**
 
-```
+```bash
 npm i @undp/design-system-react
 ```
 
 **Using yarn**
 
-```
+```bash
 yarn add @undp/design-system-react
 ```
 
@@ -30,13 +30,13 @@ yarn add @undp/design-system-react
 
 It is recommended to import what you need and the use it. For example, import the `Checkbox` like this:
 
-```
+```ts
 import { Checkbox } from '@undp/design-system-react'
 ```
 
 It is also recommended to import the css because some setting expect the CSS to be imported to look good. You can import the css file like this:
 
-```
+```ts
 import '@undp/design-system-react/style.css';
 ```
 
