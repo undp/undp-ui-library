@@ -126,11 +126,11 @@ const heading1Variant = cva('mt-0 ml-0 mr-0 p-0 uppercase font-heading tracking-
 const H1 = React.forwardRef<
   HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof heading1Variant>
->(({ children, className, marginBottom, size, alignment, ...props }, ref) => (
+>(({ children, className, weight, marginBottom, size, alignment, ...props }, ref) => (
   <h1
     ref={ref}
     {...props}
-    className={cn(heading1Variant({ marginBottom, size, alignment }), className)}
+    className={cn(heading1Variant({ weight, marginBottom, size, alignment }), className)}
   >
     {children}
   </h1>
