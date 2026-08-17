@@ -329,14 +329,14 @@
 }
 
 .undp-scrollbar::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
+  height: 6px;
+  width: 6px;
 }
 
 .undp-scrollbar::-webkit-scrollbar-track {
   background: var(--foreground);
   background-clip: padding-box;
-  border: 3px solid var(--background);
+  border: 2px solid var(--background);
 }
 
 .undp-scrollbar::-webkit-scrollbar-thumb {
@@ -345,30 +345,30 @@
 
 .undp-scrollbar::-webkit-scrollbar-button {
   display: block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background-color: var(--background);
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .undp-scrollbar::-webkit-scrollbar-button:vertical:start:decrement {
-  height: 8px;
+  height: 6px;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path d='M4 2L1 6h6z' fill='var(--foreground)'/></svg>");
 }
 
 .undp-scrollbar::-webkit-scrollbar-button:vertical:end:increment {
-  height: 8px;
+  height: 6px;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path d='M4 6L1 2h6z' fill='var(--foreground)'/></svg>");
 }
 
 .undp-scrollbar::-webkit-scrollbar-button:horizontal:start:decrement {
-  width: 8px;
+  width: 6px;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path d='M2 4l4-3v6z' fill='var(--foreground)'/></svg>");
 }
 
 .undp-scrollbar::-webkit-scrollbar-button:horizontal:end:increment {
-  width: 8px;
+  width: 6px;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path d='M6 4l-4-3v6z' fill='var(--foreground)'/></svg>");
 }
 
