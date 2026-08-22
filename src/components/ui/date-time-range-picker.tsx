@@ -1,3 +1,4 @@
+import { isAfter, isBefore, isSameDay } from 'date-fns';
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import type { Matcher } from 'react-day-picker';
@@ -10,7 +11,6 @@ export function DateTimeRangePicker({
   inputSize,
   rounded,
   onValueChange,
-  value,
   defaultValue,
   disabled,
 }: {
@@ -23,10 +23,6 @@ export function DateTimeRangePicker({
     popOverTriggerIcon?: string;
   };
   onValueChange?: (dates?: { startDate?: Date; endDate?: Date }) => void;
-  value?: {
-    startDate?: Date;
-    endDate?: Date;
-  };
   defaultValue?: {
     startDate?: Date;
     endDate?: Date;
@@ -34,15 +30,17 @@ export function DateTimeRangePicker({
   disablePopover?: boolean;
   disabled?: Matcher | Matcher[];
 }) {
-  const [startDate, setStartDate] = useState<Date | undefined>(
-    value?.startDate || defaultValue?.startDate || undefined,
-  );
-  const [endDate, setEndDate] = useState<Date | undefined>(
-    value?.endDate || defaultValue?.endDate || undefined,
-  );
+  const [startDate, setStartDate] = useState<Date | undefined>(defaultValue?.startDate);
+  const [endDate, setEndDate] = useState<Date | undefined>(defaultValue?.endDate);
   useEffect(() => {
-    onValueChange?.({ startDate, endDate });
-  }, [startDate, endDate, onValueChange]);
+    onValueChange?.({
+      startDate: startDate ?? defaultValue?.startDate,
+      endDate: endDate ?? defaultValue?.endDate,
+    });
+  }, [startDate, endDate, defaultValue?.startDate, defaultValue?.endDate, onValueChange]);
+
+  const startDateValue = startDate ?? defaultValue?.startDate;
+  const endDateValue = endDate ?? defaultValue?.endDate;
 
   return (
     <div className='flex w-full items-center gap-2'>
@@ -56,8 +54,9 @@ export function DateTimeRangePicker({
         variant={variant}
         inputSize={inputSize}
         classNames={classNames}
+        selected={startDateValue}
         disabled={(date: Date) => {
-          const isAfterEndDate = endDate ? date.getDate() > endDate.getDate() : false;
+          const isAfterEndDate = endDateValue ? isAfter(date, endDateValue) : false;
 
           if (typeof disabled === 'function') {
             return disabled(date) || isAfterEndDate;
@@ -73,14 +72,16 @@ export function DateTimeRangePicker({
           return isAfterEndDate;
         }}
         disabledHours={
-          endDate && endDate?.getDate() === startDate?.getDate()
-            ? Array.from({ length: 24 }, (_, i) => i).filter((hour) => hour > endDate.getHours())
+          endDateValue && endDateValue?.getDate() === startDateValue?.getDate()
+            ? Array.from({ length: 24 }, (_, i) => i).filter(
+                (hour) => hour > endDateValue.getHours(),
+              )
             : []
         }
         disabledMinutes={
-          endDate && endDate?.getDate() === startDate?.getDate()
+          endDateValue && endDateValue?.getDate() === startDateValue?.getDate()
             ? Array.from({ length: 60 }, (_, i) => i).filter(
-                (minute) => minute > endDate.getMinutes(),
+                (minute) => minute > endDateValue.getMinutes(),
               )
             : []
         }
@@ -98,8 +99,11 @@ export function DateTimeRangePicker({
         variant={variant}
         inputSize={inputSize}
         classNames={classNames}
+        selected={endDateValue}
         disabled={(date: Date) => {
-          const isBeforeStartDate = startDate ? date.getDate() < startDate.getDate() : false;
+          const isBeforeStartDate = startDateValue
+            ? isBefore(date, startDateValue) && !isSameDay(date, startDateValue)
+            : false;
 
           if (typeof disabled === 'function') {
             return disabled(date) || isBeforeStartDate;
@@ -115,14 +119,19 @@ export function DateTimeRangePicker({
           return isBeforeStartDate;
         }}
         disabledHours={
-          startDate && endDate?.getDate() === startDate.getDate()
-            ? Array.from({ length: 24 }, (_, i) => i).filter((hour) => hour < startDate.getHours())
+          startDateValue && endDateValue && isSameDay(startDateValue, endDateValue)
+            ? Array.from({ length: 24 }, (_, i) => i).filter(
+                (hour) => hour < startDateValue.getHours(),
+              )
             : []
         }
         disabledMinutes={
-          startDate && endDate?.getDate() === startDate.getDate()
+          startDateValue &&
+          endDateValue &&
+          isSameDay(startDateValue, endDateValue) &&
+          startDateValue?.getHours() === endDateValue?.getHours()
             ? Array.from({ length: 60 }, (_, i) => i).filter(
-                (minute) => minute < startDate.getMinutes(),
+                (minute) => minute < startDateValue.getMinutes(),
               )
             : []
         }

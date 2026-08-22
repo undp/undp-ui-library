@@ -10,7 +10,7 @@ import { Popover, PopoverContent, PopoverTrigger } from './popover';
 type SingleCalendarProps = Omit<PropsSingle, 'mode'>;
 
 const datePickerVariants = cva(
-  'w-full h-auto bg-background rounded-base text-content-primary text-base transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-disabled placeholder:text-content-placeholder',
+  'w-full flex items-center gap-2 h-auto bg-background rounded-base text-content-primary text-base transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-disabled placeholder:text-content-placeholder',
   {
     variants: {
       variant: {
@@ -61,6 +61,7 @@ export function DatePicker({
   }) {
   const [date, setDate] = React.useState<Date>();
   const [open, setOpen] = React.useState(false);
+  const displayDate = selected ?? date;
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger
@@ -69,16 +70,16 @@ export function DatePicker({
         <CalendarIcon
           className={cn('size-4 text-content-placeholder', classNames?.popOverTriggerIcon)}
         />
-        {date ? (
-          <p className='mt-1 p-0 font-body text-content-primary'>{format(date, 'MMM d, yyyy')}</p>
+        {displayDate ? (
+          <p className='p-0 font-body text-content-primary'>{format(displayDate, 'MMM d, yyyy')}</p>
         ) : (
-          <p className='mt-1 p-0 font-body text-content-placeholder'>{placeHolder}</p>
+          <p className='p-0 font-body text-content-placeholder'>{placeHolder}</p>
         )}
       </PopoverTrigger>
       <PopoverContent className={cn('w-auto p-0', classNames?.popOverContent)} align='start'>
         <Calendar
           mode='single'
-          selected={selected || date}
+          selected={displayDate}
           onSelect={(date, triggerDate, modifiers, event) => {
             setDate(date);
             onSelect?.(date, triggerDate, modifiers, event);

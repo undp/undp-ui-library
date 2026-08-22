@@ -25,6 +25,40 @@ const featuredCardVariants = cva(
         error: 'bg-error hover:bg-error-hover text-content-reverse',
         warning: 'bg-warning hover:bg-warning-hover text-content-primary',
         info: 'bg-info hover:bg-info-hover text-content-reverse',
+
+        'sdg-1': 'bg-sdg-1 hover:bg-sdg-1-hover text-content-reverse',
+        'sdg-2': 'bg-sdg-2 hover:bg-sdg-2-hover text-content-reverse',
+        'sdg-3': 'bg-sdg-3 hover:bg-sdg-3-hover text-content-reverse',
+        'sdg-4': 'bg-sdg-4 hover:bg-sdg-4-hover text-content-reverse',
+        'sdg-5': 'bg-sdg-5 hover:bg-sdg-5-hover text-content-reverse',
+        'sdg-6': 'bg-sdg-6 hover:bg-sdg-6-hover text-content-reverse',
+        'sdg-7': 'bg-sdg-7 hover:bg-sdg-7-hover text-content-reverse',
+        'sdg-8': 'bg-sdg-8 hover:bg-sdg-8-hover text-content-reverse',
+        'sdg-9': 'bg-sdg-9 hover:bg-sdg-9-hover text-content-reverse',
+        'sdg-10': 'bg-sdg-10 hover:bg-sdg-10-hover text-content-reverse',
+        'sdg-11': 'bg-sdg-11 hover:bg-sdg-11-hover text-content-reverse',
+        'sdg-12': 'bg-sdg-12 hover:bg-sdg-12-hover text-content-reverse',
+        'sdg-13': 'bg-sdg-13 hover:bg-sdg-13-hover text-content-reverse',
+        'sdg-14': 'bg-sdg-14 hover:bg-sdg-14-hover text-content-reverse',
+        'sdg-15': 'bg-sdg-15 hover:bg-sdg-15-hover text-content-reverse',
+        'sdg-16': 'bg-sdg-16 hover:bg-sdg-16-hover text-content-reverse',
+        'sdg-17': 'bg-sdg-17 hover:bg-sdg-17-hover text-content-reverse',
+
+        male: 'bg-categorical-male hover:bg-categorical-male-hover text-content-reverse',
+        female: 'bg-categorical-female hover:bg-categorical-female-hover text-content-reverse',
+        urban: 'bg-categorical-urban hover:bg-categorical-urban-hover text-content-reverse',
+        rural: 'bg-categorical-rural hover:bg-categorical-rural-hover text-content-reverse',
+
+        red: 'bg-accent-red hover:bg-accent-red-hover text-content-reverse',
+        orange: 'bg-accent-orange hover:bg-accent-orange-hover text-content-reverse',
+        yellow: 'bg-accent-yellow hover:bg-accent-yellow-hover text-content-reverse',
+        lime: 'bg-accent-lime hover:bg-accent-lime-hover text-content-reverse',
+        green: 'bg-accent-green hover:bg-accent-green-hover text-content-reverse',
+        teal: 'bg-accent-teal hover:bg-accent-teal-hover text-content-reverse',
+        azure: 'bg-accent-azure hover:bg-accent-azure-hover text-content-reverse',
+        blue: 'bg-accent-blue hover:bg-accent-blue-hover text-content-reverse',
+        violet: 'bg-accent-violet hover:bg-accent-violet-hover text-content-reverse',
+        pink: 'bg-accent-pink hover:bg-accent-pink-hover text-content-reverse',
       },
       size: {
         xs: 'w-1/4',
@@ -87,7 +121,7 @@ const FeaturedCardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
     <div
       ref={ref}
       className={cn(
-        'm-0 mt-8 mb-3 flex flex grow flex-col justify-end gap-2 pr-6 pl-6 font-body font-normal text-h4-xs md:text-h4-sm lg:text-h4',
+        'm-0 mt-8 mb-3 flex grow flex-col justify-end gap-2 pr-6 pl-6 font-body font-normal text-h4-xs md:text-h4-sm lg:text-h4',
         className,
       )}
       {...props}

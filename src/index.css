@@ -4,15 +4,6 @@
 
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
-@config "../tailwind.config.js";
-
-@theme {
-  --container-2xl: 40rem;
-  --container-8xl: 96rem;
-}
-
 @layer base {
   :root {
     --blue-100: #b5d5f5;
@@ -36,21 +27,43 @@
     --gray-700: #232e3d;
     --black: #000000;
 
+    --red-200: #ffbcb7;
+    --red-400: #ee402d;
+    --red-600: #d12800;
+
+    --orange-200: #ffd6a7;
+    --orange-400: #ff8903;
+    --orange-600: #f54900;
+
     --yellow-200: #ffe17e;
     --yellow-400: #ffeb00;
     --yellow-600: #fbc412;
 
-    --red-200: #ffbcb7;
-    --red-400: #ee402d;
-    --red-600: #d12800;
+    --lime-200: #d8f999;
+    --lime-400: #9ae600;
+    --lime-600: #5ea500;
 
     --green-200: #b8ecb6;
     --green-400: #6de354;
     --green-600: #59ba47;
 
+    --teal-200: #96f7e4;
+    --teal-400: #00d5bd;
+    --teal-600: #009689;
+
     --azure-200: #a2daf3;
     --azure-400: #60d4f2;
     --azure-600: #00c1ff;
+
+    --violet-200: #ddd6ff;
+    --violet-400: #a684ff;
+    --violet-600: #7f22fe;
+
+    --pink-200: #ffccd2;
+    --pink-400: #ff637e;
+    --pink-600: #e60076;
+
+    --disabled-opacity-value: 0.5;
 
     --sdg-1: #e5243b;
     --sdg-2: #dda63a;
@@ -69,6 +82,10 @@
     --sdg-15: #56c02b;
     --sdg-16: #00689d;
     --sdg-17: #19486a;
+    --categorical-male: #02a38a;
+    --categorical-female: #757af0;
+    --categorical-urban: #0468b1;
+    --categorical-rural: #5dd4f0;
 
     --background: var(--white);
     --background-soft: var(--gray-100);
@@ -81,7 +98,7 @@
     --error-light: var(--red-200);
 
     --warning: var(--yellow-600);
-    --warning-hover: var(--yellow-600);
+    --warning-hover: var(--yellow-400);
     --warning-light: var(--yellow-200);
 
     --success: var(--green-600);
@@ -107,6 +124,46 @@
     --quaternary: var(--yellow-600);
     --quaternary-hover: var(--yellow-400);
     --quaternary-light: var(--yellow-200);
+
+    --accent-red: var(--red-600);
+    --accent-red-hover: var(--red-400);
+    --accent-red-light: var(--red-200);
+
+    --accent-orange: var(--orange-600);
+    --accent-orange-hover: var(--orange-400);
+    --accent-orange-light: var(--orange-200);
+
+    --accent-yellow: var(--yellow-600);
+    --accent-yellow-hover: var(--yellow-400);
+    --accent-yellow-light: var(--yellow-200);
+
+    --accent-lime: var(--lime-600);
+    --accent-lime-hover: var(--lime-400);
+    --accent-lime-light: var(--lime-200);
+
+    --accent-green: var(--green-600);
+    --accent-green-hover: var(--green-400);
+    --accent-green-light: var(--green-200);
+
+    --accent-teal: var(--teal-600);
+    --accent-teal-hover: var(--teal-400);
+    --accent-teal-light: var(--teal-200);
+
+    --accent-azure: var(--azure-600);
+    --accent-azure-hover: var(--azure-400);
+    --accent-azure-light: var(--azure-200);
+
+    --accent-blue: var(--blue-600);
+    --accent-blue-hover: var(--blue-400);
+    --accent-blue-light: var(--blue-200);
+
+    --accent-violet: var(--violet-600);
+    --accent-violet-hover: var(--violet-400);
+    --accent-violet-light: var(--violet-200);
+
+    --accent-pink: var(--pink-600);
+    --accent-pink-hover: var(--pink-400);
+    --accent-pink-light: var(--pink-200);
 
     --content-primary: var(--foreground);
     --content-secondary: var(--gray-560);
@@ -146,55 +203,54 @@
 
     --card-hover-color: var(--yellow-400);
 
-    --opacity-disabled: 0.5;
+    --body-font: ProximaNova;
+    --sans-font: var(--body-font);
+    --heading-font: SohneBreit;
+    --mono-font: Consolas;
 
-    --font-body: ProximaNova, sans-serif;
-    --font-sans: var(--font-body);
-    --font-heading: SohneBreit, ProximaNova, sans-serif;
+    --font-size-h1: 6.25rem;
+    --font-size-h1-sm: 5.125rem;
+    --font-size-h1-xs: 3rem;
+    --font-size-h2: 3.5rem;
+    --font-size-h2-sm: 2.875rem;
+    --font-size-h2-xs: 2.5rem;
+    --font-size-h3: 3rem;
+    --font-size-h3-sm: 3rem;
+    --font-size-h3-xs: 2.5rem;
+    --font-size-h4: 2rem;
+    --font-size-h4-sm: 2rem;
+    --font-size-h4-xs: 1.875rem;
+    --font-size-h5: 1.5rem;
+    --font-size-h5-sm: 1.5rem;
+    --font-size-h5-xs: 1.25rem;
+    --font-size-h6: 1rem;
+    --font-size-h6-sm: 1rem;
+    --font-size-h6-xs: 1rem;
+    --font-size-p: 1.25rem;
+    --font-size-p-sm: 1rem;
+    --font-size-p-xs: 1rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-xl: 1.25rem;
+    --font-size-lg: 1.125rem;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-xs: 0.75rem;
+    --font-size-2xs: 0.625rem;
 
-    --text-h1: 6.25rem;
-    --text-h1-sm: 5.125rem;
-    --text-h1-xs: 3rem;
-    --text-h2: 3.5rem;
-    --text-h2-sm: 2.875rem;
-    --text-h2-xs: 2.5rem;
-    --text-h3: 3rem;
-    --text-h3-sm: 3rem;
-    --text-h3-xs: 2.5rem;
-    --text-h4: 2rem;
-    --text-h4-sm: 2rem;
-    --text-h4-xs: 1.875rem;
-    --text-h5: 1.5rem;
-    --text-h5-sm: 1.5rem;
-    --text-h5-xs: 1.25rem;
-    --text-h6: 1rem;
-    --text-h6-sm: 1rem;
-    --text-h6-xs: 1rem;
-    --text-p: 1.25rem;
-    --text-p-sm: 1rem;
-    --text-p-xs: 1rem;
-    --text-2xl: 1.5rem;
-    --text-xl: 1.25rem;
-    --text-lg: 1.125rem;
-    --text-base: 1rem;
-    --text-sm: 0.875rem;
-    --text-xs: 0.75rem;
-    --text-2xs: 0.625rem;
-
-    --leading-h1: 1.08;
-    --leading-h2: 1.1;
-    --leading-h3: 1.15;
-    --leading-h4: 1.15;
-    --leading-h5: 1.15;
-    --leading-h6: 1.15;
-    --leading-p: 1.4;
-    --leading-2xl: 2;
-    --leading-xl: 1.8;
-    --leading-lg: 1.6;
-    --leading-base: 1.4;
-    --leading-sm: 1.2;
-    --leading-xs: 1;
-    --leading-none: 0;
+    --line-height-h1: 1.08;
+    --line-height-h2: 1.1;
+    --line-height-h3: 1.15;
+    --line-height-h4: 1.15;
+    --line-height-h5: 1.15;
+    --line-height-h6: 1.15;
+    --line-height-p: 1.4;
+    --line-height-2xl: 2;
+    --line-height-xl: 1.8;
+    --line-height-lg: 1.6;
+    --line-height-base: 1.4;
+    --line-height-sm: 1.2;
+    --line-height-xs: 1;
+    --line-height-none: 0;
 
     --rounded-base: 0;
     --rounded-sm: 0.125rem;
@@ -203,7 +259,8 @@
     --rounded-xl: 1rem;
     --rounded-2xl: 2rem;
 
-    --blur-frosted: 18px;
+    --frosted-blur: 18px;
+    --frosted-opacity-value: 0.95;
   }
 
   *,
@@ -228,6 +285,406 @@
   ol {
     list-style-type: decimal;
   }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@theme {
+  /* ───────────── Existing container tokens ───────────── */
+  --container-2xl: 40rem;
+  --container-8xl: 96rem;
+
+  /* ───────────── Colors ───────────── */
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-foreground-soft: var(--foreground-soft);
+  --color-background-soft: var(--background-soft);
+  --color-ring: var(--ring);
+  --color-card-hover-color: var(--card-hover-color);
+  --color-footer-background: var(--footer-background);
+
+  --color-error: var(--error);
+  --color-error-hover: var(--error-hover);
+  --color-error-light: var(--error-light);
+
+  --color-warning: var(--warning);
+  --color-warning-hover: var(--warning-hover);
+  --color-warning-light: var(--warning-light);
+
+  --color-success: var(--success);
+  --color-success-hover: var(--success-hover);
+  --color-success-light: var(--success-light);
+
+  --color-info: var(--info);
+  --color-info-hover: var(--info-hover);
+  --color-info-light: var(--info-light);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-light: var(--secondary-light);
+
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-hover: var(--tertiary-hover);
+  --color-tertiary-light: var(--tertiary-light);
+
+  --color-quaternary: var(--quaternary);
+  --color-quaternary-hover: var(--quaternary-hover);
+  --color-quaternary-light: var(--quaternary-light);
+
+  --color-content-primary: var(--content-primary);
+  --color-content-secondary: var(--content-secondary);
+  --color-content-tertiary: var(--content-tertiary);
+  --color-content-quaternary: var(--content-quaternary);
+  --color-content-disabled: var(--content-disabled);
+  --color-content-placeholder: var(--content-placeholder);
+  --color-content-reverse: var(--content-reverse);
+
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-hard: var(--surface-hard);
+  --color-surface-hard-hover: var(--surface-hard-hover);
+  --color-surface-background: var(--background);
+  --color-surface-foreground: var(--foreground);
+  --color-surface-2xs: var(--surface-2xs);
+  --color-surface-xs: var(--surface-xs);
+  --color-surface-sm: var(--surface-sm);
+  --color-surface-md: var(--surface-md);
+  --color-surface-lg: var(--surface-lg);
+  --color-surface-xl: var(--surface-xl);
+  --color-surface-2xl: var(--surface-2xl);
+  --color-surface-3xl: var(--surface-3xl);
+  --color-surface-4xl: var(--surface-4xl);
+
+  --color-stroke: var(--stroke);
+  --color-stroke-hover: var(--stroke-hover);
+  --color-stroke-background: var(--background);
+  --color-stroke-foreground: var(--foreground);
+  --color-stroke-2xs: var(--stroke-2xs);
+  --color-stroke-xs: var(--stroke-xs);
+  --color-stroke-sm: var(--stroke-sm);
+  --color-stroke-md: var(--stroke-md);
+  --color-stroke-lg: var(--stroke-lg);
+  --color-stroke-xl: var(--stroke-xl);
+  --color-stroke-2xl: var(--stroke-2xl);
+  --color-stroke-3xl: var(--stroke-3xl);
+  --color-stroke-4xl: var(--stroke-4xl);
+
+  --color-blue: var(--blue-600);
+  --color-blue-100: var(--blue-100);
+  --color-blue-200: var(--blue-200);
+  --color-blue-300: var(--blue-300);
+  --color-blue-400: var(--blue-400);
+  --color-blue-500: var(--blue-500);
+  --color-blue-600: var(--blue-600);
+  --color-blue-700: var(--blue-700);
+
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
+  --color-gray-530: var(--gray-530);
+  --color-gray-560: var(--gray-560);
+  --color-gray-600: var(--gray-600);
+  --color-gray-650: var(--gray-650);
+  --color-gray-700: var(--gray-700);
+
+  --color-accent-red: var(--accent-red);
+  --color-accent-red-hover: var(--accent-red-hover);
+  --color-accent-red-light: var(--accent-red-light);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-orange-hover: var(--accent-orange-hover);
+  --color-accent-orange-light: var(--accent-orange-light);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-yellow-hover: var(--accent-yellow-hover);
+  --color-accent-yellow-light: var(--accent-yellow-light);
+  --color-accent-lime: var(--accent-lime);
+  --color-accent-lime-hover: var(--accent-lime-hover);
+  --color-accent-lime-light: var(--accent-lime-light);
+  --color-accent-green: var(--accent-green);
+  --color-accent-green-hover: var(--accent-green-hover);
+  --color-accent-green-light: var(--accent-green-light);
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-teal-hover: var(--accent-teal-hover);
+  --color-accent-teal-light: var(--accent-teal-light);
+  --color-accent-azure: var(--accent-azure);
+  --color-accent-azure-hover: var(--accent-azure-hover);
+  --color-accent-azure-light: var(--accent-azure-light);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-blue-hover: var(--accent-blue-hover);
+  --color-accent-blue-light: var(--accent-blue-light);
+  --color-accent-violet: var(--accent-violet);
+  --color-accent-violet-hover: var(--accent-violet-hover);
+  --color-accent-violet-light: var(--accent-violet-light);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-pink-hover: var(--accent-pink-hover);
+  --color-accent-pink-light: var(--accent-pink-light);
+
+  --color-categorical-male: var(--categorical-male);
+  --color-categorical-male-hover: color-mix(
+    in oklch,
+    var(--categorical-male) 70%,
+    var(--background) 30%
+  );
+  --color-categorical-male-light: color-mix(
+    in oklch,
+    var(--categorical-male) 27%,
+    var(--background) 73%
+  );
+  --color-categorical-female: var(--categorical-female);
+  --color-categorical-female-hover: color-mix(
+    in oklch,
+    var(--categorical-female) 70%,
+    var(--background) 30%
+  );
+  --color-categorical-female-light: color-mix(
+    in oklch,
+    var(--categorical-female) 27%,
+    var(--background) 73%
+  );
+  --color-categorical-urban: var(--categorical-urban);
+  --color-categorical-urban-hover: color-mix(
+    in oklch,
+    var(--categorical-urban) 70%,
+    var(--background) 30%
+  );
+  --color-categorical-urban-light: color-mix(
+    in oklch,
+    var(--categorical-urban) 27%,
+    var(--background) 73%
+  );
+  --color-categorical-rural: var(--categorical-rural);
+  --color-categorical-rural-hover: color-mix(
+    in oklch,
+    var(--categorical-rural) 70%,
+    var(--background) 30%
+  );
+  --color-categorical-rural-light: color-mix(
+    in oklch,
+    var(--categorical-rural) 27%,
+    var(--background) 73%
+  );
+
+  --color-sdg-1: var(--sdg-1);
+  --color-sdg-1-hover: color-mix(in oklch, var(--sdg-1) 70%, var(--background) 30%);
+  --color-sdg-1-light: color-mix(in oklch, var(--sdg-1) 27%, var(--background) 73%);
+  --color-sdg-2: var(--sdg-2);
+  --color-sdg-2-hover: color-mix(in oklch, var(--sdg-2) 70%, var(--background) 30%);
+  --color-sdg-2-light: color-mix(in oklch, var(--sdg-2) 27%, var(--background) 73%);
+  --color-sdg-3: var(--sdg-3);
+  --color-sdg-3-hover: color-mix(in oklch, var(--sdg-3) 70%, var(--background) 30%);
+  --color-sdg-3-light: color-mix(in oklch, var(--sdg-3) 27%, var(--background) 73%);
+  --color-sdg-4: var(--sdg-4);
+  --color-sdg-4-hover: color-mix(in oklch, var(--sdg-4) 70%, var(--background) 30%);
+  --color-sdg-4-light: color-mix(in oklch, var(--sdg-4) 27%, var(--background) 73%);
+  --color-sdg-5: var(--sdg-5);
+  --color-sdg-5-hover: color-mix(in oklch, var(--sdg-5) 70%, var(--background) 30%);
+  --color-sdg-5-light: color-mix(in oklch, var(--sdg-5) 27%, var(--background) 73%);
+  --color-sdg-6: var(--sdg-6);
+  --color-sdg-6-hover: color-mix(in oklch, var(--sdg-6) 70%, var(--background) 30%);
+  --color-sdg-6-light: color-mix(in oklch, var(--sdg-6) 27%, var(--background) 73%);
+  --color-sdg-7: var(--sdg-7);
+  --color-sdg-7-hover: color-mix(in oklch, var(--sdg-7) 70%, var(--background) 30%);
+  --color-sdg-7-light: color-mix(in oklch, var(--sdg-7) 27%, var(--background) 73%);
+  --color-sdg-8: var(--sdg-8);
+  --color-sdg-8-hover: color-mix(in oklch, var(--sdg-8) 70%, var(--background) 30%);
+  --color-sdg-8-light: color-mix(in oklch, var(--sdg-8) 27%, var(--background) 73%);
+  --color-sdg-9: var(--sdg-9);
+  --color-sdg-9-hover: color-mix(in oklch, var(--sdg-9) 70%, var(--background) 30%);
+  --color-sdg-9-light: color-mix(in oklch, var(--sdg-9) 27%, var(--background) 73%);
+  --color-sdg-10: var(--sdg-10);
+  --color-sdg-10-hover: color-mix(in oklch, var(--sdg-10) 70%, var(--background) 30%);
+  --color-sdg-10-light: color-mix(in oklch, var(--sdg-10) 27%, var(--background) 73%);
+  --color-sdg-11: var(--sdg-11);
+  --color-sdg-11-hover: color-mix(in oklch, var(--sdg-11) 70%, var(--background) 30%);
+  --color-sdg-11-light: color-mix(in oklch, var(--sdg-11) 27%, var(--background) 73%);
+  --color-sdg-12: var(--sdg-12);
+  --color-sdg-12-hover: color-mix(in oklch, var(--sdg-12) 70%, var(--background) 30%);
+  --color-sdg-12-light: color-mix(in oklch, var(--sdg-12) 27%, var(--background) 73%);
+  --color-sdg-13: var(--sdg-13);
+  --color-sdg-13-hover: color-mix(in oklch, var(--sdg-13) 70%, var(--background) 30%);
+  --color-sdg-13-light: color-mix(in oklch, var(--sdg-13) 27%, var(--background) 73%);
+  --color-sdg-14: var(--sdg-14);
+  --color-sdg-14-hover: color-mix(in oklch, var(--sdg-14) 70%, var(--background) 30%);
+  --color-sdg-14-light: color-mix(in oklch, var(--sdg-14) 27%, var(--background) 73%);
+  --color-sdg-15: var(--sdg-15);
+  --color-sdg-15-hover: color-mix(in oklch, var(--sdg-15) 70%, var(--background) 30%);
+  --color-sdg-15-light: color-mix(in oklch, var(--sdg-15) 27%, var(--background) 73%);
+  --color-sdg-16: var(--sdg-16);
+  --color-sdg-16-hover: color-mix(in oklch, var(--sdg-16) 70%, var(--background) 30%);
+  --color-sdg-16-light: color-mix(in oklch, var(--sdg-16) 27%, var(--background) 73%);
+  --color-sdg-17: var(--sdg-17);
+  --color-sdg-17-hover: color-mix(in oklch, var(--sdg-17) 70%, var(--background) 30%);
+  --color-sdg-17-light: color-mix(in oklch, var(--sdg-17) 27%, var(--background) 73%);
+
+  /* ───────────── Background images ───────────── */
+  --background-image-double-primary:
+    linear-gradient(var(--primary), var(--primary)), linear-gradient(var(--primary), var(--primary));
+  --background-image-double-background:
+    linear-gradient(var(--background), var(--background)),
+    linear-gradient(var(--background), var(--background));
+  --background-image-double-foreground:
+    linear-gradient(var(--foreground), var(--foreground)),
+    linear-gradient(var(--foreground), var(--foreground));
+  --background-image-double-secondary:
+    linear-gradient(var(--secondary), var(--secondary)),
+    linear-gradient(var(--secondary), var(--secondary));
+  --background-image-double-tertiary:
+    linear-gradient(var(--tertiary), var(--tertiary)),
+    linear-gradient(var(--tertiary), var(--tertiary));
+  --background-image-double-quaternary:
+    linear-gradient(var(--quaternary), var(--quaternary)),
+    linear-gradient(var(--quaternary), var(--quaternary));
+  --background-image-double-success:
+    linear-gradient(var(--success), var(--success)), linear-gradient(var(--success), var(--success));
+  --background-image-double-warning:
+    linear-gradient(var(--warning), var(--warning)), linear-gradient(var(--warning), var(--warning));
+  --background-image-double-error:
+    linear-gradient(var(--error), var(--error)), linear-gradient(var(--error), var(--error));
+  --background-image-double-info:
+    linear-gradient(var(--info), var(--info)), linear-gradient(var(--info), var(--info));
+
+  /* ───────────── Font size (with paired line-height) ───────────── */
+  --text-h1: var(--font-size-h1);
+  --text-h1--line-height: var(--line-height-h1);
+  --text-h1-sm: var(--font-size-h1-sm);
+  --text-h1-sm--line-height: var(--line-height-h1);
+  --text-h1-xs: var(--font-size-h1-xs);
+  --text-h1-xs--line-height: var(--line-height-h1);
+  --text-h2: var(--font-size-h2);
+  --text-h2--line-height: var(--line-height-h2);
+  --text-h2-sm: var(--font-size-h2-sm);
+  --text-h2-sm--line-height: var(--line-height-h2);
+  --text-h2-xs: var(--font-size-h2-xs);
+  --text-h2-xs--line-height: var(--line-height-h2);
+  --text-h3: var(--font-size-h3);
+  --text-h3--line-height: var(--line-height-h3);
+  --text-h3-sm: var(--font-size-h3-sm);
+  --text-h3-sm--line-height: var(--line-height-h3);
+  --text-h3-xs: var(--font-size-h3-xs);
+  --text-h3-xs--line-height: var(--line-height-h3);
+  --text-h4: var(--font-size-h4);
+  --text-h4--line-height: var(--line-height-h4);
+  --text-h4-sm: var(--font-size-h4-sm);
+  --text-h4-sm--line-height: var(--line-height-h4);
+  --text-h4-xs: var(--font-size-h4-xs);
+  --text-h4-xs--line-height: var(--line-height-h4);
+  --text-h5: var(--font-size-h5);
+  --text-h5--line-height: var(--line-height-h5);
+  --text-h5-sm: var(--font-size-h5-sm);
+  --text-h5-sm--line-height: var(--line-height-h5);
+  --text-h5-xs: var(--font-size-h5-xs);
+  --text-h5-xs--line-height: var(--line-height-h5);
+  --text-h6: var(--font-size-h6);
+  --text-h6--line-height: var(--line-height-h6);
+  --text-h6-sm: var(--font-size-h6-sm);
+  --text-h6-sm--line-height: var(--line-height-h6);
+  --text-h6-xs: var(--font-size-h6-xs);
+  --text-h6-xs--line-height: var(--line-height-h6);
+  --text-p: var(--font-size-p);
+  --text-p--line-height: var(--line-height-p);
+  --text-p-sm: var(--font-size-p-sm);
+  --text-p-sm--line-height: var(--line-height-p);
+  --text-p-xs: var(--font-size-p-xs);
+  --text-p-xs--line-height: var(--line-height-p);
+  --text-2xl: var(--font-size-2xl);
+  --text-2xl--line-height: var(--line-height-base);
+  --text-xl: var(--font-size-xl);
+  --text-xl--line-height: var(--line-height-base);
+  --text-lg: var(--font-size-lg);
+  --text-lg--line-height: var(--line-height-base);
+  --text-base: var(--font-size-base);
+  --text-base--line-height: var(--line-height-base);
+  --text-sm: var(--font-size-sm);
+  --text-sm--line-height: var(--line-height-base);
+  --text-xs: var(--font-size-xs);
+  --text-xs--line-height: var(--line-height-base);
+  --text-2xs: var(--font-size-2xs);
+  --text-2xs--line-height: var(--line-height-base);
+
+  /* ───────────── Line height (standalone leading-* utilities) ───────────── */
+  --leading-none: var(--line-height-none);
+  --leading-xs: var(--line-height-xs);
+  --leading-sm: var(--line-height-sm);
+  --leading-base: var(--line-height-base);
+  --leading-lg: var(--line-height-lg);
+  --leading-xl: var(--line-height-xl);
+  --leading-2xl: var(--line-height-2xl);
+  --leading-h1: var(--line-height-h1);
+  --leading-h2: var(--line-height-h2);
+  --leading-h3: var(--line-height-h3);
+  --leading-h4: var(--line-height-h4);
+  --leading-h5: var(--line-height-h5);
+  --leading-h6: var(--line-height-h6);
+  --leading-p: var(--line-height-p);
+
+  --opacity-disabled: var(--disabled-opacity-value);
+
+  /* ───────────── Border radius ───────────── */
+  --radius: var(--rounded-base);
+  --radius-base: var(--rounded-base);
+  --radius-sm: var(--rounded-sm);
+  --radius-md: var(--rounded-md);
+  --radius-lg: var(--rounded-lg);
+  --radius-xl: var(--rounded-xl);
+  --radius-2xl: var(--rounded-2xl);
+  --radius-full: 9999px;
+
+  /* ───────────── Font family ───────────── */
+  --font-body: var(--body-font), sans-serif;
+  --font-sans-ar: "Noto Sans Arabic", sans-serif;
+  --font-sans-az: "Noto Sans", sans-serif;
+  --font-sans-bn: "UN Bangla", sans-serif;
+  --font-sans-he: "Noto Sans Hebrew", sans-serif;
+  --font-sans-hi: "Noto Sans Devanagari", sans-serif;
+  --font-sans-ja: "Noto Sans JP", sans-serif;
+  --font-sans-ka: "Noto Sans Georgian", sans-serif;
+  --font-sans-km: "Noto Sans Khmer", sans-serif;
+  --font-sans-ko: "Noto Sans KR", sans-serif;
+  --font-sans-my: "Noto Sans Myanmar", sans-serif;
+  --font-sans-ne: "Noto Sans", sans-serif;
+  --font-sans-zh: "Noto Sans SC", sans-serif;
+  --font-sans: var(--sans-font), sans-serif;
+  --font-serif: var(--serif-font), serif;
+  --font-heading: var(--heading-font), var(--body-font), sans-serif;
+  --font-mono: var(--mono-font), monospace;
+
+  /* ───────────── Opacity ───────────── */
+  --opacity-frosted: var(--frosted-opacity-value);
+
+  /* ───────────── Backdrop blur ───────────── */
+  --blur-frosted: var(--frosted-blur);
+
+  /* ───────────── Box shadow ───────────── */
+  --shadow-header: 0 3px 6px rgb(0 0 0 / 10%);
+
+  /* ───────────── Sizing (h-header, h-inherit) ───────────── */
+  --height-header: 7.1875rem;
+  --height-inherit: inherit;
+
+  /* ───────────── Animation ───────────── */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-spin: spin 1s linear infinite;
 }
 
 [hidden]:where(:not([hidden="until-found"])) {

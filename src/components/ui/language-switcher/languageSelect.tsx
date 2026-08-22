@@ -17,7 +17,7 @@ const LanguageSelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex flex h-9 cursor-pointer items-center justify-between gap-2 whitespace-nowrap bg-transparent p-0 font-semibold text-secondary text-sm uppercase hover:text-secondary disabled:cursor-not-allowed disabled:opacity-disabled data-[placeholder]:text-content-placeholder rtl:[direction:rtl] [&>span]:line-clamp-1',
+      'flex h-9 cursor-pointer items-center justify-between gap-2 whitespace-nowrap bg-transparent p-0 font-semibold text-secondary text-sm uppercase hover:text-secondary disabled:cursor-not-allowed disabled:opacity-disabled data-placeholder:text-content-placeholder rtl:[direction:rtl] [&>span]:line-clamp-1',
       '[&[data-state=open]>.lucide-chevron-down]:rotate-180',
       className,
     )}
@@ -42,7 +42,7 @@ const LanguageSelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-[--radix-select-content-available-height] min-w-[8rem] origin-[--radix-select-content-transform-origin] overflow-y-auto overflow-x-hidden rounded-md border bg-background text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in',
+        'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-[--radix-select-content-available-height] min-w-32 origin-[--radix-select-content-transform-origin] overflow-y-auto overflow-x-hidden rounded-md border bg-background text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in',
         position === 'popper' &&
           'data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=bottom]:translate-y-1 data-[side=top]:-translate-y-1',
         className,
@@ -53,7 +53,7 @@ const LanguageSelectContent = React.forwardRef<
       <SelectPrimitive.Viewport
         className={cn(
           position === 'popper' &&
-            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+            'h-(--radix-select-trigger-height) w-full min-w-(--radix-select-trigger-width)',
         )}
       >
         {children}
@@ -75,7 +75,7 @@ const LanguageSelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex w-full cursor-default select-none items-center border-stroke border-b px-4 py-3 font-semibold text-sm uppercase outline-none focus:bg-surface-md data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled [&:last-of-type]:border-b-0',
+      'relative flex w-full cursor-default select-none items-center border-stroke border-b px-4 py-3 font-semibold text-sm uppercase outline-none last-of-type:border-b-0 focus:bg-surface-md data-disabled:pointer-events-none data-disabled:opacity-disabled',
       className,
     )}
     {...props}

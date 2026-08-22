@@ -88,7 +88,7 @@ function Pagination(props: {
                   onChange(page);
                 }}
                 className={cn(
-                  'flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full hover:bg-surface-hover',
+                  'flex h-8 w-8 cursor-pointer items-center justify-center rounded-full hover:bg-surface-hover',
                   classNames?.list,
                   page === currentPage && [
                     'bg-secondary text-content-reverse hover:bg-secondary-hover',

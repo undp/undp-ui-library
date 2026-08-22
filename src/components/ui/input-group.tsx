@@ -65,8 +65,8 @@ const inputGroupAddonVariants = cva(
         success: 'bg-success text-content-reverse',
       },
       align: {
-        'inline-start': 'order-first px-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem]',
-        'inline-end': 'order-last px-2 has-[>button]:mr-[-0.3rem] has-[>kbd]:mr-[-0.15rem]',
+        'inline-start': 'order-first px-2',
+        'inline-end': 'order-last px-2',
         'block-start':
           'order-first w-full justify-start p-2 group-has-[>input]/input-group:pt-2 [.border-b]:pb-2',
         'block-end':

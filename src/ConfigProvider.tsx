@@ -80,7 +80,7 @@ type AccentScale = {
   600?: string;
 };
 
-type TypographyScale = {
+type FontSizeScale = {
   h1?: HeadingSizeScale;
   h2?: HeadingSizeScale;
   h3?: HeadingSizeScale;
@@ -97,7 +97,7 @@ type TypographyScale = {
   '2xs'?: string;
 };
 
-type LeadingScale = {
+type LineHeightScale = {
   h1?: string;
   h2?: string;
   h3?: string;
@@ -125,10 +125,15 @@ type RoundedScale = {
 interface ConfigDataType {
   blue?: BlueScale;
   gray?: GrayScale;
-  yellow?: AccentScale;
   red?: AccentScale;
+  orange?: AccentScale;
+  yellow?: AccentScale;
+  lime?: AccentScale;
   green?: AccentScale;
+  teal?: AccentScale;
   azure?: AccentScale;
+  violet?: AccentScale;
+  pink?: AccentScale;
 
   foreground?: string;
   foregroundSoft?: string;
@@ -137,6 +142,10 @@ interface ConfigDataType {
   ring?: string;
   cardHoverColor?: string;
   footerBackground?: string;
+  categoricalMale?: string;
+  categoricalFemale?: string;
+  categoricalUrban?: string;
+  categoricalRural?: string;
 
   error?: SemanticGroup;
   warning?: SemanticGroup;
@@ -151,7 +160,11 @@ interface ConfigDataType {
   surface?: SurfaceScale;
   stroke?: StrokeScale;
 
-  opacityDisabled?: string;
+  disabledOpacityValue?: string;
+
+  frostedBlur?: string;
+
+  frostedOpacityValue?: string;
 
   fonts?: {
     body?: string;
@@ -161,18 +174,15 @@ interface ConfigDataType {
     serif?: string;
   };
 
-  typography?: TypographyScale;
-  leading?: LeadingScale;
+  fontSize?: FontSizeScale;
+  lineHeight?: LineHeightScale;
 
   rounded?: RoundedScale;
-
-  blurFrosted?: string;
 }
 
 interface ConfigProviderProps {
   children: ReactNode;
   config?: ConfigDataType;
-  theme?: 'dark' | 'light';
   rtl?: boolean;
 }
 
@@ -223,6 +233,11 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
       setAccentGroup(root, 'red', config.red);
       setAccentGroup(root, 'green', config.green);
       setAccentGroup(root, 'azure', config.azure);
+      setAccentGroup(root, 'orange', config.orange);
+      setAccentGroup(root, 'lime', config.lime);
+      setAccentGroup(root, 'teal', config.teal);
+      setAccentGroup(root, 'violet', config.violet);
+      setAccentGroup(root, 'pink', config.pink);
 
       setSemanticGroup(root, 'error', config.error);
       setSemanticGroup(root, 'warning', config.warning);
@@ -240,6 +255,11 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
       setVar(root, '--content-placeholder', config.content?.placeholder);
       setVar(root, '--content-disabled', config.content?.disabled);
       setVar(root, '--content-reverse', config.content?.reverse);
+
+      setVar(root, '--categorical-male', config.categoricalMale);
+      setVar(root, '--categorical-female', config.categoricalFemale);
+      setVar(root, '--categorical-urban', config.categoricalUrban);
+      setVar(root, '--categorical-rural', config.categoricalRural);
 
       setVar(root, '--surface', config.surface?.base);
       setVar(root, '--surface-hover', config.surface?.hover);
@@ -267,11 +287,11 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
       setVar(root, '--stroke-3xl', config.stroke?.['3xl']);
       setVar(root, '--stroke-4xl', config.stroke?.['4xl']);
 
-      setVar(root, '--font-body', config.fonts?.body);
-      setVar(root, '--font-sans', config.fonts?.sans);
-      setVar(root, '--font-heading', config.fonts?.heading);
-      setVar(root, '--font-mono', config.fonts?.mono);
-      setVar(root, '--font-serif', config.fonts?.serif);
+      setVar(root, '--body-font', config.fonts?.body);
+      setVar(root, '--sans-font', config.fonts?.sans);
+      setVar(root, '--heading-font', config.fonts?.heading);
+      setVar(root, '--mono-font', config.fonts?.mono);
+      setVar(root, '--serif-font', config.fonts?.serif);
 
       setVar(root, '--foreground', config.foreground);
       setVar(root, '--foreground-soft', config.foregroundSoft);
@@ -281,35 +301,35 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
       setVar(root, '--card-hover-color', config.cardHoverColor);
       setVar(root, '--footer-background', config.footerBackground);
 
-      setVar(root, '--opacity-disabled', config.opacityDisabled);
+      setVar(root, '--disabled-opacity-value', config.disabledOpacityValue);
 
       (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'] as const).forEach((heading) => {
-        const sizes = config.typography?.[heading];
-        setVar(root, `--text-${heading}`, sizes?.base);
-        setVar(root, `--text-${heading}-sm`, sizes?.sm);
-        setVar(root, `--text-${heading}-xs`, sizes?.xs);
+        const sizes = config.fontSize?.[heading];
+        setVar(root, `--font-size-${heading}`, sizes?.base);
+        setVar(root, `--font-size-${heading}-sm`, sizes?.sm);
+        setVar(root, `--font-size-${heading}-xs`, sizes?.xs);
       });
-      setVar(root, '--text-2xl', config.typography?.['2xl']);
-      setVar(root, '--text-xl', config.typography?.xl);
-      setVar(root, '--text-lg', config.typography?.lg);
-      setVar(root, '--text-base', config.typography?.base);
-      setVar(root, '--text-sm', config.typography?.sm);
-      setVar(root, '--text-xs', config.typography?.xs);
-      setVar(root, '--text-2xs', config.typography?.['2xs']);
+      setVar(root, '--font-size-2xl', config.fontSize?.['2xl']);
+      setVar(root, '--font-size-xl', config.fontSize?.xl);
+      setVar(root, '--font-size-lg', config.fontSize?.lg);
+      setVar(root, '--font-size-base', config.fontSize?.base);
+      setVar(root, '--font-size-sm', config.fontSize?.sm);
+      setVar(root, '--font-size-xs', config.fontSize?.xs);
+      setVar(root, '--font-size-2xs', config.fontSize?.['2xs']);
 
-      setVar(root, '--leading-h1', config.leading?.h1);
-      setVar(root, '--leading-h2', config.leading?.h2);
-      setVar(root, '--leading-h3', config.leading?.h3);
-      setVar(root, '--leading-h4', config.leading?.h4);
-      setVar(root, '--leading-h5', config.leading?.h5);
-      setVar(root, '--leading-h6', config.leading?.h6);
-      setVar(root, '--leading-p', config.leading?.p);
-      setVar(root, '--leading-2xl', config.leading?.['2xl']);
-      setVar(root, '--leading-xl', config.leading?.xl);
-      setVar(root, '--leading-lg', config.leading?.lg);
-      setVar(root, '--leading-base', config.leading?.base);
-      setVar(root, '--leading-sm', config.leading?.sm);
-      setVar(root, '--leading-xs', config.leading?.xs);
+      setVar(root, '--line-height-h1', config.lineHeight?.h1);
+      setVar(root, '--line-height-h2', config.lineHeight?.h2);
+      setVar(root, '--line-height-h3', config.lineHeight?.h3);
+      setVar(root, '--line-height-h4', config.lineHeight?.h4);
+      setVar(root, '--line-height-h5', config.lineHeight?.h5);
+      setVar(root, '--line-height-h6', config.lineHeight?.h6);
+      setVar(root, '--line-height-p', config.lineHeight?.p);
+      setVar(root, '--line-height-2xl', config.lineHeight?.['2xl']);
+      setVar(root, '--line-height-xl', config.lineHeight?.xl);
+      setVar(root, '--line-height-lg', config.lineHeight?.lg);
+      setVar(root, '--line-height-base', config.lineHeight?.base);
+      setVar(root, '--line-height-sm', config.lineHeight?.sm);
+      setVar(root, '--line-height-xs', config.lineHeight?.xs);
 
       setVar(root, '--rounded-base', config.rounded?.base);
       setVar(root, '--rounded-sm', config.rounded?.sm);
@@ -318,7 +338,8 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
       setVar(root, '--rounded-xl', config.rounded?.xl);
       setVar(root, '--rounded-2xl', config.rounded?.['2xl']);
 
-      setVar(root, '--blur-frosted', config.blurFrosted);
+      setVar(root, '--frosted-blur', config.frostedBlur);
+      setVar(root, '--frosted-opacity-value', config.frostedOpacityValue);
     }
   }, [config]);
 

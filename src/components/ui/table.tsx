@@ -45,7 +45,7 @@ function TableHead({ className, ...props }: React.ComponentProps<'th'>) {
     <th
       data-slot='table-head'
       className={cn(
-        'whitespace-nowrap bg-surface py-3 pr-10 pl-3 text-left align-middle font-semibold text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 rtl:text-right [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+        'whitespace-nowrap bg-surface py-3 pr-10 pl-3 text-left align-middle font-semibold text-p-xs has-[[role=checkbox]]:pr-0 md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 rtl:text-right *:[[role=checkbox]]:translate-y-0.5',
         className,
       )}
       {...props}
@@ -58,7 +58,7 @@ function TableCell({ className, ...props }: React.ComponentProps<'td'>) {
     <td
       data-slot='table-cell'
       className={cn(
-        'whitespace-nowrap py-3 pr-10 pl-3 align-middle text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+        'whitespace-nowrap py-3 pr-10 pl-3 align-middle text-p-xs has-[[role=checkbox]]:pr-0 md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 *:[[role=checkbox]]:translate-y-0.5',
         className,
       )}
       {...props}

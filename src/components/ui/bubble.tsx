@@ -25,15 +25,18 @@ const bubbleVariants = cva(
           '*:data-[slot=bubble-content]:bg-tertiary *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-tertiary-hover',
         quaternary:
           '*:data-[slot=bubble-content]:bg-quaternary *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-quaternary-hover',
+
         success:
           '*:data-[slot=bubble-content]:bg-success *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-success-hover',
         warning:
           '*:data-[slot=bubble-content]:bg-warning *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-warning-hover',
         info: '*:data-[slot=bubble-content]:bg-info *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-info-hover',
-        outline:
-          '*:data-[slot=bubble-content]:bg-transparent *:data-[slot=bubble-content]:border *:data-[slot=bubble-content]:border-stroke *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:border-stroke-hover',
         error:
           '*:data-[slot=bubble-content]:bg-error *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-error-hover',
+
+        outline:
+          '*:data-[slot=bubble-content]:bg-transparent *:data-[slot=bubble-content]:border *:data-[slot=bubble-content]:border-stroke *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:border-stroke-hover',
+
         surface:
           '*:data-[slot=bubble-content]:bg-surface *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-hover',
         'surface-2xs':
@@ -54,6 +57,63 @@ const bubbleVariants = cva(
           '*:data-[slot=bubble-content]:bg-surface-3xl *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-4xl',
         'surface-4xl':
           '*:data-[slot=bubble-content]:bg-surface-4xl *:data-[slot=bubble-content]:text-content-reverse',
+
+        red: '*:data-[slot=bubble-content]:bg-accent-red *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-red-hover',
+        orange:
+          '*:data-[slot=bubble-content]:bg-accent-orange *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-orange-hover',
+        yellow:
+          '*:data-[slot=bubble-content]:bg-accent-yellow *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-yellow-hover',
+        lime: '*:data-[slot=bubble-content]:bg-accent-lime *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-lime-hover',
+        green:
+          '*:data-[slot=bubble-content]:bg-accent-green *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-green-hover',
+        teal: '*:data-[slot=bubble-content]:bg-accent-teal *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-teal-hover',
+        azure:
+          '*:data-[slot=bubble-content]:bg-accent-azure *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-azure-hover',
+        blue: '*:data-[slot=bubble-content]:bg-accent-blue *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-blue-hover',
+        violet:
+          '*:data-[slot=bubble-content]:bg-accent-violet *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-violet-hover',
+        pink: '*:data-[slot=bubble-content]:bg-accent-pink *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-pink-hover',
+
+        'sdg-1':
+          '*:data-[slot=bubble-content]:bg-sdg-1 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-1-hover',
+        'sdg-2':
+          '*:data-[slot=bubble-content]:bg-sdg-2 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-2-hover',
+        'sdg-3':
+          '*:data-[slot=bubble-content]:bg-sdg-3 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-3-hover',
+        'sdg-4':
+          '*:data-[slot=bubble-content]:bg-sdg-4 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-4-hover',
+        'sdg-5':
+          '*:data-[slot=bubble-content]:bg-sdg-5 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-5-hover',
+        'sdg-6':
+          '*:data-[slot=bubble-content]:bg-sdg-6 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-6-hover',
+        'sdg-7':
+          '*:data-[slot=bubble-content]:bg-sdg-7 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-7-hover',
+        'sdg-8':
+          '*:data-[slot=bubble-content]:bg-sdg-8 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-8-hover',
+        'sdg-9':
+          '*:data-[slot=bubble-content]:bg-sdg-9 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-9-hover',
+        'sdg-10':
+          '*:data-[slot=bubble-content]:bg-sdg-10 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-10-hover',
+        'sdg-11':
+          '*:data-[slot=bubble-content]:bg-sdg-11 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-11-hover',
+        'sdg-12':
+          '*:data-[slot=bubble-content]:bg-sdg-12 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-12-hover',
+        'sdg-13':
+          '*:data-[slot=bubble-content]:bg-sdg-13 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-13-hover',
+        'sdg-15':
+          '*:data-[slot=bubble-content]:bg-sdg-15 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-15-hover',
+        'sdg-16':
+          '*:data-[slot=bubble-content]:bg-sdg-16 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-16-hover',
+        'sdg-17':
+          '*:data-[slot=bubble-content]:bg-sdg-17 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-17-hover',
+
+        male: '*:data-[slot=bubble-content]:bg-categorical-male *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-male-hover',
+        female:
+          '*:data-[slot=bubble-content]:bg-categorical-female *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-female-hover',
+        urban:
+          '*:data-[slot=bubble-content]:bg-categorical-urban *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-urban-hover',
+        rural:
+          '*:data-[slot=bubble-content]:bg-categorical-rural *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-rural-hover',
       },
     },
     defaultVariants: {

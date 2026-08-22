@@ -1,5 +1,5 @@
 /** biome-ignore-all lint/suspicious/noExplicitAny: Any for some of the type tht does not exist */
-import { cva } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { Check, ChevronDown, ChevronUp, X } from 'lucide-react';
 import type { JSX } from 'react/jsx-runtime';
 import type {
@@ -66,6 +66,44 @@ const iconVariants = cva('h-6 w-6', {
       quaternary: 'stroke-quaternary',
       foreground: 'stroke-foreground',
       surface: 'stroke-surface',
+      error: 'stroke-error',
+      warning: 'stroke-warning',
+      info: 'stroke-info',
+      success: 'stroke-success',
+
+      male: 'stroke-categorical-male',
+      female: 'stroke-categorical-female',
+      urban: 'stroke-categorical-urban',
+      rural: 'stroke-categorical-rural',
+
+      red: 'stroke-accent-red',
+      orange: 'stroke-accent-orange',
+      yellow: 'stroke-accent-yellow',
+      lime: 'stroke-accent-lime',
+      green: 'stroke-accent-green',
+      teal: 'stroke-accent-teal',
+      azure: 'stroke-accent-azure',
+      blue: 'stroke-accent-blue',
+      violet: 'stroke-accent-violet',
+      pink: 'stroke-accent-pink',
+
+      'sdg-1': 'stroke-sdg-1',
+      'sdg-2': 'stroke-sdg-2',
+      'sdg-3': 'stroke-sdg-3',
+      'sdg-4': 'stroke-sdg-4',
+      'sdg-5': 'stroke-sdg-5',
+      'sdg-6': 'stroke-sdg-6',
+      'sdg-7': 'stroke-sdg-7',
+      'sdg-8': 'stroke-sdg-8',
+      'sdg-9': 'stroke-sdg-9',
+      'sdg-10': 'stroke-sdg-10',
+      'sdg-11': 'stroke-sdg-11',
+      'sdg-12': 'stroke-sdg-12',
+      'sdg-13': 'stroke-sdg-13',
+      'sdg-14': 'stroke-sdg-14',
+      'sdg-15': 'stroke-sdg-15',
+      'sdg-16': 'stroke-sdg-16',
+      'sdg-17': 'stroke-sdg-17',
     },
   },
   defaultVariants: {
@@ -82,13 +120,10 @@ interface SelectPropsDataType<
   variant?: 'light' | 'normal';
   size?: 'sm' | 'base';
   maxTagCount?: number;
-  color?: 'primary' | 'secondary' | 'tertiary' | 'foreground' | 'quaternary';
+  color?: VariantProps<typeof iconVariants>['color'];
   showCheck?: boolean;
 }
-function CustomDropdownIndicator(
-  props: any,
-  color?: 'primary' | 'secondary' | 'tertiary' | 'foreground' | 'quaternary',
-) {
+function CustomDropdownIndicator(props: any, color?: VariantProps<typeof iconVariants>['color']) {
   const { selectProps } = props;
   return (
     <components.DropdownIndicator {...props}>
@@ -102,7 +137,7 @@ function CustomDropdownIndicator(
 }
 
 function createOption<Option, IsMulti extends boolean, Group extends GroupBase<Option>>(
-  color?: 'primary' | 'secondary' | 'tertiary' | 'foreground' | 'quaternary',
+  color?: VariantProps<typeof iconVariants>['color'],
   showCheck?: boolean,
   isMulti?: boolean,
 ) {
@@ -112,7 +147,7 @@ function createOption<Option, IsMulti extends boolean, Group extends GroupBase<O
         <div className='flex items-center justify-between gap-2'>
           {props.label}
           {showCheck && isMulti ? (
-            <Checkbox checked={props.isSelected} color={color} />
+            <Checkbox checked={props.isSelected} color={color ?? undefined} />
           ) : (
             props.isSelected && (
               <Check strokeWidth={2} className={cn(iconVariants({ color }), 'h-6 w-6 shrink-0')} />
@@ -126,7 +161,7 @@ function createOption<Option, IsMulti extends boolean, Group extends GroupBase<O
 
 const customComponents = (
   maxTagCount?: number,
-  color?: 'primary' | 'secondary' | 'tertiary' | 'foreground' | 'quaternary',
+  color?: VariantProps<typeof iconVariants>['color'],
 ) => ({
   DropdownIndicator: (props: any) => CustomDropdownIndicator(props, color),
   MultiValue: (props: any) => MultiValue(props, maxTagCount || Infinity),

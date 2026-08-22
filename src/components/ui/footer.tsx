@@ -47,7 +47,7 @@ function FooterLogoUnit({
           <img
             alt='undp logo'
             src={`https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/${locale === 'es' || locale === 'fr' ? 'pnud' : 'undp'}-logo-white.svg`}
-            className='w-[60px]'
+            className='w-15'
           />
         </a>
         <H5 className='text-content-reverse' marginBottom='none'>

@@ -11,14 +11,50 @@ const bannerVariants = cva('', {
       'background-soft': 'bg-background-soft text-content-primary',
       foreground: 'bg-foreground text-content-reverse',
       'foreground-soft': 'bg-foreground-soft text-content-reverse',
+
       primary: 'bg-primary text-content-reverse',
       secondary: 'bg-secondary text-content-reverse',
       tertiary: 'bg-tertiary text-content-reverse',
       quaternary: 'bg-quaternary text-content-primary',
       success: 'bg-success text-content-reverse',
+
       warning: 'bg-warning text-content-reverse',
       info: 'bg-info text-content-reverse',
       error: 'bg-error text-content-reverse',
+
+      red: 'bg-accent-red text-content-reverse',
+      orange: 'bg-accent-orange text-content-reverse',
+      yellow: 'bg-accent-yellow text-content-reverse',
+      lime: 'bg-accent-lime text-content-reverse',
+      green: 'bg-accent-green text-content-reverse',
+      teal: 'bg-accent-teal text-content-reverse',
+      azure: 'bg-accent-azure text-content-reverse',
+      blue: 'bg-accent-blue text-content-reverse',
+      violet: 'bg-accent-violet text-content-reverse',
+      pink: 'bg-accent-pink text-content-reverse',
+
+      'sdg-1': 'bg-sdg-1 text-content-reverse',
+      'sdg-2': 'bg-sdg-2 text-content-reverse',
+      'sdg-3': 'bg-sdg-3 text-content-reverse',
+      'sdg-4': 'bg-sdg-4 text-content-reverse',
+      'sdg-5': 'bg-sdg-5 text-content-reverse',
+      'sdg-6': 'bg-sdg-6 text-content-reverse',
+      'sdg-7': 'bg-sdg-7 text-content-reverse',
+      'sdg-8': 'bg-sdg-8 text-content-reverse',
+      'sdg-9': 'bg-sdg-9 text-content-reverse',
+      'sdg-10': 'bg-sdg-10 text-content-reverse',
+      'sdg-11': 'bg-sdg-11 text-content-reverse',
+      'sdg-12': 'bg-sdg-12 text-content-reverse',
+      'sdg-13': 'bg-sdg-13 text-content-reverse',
+      'sdg-14': 'bg-sdg-14 text-content-reverse',
+      'sdg-15': 'bg-sdg-15 text-content-reverse',
+      'sdg-16': 'bg-sdg-16 text-content-reverse',
+      'sdg-17': 'bg-sdg-17 text-content-reverse',
+
+      male: 'bg-categorical-male text-content-reverse',
+      female: 'bg-categorical-female text-content-reverse',
+      urban: 'bg-categorical-urban text-content-reverse',
+      rural: 'bg-categorical-rural text-content-reverse',
     },
     padding: {
       none: 'py-24 px-0',
@@ -78,28 +114,12 @@ const sidebarVariants = cva('w-full', {
   defaultVariants: { sidebarWidth: 'base' },
 });
 
-const BannerContext = React.createContext<{
-  backgroundColor:
-    | 'transparent'
-    | 'background'
-    | 'background-soft'
-    | 'foreground'
-    | 'foreground-soft'
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'quaternary'
-    | 'success'
-    | 'warning'
-    | 'info'
-    | 'error'
-    | null
-    | undefined;
-  padding: 'none' | '2xs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | null | undefined;
-  bodyMaxWidth: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full' | null | undefined;
-  bodyGap: 'none' | '2xs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | null | undefined;
-  sidebarWidth: 'sm' | 'base' | 'lg' | 'full' | null | undefined;
-} | null>(null);
+const BannerContext = React.createContext<
+  | (VariantProps<typeof bannerVariants> &
+      VariantProps<typeof bodyVariants> &
+      VariantProps<typeof sidebarVariants>)
+  | null
+>(null);
 
 const Banner = React.forwardRef<
   HTMLDivElement,

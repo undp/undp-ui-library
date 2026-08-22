@@ -31,6 +31,7 @@ const hoverBGVariant = cva(
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--tertiary)_80%,_transparent),_transparent_140%)]',
         quaternary:
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--quaternary)_80%,_transparent),_transparent_140%)]',
+
         info: 'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--info)_80%,_transparent),_transparent_140%)]',
         success:
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--success)_80%,_transparent),_transparent_140%)]',
@@ -38,10 +39,70 @@ const hoverBGVariant = cva(
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--warning)_80%,_transparent),_transparent_140%)]',
         error:
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--error)_80%,_transparent),_transparent_140%)]',
+
         background:
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--background)_80%,_transparent),_transparent_140%)]',
         foreground:
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--foreground)_80%,_transparent),_transparent_140%)]',
+
+        red: 'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-red)_80%,_transparent),_transparent_140%)]',
+        orange:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-orange)_80%,_transparent),_transparent_140%)]',
+        yellow:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-yellow)_80%,_transparent),_transparent_140%)]',
+        lime: 'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-lime)_80%,_transparent),_transparent_140%)]',
+        green:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-green)_80%,_transparent),_transparent_140%)]',
+        teal: 'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-teal)_80%,_transparent),_transparent_140%)]',
+        azure:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-azure)_80%,_transparent),_transparent_140%)]',
+        blue: 'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-blue)_80%,_transparent),_transparent_140%)]',
+        violet:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-violet)_80%,_transparent),_transparent_140%)]',
+        pink: 'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--accent-pink)_80%,_transparent),_transparent_140%)]',
+
+        male: 'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-male)_80%,_transparent),_transparent_140%)]',
+        female:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-female)_80%,_transparent),_transparent_140%)]',
+        urban:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-urban)_80%,_transparent),_transparent_140%)]',
+        rural:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-rural)_80%,_transparent),_transparent_140%)]',
+
+        'sdg-1':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-1)_80%,_transparent),_transparent_140%)]',
+        'sdg-2':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-2)_80%,_transparent),_transparent_140%)]',
+        'sdg-3':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-3)_80%,_transparent),_transparent_140%)]',
+        'sdg-4':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-4)_80%,_transparent),_transparent_140%)]',
+        'sdg-5':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-5)_80%,_transparent),_transparent_140%)]',
+        'sdg-6':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-6)_80%,_transparent),_transparent_140%)]',
+        'sdg-7':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-7)_80%,_transparent),_transparent_140%)]',
+        'sdg-8':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-8)_80%,_transparent),_transparent_140%)]',
+        'sdg-9':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-9)_80%,_transparent),_transparent_140%)]',
+        'sdg-10':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-10)_80%,_transparent),_transparent_140%)]',
+        'sdg-11':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-11)_80%,_transparent),_transparent_140%)]',
+        'sdg-12':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-12)_80%,_transparent),_transparent_140%)]',
+        'sdg-13':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-13)_80%,_transparent),_transparent_140%)]',
+        'sdg-14':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-14)_80%,_transparent),_transparent_140%)]',
+        'sdg-15':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-15)_80%,_transparent),_transparent_140%)]',
+        'sdg-16':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-16)_80%,_transparent),_transparent_140%)]',
+        'sdg-17':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-17)_80%,_transparent),_transparent_140%)]',
       },
     },
     defaultVariants: {

@@ -1,7 +1,7 @@
 import { SearchIcon } from 'lucide-react';
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Button } from './button';
+import { Button, type ButtonVariant } from './button';
 import { Input } from './input';
 
 const Search = React.forwardRef<
@@ -10,7 +10,7 @@ const Search = React.forwardRef<
     inputVariant?: 'light' | 'normal';
     inputClassName?: string;
     buttonClassName?: string;
-    buttonVariant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'icon';
+    buttonVariant?: ButtonVariant;
     rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
     showSearchButton?: boolean;
     searchOnlyOnClick?: boolean;

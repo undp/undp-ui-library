@@ -10,7 +10,7 @@ import { Popover, PopoverContent, PopoverTrigger } from './popover';
 type SingleCalendarProps = Omit<PropsSingle, 'mode' | 'onSelect'>;
 
 const datePickerVariants = cva(
-  'w-full h-auto bg-background rounded-base text-content-primary text-base transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-disabled placeholder:text-content-placeholder',
+  'w-full flex items-center gap-2 h-auto bg-background rounded-base text-content-primary text-base transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-disabled placeholder:text-content-placeholder',
   {
     variants: {
       variant: {
@@ -41,7 +41,6 @@ const datePickerVariants = cva(
 
 export function DateRangePicker({
   onValueChange,
-  value,
   defaultValue,
   disablePopover,
   classNames,
@@ -73,9 +72,10 @@ export function DateRangePicker({
     from: Date | undefined;
     to: Date | undefined;
   }>({
-    from: value?.from || defaultValue?.from || undefined,
-    to: value?.to || defaultValue?.to || undefined,
+    from: defaultValue?.from || undefined,
+    to: defaultValue?.to || undefined,
   });
+
   const [selectingStart, setSelectingStart] = useState(true);
   const [open, setOpen] = useState(false);
   const handleSelect = (date: Date | undefined) => {
@@ -107,12 +107,12 @@ export function DateRangePicker({
         />
         {range.from ? (
           <div className='flex grow items-center gap-4'>
-            <p className='mt-1 grow p-0 text-left font-body text-content-primary'>
+            <p className='grow p-0 text-left font-body text-content-primary'>
               {format(range.from, 'MMM d, yyyy')}
             </p>
             <ArrowRight size={14} className='text-content-primary' />
             {range.to ? (
-              <p className='mt-1 grow p-0 text-left font-body text-content-primary'>
+              <p className='grow p-0 text-left font-body text-content-primary'>
                 {format(range.to, 'MMM d, yyyy')}
               </p>
             ) : (
@@ -123,9 +123,9 @@ export function DateRangePicker({
           </div>
         ) : (
           <div className='flex grow items-center gap-4'>
-            <p className='mt-1 grow p-0 text-left font-body text-content-placeholder'>Start date</p>
+            <p className='grow p-0 text-left font-body text-content-placeholder'>Start date</p>
             <ArrowRight size={14} className='text-content-primary' />
-            <p className='mt-1 grow p-0 text-left font-body text-content-placeholder'>End date</p>
+            <p className='grow p-0 text-left font-body text-content-placeholder'>End date</p>
           </div>
         )}
       </PopoverTrigger>

@@ -44,7 +44,7 @@ const ResourceCardImage = React.forwardRef<HTMLDivElement, ResourceCardImageProp
     <div
       ref={ref}
       className={cn(
-        `relative box-border w-full bg-[linear-gradient(180deg,_#c9d0d6_70%,_#c9d0d6_0,_#414648_70.5%,_#9ea5ac_0,_#9ea5ac)] px-12 py-9 before:pointer-events-none before:absolute before:bottom-[37px] before:left-8 before:h-[27px] before:w-[calc(100%-100px)] before:rounded-[21%] before:bg-surface-xl before:blur-[4px] before:content-[''] before:[transform:skewX(64deg)]`,
+        `before:transform-[skewX(64deg)] relative box-border w-full bg-[linear-gradient(180deg,#c9d0d6_70%,#c9d0d6_0,#414648_70.5%,#9ea5ac_0,#9ea5ac)] px-12 py-9 before:pointer-events-none before:absolute before:bottom-9.25 before:left-8 before:h-6.75 before:w-[calc(100%-100px)] before:rounded-[21%] before:bg-surface-xl before:blur-xs before:content-['']`,
         className,
       )}
       {...props}
@@ -55,7 +55,7 @@ const ResourceCardImage = React.forwardRef<HTMLDivElement, ResourceCardImageProp
         className={cn(imgVariants({ aspectRatio }), imageClassNames)}
       />
       {hoverColor ? (
-        <div className='absolute top-0 left-0 z-[1] h-full w-full bg-[linear-gradient(27.66deg,var(--card-hover-color),transparent_70.49%)] opacity-0 group-hover:opacity-75' />
+        <div className='absolute top-0 left-0 z-1 h-full w-full bg-[linear-gradient(27.66deg,var(--card-hover-color),transparent_70.49%)] opacity-0 group-hover:opacity-75' />
       ) : null}
     </div>
   ),

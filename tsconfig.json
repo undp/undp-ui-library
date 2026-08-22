@@ -27,6 +27,6 @@
     "src/App.tsx",
     "src/main.tsx"
   ],
-  "include": ["src", "tailwind.config.js"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
