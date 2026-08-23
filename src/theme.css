@@ -1,0 +1,574 @@
+@theme {
+  /* ───────────── Existing container tokens ───────────── */
+  --container-2xl: 40rem;
+  --container-8xl: 96rem;
+
+  /* ───────────── Colors ───────────── */
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-foreground-soft: var(--foreground-soft);
+  --color-background-soft: var(--background-soft);
+  --color-ring: var(--ring);
+  --color-card-hover-color: var(--card-hover-color);
+  --color-footer-background: var(--footer-background);
+
+  --color-error: var(--error);
+  --color-error-hover: var(--error-hover);
+  --color-error-light: var(--error-light);
+
+  --color-warning: var(--warning);
+  --color-warning-hover: var(--warning-hover);
+  --color-warning-light: var(--warning-light);
+
+  --color-success: var(--success);
+  --color-success-hover: var(--success-hover);
+  --color-success-light: var(--success-light);
+
+  --color-info: var(--info);
+  --color-info-hover: var(--info-hover);
+  --color-info-light: var(--info-light);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-light: var(--secondary-light);
+
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-hover: var(--tertiary-hover);
+  --color-tertiary-light: var(--tertiary-light);
+
+  --color-quaternary: var(--quaternary);
+  --color-quaternary-hover: var(--quaternary-hover);
+  --color-quaternary-light: var(--quaternary-light);
+
+  --color-content-primary: var(--content-primary);
+  --color-content-secondary: var(--content-secondary);
+  --color-content-tertiary: var(--content-tertiary);
+  --color-content-quaternary: var(--content-quaternary);
+  --color-content-disabled: var(--content-disabled);
+  --color-content-placeholder: var(--content-placeholder);
+  --color-content-reverse: var(--content-reverse);
+
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-hard: var(--surface-hard);
+  --color-surface-hard-hover: var(--surface-hard-hover);
+  --color-surface-background: var(--background);
+  --color-surface-foreground: var(--foreground);
+  --color-surface-2xs: var(--surface-2xs);
+  --color-surface-xs: var(--surface-xs);
+  --color-surface-sm: var(--surface-sm);
+  --color-surface-md: var(--surface-md);
+  --color-surface-lg: var(--surface-lg);
+  --color-surface-xl: var(--surface-xl);
+  --color-surface-2xl: var(--surface-2xl);
+  --color-surface-3xl: var(--surface-3xl);
+  --color-surface-4xl: var(--surface-4xl);
+
+  --color-stroke: var(--stroke);
+  --color-stroke-hover: var(--stroke-hover);
+  --color-stroke-background: var(--background);
+  --color-stroke-foreground: var(--foreground);
+  --color-stroke-2xs: var(--stroke-2xs);
+  --color-stroke-xs: var(--stroke-xs);
+  --color-stroke-sm: var(--stroke-sm);
+  --color-stroke-md: var(--stroke-md);
+  --color-stroke-lg: var(--stroke-lg);
+  --color-stroke-xl: var(--stroke-xl);
+  --color-stroke-2xl: var(--stroke-2xl);
+  --color-stroke-3xl: var(--stroke-3xl);
+  --color-stroke-4xl: var(--stroke-4xl);
+
+  --color-blue: var(--blue-600);
+  --color-blue-100: var(--blue-100);
+  --color-blue-200: var(--blue-200);
+  --color-blue-300: var(--blue-300);
+  --color-blue-400: var(--blue-400);
+  --color-blue-500: var(--blue-500);
+  --color-blue-600: var(--blue-600);
+  --color-blue-700: var(--blue-700);
+
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
+  --color-gray-530: var(--gray-530);
+  --color-gray-560: var(--gray-560);
+  --color-gray-600: var(--gray-600);
+  --color-gray-650: var(--gray-650);
+  --color-gray-700: var(--gray-700);
+
+  --color-accent-red: var(--accent-red);
+  --color-accent-red-hover: var(--accent-red-hover);
+  --color-accent-red-light: var(--accent-red-light);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-orange-hover: var(--accent-orange-hover);
+  --color-accent-orange-light: var(--accent-orange-light);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-yellow-hover: var(--accent-yellow-hover);
+  --color-accent-yellow-light: var(--accent-yellow-light);
+  --color-accent-lime: var(--accent-lime);
+  --color-accent-lime-hover: var(--accent-lime-hover);
+  --color-accent-lime-light: var(--accent-lime-light);
+  --color-accent-green: var(--accent-green);
+  --color-accent-green-hover: var(--accent-green-hover);
+  --color-accent-green-light: var(--accent-green-light);
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-teal-hover: var(--accent-teal-hover);
+  --color-accent-teal-light: var(--accent-teal-light);
+  --color-accent-azure: var(--accent-azure);
+  --color-accent-azure-hover: var(--accent-azure-hover);
+  --color-accent-azure-light: var(--accent-azure-light);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-blue-hover: var(--accent-blue-hover);
+  --color-accent-blue-light: var(--accent-blue-light);
+  --color-accent-violet: var(--accent-violet);
+  --color-accent-violet-hover: var(--accent-violet-hover);
+  --color-accent-violet-light: var(--accent-violet-light);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-pink-hover: var(--accent-pink-hover);
+  --color-accent-pink-light: var(--accent-pink-light);
+
+  --color-categorical-male: var(--categorical-male);
+  --color-categorical-male-hover: color-mix(
+    in oklch,
+    var(--categorical-male) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-male-light: color-mix(
+    in oklch,
+    var(--categorical-male) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-female: var(--categorical-female);
+  --color-categorical-female-hover: color-mix(
+    in oklch,
+    var(--categorical-female) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-female-light: color-mix(
+    in oklch,
+    var(--categorical-female) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-urban: var(--categorical-urban);
+  --color-categorical-urban-hover: color-mix(
+    in oklch,
+    var(--categorical-urban) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-urban-light: color-mix(
+    in oklch,
+    var(--categorical-urban) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-rural: var(--categorical-rural);
+  --color-categorical-rural-hover: color-mix(
+    in oklch,
+    var(--categorical-rural) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-rural-light: color-mix(
+    in oklch,
+    var(--categorical-rural) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+
+  --color-categorical-child: var(--categorical-child);
+  --color-categorical-child-hover: color-mix(
+    in oklch,
+    var(--categorical-child) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-child-light: color-mix(
+    in oklch,
+    var(--categorical-child) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-adolescent: var(--categorical-adolescent);
+  --color-categorical-adolescent-hover: color-mix(
+    in oklch,
+    var(--categorical-adolescent) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-adolescent-light: color-mix(
+    in oklch,
+    var(--categorical-adolescent) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-young-adult: var(--categorical-young-adult);
+  --color-categorical-young-adult-hover: color-mix(
+    in oklch,
+    var(--categorical-young-adult) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-young-adult-light: color-mix(
+    in oklch,
+    var(--categorical-young-adult) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-adult: var(--categorical-adult);
+  --color-categorical-adult-hover: color-mix(
+    in oklch,
+    var(--categorical-adult) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-adult-light: color-mix(
+    in oklch,
+    var(--categorical-adult) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-older-adult: var(--categorical-older-adult);
+  --color-categorical-older-adult-hover: color-mix(
+    in oklch,
+    var(--categorical-older-adult) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-older-adult-light: color-mix(
+    in oklch,
+    var(--categorical-older-adult) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+
+  --color-sdg-1: var(--sdg-1);
+  --color-sdg-1-hover: color-mix(
+    in oklch,
+    var(--sdg-1) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-1-light: color-mix(
+    in oklch,
+    var(--sdg-1) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-2: var(--sdg-2);
+  --color-sdg-2-hover: color-mix(
+    in oklch,
+    var(--sdg-2) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-2-light: color-mix(
+    in oklch,
+    var(--sdg-2) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-3: var(--sdg-3);
+  --color-sdg-3-hover: color-mix(
+    in oklch,
+    var(--sdg-3) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-3-light: color-mix(
+    in oklch,
+    var(--sdg-3) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-4: var(--sdg-4);
+  --color-sdg-4-hover: color-mix(
+    in oklch,
+    var(--sdg-4) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-4-light: color-mix(
+    in oklch,
+    var(--sdg-4) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-5: var(--sdg-5);
+  --color-sdg-5-hover: color-mix(
+    in oklch,
+    var(--sdg-5) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-5-light: color-mix(
+    in oklch,
+    var(--sdg-5) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-6: var(--sdg-6);
+  --color-sdg-6-hover: color-mix(
+    in oklch,
+    var(--sdg-6) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-6-light: color-mix(
+    in oklch,
+    var(--sdg-6) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-7: var(--sdg-7);
+  --color-sdg-7-hover: color-mix(
+    in oklch,
+    var(--sdg-7) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-7-light: color-mix(
+    in oklch,
+    var(--sdg-7) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-8: var(--sdg-8);
+  --color-sdg-8-hover: color-mix(
+    in oklch,
+    var(--sdg-8) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-8-light: color-mix(
+    in oklch,
+    var(--sdg-8) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-9: var(--sdg-9);
+  --color-sdg-9-hover: color-mix(
+    in oklch,
+    var(--sdg-9) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-9-light: color-mix(
+    in oklch,
+    var(--sdg-9) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-10: var(--sdg-10);
+  --color-sdg-10-hover: color-mix(
+    in oklch,
+    var(--sdg-10) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-10-light: color-mix(
+    in oklch,
+    var(--sdg-10) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-11: var(--sdg-11);
+  --color-sdg-11-hover: color-mix(
+    in oklch,
+    var(--sdg-11) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-11-light: color-mix(
+    in oklch,
+    var(--sdg-11) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-12: var(--sdg-12);
+  --color-sdg-12-hover: color-mix(
+    in oklch,
+    var(--sdg-12) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-12-light: color-mix(
+    in oklch,
+    var(--sdg-12) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-13: var(--sdg-13);
+  --color-sdg-13-hover: color-mix(
+    in oklch,
+    var(--sdg-13) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-13-light: color-mix(
+    in oklch,
+    var(--sdg-13) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-14: var(--sdg-14);
+  --color-sdg-14-hover: color-mix(
+    in oklch,
+    var(--sdg-14) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-14-light: color-mix(
+    in oklch,
+    var(--sdg-14) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-15: var(--sdg-15);
+  --color-sdg-15-hover: color-mix(
+    in oklch,
+    var(--sdg-15) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-15-light: color-mix(
+    in oklch,
+    var(--sdg-15) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-16: var(--sdg-16);
+  --color-sdg-16-hover: color-mix(
+    in oklch,
+    var(--sdg-16) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-16-light: color-mix(
+    in oklch,
+    var(--sdg-16) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-sdg-17: var(--sdg-17);
+  --color-sdg-17-hover: color-mix(
+    in oklch,
+    var(--sdg-17) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-sdg-17-light: color-mix(
+    in oklch,
+    var(--sdg-17) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+
+  /* ───────────── Background images ───────────── */
+  --background-image-double-primary:
+    linear-gradient(var(--primary), var(--primary)), linear-gradient(var(--primary), var(--primary));
+  --background-image-double-background:
+    linear-gradient(var(--background), var(--background)),
+    linear-gradient(var(--background), var(--background));
+  --background-image-double-foreground:
+    linear-gradient(var(--foreground), var(--foreground)),
+    linear-gradient(var(--foreground), var(--foreground));
+  --background-image-double-secondary:
+    linear-gradient(var(--secondary), var(--secondary)),
+    linear-gradient(var(--secondary), var(--secondary));
+  --background-image-double-tertiary:
+    linear-gradient(var(--tertiary), var(--tertiary)),
+    linear-gradient(var(--tertiary), var(--tertiary));
+  --background-image-double-quaternary:
+    linear-gradient(var(--quaternary), var(--quaternary)),
+    linear-gradient(var(--quaternary), var(--quaternary));
+  --background-image-double-success:
+    linear-gradient(var(--success), var(--success)), linear-gradient(var(--success), var(--success));
+  --background-image-double-warning:
+    linear-gradient(var(--warning), var(--warning)), linear-gradient(var(--warning), var(--warning));
+  --background-image-double-error:
+    linear-gradient(var(--error), var(--error)), linear-gradient(var(--error), var(--error));
+  --background-image-double-info:
+    linear-gradient(var(--info), var(--info)), linear-gradient(var(--info), var(--info));
+
+  /* ───────────── Font size (with paired line-height) ───────────── */
+  --text-h1: var(--font-size-h1);
+  --text-h1--line-height: var(--line-height-h1);
+  --text-h1-sm: var(--font-size-h1-sm);
+  --text-h1-sm--line-height: var(--line-height-h1);
+  --text-h1-xs: var(--font-size-h1-xs);
+  --text-h1-xs--line-height: var(--line-height-h1);
+  --text-h2: var(--font-size-h2);
+  --text-h2--line-height: var(--line-height-h2);
+  --text-h2-sm: var(--font-size-h2-sm);
+  --text-h2-sm--line-height: var(--line-height-h2);
+  --text-h2-xs: var(--font-size-h2-xs);
+  --text-h2-xs--line-height: var(--line-height-h2);
+  --text-h3: var(--font-size-h3);
+  --text-h3--line-height: var(--line-height-h3);
+  --text-h3-sm: var(--font-size-h3-sm);
+  --text-h3-sm--line-height: var(--line-height-h3);
+  --text-h3-xs: var(--font-size-h3-xs);
+  --text-h3-xs--line-height: var(--line-height-h3);
+  --text-h4: var(--font-size-h4);
+  --text-h4--line-height: var(--line-height-h4);
+  --text-h4-sm: var(--font-size-h4-sm);
+  --text-h4-sm--line-height: var(--line-height-h4);
+  --text-h4-xs: var(--font-size-h4-xs);
+  --text-h4-xs--line-height: var(--line-height-h4);
+  --text-h5: var(--font-size-h5);
+  --text-h5--line-height: var(--line-height-h5);
+  --text-h5-sm: var(--font-size-h5-sm);
+  --text-h5-sm--line-height: var(--line-height-h5);
+  --text-h5-xs: var(--font-size-h5-xs);
+  --text-h5-xs--line-height: var(--line-height-h5);
+  --text-h6: var(--font-size-h6);
+  --text-h6--line-height: var(--line-height-h6);
+  --text-h6-sm: var(--font-size-h6-sm);
+  --text-h6-sm--line-height: var(--line-height-h6);
+  --text-h6-xs: var(--font-size-h6-xs);
+  --text-h6-xs--line-height: var(--line-height-h6);
+  --text-p: var(--font-size-p);
+  --text-p--line-height: var(--line-height-p);
+  --text-p-sm: var(--font-size-p-sm);
+  --text-p-sm--line-height: var(--line-height-p);
+  --text-p-xs: var(--font-size-p-xs);
+  --text-p-xs--line-height: var(--line-height-p);
+  --text-2xl: var(--font-size-2xl);
+  --text-2xl--line-height: var(--line-height-base);
+  --text-xl: var(--font-size-xl);
+  --text-xl--line-height: var(--line-height-base);
+  --text-lg: var(--font-size-lg);
+  --text-lg--line-height: var(--line-height-base);
+  --text-base: var(--font-size-base);
+  --text-base--line-height: var(--line-height-base);
+  --text-sm: var(--font-size-sm);
+  --text-sm--line-height: var(--line-height-base);
+  --text-xs: var(--font-size-xs);
+  --text-xs--line-height: var(--line-height-base);
+  --text-2xs: var(--font-size-2xs);
+  --text-2xs--line-height: var(--line-height-base);
+
+  /* ───────────── Line height (standalone leading-* utilities) ───────────── */
+  --leading-none: var(--line-height-none);
+  --leading-xs: var(--line-height-xs);
+  --leading-sm: var(--line-height-sm);
+  --leading-base: var(--line-height-base);
+  --leading-lg: var(--line-height-lg);
+  --leading-xl: var(--line-height-xl);
+  --leading-2xl: var(--line-height-2xl);
+  --leading-h1: var(--line-height-h1);
+  --leading-h2: var(--line-height-h2);
+  --leading-h3: var(--line-height-h3);
+  --leading-h4: var(--line-height-h4);
+  --leading-h5: var(--line-height-h5);
+  --leading-h6: var(--line-height-h6);
+  --leading-p: var(--line-height-p);
+
+  --opacity-disabled: var(--disabled-opacity-value);
+
+  /* ───────────── Border radius ───────────── */
+  --radius: var(--rounded-base);
+  --radius-base: var(--rounded-base);
+  --radius-sm: var(--rounded-sm);
+  --radius-md: var(--rounded-md);
+  --radius-lg: var(--rounded-lg);
+  --radius-xl: var(--rounded-xl);
+  --radius-2xl: var(--rounded-2xl);
+  --radius-full: 9999px;
+
+  /* ───────────── Font family ───────────── */
+  --font-body: var(--body-font), sans-serif;
+  --font-sans-ar: "Noto Sans Arabic", sans-serif;
+  --font-sans-az: "Noto Sans", sans-serif;
+  --font-sans-bn: "UN Bangla", sans-serif;
+  --font-sans-he: "Noto Sans Hebrew", sans-serif;
+  --font-sans-hi: "Noto Sans Devanagari", sans-serif;
+  --font-sans-ja: "Noto Sans JP", sans-serif;
+  --font-sans-ka: "Noto Sans Georgian", sans-serif;
+  --font-sans-km: "Noto Sans Khmer", sans-serif;
+  --font-sans-ko: "Noto Sans KR", sans-serif;
+  --font-sans-my: "Noto Sans Myanmar", sans-serif;
+  --font-sans-ne: "Noto Sans", sans-serif;
+  --font-sans-zh: "Noto Sans SC", sans-serif;
+  --font-sans: var(--sans-font), sans-serif;
+  --font-serif: var(--serif-font), serif;
+  --font-heading: var(--heading-font), var(--body-font), sans-serif;
+  --font-mono: var(--mono-font), monospace;
+
+  /* ───────────── Opacity ───────────── */
+  --opacity-frosted: var(--frosted-opacity-value);
+
+  /* ───────────── Backdrop blur ───────────── */
+  --blur-frosted: var(--frosted-blur);
+
+  /* ───────────── Box shadow ───────────── */
+  --shadow-header: 0 3px 6px rgb(0 0 0 / 10%);
+
+  /* ───────────── Sizing (h-header, h-inherit) ───────────── */
+  --height-header: 7.1875rem;
+  --height-inherit: inherit;
+
+  /* ───────────── Animation ───────────── */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-spin: spin 1s linear infinite;
+}

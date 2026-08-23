@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
@@ -80,11 +81,21 @@ const entries = {
   ConfigProvider: path.resolve(__dirname, 'src/ConfigProvider.tsx'),
 };
 
+const copyThemeCss = () => ({
+  name: 'copy-theme-css',
+  writeBundle() {
+    const source = path.resolve(__dirname, 'src/theme.css');
+    const destination = path.resolve(__dirname, 'dist/theme.css');
+
+    fs.copyFileSync(source, destination);
+  },
+});
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   const plugins = [
     react(),
     tailwindcss(),
+    copyThemeCss(),
     dts({
       include: ['src/'],
       entryRoot: 'src',
