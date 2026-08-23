@@ -142,10 +142,16 @@ interface ConfigDataType {
   ring?: string;
   cardHoverColor?: string;
   footerBackground?: string;
+
   categoricalMale?: string;
   categoricalFemale?: string;
   categoricalUrban?: string;
   categoricalRural?: string;
+  categoricalChild?: string;
+  categoricalAdolescent?: string;
+  categoricalYoungAdult?: string;
+  categoricalAdult?: string;
+  categoricalOlderAdult?: string;
 
   error?: SemanticGroup;
   warning?: SemanticGroup;
@@ -160,12 +166,6 @@ interface ConfigDataType {
   surface?: SurfaceScale;
   stroke?: StrokeScale;
 
-  disabledOpacityValue?: string;
-
-  frostedBlur?: string;
-
-  frostedOpacityValue?: string;
-
   fonts?: {
     body?: string;
     heading?: string;
@@ -178,6 +178,16 @@ interface ConfigDataType {
   lineHeight?: LineHeightScale;
 
   rounded?: RoundedScale;
+
+  disabledOpacityValue?: string;
+
+  frostedBlur?: string;
+
+  frostedOpacityValue?: string;
+
+  hoverColorMixPercent?: string;
+
+  lightenColorMixPercent?: string;
 }
 
 interface ConfigProviderProps {
@@ -261,6 +271,12 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
       setVar(root, '--categorical-urban', config.categoricalUrban);
       setVar(root, '--categorical-rural', config.categoricalRural);
 
+      setVar(root, '--categorical-child', config.categoricalChild);
+      setVar(root, '--categorical-adolescent', config.categoricalAdolescent);
+      setVar(root, '--categorical-young-adult', config.categoricalYoungAdult);
+      setVar(root, '--categorical-adult', config.categoricalAdult);
+      setVar(root, '--categorical-older-adult', config.categoricalOlderAdult);
+
       setVar(root, '--surface', config.surface?.base);
       setVar(root, '--surface-hover', config.surface?.hover);
       setVar(root, '--surface-hard', config.surface?.hard);
@@ -340,6 +356,9 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
 
       setVar(root, '--frosted-blur', config.frostedBlur);
       setVar(root, '--frosted-opacity-value', config.frostedOpacityValue);
+
+      setVar(root, '--hover-color-mix-percent', config.hoverColorMixPercent);
+      setVar(root, '--lighten-color-mix-percent', config.lightenColorMixPercent);
     }
   }, [config]);
 

@@ -82,10 +82,18 @@
     --sdg-15: #56c02b;
     --sdg-16: #00689d;
     --sdg-17: #19486a;
+
     --categorical-male: #02a38a;
     --categorical-female: #757af0;
+
     --categorical-urban: #0468b1;
     --categorical-rural: #5dd4f0;
+    
+    --categorical-child: #e86d62;
+    --categorical-adolescent: #e8a05d;
+    --categorical-young-adult: #d8c85d;
+    --categorical-adult: #78c96b;
+    --categorical-older-adult: #5dd4f0;
 
     --background: var(--white);
     --background-soft: var(--gray-100);
@@ -261,6 +269,9 @@
 
     --frosted-blur: 18px;
     --frosted-opacity-value: 0.95;
+
+    --hover-color-mix-percent: 70%;
+    --lighten-color-mix-percent: 27%;
   }
 
   *,
@@ -442,99 +453,155 @@
   --color-categorical-male: var(--categorical-male);
   --color-categorical-male-hover: color-mix(
     in oklch,
-    var(--categorical-male) 70%,
-    var(--background) 30%
+    var(--categorical-male) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
   );
   --color-categorical-male-light: color-mix(
     in oklch,
-    var(--categorical-male) 27%,
-    var(--background) 73%
+    var(--categorical-male) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
   );
   --color-categorical-female: var(--categorical-female);
   --color-categorical-female-hover: color-mix(
     in oklch,
-    var(--categorical-female) 70%,
-    var(--background) 30%
+    var(--categorical-female) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
   );
   --color-categorical-female-light: color-mix(
     in oklch,
-    var(--categorical-female) 27%,
-    var(--background) 73%
+    var(--categorical-female) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
   );
   --color-categorical-urban: var(--categorical-urban);
   --color-categorical-urban-hover: color-mix(
     in oklch,
-    var(--categorical-urban) 70%,
-    var(--background) 30%
+    var(--categorical-urban) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
   );
   --color-categorical-urban-light: color-mix(
     in oklch,
-    var(--categorical-urban) 27%,
-    var(--background) 73%
+    var(--categorical-urban) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
   );
   --color-categorical-rural: var(--categorical-rural);
   --color-categorical-rural-hover: color-mix(
     in oklch,
-    var(--categorical-rural) 70%,
-    var(--background) 30%
+    var(--categorical-rural) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
   );
   --color-categorical-rural-light: color-mix(
     in oklch,
-    var(--categorical-rural) 27%,
-    var(--background) 73%
+    var(--categorical-rural) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+
+  --color-categorical-child: var(--categorical-child);
+  --color-categorical-child-hover: color-mix(
+    in oklch,
+    var(--categorical-child) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-child-light: color-mix(
+    in oklch,
+    var(--categorical-child) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-adolescent: var(--categorical-adolescent);
+  --color-categorical-adolescent-hover: color-mix(
+    in oklch,
+    var(--categorical-adolescent) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-adolescent-light: color-mix(
+    in oklch,
+    var(--categorical-adolescent) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-young-adult: var(--categorical-young-adult);
+  --color-categorical-young-adult-hover: color-mix(
+    in oklch,
+    var(--categorical-young-adult) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-young-adult-light: color-mix(
+    in oklch,
+    var(--categorical-young-adult) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-adult: var(--categorical-adult);
+  --color-categorical-adult-hover: color-mix(
+    in oklch,
+    var(--categorical-adult) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-adult-light: color-mix(
+    in oklch,
+    var(--categorical-adult) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
+  );
+  --color-categorical-older-adult: var(--categorical-older-adult);
+  --color-categorical-older-adult-hover: color-mix(
+    in oklch,
+    var(--categorical-older-adult) var(--hover-color-mix-percent),
+    var(--background) calc(100% - var(--hover-color-mix-percent))
+  );
+  --color-categorical-older-adult-light: color-mix(
+    in oklch,
+    var(--categorical-older-adult) var(--lighten-color-mix-percent),
+    var(--background) calc(100% - var(--lighten-color-mix-percent))
   );
 
   --color-sdg-1: var(--sdg-1);
-  --color-sdg-1-hover: color-mix(in oklch, var(--sdg-1) 70%, var(--background) 30%);
-  --color-sdg-1-light: color-mix(in oklch, var(--sdg-1) 27%, var(--background) 73%);
+  --color-sdg-1-hover: color-mix(in oklch, var(--sdg-1) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-1-light: color-mix(in oklch, var(--sdg-1) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-2: var(--sdg-2);
-  --color-sdg-2-hover: color-mix(in oklch, var(--sdg-2) 70%, var(--background) 30%);
-  --color-sdg-2-light: color-mix(in oklch, var(--sdg-2) 27%, var(--background) 73%);
+  --color-sdg-2-hover: color-mix(in oklch, var(--sdg-2) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-2-light: color-mix(in oklch, var(--sdg-2) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-3: var(--sdg-3);
-  --color-sdg-3-hover: color-mix(in oklch, var(--sdg-3) 70%, var(--background) 30%);
-  --color-sdg-3-light: color-mix(in oklch, var(--sdg-3) 27%, var(--background) 73%);
+  --color-sdg-3-hover: color-mix(in oklch, var(--sdg-3) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-3-light: color-mix(in oklch, var(--sdg-3) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-4: var(--sdg-4);
-  --color-sdg-4-hover: color-mix(in oklch, var(--sdg-4) 70%, var(--background) 30%);
-  --color-sdg-4-light: color-mix(in oklch, var(--sdg-4) 27%, var(--background) 73%);
+  --color-sdg-4-hover: color-mix(in oklch, var(--sdg-4) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-4-light: color-mix(in oklch, var(--sdg-4) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-5: var(--sdg-5);
-  --color-sdg-5-hover: color-mix(in oklch, var(--sdg-5) 70%, var(--background) 30%);
-  --color-sdg-5-light: color-mix(in oklch, var(--sdg-5) 27%, var(--background) 73%);
+  --color-sdg-5-hover: color-mix(in oklch, var(--sdg-5) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-5-light: color-mix(in oklch, var(--sdg-5) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-6: var(--sdg-6);
-  --color-sdg-6-hover: color-mix(in oklch, var(--sdg-6) 70%, var(--background) 30%);
-  --color-sdg-6-light: color-mix(in oklch, var(--sdg-6) 27%, var(--background) 73%);
+  --color-sdg-6-hover: color-mix(in oklch, var(--sdg-6) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-6-light: color-mix(in oklch, var(--sdg-6) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-7: var(--sdg-7);
-  --color-sdg-7-hover: color-mix(in oklch, var(--sdg-7) 70%, var(--background) 30%);
-  --color-sdg-7-light: color-mix(in oklch, var(--sdg-7) 27%, var(--background) 73%);
+  --color-sdg-7-hover: color-mix(in oklch, var(--sdg-7) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-7-light: color-mix(in oklch, var(--sdg-7) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-8: var(--sdg-8);
-  --color-sdg-8-hover: color-mix(in oklch, var(--sdg-8) 70%, var(--background) 30%);
-  --color-sdg-8-light: color-mix(in oklch, var(--sdg-8) 27%, var(--background) 73%);
+  --color-sdg-8-hover: color-mix(in oklch, var(--sdg-8) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-8-light: color-mix(in oklch, var(--sdg-8) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-9: var(--sdg-9);
-  --color-sdg-9-hover: color-mix(in oklch, var(--sdg-9) 70%, var(--background) 30%);
-  --color-sdg-9-light: color-mix(in oklch, var(--sdg-9) 27%, var(--background) 73%);
+  --color-sdg-9-hover: color-mix(in oklch, var(--sdg-9) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-9-light: color-mix(in oklch, var(--sdg-9) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-10: var(--sdg-10);
-  --color-sdg-10-hover: color-mix(in oklch, var(--sdg-10) 70%, var(--background) 30%);
-  --color-sdg-10-light: color-mix(in oklch, var(--sdg-10) 27%, var(--background) 73%);
+  --color-sdg-10-hover: color-mix(in oklch, var(--sdg-10) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-10-light: color-mix(in oklch, var(--sdg-10) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-11: var(--sdg-11);
-  --color-sdg-11-hover: color-mix(in oklch, var(--sdg-11) 70%, var(--background) 30%);
-  --color-sdg-11-light: color-mix(in oklch, var(--sdg-11) 27%, var(--background) 73%);
+  --color-sdg-11-hover: color-mix(in oklch, var(--sdg-11) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-11-light: color-mix(in oklch, var(--sdg-11) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-12: var(--sdg-12);
-  --color-sdg-12-hover: color-mix(in oklch, var(--sdg-12) 70%, var(--background) 30%);
-  --color-sdg-12-light: color-mix(in oklch, var(--sdg-12) 27%, var(--background) 73%);
+  --color-sdg-12-hover: color-mix(in oklch, var(--sdg-12) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-12-light: color-mix(in oklch, var(--sdg-12) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-13: var(--sdg-13);
-  --color-sdg-13-hover: color-mix(in oklch, var(--sdg-13) 70%, var(--background) 30%);
-  --color-sdg-13-light: color-mix(in oklch, var(--sdg-13) 27%, var(--background) 73%);
+  --color-sdg-13-hover: color-mix(in oklch, var(--sdg-13) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-13-light: color-mix(in oklch, var(--sdg-13) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-14: var(--sdg-14);
-  --color-sdg-14-hover: color-mix(in oklch, var(--sdg-14) 70%, var(--background) 30%);
-  --color-sdg-14-light: color-mix(in oklch, var(--sdg-14) 27%, var(--background) 73%);
+  --color-sdg-14-hover: color-mix(in oklch, var(--sdg-14) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-14-light: color-mix(in oklch, var(--sdg-14) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-15: var(--sdg-15);
-  --color-sdg-15-hover: color-mix(in oklch, var(--sdg-15) 70%, var(--background) 30%);
-  --color-sdg-15-light: color-mix(in oklch, var(--sdg-15) 27%, var(--background) 73%);
+  --color-sdg-15-hover: color-mix(in oklch, var(--sdg-15) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-15-light: color-mix(in oklch, var(--sdg-15) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-16: var(--sdg-16);
-  --color-sdg-16-hover: color-mix(in oklch, var(--sdg-16) 70%, var(--background) 30%);
-  --color-sdg-16-light: color-mix(in oklch, var(--sdg-16) 27%, var(--background) 73%);
+  --color-sdg-16-hover: color-mix(in oklch, var(--sdg-16) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-16-light: color-mix(in oklch, var(--sdg-16) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
   --color-sdg-17: var(--sdg-17);
-  --color-sdg-17-hover: color-mix(in oklch, var(--sdg-17) 70%, var(--background) 30%);
-  --color-sdg-17-light: color-mix(in oklch, var(--sdg-17) 27%, var(--background) 73%);
+  --color-sdg-17-hover: color-mix(in oklch, var(--sdg-17) var(--hover-color-mix-percent), var(--background) calc(100% - var(--hover-color-mix-percent)));
+  --color-sdg-17-light: color-mix(in oklch, var(--sdg-17) var(--lighten-color-mix-percent), var(--background) calc(100% - var(--lighten-color-mix-percent)));
 
   /* ───────────── Background images ───────────── */
   --background-image-double-primary:
