@@ -37,6 +37,11 @@ const tabVariants = cva(
         female: 'data-[state=active]:border-categorical-female',
         urban: 'data-[state=active]:border-categorical-urban',
         rural: 'data-[state=active]:border-categorical-rural',
+        child: 'data-[state=active]:border-categorical-child',
+        adolescent: 'data-[state=active]:border-categorical-adolescent',
+        'young-adult': 'data-[state=active]:border-categorical-young-adult',
+        adult: 'data-[state=active]:border-categorical-adult',
+        'older-adult': 'data-[state=active]:border-categorical-older-adult',
 
         red: 'data-[state=active]:border-accent-red',
         orange: 'data-[state=active]:border-accent-orange',

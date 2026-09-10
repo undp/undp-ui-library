@@ -24,6 +24,11 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         'female',
         'urban',
         'rural',
+        'child',
+        'adolescent',
+        'young-adult',
+        'adult',
+        'older-adult',
 
         'sdg-1',
         'sdg-2',

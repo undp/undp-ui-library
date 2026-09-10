@@ -114,6 +114,16 @@ const bubbleVariants = cva(
           '*:data-[slot=bubble-content]:bg-categorical-urban *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-urban-hover',
         rural:
           '*:data-[slot=bubble-content]:bg-categorical-rural *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-rural-hover',
+        child:
+          '*:data-[slot=bubble-content]:bg-categorical-child *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-child-hover',
+        adolescent:
+          '*:data-[slot=bubble-content]:bg-categorical-adolescent *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-adolescent-hover',
+        'young-adult':
+          '*:data-[slot=bubble-content]:bg-categorical-young-adult *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-young-adult-hover',
+        adult:
+          '*:data-[slot=bubble-content]:bg-categorical-adult *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-adult-hover',
+        'older-adult':
+          '*:data-[slot=bubble-content]:bg-categorical-older-adult *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-older-adult-hover',
       },
     },
     defaultVariants: {

@@ -43,6 +43,13 @@ const checkBoxVariants = cva(
         female: 'border-categorical-female group-hover:border-categorical-female-light',
         urban: 'border-categorical-urban group-hover:border-categorical-urban-light',
         rural: 'border-categorical-rural group-hover:border-categorical-rural-light',
+        child: 'border-categorical-child group-hover:border-categorical-child-light',
+        adolescent: 'border-categorical-adolescent group-hover:border-categorical-adolescent-light',
+        'young-adult':
+          'border-categorical-young-adult group-hover:border-categorical-young-adult-light',
+        adult: 'border-categorical-adult group-hover:border-categorical-adult-light',
+        'older-adult':
+          'border-categorical-older-adult group-hover:border-categorical-older-adult-light',
 
         red: 'border-accent-red group-hover:border-accent-red-light',
         orange: 'border-accent-orange group-hover:border-accent-orange-light',
@@ -113,6 +120,11 @@ const checkVariants = cva('h-4 w-4', {
       female: 'stroke-female',
       urban: 'stroke-urban',
       rural: 'stroke-rural',
+      child: 'stroke-child',
+      adolescent: 'stroke-adolescent',
+      'young-adult': 'stroke-young-adult',
+      adult: 'stroke-adult',
+      'older-adult': 'stroke-older-adult',
 
       red: 'stroke-red',
       orange: 'stroke-orange',
@@ -189,3 +201,5 @@ const Checkbox = React.forwardRef<
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
 export { Checkbox };
+
+export type CheckBoxVariantProps = VariantProps<typeof checkBoxVariants>;

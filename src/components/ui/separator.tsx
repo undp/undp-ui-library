@@ -48,6 +48,11 @@ const separatorVariants = cva('', {
       female: 'bg-categorical-female',
       urban: 'bg-categorical-urban',
       rural: 'bg-categorical-rural',
+      child: 'bg-categorical-child',
+      adolescent: 'bg-categorical-adolescent',
+      'young-adult': 'bg-categorical-young-adult',
+      adult: 'bg-categorical-adult',
+      'older-adult': 'bg-categorical-older-adult',
 
       red: 'bg-accent-red',
       orange: 'bg-accent-orange',

@@ -24,6 +24,11 @@ const switchVariants = cva(
         female: 'data-[state=checked]:bg-categorical-female',
         urban: 'data-[state=checked]:bg-categorical-urban',
         rural: 'data-[state=checked]:bg-categorical-rural',
+        child: 'data-[state=checked]:bg-categorical-child',
+        adolescent: 'data-[state=checked]:bg-categorical-adolescent',
+        'young-adult': 'data-[state=checked]:bg-categorical-young-adult',
+        adult: 'data-[state=checked]:bg-categorical-adult',
+        'older-adult': 'data-[state=checked]:bg-categorical-older-adult',
 
         red: 'data-[state=checked]:bg-accent-red',
         orange: 'data-[state=checked]:bg-accent-orange',

@@ -55,6 +55,11 @@ const badgeVariants = cva(
         female: 'border-transparent bg-categorical-female-light text-content-primary',
         urban: 'border-transparent bg-categorical-urban-light text-content-primary',
         rural: 'border-transparent bg-categorical-rural-light text-content-primary',
+        child: 'border-transparent bg-categorical-child-light text-content-primary',
+        adolescent: 'border-transparent bg-categorical-adolescent-light text-content-primary',
+        'young-adult': 'border-transparent bg-categorical-young-adult-light text-content-primary',
+        adult: 'border-transparent bg-categorical-adult-light text-content-primary',
+        'older-adult': 'border-transparent bg-categorical-older-adult-light text-content-primary',
 
         outline: 'border-stroke text-content-secondary',
       },

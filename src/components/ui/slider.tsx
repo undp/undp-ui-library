@@ -47,6 +47,11 @@ const trackVariants = cva('h-1', {
       female: 'bg-categorical-female!',
       urban: 'bg-categorical-urban!',
       rural: 'bg-categorical-rural!',
+      child: 'bg-categorical-child!',
+      adolescent: 'bg-categorical-adolescent!',
+      'young-adult': 'bg-categorical-young-adult!',
+      adult: 'bg-categorical-adult!',
+      'older-adult': 'bg-categorical-older-adult!',
     },
   },
   defaultVariants: { color: 'primary' },
@@ -94,6 +99,11 @@ const handleVariants = cva('rounded-full border-2 opacity-100!', {
       female: 'border-categorical-female! bg-categorical-female!',
       urban: 'border-categorical-urban! bg-categorical-urban!',
       rural: 'border-categorical-rural! bg-categorical-rural!',
+      child: 'border-categorical-child! bg-categorical-child!',
+      adolescent: 'border-categorical-adolescent! bg-categorical-adolescent!',
+      'young-adult': 'border-categorical-young-adult! bg-categorical-young-adult!',
+      adult: 'border-categorical-adult! bg-categorical-adult!',
+      'older-adult': 'border-categorical-older-adult! bg-categorical-older-adult!',
     },
   },
   defaultVariants: { color: 'primary' },
@@ -168,7 +178,7 @@ function SliderUI(sliderProps: SliderProps) {
               ? `var(--${color}-hover)`
               : color === 'foreground'
                 ? 'var(--foreground-soft)'
-                : color === 'male' || color === 'female' || color === 'urban' || color === 'rural'
+                : color === 'male' || color === 'female' || color === 'urban' || color === 'rural' || color === 'child' || color === 'adolescent' || color === 'young-adult' || color === 'adult' || color === 'older-adult'
                   ? `var(--categorical-${color}-hover)`
                   : color === 'red' ||
                       color === 'orange' ||

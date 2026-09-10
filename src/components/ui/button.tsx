@@ -64,6 +64,14 @@ const buttonVariants = cva(
         female: 'bg-categorical-female text-content-reverse hover:bg-categorical-female-hover',
         urban: 'bg-categorical-urban text-content-reverse hover:bg-categorical-urban-hover',
         rural: 'bg-categorical-rural text-content-reverse hover:bg-categorical-rural-hover',
+        child: 'bg-categorical-child text-content-reverse hover:bg-categorical-child-hover',
+        adolescent:
+          'bg-categorical-adolescent text-content-reverse hover:bg-categorical-adolescent-hover',
+        'young-adult':
+          'bg-categorical-young-adult text-content-reverse hover:bg-categorical-young-adult-hover',
+        adult: 'bg-categorical-adult text-content-reverse hover:bg-categorical-adult-hover',
+        'older-adult':
+          'bg-categorical-older-adult text-content-reverse hover:bg-categorical-older-adult-hover',
       },
       arrow: {
         true: `

@@ -48,6 +48,14 @@ const featuredCardVariants = cva(
         female: 'bg-categorical-female hover:bg-categorical-female-hover text-content-reverse',
         urban: 'bg-categorical-urban hover:bg-categorical-urban-hover text-content-reverse',
         rural: 'bg-categorical-rural hover:bg-categorical-rural-hover text-content-reverse',
+        child: 'bg-categorical-child hover:bg-categorical-child-hover text-content-reverse',
+        adolescent:
+          'bg-categorical-adolescent hover:bg-categorical-adolescent-hover text-content-reverse',
+        'young-adult':
+          'bg-categorical-young-adult hover:bg-categorical-young-adult-hover text-content-reverse',
+        adult: 'bg-categorical-adult hover:bg-categorical-adult-hover text-content-reverse',
+        'older-adult':
+          'bg-categorical-older-adult hover:bg-categorical-older-adult-hover text-content-reverse',
 
         red: 'bg-accent-red hover:bg-accent-red-hover text-content-reverse',
         orange: 'bg-accent-orange hover:bg-accent-orange-hover text-content-reverse',

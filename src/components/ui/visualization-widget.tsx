@@ -1,3 +1,4 @@
+import { cva, type VariantProps } from 'class-variance-authority';
 import { ChevronsLeft, ChevronsRight } from 'lucide-react';
 import React from 'react';
 import { cn } from '@/lib/utils';
@@ -14,29 +15,94 @@ const VisualizationWidget = React.forwardRef<HTMLDivElement, React.HTMLAttribute
 );
 VisualizationWidget.displayName = 'VisualizationWidget';
 
-const VisualizationWidgetHeaderContext = React.createContext<{
-  selectedValue?: string;
-  activeItemClass?: string;
-  hoverItemClass?: string;
-  onValueChange: (value: string) => void;
-}>({
+const buttonSelectedVariants = cva('bg-background', {
+  variants: {
+    color: {
+      primary: 'text-primary',
+      secondary: 'text-secondary',
+      tertiary: 'text-tertiary',
+      quaternary: 'text-quaternary',
+      foreground: 'text-foreground',
+
+      red: 'text-accent-red',
+      orange: 'text-accent-orange',
+      yellow: 'text-accent-yellow',
+      lime: 'text-accent-lime',
+      green: 'text-accent-green',
+      teal: 'text-accent-teal',
+      azure: 'text-accent-azure',
+      blue: 'text-accent-blue',
+      violet: 'text-accent-violet',
+      pink: 'text-accent-pink',
+
+      'sdg-1': 'text-sdg-1',
+      'sdg-2': 'text-sdg-2',
+      'sdg-3': 'text-sdg-3',
+      'sdg-4': 'text-sdg-4',
+      'sdg-5': 'text-sdg-5',
+      'sdg-6': 'text-sdg-6',
+      'sdg-7': 'text-sdg-7',
+      'sdg-8': 'text-sdg-8',
+      'sdg-9': 'text-sdg-9',
+      'sdg-10': 'text-sdg-10',
+      'sdg-11': 'text-sdg-11',
+      'sdg-12': 'text-sdg-12',
+      'sdg-13': 'text-sdg-13',
+      'sdg-14': 'text-sdg-14',
+      'sdg-15': 'text-sdg-15',
+      'sdg-16': 'text-sdg-16',
+      'sdg-17': 'text-sdg-17',
+
+      male: 'text-categorical-male',
+      female: 'text-categorical-female',
+      urban: 'text-categorical-urban',
+      rural: 'text-categorical-rural',
+      child: 'text-categorical-child',
+      adolescent: 'text-categorical-adolescent',
+      'young-adult': 'text-categorical-young-adult',
+      adult: 'text-categorical-adult',
+      'older-adult': 'text-categorical-older-adult',
+    },
+  },
+  defaultVariants: { color: 'primary' },
+});
+
+const VisualizationWidgetHeaderContext = React.createContext<
+  {
+    selectedValue?: string;
+    activeItemClass?: string;
+    hoverItemClass?: string;
+    onValueChange: (value: string) => void;
+  } & VariantProps<typeof buttonSelectedVariants>
+>({
   selectedValue: undefined,
   hoverItemClass: undefined,
   activeItemClass: undefined,
+  color: undefined,
   onValueChange: () => {},
 });
 
 interface VisualizationWidgetHeaderProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'color'> {
   defaultValue?: string;
   activeItemClass?: string;
   hoverItemClass?: string;
+  color?: VariantProps<typeof buttonSelectedVariants>['color'];
   onChange?: (value: string) => void;
 }
 
 const VisualizationWidgetHeader = React.forwardRef<HTMLDivElement, VisualizationWidgetHeaderProps>(
   (
-    { className, children, defaultValue, activeItemClass, hoverItemClass, onChange, ...props },
+    {
+      className,
+      children,
+      defaultValue,
+      activeItemClass,
+      hoverItemClass,
+      onChange,
+      color,
+      ...props
+    },
     ref,
   ) => {
     const [selectedValue, setSelectedValue] = React.useState<string>(defaultValue || '');
@@ -57,8 +123,9 @@ const VisualizationWidgetHeader = React.forwardRef<HTMLDivElement, Visualization
         selectedValue,
         hoverItemClass,
         onValueChange: handleValueChange,
+        color,
       }),
-      [selectedValue, activeItemClass, hoverItemClass, handleValueChange],
+      [selectedValue, activeItemClass, hoverItemClass, handleValueChange, color],
     );
     return (
       <VisualizationWidgetHeaderContext.Provider value={contextValue}>
@@ -75,7 +142,7 @@ const VisualizationWidgetHeaderItem = React.forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement> & { value: string }
 >(({ className, children, value, ...props }, ref) => {
-  const { selectedValue, activeItemClass, hoverItemClass, onValueChange } = React.useContext(
+  const { selectedValue, activeItemClass, hoverItemClass, onValueChange, color } = React.useContext(
     VisualizationWidgetHeaderContext,
   );
   return (
@@ -86,7 +153,7 @@ const VisualizationWidgetHeaderItem = React.forwardRef<
       onClick={() => onValueChange(value)}
       className={cn(
         'flex grow cursor-pointer flex-col items-center justify-center gap-1 border-0 border-r border-r-stroke bg-surface-2xs p-3 font-medium text-content-secondary text-sm last:border-r-0',
-        selectedValue === value ? activeItemClass || 'bg-background text-primary' : '',
+        selectedValue === value ? cn(buttonSelectedVariants({ color }), activeItemClass) : '',
         hoverItemClass ? `hover:${hoverItemClass}` : 'hover:bg-background',
         className,
       )}
@@ -148,9 +215,10 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
             padding='none'
             onClick={() => setCollapsed(!collapsed)}
             className={cn(
-              'absolute top-0 right-0 flex h-6 w-6 rounded-full p-0 text-content-primary normal-case',
+              'absolute top-0 right-0 flex h-6 w-6 p-0 text-content-primary normal-case',
               collapsible?.triggerButtonClassName,
             )}
+            rounded='full'
             style={collapsible?.triggerButtonStyles}
             arrow={false}
           >

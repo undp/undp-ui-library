@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { useEffect, useEffectEvent, useState } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -82,6 +82,11 @@ const buttonSelectedVariants = cva('disabled:opacity-disabled disabled:cursor-no
       female: '',
       urban: '',
       rural: '',
+      child: '',
+      adolescent: '',
+      'young-adult': '',
+      adult: '',
+      'older-adult': '',
     },
     rounded: {
       base: 'rounded-base',
@@ -138,6 +143,23 @@ const buttonSelectedVariants = cva('disabled:opacity-disabled disabled:cursor-no
     { variant: 'normal', color: 'female', class: 'bg-categorical-female text-content-reverse' },
     { variant: 'normal', color: 'urban', class: 'bg-categorical-urban text-content-reverse' },
     { variant: 'normal', color: 'rural', class: 'bg-categorical-rural text-content-reverse' },
+    { variant: 'normal', color: 'child', class: 'bg-categorical-child text-content-reverse' },
+    {
+      variant: 'normal',
+      color: 'adolescent',
+      class: 'bg-categorical-adolescent text-content-reverse',
+    },
+    {
+      variant: 'normal',
+      color: 'young-adult',
+      class: 'bg-categorical-young-adult text-content-reverse',
+    },
+    { variant: 'normal', color: 'adult', class: 'bg-categorical-adult text-content-reverse' },
+    {
+      variant: 'normal',
+      color: 'older-adult',
+      class: 'bg-categorical-older-adult text-content-reverse',
+    },
 
     { variant: 'light', color: 'primary', class: 'font-bold bg-background text-primary' },
     { variant: 'light', color: 'secondary', class: 'font-bold bg-background text-secondary' },
@@ -182,6 +204,23 @@ const buttonSelectedVariants = cva('disabled:opacity-disabled disabled:cursor-no
     { variant: 'light', color: 'female', class: 'font-bold bg-background text-categorical-female' },
     { variant: 'light', color: 'urban', class: 'font-bold bg-background text-categorical-urban' },
     { variant: 'light', color: 'rural', class: 'font-bold bg-background text-categorical-rural' },
+    { variant: 'light', color: 'child', class: 'font-bold bg-background text-categorical-child' },
+    {
+      variant: 'light',
+      color: 'adolescent',
+      class: 'font-bold bg-background text-categorical-adolescent',
+    },
+    {
+      variant: 'light',
+      color: 'young-adult',
+      class: 'font-bold bg-background text-categorical-young-adult',
+    },
+    { variant: 'light', color: 'adult', class: 'font-bold bg-background text-categorical-adult' },
+    {
+      variant: 'light',
+      color: 'older-adult',
+      class: 'font-bold bg-background text-categorical-older-adult',
+    },
   ],
   defaultVariants: { color: 'primary', rounded: 'base', variant: 'normal' },
 });
@@ -200,6 +239,45 @@ const buttonUnselectedVariants = cva(
         tertiary: '',
         quaternary: '',
         foreground: '',
+
+        red: '',
+        orange: '',
+        yellow: '',
+        lime: '',
+        green: '',
+        teal: '',
+        azure: '',
+        blue: '',
+        violet: '',
+        pink: '',
+
+        'sdg-1': '',
+        'sdg-2': '',
+        'sdg-3': '',
+        'sdg-4': '',
+        'sdg-5': '',
+        'sdg-6': '',
+        'sdg-7': '',
+        'sdg-8': '',
+        'sdg-9': '',
+        'sdg-10': '',
+        'sdg-11': '',
+        'sdg-12': '',
+        'sdg-13': '',
+        'sdg-14': '',
+        'sdg-15': '',
+        'sdg-16': '',
+        'sdg-17': '',
+
+        male: '',
+        female: '',
+        urban: '',
+        rural: '',
+        child: '',
+        adolescent: '',
+        'young-adult': '',
+        adult: '',
+        'older-adult': '',
       },
       rounded: {
         base: 'rounded-base',
@@ -222,6 +300,58 @@ const buttonUnselectedVariants = cva(
       { variant: 'normal', color: 'tertiary', class: 'hover:bg-tertiary-light' },
       { variant: 'normal', color: 'quaternary', class: 'hover:bg-quaternary-hover' },
       { variant: 'normal', color: 'foreground', class: 'hover:bg-surface-hover' },
+
+      { variant: 'normal', color: 'red', class: 'hover:bg-accent-red-light' },
+      { variant: 'normal', color: 'orange', class: 'hover:bg-accent-orange-light' },
+      { variant: 'normal', color: 'yellow', class: 'hover:bg-accent-yellow-light' },
+      { variant: 'normal', color: 'lime', class: 'hover:bg-accent-lime-light' },
+      { variant: 'normal', color: 'green', class: 'hover:bg-accent-green-light' },
+      { variant: 'normal', color: 'teal', class: 'hover:bg-accent-teal-light' },
+      { variant: 'normal', color: 'azure', class: 'hover:bg-accent-azure-light' },
+      { variant: 'normal', color: 'blue', class: 'hover:bg-accent-blue-light' },
+      { variant: 'normal', color: 'violet', class: 'hover:bg-accent-violet-light' },
+      { variant: 'normal', color: 'pink', class: 'hover:bg-accent-pink-light' },
+
+      { variant: 'normal', color: 'sdg-1', class: 'hover:bg-sdg-1-light' },
+      { variant: 'normal', color: 'sdg-2', class: 'hover:bg-sdg-2-light' },
+      { variant: 'normal', color: 'sdg-3', class: 'hover:bg-sdg-3-light' },
+      { variant: 'normal', color: 'sdg-4', class: 'hover:bg-sdg-4-light' },
+      { variant: 'normal', color: 'sdg-5', class: 'hover:bg-sdg-5-light' },
+      { variant: 'normal', color: 'sdg-6', class: 'hover:bg-sdg-6-light' },
+      { variant: 'normal', color: 'sdg-7', class: 'hover:bg-sdg-7-light' },
+      { variant: 'normal', color: 'sdg-8', class: 'hover:bg-sdg-8-light' },
+      { variant: 'normal', color: 'sdg-9', class: 'hover:bg-sdg-9-light' },
+      { variant: 'normal', color: 'sdg-10', class: 'hover:bg-sdg-10-light' },
+      { variant: 'normal', color: 'sdg-11', class: 'hover:bg-sdg-11-light' },
+      { variant: 'normal', color: 'sdg-12', class: 'hover:bg-sdg-12-light' },
+      { variant: 'normal', color: 'sdg-13', class: 'hover:bg-sdg-13-light' },
+      { variant: 'normal', color: 'sdg-14', class: 'hover:bg-sdg-14-light' },
+      { variant: 'normal', color: 'sdg-15', class: 'hover:bg-sdg-15-light' },
+      { variant: 'normal', color: 'sdg-16', class: 'hover:bg-sdg-16-light' },
+      { variant: 'normal', color: 'sdg-17', class: 'hover:bg-sdg-17-light' },
+
+      { variant: 'normal', color: 'male', class: 'hover:bg-categorical-male-light' },
+      { variant: 'normal', color: 'female', class: 'hover:bg-categorical-female-light' },
+      { variant: 'normal', color: 'urban', class: 'hover:bg-categorical-urban-light' },
+      { variant: 'normal', color: 'rural', class: 'hover:bg-categorical-rural-light' },
+      { variant: 'normal', color: 'child', class: 'hover:bg-categorical-child-light' },
+      {
+        variant: 'normal',
+        color: 'adolescent',
+        class: 'hover:bg-categorical-adolescent-light',
+      },
+      {
+        variant: 'normal',
+        color: 'young-adult',
+        class: 'hover:bg-categorical-young-adult-light',
+      },
+      { variant: 'normal', color: 'adult', class: 'hover:bg-categorical-adult-light' },
+      {
+        variant: 'normal',
+        color: 'older-adult',
+        class: 'hover:bg-categorical-older-adult-light',
+      },
+
       {
         variant: 'light',
         color: 'primary',
@@ -247,36 +377,149 @@ const buttonUnselectedVariants = cva(
         color: 'foreground',
         class: 'hover:text-foreground disabled:hover:text-inherit',
       },
+
+      {
+        variant: 'light',
+        color: 'red',
+        class: 'hover:text-accent-red disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'orange',
+        class: 'hover:text-accent-orange disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'yellow',
+        class: 'hover:text-accent-yellow disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'lime',
+        class: 'hover:text-accent-lime disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'green',
+        class: 'hover:text-accent-green disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'teal',
+        class: 'hover:text-accent-teal disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'azure',
+        class: 'hover:text-accent-azure disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'blue',
+        class: 'hover:text-accent-blue disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'violet',
+        class: 'hover:text-accent-violet disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'pink',
+        class: 'hover:text-accent-pink disabled:hover:text-inherit',
+      },
+
+      { variant: 'light', color: 'sdg-1', class: 'hover:text-sdg-1 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-2', class: 'hover:text-sdg-2 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-3', class: 'hover:text-sdg-3 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-4', class: 'hover:text-sdg-4 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-5', class: 'hover:text-sdg-5 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-6', class: 'hover:text-sdg-6 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-7', class: 'hover:text-sdg-7 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-8', class: 'hover:text-sdg-8 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-9', class: 'hover:text-sdg-9 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-10', class: 'hover:text-sdg-10 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-11', class: 'hover:text-sdg-11 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-12', class: 'hover:text-sdg-12 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-13', class: 'hover:text-sdg-13 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-14', class: 'hover:text-sdg-14 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-15', class: 'hover:text-sdg-15 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-16', class: 'hover:text-sdg-16 disabled:hover:text-inherit' },
+      { variant: 'light', color: 'sdg-17', class: 'hover:text-sdg-17 disabled:hover:text-inherit' },
+      {
+        variant: 'light',
+        color: 'male',
+        class: 'hover:text-categorical-male disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'female',
+        class: 'hover:text-categorical-female disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'urban',
+        class: 'hover:text-categorical-urban disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'rural',
+        class: 'hover:text-categorical-rural disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'child',
+        class: 'hover:text-categorical-child disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'adolescent',
+        class: 'hover:text-categorical-adolescent disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'young-adult',
+        class: 'hover:text-categorical-young-adult disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'adult',
+        class: 'hover:text-categorical-adult disabled:hover:text-inherit',
+      },
+      {
+        variant: 'light',
+        color: 'older-adult',
+        class: 'hover:text-categorical-older-adult disabled:hover:text-inherit',
+      },
     ],
     defaultVariants: { color: 'primary', rounded: 'base', variant: 'normal' },
   },
 );
 
-function SegmentedControl(props: {
-  options: {
-    label: React.ReactNode;
-    value: string;
+function SegmentedControl(
+  props: {
+    options: {
+      label: React.ReactNode;
+      value: string;
+      disabled?: boolean;
+    }[];
+    defaultValue?: string;
+    value?: string;
+    onValueChange?: (d: string) => void;
+    className?: string;
+    size?: 'sm' | 'base';
     disabled?: boolean;
-  }[];
-  defaultValue?: string;
-  value?: string;
-  onValueChange?: (d: string) => void;
-  className?: string;
-  size?: 'sm' | 'base';
-  variant?: 'light' | 'normal';
-  color?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'foreground';
-  rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
-  disabled?: boolean;
-  buttonStyle?: {
-    active?: React.CSSProperties;
-    items?: React.CSSProperties;
-  };
-  classNames?: {
-    control?: string;
-    items?: string;
-    active?: string;
-  };
-}) {
+    buttonStyle?: {
+      active?: React.CSSProperties;
+      items?: React.CSSProperties;
+    };
+    classNames?: {
+      control?: string;
+      items?: string;
+      active?: string;
+    };
+  } & VariantProps<typeof buttonSelectedVariants>,
+) {
   const {
     options,
     defaultValue,

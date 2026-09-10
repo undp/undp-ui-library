@@ -1,24 +1,25 @@
 import type { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Checkbox } from './checkbox';
+import { type CheckBoxVariantProps, Checkbox } from './checkbox';
 
-interface CheckboxGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange'> {
+interface CheckboxGroupProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onValueChange' | 'color'> {
   defaultValue?: string[];
   value?: string[];
   onValueChange?: (value: string[]) => void;
-  color?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'foreground' | undefined;
-  rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
-  variant?: 'light' | 'normal' | undefined;
+  color?: CheckBoxVariantProps['color'];
+  rounded?: CheckBoxVariantProps['rounded'];
+  variant?: CheckBoxVariantProps['variant'];
 }
 
 // Context for sharing state between CheckboxGroup and CheckboxGroupItem
 const CheckboxGroupContext = React.createContext<{
   selectedValues: string[];
   onValueChange: (value: string, checked: boolean) => void;
-  color?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'foreground' | undefined;
-  rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
-  variant?: 'light' | 'normal' | undefined;
+  color?: CheckBoxVariantProps['color'];
+  rounded?: CheckBoxVariantProps['rounded'];
+  variant?: CheckBoxVariantProps['variant'];
 }>({
   selectedValues: [],
   onValueChange: () => {},
@@ -103,7 +104,7 @@ const CheckboxGroupItem = React.forwardRef<
       ref={ref}
       {...props}
       value={value}
-      color={color}
+      color={color === null ? undefined : color}
       rounded={rounded}
       variant={variant}
       checked={selectedValues.includes(value)}

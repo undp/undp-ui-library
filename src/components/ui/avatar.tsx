@@ -99,6 +99,11 @@ const avatarColorVariants = cva(
         female: 'bg-categorical-female text-content-reverse',
         urban: 'bg-categorical-urban text-content-reverse',
         rural: 'bg-categorical-rural text-content-reverse',
+        child: 'bg-categorical-child text-content-reverse',
+        adolescent: 'bg-categorical-adolescent text-content-reverse',
+        'young-adult': 'bg-categorical-young-adult text-content-reverse',
+        adult: 'bg-categorical-adult text-content-reverse',
+        'older-adult': 'bg-categorical-older-adult text-content-reverse',
       },
       border: {
         true: 'border border-stroke',

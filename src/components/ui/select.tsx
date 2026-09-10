@@ -75,6 +75,11 @@ const iconVariants = cva('h-6 w-6', {
       female: 'stroke-categorical-female',
       urban: 'stroke-categorical-urban',
       rural: 'stroke-categorical-rural',
+      child: 'stroke-categorical-child',
+      adolescent: 'stroke-categorical-adolescent',
+      'young-adult': 'stroke-categorical-young-adult',
+      adult: 'stroke-categorical-adult',
+      'older-adult': 'stroke-categorical-older-adult',
 
       red: 'stroke-accent-red',
       orange: 'stroke-accent-orange',

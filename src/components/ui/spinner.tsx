@@ -45,6 +45,11 @@ const loaderVariants = cva('animate-spin border-[5px] rounded-full inline-block 
       female: 'border-categorical-female !border-b-stroke',
       urban: 'border-categorical-urban !border-b-stroke',
       rural: 'border-categorical-rural !border-b-stroke',
+      child: 'border-categorical-child !border-b-stroke',
+      adolescent: 'border-categorical-adolescent !border-b-stroke',
+      'young-adult': 'border-categorical-young-adult !border-b-stroke',
+      adult: 'border-categorical-adult !border-b-stroke',
+      'older-adult': 'border-categorical-older-adult !border-b-stroke',
     },
     size: {
       sm: 'border-[2px] h-6 w-6',

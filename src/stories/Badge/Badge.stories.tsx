@@ -44,6 +44,11 @@ const meta: Meta<typeof Badge> = {
         'female',
         'urban',
         'rural',
+        'child',
+        'adolescent',
+        'young-adult',
+        'adult',
+        'older-adult',
 
         'red',
         'orange',

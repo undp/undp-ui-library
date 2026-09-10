@@ -68,6 +68,16 @@ const hoverBGVariant = cva(
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-urban)_80%,_transparent),_transparent_140%)]',
         rural:
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-rural)_80%,_transparent),_transparent_140%)]',
+        child:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-child)_80%,_transparent),_transparent_140%)]',
+        adolescent:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-adolescent)_80%,_transparent),_transparent_140%)]',
+        'young-adult':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-young-adult)_80%,_transparent),_transparent_140%)]',
+        adult:
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-adult)_80%,_transparent),_transparent_140%)]',
+        'older-adult':
+          'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--categorical-older-adult)_80%,_transparent),_transparent_140%)]',
 
         'sdg-1':
           'bg-[linear-gradient(0deg,_color-mix(in_srgb,_var(--sdg-1)_80%,_transparent),_transparent_140%)]',

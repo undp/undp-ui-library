@@ -26,6 +26,11 @@ const cardVariants = cva(
         female: 'hover:bg-categorical-female',
         urban: 'hover:bg-categorical-urban',
         rural: 'hover:bg-categorical-rural',
+        child: 'hover:bg-categorical-child',
+        adolescent: 'hover:bg-categorical-adolescent',
+        'young-adult': 'hover:bg-categorical-young-adult',
+        adult: 'hover:bg-categorical-adult',
+        'older-adult': 'hover:bg-categorical-older-adult',
 
         red: 'hover:bg-accent-red',
         orange: 'hover:bg-accent-orange',

@@ -51,6 +51,13 @@ const radioVariants = cva(
         female: 'border-categorical-female group-hover:border-categorical-female-200',
         urban: 'border-categorical-urban group-hover:border-categorical-urban-200',
         rural: 'border-categorical-rural group-hover:border-categorical-rural-200',
+        child: 'border-categorical-child group-hover:border-categorical-child-200',
+        adolescent: 'border-categorical-adolescent group-hover:border-categorical-adolescent-200',
+        'young-adult':
+          'border-categorical-young-adult group-hover:border-categorical-young-adult-200',
+        adult: 'border-categorical-adult group-hover:border-categorical-adult-200',
+        'older-adult':
+          'border-categorical-older-adult group-hover:border-categorical-older-adult-200',
       },
       variant: {
         light: 'border',
@@ -108,6 +115,11 @@ const radioCheckVariants = cva('stroke-0', {
       female: 'fill-categorical-female',
       urban: 'fill-categorical-urban',
       rural: 'fill-categorical-rural',
+      child: 'fill-categorical-child',
+      adolescent: 'fill-categorical-adolescent',
+      'young-adult': 'fill-categorical-young-adult',
+      adult: 'fill-categorical-adult',
+      'older-adult': 'fill-categorical-older-adult',
     },
     variant: {
       light: 'h-1.5 w-1.5',
