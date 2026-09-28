@@ -611,3 +611,19 @@ export function LanguageSwitcherIcon() {
     </svg>
   );
 }
+
+export function ChevronRight() {
+  return (
+    <svg
+      width='13'
+      height='20'
+      viewBox='0 0 13 20'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      className='chevron-right'
+    >
+      <title>Chevron right icon</title>
+      <path d='M1 1L11 9.99781L1 19' stroke='currentColor' stroke-width='2' />
+    </svg>
+  );
+}

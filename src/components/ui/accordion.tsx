@@ -48,19 +48,79 @@ const accordionContentVariants = cva(
   },
 );
 
+const chevronVariants = cva('h-6 w-6 shrink-0 transition-transform duration-200', {
+  variants: {
+    color: {
+      primary: 'text-primary',
+      secondary: 'text-secondary',
+      tertiary: 'text-tertiary',
+      quaternary: 'text-quaternary',
+      foreground: 'text-foreground',
+      surface: 'text-surface',
+      error: 'text-error',
+      warning: 'text-warning',
+      info: 'text-info',
+      success: 'text-success',
+
+      male: 'text-categorical-male',
+      female: 'text-categorical-female',
+      urban: 'text-categorical-urban',
+      rural: 'text-categorical-rural',
+      child: 'text-categorical-child',
+      adolescent: 'text-categorical-adolescent',
+      'young-adult': 'text-categorical-young-adult',
+      adult: 'text-categorical-adult',
+      'older-adult': 'text-categorical-older-adult',
+
+      red: 'text-accent-red',
+      orange: 'text-accent-orange',
+      yellow: 'text-accent-yellow',
+      lime: 'text-accent-lime',
+      green: 'text-accent-green',
+      teal: 'text-accent-teal',
+      azure: 'text-accent-azure',
+      blue: 'text-accent-blue',
+      violet: 'text-accent-violet',
+      pink: 'text-accent-pink',
+
+      'sdg-1': 'text-sdg-1',
+      'sdg-2': 'text-sdg-2',
+      'sdg-3': 'text-sdg-3',
+      'sdg-4': 'text-sdg-4',
+      'sdg-5': 'text-sdg-5',
+      'sdg-6': 'text-sdg-6',
+      'sdg-7': 'text-sdg-7',
+      'sdg-8': 'text-sdg-8',
+      'sdg-9': 'text-sdg-9',
+      'sdg-10': 'text-sdg-10',
+      'sdg-11': 'text-sdg-11',
+      'sdg-12': 'text-sdg-12',
+      'sdg-13': 'text-sdg-13',
+      'sdg-14': 'text-sdg-14',
+      'sdg-15': 'text-sdg-15',
+      'sdg-16': 'text-sdg-16',
+      'sdg-17': 'text-sdg-17',
+    },
+  },
+  defaultVariants: {
+    color: 'primary',
+  },
+});
 const AccordionContext = React.createContext<{
   variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | null | undefined;
+  color: VariantProps<typeof chevronVariants>['color'];
 } | null>(null);
 
 type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> &
-  VariantProps<typeof accordionVariants>;
+  VariantProps<typeof accordionVariants> &
+  VariantProps<typeof chevronVariants>;
 
 const Accordion = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Root>,
   AccordionProps
->(({ variant, children, ...props }, ref) => {
+>(({ variant, color, children, ...props }, ref) => {
   return (
-    <AccordionContext.Provider value={{ variant }}>
+    <AccordionContext.Provider value={{ variant, color }}>
       <AccordionPrimitive.Root ref={ref} {...props}>
         {children}
       </AccordionPrimitive.Root>
@@ -96,13 +156,13 @@ const AccordionTrigger = React.forwardRef<
       >
         {context?.variant === 'quaternary' ? (
           <>
-            <ChevronDown className='h-6 w-6 shrink-0 text-accent-red transition-transform duration-200' />
+            <ChevronDown className={chevronVariants({ color: context?.color })} />
             {children}
           </>
         ) : (
           <>
             {children}
-            <ChevronDown className='h-6 w-6 shrink-0 text-accent-red transition-transform duration-200' />
+            <ChevronDown className={chevronVariants({ color: context?.color })} />
           </>
         )}
       </AccordionPrimitive.Trigger>

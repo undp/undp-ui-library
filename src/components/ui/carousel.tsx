@@ -1,73 +1,105 @@
 /** biome-ignore-all lint/a11y/noStaticElementInteractions: For carousel makes sense that outer div is not button but a div */
 import { cva, type VariantProps } from 'class-variance-authority';
-import React from 'react';
-
+import useEmblaCarousel from 'embla-carousel-react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
-const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, children, ...props }, ref) => {
-    const WrapperRef = React.useRef<HTMLDivElement>(null);
+const ARROW_RIGHT =
+  'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/arrow-right.svg)';
+const ARROW_LEFT =
+  'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/arrow-left.svg)';
+
+const INTERACTIVE = 'a, button, input, select, textarea, label, [role="button"]';
+
+interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {
+  showScroll?: boolean;
+}
+const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
+  ({ className, showScroll = true, children, ...props }, ref) => {
+    const [scrollProgress, setScrollProgress] = useState(0);
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start' });
     const [cursor, setCursor] = React.useState(
       'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/arrow-right.svg)',
     );
+    const onScroll = useCallback(() => {
+      if (!emblaApi) return;
+
+      setScrollProgress(emblaApi.scrollProgress());
+    }, [emblaApi]);
+
+    useEffect(() => {
+      if (!emblaApi) return;
+      onScroll();
+      emblaApi.on('reInit', onScroll).on('scroll', onScroll);
+      return () => {
+        emblaApi.off('reInit', onScroll).off('scroll', onScroll);
+      };
+    }, [emblaApi, onScroll]);
+
+    const isRightHalf = (e: React.MouseEvent<HTMLDivElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      return e.clientX > rect.left + rect.width / 2;
+    };
+    const count = emblaApi?.scrollSnapList().length ?? 1;
     return (
-      <div
-        ref={WrapperRef}
-        className={cn(
-          'undp-scrollbar mr-auto mb-0 ml-auto flex w-full snap-x snap-mandatory scroll-p-0 scroll-pl-0 overflow-x-auto pb-4',
-          className,
-        )}
-        {...props}
-        onKeyDown={(e) => {
-          if (!WrapperRef.current) return;
-
-          if (e.key === 'ArrowRight') {
-            WrapperRef.current.scrollBy(280, 0);
-          }
-
-          if (e.key === 'ArrowLeft') {
-            WrapperRef.current.scrollBy(-280, 0);
-          }
-        }}
-        onClick={(e) => {
-          if (WrapperRef.current) {
-            if (e.clientX > window.innerWidth / 2) WrapperRef.current.scrollBy(280, 0);
-            else WrapperRef.current.scrollBy(-280, 0);
-          }
-        }}
-        onMouseMove={(e) => {
-          if (e.clientX > window.innerWidth / 2)
-            setCursor(
-              'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/arrow-right.svg)',
-            );
-          else
-            setCursor(
-              'url(https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/arrow-left.svg)',
-            );
-        }}
-      >
+      <>
         <div
-          ref={ref}
-          className='flex w-full items-stretch gap-4'
-          style={{ cursor: `${cursor}, auto` }}
+          ref={emblaRef}
+          className={cn('mr-auto mb-0 ml-auto flex w-full overflow-x-hidden', className)}
+          {...props}
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              emblaApi?.scrollNext();
+            }
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              emblaApi?.scrollPrev();
+            }
+          }}
+          onClick={(e) => {
+            if (!emblaApi) return;
+            if ((e.target as HTMLElement).closest(INTERACTIVE)) return;
+            if (isRightHalf(e)) emblaApi.scrollNext();
+            else emblaApi.scrollPrev();
+          }}
+          onMouseMove={(e) => setCursor(isRightHalf(e) ? ARROW_RIGHT : ARROW_LEFT)}
         >
-          {children}
+          <div
+            ref={ref}
+            className='flex w-full touch-pan-y items-stretch gap-4'
+            style={{ cursor: `${cursor}, auto` }}
+          >
+            {children}
+          </div>
         </div>
-      </div>
+        {showScroll && (
+          <div className='relative mt-4 h-2 w-full overflow-hidden'>
+            <div className='mt-0.75 h-0.5 w-full bg-foreground-soft' />
+            <div
+              className='absolute top-0 left-0 h-full bg-foreground'
+              style={{
+                width: `${100 / count}%`,
+                transform: `translateX(${Math.max(0, Math.min(1, scrollProgress)) * (count - 1) * 100}%)`,
+              }}
+            />
+          </div>
+        )}
+      </>
     );
   },
 );
 Carousel.displayName = 'Carousel';
 
-const cardVariants = cva('shrink-0 min-w-[320px] snap-start', {
+const cardVariants = cva('shrink-0 min-w-80 shrink-0 grow-0', {
   variants: {
     size: {
-      xs: 'w-1/4 snap-start',
-      sm: 'w-1/3 snap-start',
-      base: 'w-1/2 snap-start',
-      lg: 'w-2/3 snap-start',
-      xl: 'w-[calc(100%-80px)] snap-start',
-      full: 'w-full snap-start',
+      xs: 'basis-1/4',
+      sm: 'basis-1/3',
+      base: 'basis-1/2',
+      lg: 'basis-2/3',
+      xl: 'basis-[calc(100%-80px)]',
+      full: 'basis-full',
     },
   },
   defaultVariants: { size: 'sm' },

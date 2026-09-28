@@ -429,47 +429,6 @@
   background: var(--foreground);
 }
 
-.undp-scrollbar::-webkit-scrollbar-button {
-  display: block;
-  width: 6px;
-  height: 6px;
-  background-color: var(--background);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.undp-scrollbar::-webkit-scrollbar-button:vertical:start:decrement {
-  height: 6px;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path d='M4 2L1 6h6z' fill='var(--foreground)'/></svg>");
-}
-
-.undp-scrollbar::-webkit-scrollbar-button:vertical:end:increment {
-  height: 6px;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path d='M4 6L1 2h6z' fill='var(--foreground)'/></svg>");
-}
-
-.undp-scrollbar::-webkit-scrollbar-button:horizontal:start:decrement {
-  width: 6px;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path d='M2 4l4-3v6z' fill='var(--foreground)'/></svg>");
-}
-
-.undp-scrollbar::-webkit-scrollbar-button:horizontal:end:increment {
-  width: 6px;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path d='M6 4l-4-3v6z' fill='var(--foreground)'/></svg>");
-}
-
-.undp-scrollbar::-webkit-scrollbar-button:horizontal:start:increment,
-.undp-scrollbar::-webkit-scrollbar-button:horizontal:end:decrement {
-  display: none;
-  width: 0;
-}
-
-.undp-scrollbar::-webkit-scrollbar-button:vertical:start:increment,
-.undp-scrollbar::-webkit-scrollbar-button:vertical:end:decrement {
-  display: none;
-  height: 0;
-}
-
 .undp-select-input input {
   height: auto;
 }
