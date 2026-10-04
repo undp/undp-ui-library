@@ -1,7 +1,7 @@
 import { SearchIcon } from 'lucide-react';
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Button, type ButtonVariant } from './button';
+import { Button, type ButtonColor } from './button';
 import { Input } from './input';
 
 const Search = React.forwardRef<
@@ -10,7 +10,7 @@ const Search = React.forwardRef<
     inputVariant?: 'light' | 'normal';
     inputClassName?: string;
     buttonClassName?: string;
-    buttonVariant?: ButtonVariant;
+    buttonColor?: ButtonColor;
     rounded?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
     showSearchButton?: boolean;
     searchOnlyOnClick?: boolean;
@@ -26,7 +26,7 @@ const Search = React.forwardRef<
       buttonClassName,
       onSearch,
       searchOnlyOnClick,
-      buttonVariant,
+      buttonColor,
       buttonChildren,
       showSearchButton,
       inputVariant,
@@ -74,10 +74,14 @@ const Search = React.forwardRef<
         </div>
         {showSearchButton === false ? null : (
           <Button
-            variant={buttonVariant || 'icon'}
-            className={cn('py-0', buttonClassName)}
-            padding={inputSize}
-            arrow={false}
+            variant='icon'
+            className={cn(
+              'px-4',
+              buttonColor ?? 'bg-transparent text-content-primary hover:bg-foreground/5',
+              buttonClassName,
+            )}
+            padding='none'
+            color={buttonColor}
             onClick={() => {
               onSearch?.(query);
             }}

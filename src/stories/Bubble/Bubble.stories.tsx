@@ -12,6 +12,11 @@ const meta: Meta<BubblePropsAndCustomArgs> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
+      options: ['primary', 'outline'],
+      defaultValue: { summary: 'primary' },
+    },
+    color: {
+      control: { type: 'select' },
       options: [
         'primary',
         'secondary',
@@ -21,6 +26,7 @@ const meta: Meta<BubblePropsAndCustomArgs> = {
         'warning',
         'info',
         'error',
+        'background',
         'surface',
         'surface-2xs',
         'surface-xs',
@@ -31,6 +37,7 @@ const meta: Meta<BubblePropsAndCustomArgs> = {
         'surface-2xl',
         'surface-3xl',
         'surface-4xl',
+        'foreground',
         'red',
         'orange',
         'amber',
@@ -71,6 +78,12 @@ const meta: Meta<BubblePropsAndCustomArgs> = {
         'outline',
       ],
       defaultValue: { summary: 'primary' },
+    },
+    rounded: {
+      control: { type: 'inline-radio' },
+      type: 'string',
+      options: ['base', 'sm', 'md', 'lg', 'xl', '2xl', 'full'],
+      defaultValue: { summary: 'full' },
     },
   },
   render: ({ ...args }, { globals: { theme, direction, language } }) => {

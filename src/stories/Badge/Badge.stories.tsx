@@ -9,11 +9,13 @@ const meta: Meta<typeof Badge> = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
+      control: { type: 'inline-radio' },
+      options: ['primary', 'outline'],
+      defaultValue: { summary: 'primary' },
+    },
+    color: {
       control: { type: 'select' },
       options: [
-        'surface-sm',
-        'surface',
-        'surface-xl',
         'primary',
         'secondary',
         'tertiary',
@@ -22,6 +24,19 @@ const meta: Meta<typeof Badge> = {
         'success',
         'error',
         'info',
+
+        'background',
+        'surface',
+        'surface-2xs',
+        'surface-xs',
+        'surface-sm',
+        'surface-md',
+        'surface-lg',
+        'surface-xl',
+        'surface-2xl',
+        'surface-3xl',
+        'surface-4xl',
+        'foreground',
 
         'sdg-1',
         'sdg-2',
@@ -78,7 +93,7 @@ const meta: Meta<typeof Badge> = {
     },
   },
   args: {
-    variant: 'surface',
+    variant: 'primary',
     size: 'base',
     rounded: 'full',
   },

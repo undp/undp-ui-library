@@ -41,12 +41,12 @@ function Calendar({
           defaultClassNames.nav,
         ),
         button_previous: cn(
-          buttonVariants({ variant: buttonVariant, arrow: false }),
+          buttonVariants({ variant: buttonVariant }),
           'h-6 w-6 select-none p-0 aria-disabled:opacity-disabled',
           defaultClassNames.button_previous,
         ),
         button_next: cn(
-          buttonVariants({ variant: buttonVariant, arrow: false }),
+          buttonVariants({ variant: buttonVariant }),
           'h-6 w-6 select-none p-0 aria-disabled:opacity-disabled',
           defaultClassNames.button_next,
         ),
@@ -148,7 +148,7 @@ function CalendarDayButton({
     <Button
       ref={ref}
       variant='link'
-      arrow={false}
+      endIcon='none'
       data-day={day.date.toLocaleDateString()}
       data-selected-single={
         modifiers.selected &&
@@ -165,6 +165,7 @@ function CalendarDayButton({
         className,
       )}
       {...props}
+      color={undefined}
     />
   );
 }

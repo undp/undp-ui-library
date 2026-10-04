@@ -4,64 +4,124 @@ import type React from 'react';
 import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
-  'inline-flex items-center border-1 px-2.5 py-0.5 font-normal transition-colors focus:outline-hidden',
+  'inline-flex items-center px-2.5 py-0.5 font-normal transition-colors focus:outline-hidden',
   {
     variants: {
       variant: {
-        'surface-sm': 'border-transparent bg-surface-sm text-content-primary',
-        surface: 'border-transparent bg-surface-md text-content-primary',
-        'surface-xl': 'border-transparent bg-surface-xl text-content-reverse',
+        primary: 'bg-(--badge) text-(--badge-ink)',
+        outline: 'bg-transparent border-1 border-(--badge-outline) text-(--badge-outline)',
+      },
+      color: {
+        background:
+          '[--badge:var(--color-background)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-background)]',
+        surface:
+          '[--badge:var(--color-surface)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-surface)]',
+        'surface-2xs':
+          '[--badge:var(--color-surface-2xs)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-surface-2xs)]',
+        'surface-xs':
+          '[--badge:var(--color-surface-xs)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-surface-xs)]',
+        'surface-sm':
+          '[--badge:var(--color-surface-sm)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-surface-sm)]',
+        'surface-md':
+          '[--badge:var(--color-surface-md)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-surface-md)]',
+        'surface-lg':
+          '[--badge:var(--color-surface-lg)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-surface-lg)]',
+        'surface-xl':
+          '[--badge:var(--color-surface-xl)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-surface-xl)]',
+        'surface-2xl':
+          '[--badge:var(--color-surface-2xl)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-surface-2xl)]',
+        'surface-3xl':
+          '[--badge:var(--color-surface-3xl)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-surface-3xl)]',
+        'surface-4xl':
+          '[--badge:var(--color-surface-4xl)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-surface-4xl)]',
+        foreground:
+          '[--badge:var(--color-foreground)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-foreground)]',
 
-        primary: 'border-transparent bg-primary-light text-content-primary',
-        secondary: 'border-transparent bg-secondary-light text-content-primary',
-        tertiary: 'border-transparent bg-tertiary-light text-content-primary',
-        quaternary: 'border-transparent bg-quaternary-light text-content-primary',
+        primary:
+          '[--badge:var(--color-primary-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-primary)]',
+        secondary:
+          '[--badge:var(--color-secondary-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-secondary)]',
+        tertiary:
+          '[--badge:var(--color-tertiary-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-tertiary)]',
+        quaternary:
+          '[--badge:var(--color-quaternary-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-quaternary)]',
 
-        warning: 'border-transparent bg-warning-light text-content-primary',
-        success: 'border-transparent bg-success-light text-content-primary',
-        error: 'border-transparent bg-error-light text-content-primary',
-        info: 'border-transparent bg-info-light text-content-primary',
+        warning:
+          '[--badge:var(--color-warning-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-warning)]',
+        success:
+          '[--badge:var(--color-success-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-success)]',
+        error:
+          '[--badge:var(--color-error-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-error)]',
+        info: '[--badge:var(--color-info-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-info)]',
 
-        red: 'border-transparent bg-accent-red-light text-content-primary',
-        orange: 'border-transparent bg-accent-orange-light text-content-primary',
-        yellow: 'border-transparent bg-accent-yellow-light text-content-primary',
-        lime: 'border-transparent bg-accent-lime-light text-content-primary',
-        green: 'border-transparent bg-accent-green-light text-content-primary',
-        teal: 'border-transparent bg-accent-teal-light text-content-primary',
-        azure: 'border-transparent bg-accent-azure-light text-content-primary',
-        blue: 'border-transparent bg-accent-blue-light text-content-primary',
-        violet: 'border-transparent bg-accent-violet-light text-content-primary',
-        pink: 'border-transparent bg-accent-pink-light text-content-primary',
+        red: '[--badge:var(--color-accent-red-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-red)]',
+        orange:
+          '[--badge:var(--color-accent-orange-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-orange)]',
+        yellow:
+          '[--badge:var(--color-accent-yellow-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-yellow)]',
+        lime: '[--badge:var(--color-accent-lime-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-lime)]',
+        green:
+          '[--badge:var(--color-accent-green-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-green)]',
+        teal: '[--badge:var(--color-accent-teal-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-teal)]',
+        azure:
+          '[--badge:var(--color-accent-azure-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-azure)]',
+        blue: '[--badge:var(--color-accent-blue-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-blue)]',
+        violet:
+          '[--badge:var(--color-accent-violet-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-violet)]',
+        pink: '[--badge:var(--color-accent-pink-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-accent-pink)]',
 
-        'sdg-1': 'border-transparent bg-sdg-1 text-content-reverse',
-        'sdg-2': 'border-transparent bg-sdg-2 text-content-reverse',
-        'sdg-3': 'border-transparent bg-sdg-3 text-content-reverse',
-        'sdg-4': 'border-transparent bg-sdg-4 text-content-reverse',
-        'sdg-5': 'border-transparent bg-sdg-5 text-content-reverse',
-        'sdg-6': 'border-transparent bg-sdg-6 text-content-reverse',
-        'sdg-7': 'border-transparent bg-sdg-7 text-content-reverse',
-        'sdg-8': 'border-transparent bg-sdg-8 text-content-reverse',
-        'sdg-9': 'border-transparent bg-sdg-9 text-content-reverse',
-        'sdg-10': 'border-transparent bg-sdg-10 text-content-reverse',
-        'sdg-11': 'border-transparent bg-sdg-11 text-content-reverse',
-        'sdg-12': 'border-transparent bg-sdg-12 text-content-reverse',
-        'sdg-13': 'border-transparent bg-sdg-13 text-content-reverse',
-        'sdg-14': 'border-transparent bg-sdg-14 text-content-reverse',
-        'sdg-15': 'border-transparent bg-sdg-15 text-content-reverse',
-        'sdg-16': 'border-transparent bg-sdg-16 text-content-reverse',
-        'sdg-17': 'border-transparent bg-sdg-17 text-content-reverse',
+        'sdg-1':
+          '[--badge:var(--color-sdg-1)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-1)]',
+        'sdg-2':
+          '[--badge:var(--color-sdg-2)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-2)]',
+        'sdg-3':
+          '[--badge:var(--color-sdg-3)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-3)]',
+        'sdg-4':
+          '[--badge:var(--color-sdg-4)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-4)]',
+        'sdg-5':
+          '[--badge:var(--color-sdg-5)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-5)]',
+        'sdg-6':
+          '[--badge:var(--color-sdg-6)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-6)]',
+        'sdg-7':
+          '[--badge:var(--color-sdg-7)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-7)]',
+        'sdg-8':
+          '[--badge:var(--color-sdg-8)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-8)]',
+        'sdg-9':
+          '[--badge:var(--color-sdg-9)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-9)]',
+        'sdg-10':
+          '[--badge:var(--color-sdg-10)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-10)]',
+        'sdg-11':
+          '[--badge:var(--color-sdg-11)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-11)]',
+        'sdg-12':
+          '[--badge:var(--color-sdg-12)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-12)]',
+        'sdg-13':
+          '[--badge:var(--color-sdg-13)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-13)]',
+        'sdg-14':
+          '[--badge:var(--color-sdg-14)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-14)]',
+        'sdg-15':
+          '[--badge:var(--color-sdg-15)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-15)]',
+        'sdg-16':
+          '[--badge:var(--color-sdg-16)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-16)]',
+        'sdg-17':
+          '[--badge:var(--color-sdg-17)] [--badge-ink:var(--color-content-reverse)] [--badge-outline:var(--color-sdg-17)]',
 
-        male: 'border-transparent bg-categorical-male-light text-content-primary',
-        female: 'border-transparent bg-categorical-female-light text-content-primary',
-        urban: 'border-transparent bg-categorical-urban-light text-content-primary',
-        rural: 'border-transparent bg-categorical-rural-light text-content-primary',
-        child: 'border-transparent bg-categorical-child-light text-content-primary',
-        adolescent: 'border-transparent bg-categorical-adolescent-light text-content-primary',
-        'young-adult': 'border-transparent bg-categorical-young-adult-light text-content-primary',
-        adult: 'border-transparent bg-categorical-adult-light text-content-primary',
-        'older-adult': 'border-transparent bg-categorical-older-adult-light text-content-primary',
-
-        outline: 'border-stroke text-content-secondary',
+        male: '[--badge:var(--color-categorical-male-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-male)]',
+        female:
+          '[--badge:var(--color-categorical-female-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-female)]',
+        urban:
+          '[--badge:var(--color-categorical-urban-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-urban)]',
+        rural:
+          '[--badge:var(--color-categorical-rural-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-rural)]',
+        child:
+          '[--badge:var(--color-categorical-child-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-child)]',
+        adolescent:
+          '[--badge:var(--color-categorical-adolescent-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-adolescent)]',
+        'young-adult':
+          '[--badge:var(--color-categorical-young-adult-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-young-adult)]',
+        adult:
+          '[--badge:var(--color-categorical-adult-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-adult)]',
+        'older-adult':
+          '[--badge:var(--color-categorical-older-adult-light)] [--badge-ink:var(--color-content-primary)] [--badge-outline:var(--color-categorical-older-adult)]',
       },
       rounded: {
         base: 'rounded',
@@ -81,7 +141,8 @@ const badgeVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'surface-sm',
+      variant: 'primary',
+      color: 'primary',
       size: 'base',
       rounded: 'full',
     },
@@ -92,10 +153,13 @@ function Badge({
   className,
   rounded,
   variant,
+  color,
   size,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof badgeVariants>) {
-  return <div {...props} className={cn(badgeVariants({ variant, rounded, size }), className)} />;
+  return (
+    <div {...props} className={cn(badgeVariants({ variant, rounded, size, color }), className)} />
+  );
 }
 
 export { Badge };

@@ -63,7 +63,8 @@ function FileUpload({
             {files?.map((file, index) => (
               <Badge
                 key={file.name}
-                variant='surface'
+                color='surface'
+                variant='primary'
                 className='flex gap-4 border border-stroke bg-surface pr-4 pl-4'
               >
                 <span className='truncate text-base text-content-primary'>{file.name}</span>

@@ -18,116 +18,130 @@ const bubbleVariants = cva(
     variants: {
       variant: {
         primary:
-          '*:data-[slot=bubble-content]:bg-primary *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-primary-hover',
+          '*:data-[slot=bubble-content]:bg-(--bubble) *:data-[slot=bubble-content]:text-(--buble-ink) [&>[data-slot=bubble-content]:is(button,a):hover]:bg-(--bubble-hover)',
+        outline:
+          '*:data-[slot=bubble-content]:bg-transparent *:data-[slot=bubble-content]:border *:data-[slot=bubble-content]:border-(--bubble) *:data-[slot=bubble-content]:text-(--bubble)',
+      },
+      color: {
+        primary:
+          '[--bubble:var(--color-primary)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-primary-hover)]',
         secondary:
-          '*:data-[slot=bubble-content]:bg-secondary *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-secondary-hover',
+          '[--bubble:var(--color-secondary)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-secondary-hover)]',
         tertiary:
-          '*:data-[slot=bubble-content]:bg-tertiary *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-tertiary-hover',
+          '[--bubble:var(--color-tertiary)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-tertiary-hover)]',
         quaternary:
-          '*:data-[slot=bubble-content]:bg-quaternary *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-quaternary-hover',
+          '[--bubble:var(--color-quaternary)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-quaternary-hover)]',
 
         success:
-          '*:data-[slot=bubble-content]:bg-success *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-success-hover',
+          '[--bubble:var(--color-success)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-success-hover)]',
         warning:
-          '*:data-[slot=bubble-content]:bg-warning *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-warning-hover',
-        info: '*:data-[slot=bubble-content]:bg-info *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-info-hover',
+          '[--bubble:var(--color-warning)] [--buble-ink:var(--color-content-primary)] [--bubble-hover:var(--color-warning-hover)]',
+        info: '[--bubble:var(--color-info)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-info-hover)]',
         error:
-          '*:data-[slot=bubble-content]:bg-error *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-error-hover',
-
-        outline:
-          '*:data-[slot=bubble-content]:bg-transparent *:data-[slot=bubble-content]:border *:data-[slot=bubble-content]:border-stroke *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:border-stroke-hover',
+          '[--bubble:var(--color-error)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-error-hover)]',
 
         surface:
-          '*:data-[slot=bubble-content]:bg-surface *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-hover',
+          '[--bubble:var(--color-surface)] [--buble-ink:var(--color-content-primary)] [--bubble-hover:var(--color-surface-hover)]',
         'surface-2xs':
-          '*:data-[slot=bubble-content]:bg-surface-2xs *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-xs',
+          '[--bubble:var(--color-surface-2xs)] [--buble-ink:var(--color-content-primary)] [--bubble-hover:var(--color-surface-xs)]',
         'surface-xs':
-          '*:data-[slot=bubble-content]:bg-surface-xs *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-sm',
+          '[--bubble:var(--color-surface-xs)] [--buble-ink:var(--color-content-primary)] [--bubble-hover:var(--color-surface-sm)]',
         'surface-sm':
-          '*:data-[slot=bubble-content]:bg-surface-sm *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-md',
+          '[--bubble:var(--color-surface-sm)] [--buble-ink:var(--color-content-primary)] [--bubble-hover:var(--color-surface-md)]',
         'surface-md':
-          '*:data-[slot=bubble-content]:bg-surface-md *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-lg',
+          '[--bubble:var(--color-surface-md)] [--buble-ink:var(--color-content-primary)] [--bubble-hover:var(--color-surface-lg)]',
         'surface-lg':
-          '*:data-[slot=bubble-content]:bg-surface-lg *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-xl',
+          '[--bubble:var(--color-surface-lg)] [--buble-ink:var(--color-content-primary)] [--bubble-hover:var(--color-surface-xl)]',
         'surface-xl':
-          '*:data-[slot=bubble-content]:bg-surface-xl *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-2xl',
+          '[--bubble:var(--color-surface-xl)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-surface-2xl)]',
         'surface-2xl':
-          '*:data-[slot=bubble-content]:bg-surface-2xl *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-3xl',
+          '[--bubble:var(--color-surface-2xl)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-surface-3xl)]',
         'surface-3xl':
-          '*:data-[slot=bubble-content]:bg-surface-3xl *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-4xl',
+          '[--bubble:var(--color-surface-3xl)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-surface-4xl)]',
         'surface-4xl':
-          '*:data-[slot=bubble-content]:bg-surface-4xl *:data-[slot=bubble-content]:text-content-reverse',
+          '[--bubble:var(--color-surface-4xl)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-surface-4xl)]',
 
-        red: '*:data-[slot=bubble-content]:bg-accent-red *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-red-hover',
+        red: '[--bubble:var(--color-accent-red)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-red-hover)]',
         orange:
-          '*:data-[slot=bubble-content]:bg-accent-orange *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-orange-hover',
+          '[--bubble:var(--color-accent-orange)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-orange-hover)]',
         yellow:
-          '*:data-[slot=bubble-content]:bg-accent-yellow *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-yellow-hover',
-        lime: '*:data-[slot=bubble-content]:bg-accent-lime *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-lime-hover',
+          '[--bubble:var(--color-accent-yellow)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-yellow-hover)]',
+        lime: '[--bubble:var(--color-accent-lime)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-lime-hover)]',
         green:
-          '*:data-[slot=bubble-content]:bg-accent-green *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-green-hover',
-        teal: '*:data-[slot=bubble-content]:bg-accent-teal *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-teal-hover',
+          '[--bubble:var(--color-accent-green)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-green-hover)]',
+        teal: '[--bubble:var(--color-accent-teal)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-teal-hover)]',
         azure:
-          '*:data-[slot=bubble-content]:bg-accent-azure *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-azure-hover',
-        blue: '*:data-[slot=bubble-content]:bg-accent-blue *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-blue-hover',
+          '[--bubble:var(--color-accent-azure)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-azure-hover)]',
+        blue: '[--bubble:var(--color-accent-blue)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-blue-hover)]',
         violet:
-          '*:data-[slot=bubble-content]:bg-accent-violet *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-violet-hover',
-        pink: '*:data-[slot=bubble-content]:bg-accent-pink *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-accent-pink-hover',
+          '[--bubble:var(--color-accent-violet)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-violet-hover)]',
+        pink: '[--bubble:var(--color-accent-pink)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-accent-pink-hover)]',
 
         'sdg-1':
-          '*:data-[slot=bubble-content]:bg-sdg-1 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-1-hover',
+          '[--bubble:var(--color-sdg-1)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-1-hover)]',
         'sdg-2':
-          '*:data-[slot=bubble-content]:bg-sdg-2 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-2-hover',
+          '[--bubble:var(--color-sdg-2)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-2-hover)]',
         'sdg-3':
-          '*:data-[slot=bubble-content]:bg-sdg-3 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-3-hover',
+          '[--bubble:var(--color-sdg-3)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-3-hover)]',
         'sdg-4':
-          '*:data-[slot=bubble-content]:bg-sdg-4 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-4-hover',
+          '[--bubble:var(--color-sdg-4)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-4-hover)]',
         'sdg-5':
-          '*:data-[slot=bubble-content]:bg-sdg-5 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-5-hover',
+          '[--bubble:var(--color-sdg-5)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-5-hover)]',
         'sdg-6':
-          '*:data-[slot=bubble-content]:bg-sdg-6 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-6-hover',
+          '[--bubble:var(--color-sdg-6)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-6-hover)]',
         'sdg-7':
-          '*:data-[slot=bubble-content]:bg-sdg-7 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-7-hover',
+          '[--bubble:var(--color-sdg-7)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-7-hover)]',
         'sdg-8':
-          '*:data-[slot=bubble-content]:bg-sdg-8 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-8-hover',
+          '[--bubble:var(--color-sdg-8)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-8-hover)]',
         'sdg-9':
-          '*:data-[slot=bubble-content]:bg-sdg-9 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-9-hover',
+          '[--bubble:var(--color-sdg-9)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-9-hover)]',
         'sdg-10':
-          '*:data-[slot=bubble-content]:bg-sdg-10 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-10-hover',
+          '[--bubble:var(--color-sdg-10)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-10-hover)]',
         'sdg-11':
-          '*:data-[slot=bubble-content]:bg-sdg-11 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-11-hover',
+          '[--bubble:var(--color-sdg-11)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-11-hover)]',
         'sdg-12':
-          '*:data-[slot=bubble-content]:bg-sdg-12 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-12-hover',
+          '[--bubble:var(--color-sdg-12)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-12-hover)]',
         'sdg-13':
-          '*:data-[slot=bubble-content]:bg-sdg-13 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-13-hover',
+          '[--bubble:var(--color-sdg-13)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-13-hover)]',
         'sdg-15':
-          '*:data-[slot=bubble-content]:bg-sdg-15 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-15-hover',
+          '[--bubble:var(--color-sdg-15)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-15-hover)]',
         'sdg-16':
-          '*:data-[slot=bubble-content]:bg-sdg-16 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-16-hover',
+          '[--bubble:var(--color-sdg-16)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-16-hover)]',
         'sdg-17':
-          '*:data-[slot=bubble-content]:bg-sdg-17 *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-sdg-17-hover',
+          '[--bubble:var(--color-sdg-17)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-sdg-17-hover)]',
 
-        male: '*:data-[slot=bubble-content]:bg-categorical-male *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-male-hover',
+        male: '[--bubble:var(--color-categorical-male)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-male-hover)]',
         female:
-          '*:data-[slot=bubble-content]:bg-categorical-female *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-female-hover',
+          '[--bubble:var(--color-categorical-female)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-female-hover)]',
         urban:
-          '*:data-[slot=bubble-content]:bg-categorical-urban *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-urban-hover',
+          '[--bubble:var(--color-categorical-urban)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-urban-hover)]',
         rural:
-          '*:data-[slot=bubble-content]:bg-categorical-rural *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-rural-hover',
+          '[--bubble:var(--color-categorical-rural)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-rural-hover)]',
         child:
-          '*:data-[slot=bubble-content]:bg-categorical-child *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-child-hover',
+          '[--bubble:var(--color-categorical-child)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-child-hover)]',
         adolescent:
-          '*:data-[slot=bubble-content]:bg-categorical-adolescent *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-adolescent-hover',
+          '[--bubble:var(--color-categorical-adolescent)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-adolescent-hover)]',
         'young-adult':
-          '*:data-[slot=bubble-content]:bg-categorical-young-adult *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-young-adult-hover',
+          '[--bubble:var(--color-categorical-young-adult)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-young-adult-hover)]',
         adult:
-          '*:data-[slot=bubble-content]:bg-categorical-adult *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-adult-hover',
+          '[--bubble:var(--color-categorical-adult)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-adult-hover)]',
         'older-adult':
-          '*:data-[slot=bubble-content]:bg-categorical-older-adult *:data-[slot=bubble-content]:text-content-reverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-categorical-older-adult-hover',
+          '[--bubble:var(--color-categorical-older-adult)] [--buble-ink:var(--color-content-reverse)] [--bubble-hover:var(--color-categorical-older-adult-hover)]',
+      },
+      rounded: {
+        base: 'rounded',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-xl',
+        '2xl': 'rounded-2xl',
+        full: 'rounded-full',
       },
     },
     defaultVariants: {
       variant: 'primary',
+      color: 'primary',
+      rounded: 'full',
     },
   },
 );
@@ -135,6 +149,8 @@ function Bubble({
   variant,
   align = 'start',
   className,
+  color,
+  rounded,
   ...props
 }: React.ComponentProps<'div'> &
   VariantProps<typeof bubbleVariants> & {
@@ -145,7 +161,7 @@ function Bubble({
       data-slot='bubble'
       data-variant={variant}
       data-align={align}
-      className={cn(bubbleVariants({ variant }), className)}
+      className={cn(bubbleVariants({ variant, color, rounded }), className)}
       {...props}
     />
   );

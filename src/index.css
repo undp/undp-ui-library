@@ -320,39 +320,6 @@
   display: none;
 }
 
-.background-arrow::after {
-  background-color: var(--background);
-  -webkit-mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
-    no-repeat center;
-  mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
-    no-repeat center;
-
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-.foreground-arrow::after {
-  background-color: var(--foreground);
-  -webkit-mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
-    no-repeat center;
-  mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
-    no-repeat center;
-
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-.primary-arrow::after {
-  background-color: var(--primary);
-  -webkit-mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
-    no-repeat center;
-  mask: url("https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/chevron-right.svg")
-    no-repeat center;
-
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
 @keyframes lineLoop-animation-for-links {
   0% {
     background-position:

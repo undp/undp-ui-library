@@ -210,17 +210,16 @@ const VisualizationWidgetBodySidebar = React.forwardRef<
         {collapsible?.enabled !== false ? (
           <Button
             type='button'
-            variant='surface-hard'
+            variant='icon'
             size='sm'
             padding='none'
             onClick={() => setCollapsed(!collapsed)}
             className={cn(
-              'absolute top-0 right-0 flex h-6 w-6 p-0 text-content-primary normal-case',
+              'absolute top-0 right-0 flex normal-case',
               collapsible?.triggerButtonClassName,
             )}
             rounded='full'
             style={collapsible?.triggerButtonStyles}
-            arrow={false}
           >
             {collapsible?.triggerButtonChildren ||
               (collapsed ? <ChevronsRight /> : <ChevronsLeft />)}
