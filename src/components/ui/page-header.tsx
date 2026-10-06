@@ -6,6 +6,7 @@ const PageHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
     backgroundImage?: string;
+    backgroundColor?: string;
     minHeight?: boolean | string;
     contentMode?: 'light' | 'dark';
     variant?: 'primary' | 'secondary';
@@ -19,6 +20,7 @@ const PageHeader = React.forwardRef<
       variant,
       minHeight = true,
       contentMode = 'dark',
+      backgroundColor,
       children,
       ...props
     },
@@ -26,7 +28,10 @@ const PageHeader = React.forwardRef<
   ) => {
     if (variant === 'secondary') {
       return (
-        <div className='@container w-full'>
+        <div
+          className='@container w-full'
+          style={{ backgroundColor: backgroundColor || 'transparent' }}
+        >
           <div
             ref={ref}
             className={cn(
@@ -62,11 +67,14 @@ const PageHeader = React.forwardRef<
       );
     }
     return (
-      <div className='@container w-full'>
+      <div
+        className='@container w-full'
+        style={{ backgroundColor: backgroundColor || 'transparent' }}
+      >
         <div
           ref={ref}
           className={cn(
-            `${contentMode} flex w-full flex-col gap-4 bg-center bg-cover py-20 @2xl:pl-[8.3333%] pl-4 @2xl:rtl:pr-[8.3333%] rtl:pr-4 @2xl:rtl:pl-0 rtl:pl-0`,
+            `flex w-full flex-col gap-4 bg-center bg-cover py-20 @2xl:pl-[8.3333%] pl-4 @2xl:rtl:pr-[8.3333%] rtl:pr-4 @2xl:rtl:pl-0 rtl:pl-0`,
             minHeight
               ? minHeight === true
                 ? '@2xl:min-h-160.5 @5xl:min-h-186.5 min-h-auto'

@@ -1,12 +1,16 @@
-import ReactMarkdown, { type Components } from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { Markdown, type MarkdownComponents } from '@tanstack/markdown/react';
 
 import { cn } from '@/lib/utils';
+import { Li, Ol, Ul } from './list';
+import { Separator } from './separator';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './table';
+import { A, Blockquote, Code, H1, H2, H3, H4, H5, H6, P } from './typography';
 
 function MarkdownRenderer({
   classNames,
   text,
   components,
+  size = 'base',
 }: {
   classNames?: {
     h1?: string;
@@ -32,161 +36,57 @@ function MarkdownRenderer({
     tbody?: string;
     th?: string;
   };
-  components?: Components;
-  text?: string;
+  components?: MarkdownComponents;
+  text: string;
+  size?: 'base' | 'base-responsive';
 }) {
+  const defaultComponents: MarkdownComponents = {
+    h1: (props) => <H1 className={classNames?.h1} marginBottom={size} {...props} />,
+    h2: (props) => <H2 className={classNames?.h2} marginBottom={size} {...props} />,
+    h3: (props) => <H3 className={classNames?.h3} marginBottom={size} {...props} />,
+    h4: (props) => <H4 className={classNames?.h4} marginBottom={size} {...props} />,
+    h5: (props) => <H5 className={classNames?.h5} marginBottom={size} {...props} />,
+    h6: (props) => <H6 className={classNames?.h6} marginBottom={size} {...props} />,
+    p: (props) => <P className={classNames?.p} size={size} {...props} />,
+
+    a: (props) => <A className={classNames?.a} {...props} />,
+    code: (props) => <Code className={classNames?.code} {...props} />,
+    blockquote: (props) => <Blockquote className={classNames?.blockquote} {...props} />,
+
+    ul: (props) => <Ul className={classNames?.ul} {...props} />,
+    ol: (props) => <Ol className={classNames?.ol} {...props} />,
+    li: (props) => <Li className={classNames?.li} {...props} />,
+
+    hr: (_props) => <Separator className={classNames?.hr} />,
+
+    pre: (props) => (
+      <pre
+        className={cn(
+          'mb-3 overflow-x-auto bg-surface p-4',
+          size === 'base' ? '' : 'md:mb-4',
+          classNames?.pre,
+        )}
+        {...props}
+      />
+    ),
+
+    table: (props) => <Table className={classNames?.table} {...props} />,
+    thead: (props) => <TableHeader className={classNames?.thead} {...props} />,
+    th: (props) => <TableHead className={classNames?.th} {...props} />,
+    tbody: (props) => <TableBody className={classNames?.tbody} {...props} />,
+    tr: (props) => <TableRow className={classNames?.tr} {...props} />,
+    td: (props) => <TableCell className={classNames?.td} {...props} />,
+  };
+
   return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
+    <Markdown
       components={{
-        ...{
-          h1: (props) => (
-            <h1
-              className={cn(
-                'mt-0 mr-0 mb-3 ml-0 p-0 font-bold font-heading text-h1-xs uppercase tracking-[0.06rem] md:mb-4 md:text-h1-sm lg:text-h1',
-                classNames?.h1,
-              )}
-              {...props}
-            />
-          ),
-          h2: (props) => (
-            <h2
-              className={cn(
-                'mt-0 mr-0 mb-3 ml-0 p-0 font-bold font-inherit text-h2-xs md:mb-4 md:text-h2-sm lg:text-h2',
-                classNames?.h2,
-              )}
-              {...props}
-            />
-          ),
-          h3: (props) => (
-            <h3
-              className={cn(
-                'mt-0 mr-0 mb-3 ml-0 p-0 font-inherit font-semibold text-h3-xs md:mb-4 md:text-h3-sm lg:text-h3',
-                classNames?.h3,
-              )}
-              {...props}
-            />
-          ),
-          h4: (props) => (
-            <h4
-              className={cn(
-                'mt-0 mr-0 mb-3 ml-0 p-0 font-inherit font-normal text-h4-xs md:mb-4 md:text-h4-sm lg:text-h4',
-                classNames?.h4,
-              )}
-              {...props}
-            />
-          ),
-          h5: (props) => (
-            <h5
-              className={cn(
-                'mt-0 mr-0 mb-3 ml-0 p-0 font-inherit font-normal text-h5-xs md:mb-4 md:text-h5-sm lg:text-h5',
-                classNames?.h5,
-              )}
-              {...props}
-            />
-          ),
-          h6: (props) => (
-            <h6
-              className={cn(
-                'mt-0 mr-0 mb-3 ml-0 p-0 font-bold font-inherit text-h6-xs uppercase tracking-[0.48px] md:mb-4 md:text-h6-sm lg:text-h6',
-                classNames?.h6,
-              )}
-              {...props}
-            />
-          ),
-          cite: (props) => (
-            <cite
-              className={cn(
-                'mt-0 mr-0 mb-3 ml-0 block p-0 font-inherit font-normal text-h5-xs md:mb-4 md:text-h5-sm lg:text-h5',
-                classNames?.cite,
-              )}
-              {...props}
-            />
-          ),
-          code: (props) => (
-            <code
-              className={cn(
-                'm-0 bg-surface px-1 pb-1 font-mono text-content-primary text-p-xs md:text-p-sm lg:text-p',
-                classNames?.code,
-              )}
-              {...props}
-            />
-          ),
-          blockquote: (props) => (
-            <blockquote
-              className={cn(
-                'm-0 font-inherit font-semibold text-h4-xs md:text-h4-sm lg:text-h4',
-                classNames?.blockquote,
-              )}
-              {...props}
-            />
-          ),
-          p: (props) => (
-            <p
-              className={cn('mt-0 mr-0 mb-5 ml-0 text-p-xs md:text-p-sm lg:text-p', classNames?.p)}
-              {...props}
-            />
-          ),
-          a: (props) => (
-            <a
-              className={cn(
-                'undp-link bg-double-primary font-inherit text-content-primary',
-                'cursor-pointer no-underline focus-visible:shadow-[0_0_0_var(--ring)] focus-visible:outline-hidden',
-                classNames?.a,
-              )}
-              {...props}
-            />
-          ),
-          ul: (props) => <ul className={cn('pl-6 rtl:pr-6 rtl:pl-0', classNames?.ul)} {...props} />,
-          ol: (props) => <ol className={cn('pl-6 rtl:pr-6 rtl:pl-0', classNames?.ol)} {...props} />,
-          li: (props) => (
-            <li
-              className={cn(
-                'mb-6 pl-3 text-p-xs md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-0',
-                classNames?.li,
-              )}
-              {...props}
-            />
-          ),
-          hr: (props) => (
-            <hr
-              className={cn('mb-4 h-px w-full border-0 bg-surface-hard', classNames?.hr)}
-              {...props}
-            />
-          ),
-          pre: (props) => (
-            <pre className={cn('mb-3 bg-surface p-4 md:mb-4', classNames?.pre)} {...props} />
-          ),
-          table: (props) => (
-            <table className={cn('mb-4 w-full caption-bottom', classNames?.table)} {...props} />
-          ),
-          thead: (props) => <thead className={classNames?.thead} {...props} />,
-          th: (props) => (
-            <th
-              className={cn(
-                'whitespace-nowrap bg-surface py-3 pr-10 pl-3 text-left align-middle font-semibold text-p-xs has-[[role=checkbox]]:pr-0 md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 rtl:text-right *:[[role=checkbox]]:translate-y-0.5',
-                classNames?.th,
-              )}
-              {...props}
-            />
-          ),
-          tbody: (props) => <tbody className={classNames?.tbody} {...props} />,
-          tr: (props) => <tr className={cn('border-stroke border-b', classNames?.tr)} {...props} />,
-          td: (props) => (
-            <td
-              className={cn(
-                'whitespace-nowrap py-3 pr-10 pl-3 align-middle text-p-xs has-[[role=checkbox]]:pr-0 md:text-p-sm lg:text-p rtl:pr-3 rtl:pl-10 *:[[role=checkbox]]:translate-y-0.5',
-                classNames?.td,
-              )}
-              {...props}
-            />
-          ),
-        },
-        ...(components || {}),
+        ...defaultComponents,
+        ...components,
       }}
     >
       {text}
-    </ReactMarkdown>
+    </Markdown>
   );
 }
 

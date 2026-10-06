@@ -3,9 +3,19 @@ import React from 'react';
 
 import { cn } from '@/lib/utils';
 
-const Breadcrumb = React.forwardRef<HTMLElement, React.ComponentPropsWithoutRef<'nav'>>(
-  ({ ...props }, ref) => <nav ref={ref} aria-label='breadcrumb' {...props} />,
-);
+const BreadcrumbContext = React.createContext<{ variant: 'default' | 'reverse' } | null>(null);
+
+const Breadcrumb = React.forwardRef<
+  HTMLElement,
+  React.ComponentPropsWithoutRef<'nav'> & { variant?: 'default' | 'reverse' }
+>(({ variant = 'default', ...props }, ref) => {
+  const contextValue = React.useMemo(() => ({ variant }), [variant]);
+  return (
+    <BreadcrumbContext.Provider value={contextValue}>
+      <nav ref={ref} aria-label='breadcrumb' {...props} />
+    </BreadcrumbContext.Provider>
+  );
+});
 Breadcrumb.displayName = 'Breadcrumb';
 
 const BreadcrumbList = React.forwardRef<HTMLOListElement, React.ComponentPropsWithoutRef<'ol'>>(
@@ -31,13 +41,14 @@ BreadcrumbItem.displayName = 'BreadcrumbItem';
 
 const BreadcrumbLink = React.forwardRef<
   HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<'a'> & { variant?: 'default' | 'reverse' }
->(({ className, variant = 'default', ...props }, ref) => {
+  React.ComponentPropsWithoutRef<'a'>
+>(({ className, ...props }, ref) => {
+  const context = React.useContext(BreadcrumbContext);
   const Comp = 'a';
 
   const combinedClasses = cn(
     'transition-all',
-    variant === 'reverse'
+    context?.variant === 'reverse'
       ? 'text-content-reverse hover:opacity-80'
       : 'text-primary hover:text-primary-hover',
     className,
@@ -49,8 +60,9 @@ BreadcrumbLink.displayName = 'BreadcrumbLink';
 
 const BreadcrumbPage = React.forwardRef<
   HTMLSpanElement,
-  React.ComponentPropsWithoutRef<'span'> & { variant?: 'default' | 'reverse' }
->(({ className, variant = 'default', ...props }, ref) => {
+  React.ComponentPropsWithoutRef<'span'>
+>(({ className, ...props }, ref) => {
+  const context = React.useContext(BreadcrumbContext);
   return (
     <span
       {...props}
@@ -59,7 +71,7 @@ const BreadcrumbPage = React.forwardRef<
       aria-current='page'
       className={cn(
         'text-xs',
-        variant === 'reverse' ? 'text-content-reverse' : 'text-content-primary',
+        context?.variant === 'reverse' ? 'text-content-reverse' : 'text-content-primary',
         className,
       )}
     />
@@ -67,12 +79,13 @@ const BreadcrumbPage = React.forwardRef<
 });
 BreadcrumbPage.displayName = 'BreadcrumbPage';
 
-function BreadcrumbSeparator({ variant = 'default' }: { variant?: 'default' | 'reverse' }) {
+function BreadcrumbSeparator() {
+  const context = React.useContext(BreadcrumbContext);
   return (
     <li role='presentation' aria-hidden='true'>
       <div
         className={cn(
-          variant === 'reverse' ? 'text-content-reverse text-xs' : 'text-primary text-xs',
+          context?.variant === 'reverse' ? 'text-content-reverse text-xs' : 'text-primary text-xs',
         )}
       >
         /
@@ -84,9 +97,9 @@ BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
 
 function BreadcrumbEllipsis({
   className,
-  variant = 'default',
   ...props
-}: React.ComponentProps<'span'> & { variant?: 'default' | 'reverse' }) {
+}: React.ComponentProps<'span'>) {
+    const context = React.useContext(BreadcrumbContext);
   return (
     <span
       {...props}
@@ -94,7 +107,7 @@ function BreadcrumbEllipsis({
       aria-hidden='true'
       className={cn(
         'flex h-9 w-9 items-center justify-center',
-        variant === 'reverse' ? 'text-content-reverse' : 'text-content-primary',
+        context?.variant === 'reverse' ? 'text-content-reverse' : 'text-content-primary',
         className,
       )}
     >
