@@ -6,6 +6,8 @@ type SemanticGroup = {
   light?: string;
 };
 
+type CustomColor = Record<string, string>;
+
 type SurfaceScale = {
   base?: string;
   hover?: string;
@@ -188,6 +190,8 @@ interface ConfigDataType {
   hoverColorMixPercent?: string;
 
   lightenColorMixPercent?: string;
+
+  customColors?: CustomColor;
 }
 
 interface ConfigProviderProps {
@@ -219,6 +223,12 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
     if (config) {
       const root = document.documentElement;
 
+      if (config.customColors) {
+        Object.entries(config.customColors).forEach(([key, value]) => {
+          setVar(root, `--${key}`, value);
+        });
+      }
+
       setVar(root, '--blue-100', config.blue?.['100']);
       setVar(root, '--blue-200', config.blue?.['200']);
       setVar(root, '--blue-300', config.blue?.['300']);
@@ -237,8 +247,6 @@ export const ConfigProvider = ({ children, config, rtl }: ConfigProviderProps) =
       setVar(root, '--gray-600', config.gray?.['600']);
       setVar(root, '--gray-700', config.gray?.['700']);
 
-      setAccentGroup(root, 'blue', config.blue);
-      setAccentGroup(root, 'gray', config.gray);
       setAccentGroup(root, 'yellow', config.yellow);
       setAccentGroup(root, 'red', config.red);
       setAccentGroup(root, 'green', config.green);
