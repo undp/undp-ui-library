@@ -65,7 +65,7 @@ function DrawerContent({
       <DrawerPrimitive.Content
         data-slot='drawer-content'
         className={cn(
-          'group/drawer-content fixed z-50 flex h-auto flex-col bg-background px-1.5 sm:px-3',
+          'group/drawer-content fixed z-50 flex h-auto flex-col bg-background',
           'data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh]',
           'data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh]',
           'data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-[95%] sm:data-[vaul-drawer-direction=right]:w-[83.33%]',
@@ -94,7 +94,7 @@ function DrawerContent({
             userSelect: 'text',
             touchAction: 'auto',
           }}
-          className='undp-scrollbar h-screen bg-background px-3 pt-17.5 md:pt-0 md:pr-6 md:pl-8'
+          className='undp-scrollbar h-screen bg-background'
         >
           {children}
         </div>
@@ -112,7 +112,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot='drawer-header'
       className={cn(
-        'mt-0 mr-0 ml-7.5 group-data-[vaul-drawer-direction=bottom]:mt-24 group-data-[vaul-drawer-direction=left]:mt-24 group-data-[vaul-drawer-direction=right]:mt-24 group-data-[vaul-drawer-direction=top]:mt-24 group-data-[vaul-drawer-direction=right]:mr-24 group-data-[vaul-drawer-direction=bottom]:ml-24 group-data-[vaul-drawer-direction=top]:ml-24 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:mt-24 md:ml-24 md:gap-1.5 md:text-left',
+        'pt-17.5 pr-3 pb-4 pl-10.5 group-data-[vaul-drawer-direction=bottom]:pt-24 group-data-[vaul-drawer-direction=left]:pt-24 group-data-[vaul-drawer-direction=right]:pt-24 group-data-[vaul-drawer-direction=top]:pt-24 group-data-[vaul-drawer-direction=right]:pr-35 group-data-[vaul-drawer-direction=bottom]:pl-35 group-data-[vaul-drawer-direction=right]:pl-3 group-data-[vaul-drawer-direction=top]:pl-24 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-1.5 md:pt-24 md:pr-3 md:pb-6 md:pl-35 md:text-left',
         className,
       )}
       {...props}
@@ -121,14 +121,23 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function DrawerBody({ className, ...props }: React.ComponentProps<'div'>) {
-  return <div data-slot='drawer-body' className={cn('mt-20 sm:mt-10', className)} {...props} />;
+  return (
+    <div
+      data-slot='drawer-body'
+      className={cn(
+        'pr-3 pl-11 group-data-[vaul-drawer-direction=right]:pr-11 group-data-[vaul-drawer-direction=right]:pl-3',
+        className,
+      )}
+      {...props}
+    />
+  );
 }
 
 function DrawerFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot='drawer-footer'
-      className={cn('absolute bottom-0 mt-auto flex flex-col gap-2 p-4', className)}
+      className={cn('absolute bottom-0 mt-auto flex w-full flex-col gap-2', className)}
       {...props}
     />
   );
