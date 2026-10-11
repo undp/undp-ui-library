@@ -205,7 +205,7 @@ function Button({
     >
       {children}
       {icon === 'arrow' ? (
-        <div className='button-end-icon ml-3 h-6 w-3.25 rtl:mr-3 rtl:ml-0 rtl:scale-x-[-1]'>
+        <div className='button-end-icon ml-1 h-6 w-3.25 rtl:mr-1 rtl:ml-0 rtl:scale-x-[-1]'>
           <svg
             width='26'
             height='24'
@@ -221,7 +221,7 @@ function Button({
         </div>
       ) : null}
       {icon === 'arrow-2' ? (
-        <div className='button-end-icon ml-3 h-6 rtl:mr-3 rtl:ml-0 rtl:scale-x-[-1]'>
+        <div className='button-end-icon ml-1 h-6 rtl:mr-1 rtl:ml-0 rtl:scale-x-[-1]'>
           <svg
             width='93'
             height='24'
@@ -240,7 +240,7 @@ function Button({
         </div>
       ) : null}
       {icon === 'download' ? (
-        <div className='button-end-icon ml-3 h-6 w-6 rtl:mr-3 rtl:ml-0'>
+        <div className='button-end-icon ml-1 h-6 w-6 rtl:mr-1 rtl:ml-0'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
@@ -263,7 +263,7 @@ function Button({
         </div>
       ) : null}
       {icon === 'external-link' ? (
-        <div className='button-end-icon ml-3 h-6 w-6 rtl:mr-3 rtl:ml-0 rtl:scale-x-[-1]'>
+        <div className='button-end-icon ml-1 h-6 w-6 rtl:mr-1 rtl:ml-0 rtl:scale-x-[-1]'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='48'
