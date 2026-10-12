@@ -44,7 +44,7 @@ function HeaderLogoUnit({
         />
         <div>
           {siteSubName ? (
-            <div className='mx-0 mt-0 mb-[4.8px] inline-block border-b border-b-primary-gray-500 pb-px font-semibold text-primary-gray-600 text-xs uppercase leading-base no-underline'>
+            <div className='mx-0 mt-0 mb-[4.8px] inline-block border-b border-b-primary-gray-500 pb-px font-semibold text-content-secondary text-xs uppercase leading-base no-underline'>
               {siteSubName}
             </div>
           ) : null}

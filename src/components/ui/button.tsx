@@ -234,7 +234,7 @@ function Button({
               <path d='M1 3 L11 11.5L1 21' stroke='currentColor' stroke-width='2' />
             </g>
             <g className='scale-x-0 transition-transform duration-200 ease-in-out group-hover/btn:scale-x-100 group-hover:scale-x-100'>
-              <path d='M1 11.5L80 11.5' stroke='currentColor' stroke-width='2' />
+              <path d='M1 11.5L78 11.5' stroke='currentColor' stroke-width='2' />
             </g>
           </svg>
         </div>
