@@ -1,43 +1,50 @@
 import { Trash2, Upload } from 'lucide-react';
 import type React from 'react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn, generateRandomId } from '@/lib/utils';
 import { Badge } from './badge';
 import { Label } from './label';
 import { P } from './typography';
 
-function FileUpload({
-  onFileChange,
-  children,
-  ...props
-}: React.InputHTMLAttributes<HTMLInputElement> & {
+type FileUploadProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'defaultValue'
+> & {
   onFileChange?: (_d: File[]) => void;
-}) {
+  defaultFiles?: File[];
+  value?: File[];
+};
+
+function FileUpload({ onFileChange, children, defaultFiles, value, ...props }: FileUploadProps) {
   const idForHtml = props.id || generateRandomId();
-  const [files, setFiles] = useState<File[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const [internalFiles, setInternalFiles] = useState<File[]>(defaultFiles || []);
+  const isControlled = value !== undefined;
+  const files = isControlled ? value : internalFiles;
+
+  const updateFiles = (next: File[]) => {
+    if (!isControlled) setInternalFiles(next);
+    onFileChange?.(next);
+    // reset the native input so picking the same file again still fires onChange
+    if (inputRef.current) inputRef.current.value = '';
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      let updatedFiles = [...Array.from(event.target.files)];
-      if (props.multiple) {
-        updatedFiles = [...files, ...Array.from(event.target.files)];
-      }
-      setFiles(updatedFiles);
-      onFileChange?.(updatedFiles);
-    }
+    if (!event.target.files) return;
+    const picked = Array.from(event.target.files);
+    updateFiles(props.multiple ? [...files, ...picked] : picked);
   };
-  const handleRemoveFile = (index: number) => {
-    const updatedFiles = files.filter((_, i) => i !== index);
-    setFiles(updatedFiles);
-    onFileChange?.(updatedFiles);
-  };
+
+  const handleRemoveFile = (file: File) => updateFiles(files.filter((f) => f !== file));
 
   return (
     <>
       <div className={cn('mb-2.5 flex w-full flex-col items-center gap-4', props.className)}>
         <input
           {...props}
+          ref={inputRef}
           id={idForHtml}
           type='file'
           className='hidden'
@@ -60,15 +67,20 @@ function FileUpload({
         <>
           <Label>File(s) uploaded</Label>
           <div className='justify-left mt-1 flex w-full flex-wrap gap-2.5'>
-            {files?.map((file, index) => (
+            {files?.map((file) => (
               <Badge
-                key={file.name}
+                key={`${file.name}-${file.lastModified}`}
                 color='surface'
                 variant='primary'
-                className='flex gap-4 border border-stroke bg-surface pr-4 pl-4'
+                className='flex w-full gap-4 border border-stroke bg-surface pr-4 pl-4'
               >
                 <span className='truncate text-base text-content-primary'>{file.name}</span>
-                <Button variant='icon' padding='none' onClick={() => handleRemoveFile(index)}>
+                <Button
+                  variant='icon'
+                  padding='none'
+                  onClick={() => handleRemoveFile(file)}
+                  className='bg-transparent'
+                >
                   <Trash2 className='h-4 w-4 stroke-error' />
                 </Button>
               </Badge>
