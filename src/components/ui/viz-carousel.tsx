@@ -194,8 +194,8 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                       className={cn(
                         'flex @3xl:h-12 h-9 @3xl:w-12 w-9 items-center justify-center rounded-full border-0 bg-foreground pr-1 rtl:rotate-180',
                         canPrev
-                          ? 'cursor-pointer hover:bg-forground-soft'
-                          : 'cursor-not-allowed opacity-disabled',
+                          ? 'cursor-pointer hover:bg-foreground-soft'
+                          : 'cursor-not-allowed bg-gray-400',
                         classNames?.arrowButton,
                       )}
                       onClick={() => emblaApi?.scrollPrev()}
@@ -218,8 +218,8 @@ const VizCarousel = forwardRef<HTMLDivElement, CardProps>(
                       className={cn(
                         'flex @3xl:h-12 h-9 @3xl:w-12 w-9 items-center justify-center rounded-full border-0 bg-foreground pl-1 rtl:rotate-180',
                         canNext
-                          ? 'cursor-pointer hover:bg-forground-soft'
-                          : 'cursor-not-allowed opacity-disabled',
+                          ? 'cursor-pointer hover:bg-foreground-soft'
+                          : 'cursor-not-allowed bg-gray-400',
                         classNames?.arrowButton,
                       )}
                       onClick={() => emblaApi?.scrollNext()}

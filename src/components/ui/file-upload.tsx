@@ -72,7 +72,7 @@ function FileUpload({ onFileChange, children, defaultFiles, value, ...props }: F
                 key={`${file.name}-${file.lastModified}`}
                 color='surface'
                 variant='primary'
-                className='flex w-full gap-4 border border-stroke bg-surface pr-4 pl-4'
+                className='flex max-w-full gap-4 border border-stroke bg-surface pr-4 pl-4'
               >
                 <span className='truncate text-base text-content-primary'>{file.name}</span>
                 <Button

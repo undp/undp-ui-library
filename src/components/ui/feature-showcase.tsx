@@ -166,7 +166,7 @@ function FeatureShowcaseCard(props: {
                 aria-label='Go to next page'
                 onClick={goToPrev}
                 disabled={!canPrev}
-                className='rounded-full bg-foreground-soft p-2 text-content-reverse disabled:opacity-disabled rtl:scale-x-[-1]'
+                className='rounded-full bg-foreground-soft p-2 text-content-reverse disabled:bg-gray-400 rtl:scale-x-[-1]'
               >
                 <ChevronLeft className='h-6 w-6' />
               </button>
@@ -175,7 +175,7 @@ function FeatureShowcaseCard(props: {
                 onClick={goToNext}
                 aria-label='Go to next page'
                 disabled={!canNext}
-                className='rounded-full bg-foreground-soft p-2 text-content-reverse disabled:opacity-disabled rtl:scale-x-[-1]'
+                className='rounded-full bg-foreground-soft p-2 text-content-reverse disabled:bg-gray-400 rtl:scale-x-[-1]'
               >
                 <ChevronRight className='h-6 w-6' />
               </button>
