@@ -1,0 +1,7 @@
+@import "rc-slider/assets/index.css";
+@import "./shadcn.css";
+@import "tw-animate-css";
+@import "./theme.css";
+@import "./base.css";
+
+@source "../";

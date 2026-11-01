@@ -1,0 +1,401 @@
+@layer base {
+  :root {
+    --blue-100: #b5d5f5;
+    --blue-200: #94c4f5;
+    --blue-300: #6babeb;
+    --blue-400: #4f95dd;
+    --blue-500: #3288ce;
+    --blue-600: #0468b1;
+    --blue-700: #1f5a95;
+
+    --white: #ffffff;
+    --gray-100: #fafafa;
+    --gray-200: #f7f7f7;
+    --gray-300: #edeff0;
+    --gray-400: #d4d6d8;
+    --gray-500: #a9b1b7;
+    --gray-530: #84929d;
+    --gray-560: #677383;
+    --gray-600: #55606e;
+    --gray-650: #3b4859;
+    --gray-700: #232e3d;
+    --black: #000000;
+
+    --red-200: #ffbcb7;
+    --red-400: #ee402d;
+    --red-600: #d12800;
+
+    --orange-200: #ffd6a7;
+    --orange-400: #ff8903;
+    --orange-600: #f54900;
+
+    --yellow-200: #ffe17e;
+    --yellow-400: #ffeb00;
+    --yellow-600: #fbc412;
+
+    --lime-200: #d8f999;
+    --lime-400: #9ae600;
+    --lime-600: #5ea500;
+
+    --green-200: #b8ecb6;
+    --green-400: #6de354;
+    --green-600: #59ba47;
+
+    --teal-200: #96f7e4;
+    --teal-400: #00d5bd;
+    --teal-600: #009689;
+
+    --azure-200: #a2daf3;
+    --azure-400: #60d4f2;
+    --azure-600: #00c1ff;
+
+    --violet-200: #ddd6ff;
+    --violet-400: #a684ff;
+    --violet-600: #7f22fe;
+
+    --pink-200: #ffccd2;
+    --pink-400: #ff637e;
+    --pink-600: #e60076;
+
+    --disabled-opacity-value: 0.5;
+
+    --sdg-1: #e5243b;
+    --sdg-2: #dda63a;
+    --sdg-3: #4c9f38;
+    --sdg-4: #c5192d;
+    --sdg-5: #ff3a21;
+    --sdg-6: #26bde2;
+    --sdg-7: #fcc30b;
+    --sdg-8: #a21942;
+    --sdg-9: #fd6925;
+    --sdg-10: #dd1367;
+    --sdg-11: #fd9d24;
+    --sdg-12: #bf8b2e;
+    --sdg-13: #3f7e44;
+    --sdg-14: #0a97d9;
+    --sdg-15: #56c02b;
+    --sdg-16: #00689d;
+    --sdg-17: #19486a;
+
+    --categorical-male: #02a38a;
+    --categorical-female: #757af0;
+
+    --categorical-urban: #0468b1;
+    --categorical-rural: #5dd4f0;
+
+    --categorical-child: #e86d62;
+    --categorical-adolescent: #e8a05d;
+    --categorical-young-adult: #d8c85d;
+    --categorical-adult: #78c96b;
+    --categorical-older-adult: #5dd4f0;
+
+    --background: var(--white);
+    --background-soft: var(--gray-100);
+    --foreground: var(--black);
+    --foreground-soft: var(--gray-700);
+    --ring: var(--blue-100);
+
+    --error: var(--red-600);
+    --error-hover: var(--red-400);
+    --error-light: var(--red-200);
+
+    --warning: var(--yellow-600);
+    --warning-hover: var(--yellow-400);
+    --warning-light: var(--yellow-200);
+
+    --success: var(--green-600);
+    --success-hover: var(--green-400);
+    --success-light: var(--green-200);
+
+    --info: var(--blue-600);
+    --info-hover: var(--blue-400);
+    --info-light: var(--blue-200);
+
+    --primary: var(--red-600);
+    --primary-hover: var(--red-400);
+    --primary-light: var(--red-200);
+
+    --secondary: var(--blue-600);
+    --secondary-hover: var(--blue-400);
+    --secondary-light: var(--blue-200);
+
+    --tertiary: var(--azure-600);
+    --tertiary-hover: var(--azure-400);
+    --tertiary-light: var(--azure-200);
+
+    --quaternary: var(--yellow-600);
+    --quaternary-hover: var(--yellow-400);
+    --quaternary-light: var(--yellow-200);
+
+    --accent-red: var(--red-600);
+    --accent-red-hover: var(--red-400);
+    --accent-red-light: var(--red-200);
+
+    --accent-orange: var(--orange-600);
+    --accent-orange-hover: var(--orange-400);
+    --accent-orange-light: var(--orange-200);
+
+    --accent-yellow: var(--yellow-600);
+    --accent-yellow-hover: var(--yellow-400);
+    --accent-yellow-light: var(--yellow-200);
+
+    --accent-lime: var(--lime-600);
+    --accent-lime-hover: var(--lime-400);
+    --accent-lime-light: var(--lime-200);
+
+    --accent-green: var(--green-600);
+    --accent-green-hover: var(--green-400);
+    --accent-green-light: var(--green-200);
+
+    --accent-teal: var(--teal-600);
+    --accent-teal-hover: var(--teal-400);
+    --accent-teal-light: var(--teal-200);
+
+    --accent-azure: var(--azure-600);
+    --accent-azure-hover: var(--azure-400);
+    --accent-azure-light: var(--azure-200);
+
+    --accent-blue: var(--blue-600);
+    --accent-blue-hover: var(--blue-400);
+    --accent-blue-light: var(--blue-200);
+
+    --accent-violet: var(--violet-600);
+    --accent-violet-hover: var(--violet-400);
+    --accent-violet-light: var(--violet-200);
+
+    --accent-pink: var(--pink-600);
+    --accent-pink-hover: var(--pink-400);
+    --accent-pink-light: var(--pink-200);
+
+    --content-primary: var(--foreground);
+    --content-secondary: var(--gray-560);
+    --content-tertiary: var(--gray-530);
+    --content-quaternary: var(--gray-500);
+    --content-placeholder: var(--gray-530);
+    --content-disabled: var(--gray-530);
+    --content-reverse: var(--background);
+
+    --surface: var(--gray-200);
+    --surface-hover: var(--gray-300);
+    --surface-hard: var(--gray-400);
+    --surface-hard-hover: var(--gray-500);
+    --surface-2xs: var(--gray-100);
+    --surface-xs: var(--gray-200);
+    --surface-sm: var(--gray-300);
+    --surface-md: var(--gray-400);
+    --surface-lg: var(--gray-500);
+    --surface-xl: var(--gray-530);
+    --surface-2xl: var(--gray-560);
+    --surface-3xl: var(--gray-600);
+    --surface-4xl: var(--gray-700);
+
+    --stroke: var(--gray-400);
+    --stroke-hover: var(--gray-600);
+    --stroke-2xs: var(--gray-100);
+    --stroke-xs: var(--gray-200);
+    --stroke-sm: var(--gray-300);
+    --stroke-md: var(--gray-400);
+    --stroke-lg: var(--gray-500);
+    --stroke-xl: var(--gray-530);
+    --stroke-2xl: var(--gray-560);
+    --stroke-3xl: var(--gray-600);
+    --stroke-4xl: var(--gray-700);
+
+    --footer-background: var(--blue-600);
+
+    --card-hover-color: var(--yellow-400);
+
+    --body-font: ProximaNova;
+    --sans-font: var(--body-font);
+    --heading-font: SohneBreit;
+    --mono-font: Consolas;
+
+    --font-size-h1: 6.25rem;
+    --font-size-h1-sm: 5.125rem;
+    --font-size-h1-xs: 3rem;
+    --font-size-h2: 3.5rem;
+    --font-size-h2-sm: 2.875rem;
+    --font-size-h2-xs: 2.5rem;
+    --font-size-h3: 3rem;
+    --font-size-h3-sm: 3rem;
+    --font-size-h3-xs: 2.5rem;
+    --font-size-h4: 2rem;
+    --font-size-h4-sm: 2rem;
+    --font-size-h4-xs: 1.875rem;
+    --font-size-h5: 1.5rem;
+    --font-size-h5-sm: 1.5rem;
+    --font-size-h5-xs: 1.25rem;
+    --font-size-h6: 1rem;
+    --font-size-h6-sm: 1rem;
+    --font-size-h6-xs: 1rem;
+    --font-size-p: 1.25rem;
+    --font-size-p-sm: 1rem;
+    --font-size-p-xs: 1rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-xl: 1.25rem;
+    --font-size-lg: 1.125rem;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-xs: 0.75rem;
+    --font-size-2xs: 0.625rem;
+
+    --line-height-h1: 1.08;
+    --line-height-h2: 1.1;
+    --line-height-h3: 1.15;
+    --line-height-h4: 1.15;
+    --line-height-h5: 1.15;
+    --line-height-h6: 1.15;
+    --line-height-p: 1.4;
+    --line-height-2xl: 2;
+    --line-height-xl: 1.8;
+    --line-height-lg: 1.6;
+    --line-height-base: 1.4;
+    --line-height-sm: 1.2;
+    --line-height-xs: 1;
+    --line-height-none: 0;
+
+    --rounded-base: 0;
+    --rounded-sm: 0.125rem;
+    --rounded-md: 0.25rem;
+    --rounded-lg: 0.5rem;
+    --rounded-xl: 1rem;
+    --rounded-2xl: 2rem;
+
+    --frosted-blur: 18px;
+    --frosted-opacity-value: 0.95;
+
+    --hover-color-mix-percent: 70%;
+    --lighten-color-mix-percent: 27%;
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--stroke, currentcolor);
+  }
+
+  body {
+    margin: 0;
+    line-height: inherit;
+    color: var(--foreground);
+    font-family: var(--font-body);
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+
+@keyframes lineLoop-animation-for-links {
+  0% {
+    background-position:
+      100% 100%,
+      -30px 100%;
+    background-size:
+      100% 2px,
+      0 2px;
+  }
+  to {
+    background-position:
+      calc(100% + 30px) 100%,
+      0 100%;
+    background-size:
+      0 2px,
+      100% 2px;
+  }
+}
+@keyframes lineLoop-animation-for-links-rtl {
+  0% {
+    background-position:
+      calc(100% + 30px) 100%,
+      0 100%;
+    background-size:
+      0 2px,
+      100% 2px;
+  }
+  to {
+    background-position:
+      100% 100%,
+      -30px 100%;
+    background-size:
+      100% 2px,
+      0 2px;
+  }
+}
+
+.undp-link {
+  background-position:
+    100% 100%,
+    -30px 100%;
+  background-repeat: no-repeat;
+  background-size:
+    100% 2px,
+    0 1px;
+}
+
+.undp-link:hover {
+  animation: lineLoop-animation-for-links 2s linear infinite;
+}
+
+[dir="rtl"] .undp-link:hover {
+  animation: lineLoop-animation-for-links-rtl 2s linear infinite;
+}
+
+.undp-scrollbar {
+  overflow-x: auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.undp-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.undp-scrollbar::-webkit-scrollbar-track {
+  background: var(--foreground);
+  background-clip: padding-box;
+  border: 2px solid var(--background);
+}
+
+.undp-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--foreground);
+}
+
+.undp-select-input input {
+  height: auto;
+}
+
+.searchable-input {
+  cursor: text;
+}
+
+.undp-select-input input:focus {
+  box-shadow: 0 0 0;
+}

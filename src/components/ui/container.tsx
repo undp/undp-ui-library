@@ -3,6 +3,71 @@ import React from 'react';
 
 import { cn } from '@/lib/utils';
 
+type ContainerSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | 'full';
+
+type ResponsiveValue = {
+  base?: ContainerSize;
+  sm?: ContainerSize;
+  md?: ContainerSize;
+  lg?: ContainerSize;
+  xl?: ContainerSize;
+  '2xl'?: ContainerSize;
+};
+
+const containerWidthMap: Record<ContainerSize, string> = {
+  xs: 'w-1/4',
+  sm: 'w-1/3',
+  base: 'w-1/2',
+  lg: 'w-2/3',
+  xl: 'w-3/4',
+  full: 'w-full',
+};
+
+const containerWidthSmMap: Record<ContainerSize, string> = {
+  xs: 'sm:w-1/4',
+  sm: 'sm:w-1/3',
+  base: 'sm:w-1/2',
+  lg: 'sm:w-2/3',
+  xl: 'sm:w-3/4',
+  full: 'sm:w-full',
+};
+
+const containerWidthMdMap: Record<ContainerSize, string> = {
+  xs: 'md:w-1/4',
+  sm: 'md:w-1/3',
+  base: 'md:w-1/2',
+  lg: 'md:w-2/3',
+  xl: 'md:w-3/4',
+  full: 'md:w-full',
+};
+
+const containerWidthLgMap: Record<ContainerSize, string> = {
+  xs: 'lg:w-1/4',
+  sm: 'lg:w-1/3',
+  base: 'lg:w-1/2',
+  lg: 'lg:w-2/3',
+  xl: 'lg:w-3/4',
+  full: 'lg:w-full',
+};
+
+const containerWidthXlMap: Record<ContainerSize, string> = {
+  xs: 'xl:w-1/4',
+  sm: 'xl:w-1/3',
+  base: 'xl:w-1/2',
+  lg: 'xl:w-2/3',
+  xl: 'xl:w-3/4',
+  full: 'xl:w-full',
+};
+
+const containerWidth2xlMap: Record<ContainerSize, string> = {
+  xs: '2xl:w-1/4',
+  sm: '2xl:w-1/3',
+  base: '2xl:w-1/2',
+  lg: '2xl:w-2/3',
+  xl: '2xl:w-3/4',
+  full: '2xl:w-full',
+};
+
 const containerVariants = cva('box-border', {
   variants: {
     backgroundColor: {
@@ -71,14 +136,6 @@ const containerVariants = cva('box-border', {
       flex: 'flex flex-row items-stretch flex-wrap',
       default: '',
     },
-    width: {
-      xs: 'w-1/4',
-      sm: 'w-1/3',
-      base: 'w-1/2',
-      lg: 'w-2/3',
-      xl: 'w-3/4',
-      full: 'w-full',
-    },
     padding: {
       none: 'p-0',
       '2xs': 'p-1',
@@ -107,14 +164,50 @@ const containerVariants = cva('box-border', {
     layout: 'default',
     padding: 'base',
     gap: 'none',
-    width: 'full',
   },
 });
 
+const resolveResponsiveClasses = (
+  value: ContainerSize | ResponsiveValue | undefined,
+  maps: {
+    base: Record<ContainerSize, string>;
+    sm: Record<ContainerSize, string>;
+    md: Record<ContainerSize, string>;
+    lg: Record<ContainerSize, string>;
+    xl: Record<ContainerSize, string>;
+    '2xl': Record<ContainerSize, string>;
+  },
+) => {
+  if (value === undefined) return undefined;
+
+  if (typeof value === 'string') {
+    return maps.base[value];
+  }
+
+  return cn(
+    value.base !== undefined && maps.base[value.base],
+    value.sm !== undefined && maps.sm[value.sm],
+    value.md !== undefined && maps.md[value.md],
+    value.lg !== undefined && maps.lg[value.lg],
+    value.xl !== undefined && maps.xl[value.xl],
+    value['2xl'] !== undefined && maps['2xl'][value['2xl']],
+  );
+};
+
+const gridColsMaps = {
+  base: containerWidthMap,
+  sm: containerWidthSmMap,
+  md: containerWidthMdMap,
+  lg: containerWidthLgMap,
+  xl: containerWidthXlMap,
+  '2xl': containerWidth2xlMap,
+};
+
 const Container = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof containerVariants>
->(({ className, backgroundColor, layout, width, padding, gap, ...props }, ref) => {
+  React.HTMLAttributes<HTMLDivElement> &
+    VariantProps<typeof containerVariants> & { width?: ContainerSize | ResponsiveValue }
+>(({ className, backgroundColor, layout, width = 'full', padding, gap, ...props }, ref) => {
   return (
     <div
       {...props}
@@ -122,10 +215,10 @@ const Container = React.forwardRef<
         containerVariants({
           backgroundColor,
           layout,
-          width,
           padding,
           gap,
         }),
+        resolveResponsiveClasses(width, gridColsMaps),
         className,
       )}
       ref={ref}
