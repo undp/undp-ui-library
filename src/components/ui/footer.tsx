@@ -43,7 +43,7 @@ function FooterLogoUnit({
       )}
     >
       <div className='m-0 flex items-center gap-4'>
-        <a href={link || './'} target='_blank' rel='noreferrer'>
+        <a href={link || 'https://www.undp.org/'} target='_blank' rel='noreferrer'>
           <img
             alt='undp logo'
             src={`https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/${locale === 'es' || locale === 'fr' ? 'pnud' : 'undp'}-logo-white.svg`}
@@ -101,4 +101,49 @@ function FooterCopyrightUnit({
   );
 }
 
-export { Footer, FooterContent, FooterCopyrightUnit, FooterLogoUnit, FooterMainNavUnit };
+function FooterSocialMediaIconUnit({
+  socialMediaLinks,
+  areIconsWhite = true,
+}: {
+  socialMediaLinks: {
+    socialMedia: 'twitter-x' | 'linkedin' | 'instagram' | 'youtube' | 'threads' | 'facebook';
+    link?: string;
+  }[];
+  areIconsWhite?: boolean;
+}) {
+  const defaultSocialMediaLinks = {
+    facebook: 'https://www.facebook.com/UNDP',
+    'twitter-x': 'https://x.com/UNDP',
+    instagram: 'https://www.instagram.com/undp/',
+    youtube: 'https://www.youtube.com/user/UNDP',
+    linkedin: 'https://www.linkedin.com/company/undp',
+    threads: 'https://www.threads.com/@undp',
+  };
+  return (
+    <div className='flex flex-wrap items-center gap-x-6 gap-y-4'>
+      {socialMediaLinks.map((el) => (
+        <a
+          key={el.socialMedia}
+          href={el.link || defaultSocialMediaLinks[el.socialMedia]}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <img
+            alt={`${el.socialMedia} logo`}
+            src={`https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/${el.socialMedia}${areIconsWhite ? '-white' : ''}.svg`}
+            className='h-5 w-5'
+          />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+export {
+  Footer,
+  FooterContent,
+  FooterCopyrightUnit,
+  FooterLogoUnit,
+  FooterMainNavUnit,
+  FooterSocialMediaIconUnit,
+};

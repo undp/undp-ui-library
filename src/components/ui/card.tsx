@@ -178,9 +178,21 @@ const CardImage = React.forwardRef<
   React.HTMLAttributes<HTMLImageElement> & {
     src: string;
     alt?: string;
+    hoverColor?: boolean;
+    imageClassNames?: string;
   }
->(({ className, ...props }, ref) => (
-  <img ref={ref} alt='card' {...props} className={cn('h-64 w-full object-cover', className)} />
+>(({ className, hoverColor = true, imageClassNames, ...props }, ref) => (
+  <div ref={ref} className={cn(`relative box-border w-full`, className)} {...props}>
+    <img
+      ref={ref}
+      alt='card'
+      {...props}
+      className={cn('h-64 w-full object-cover', imageClassNames)}
+    />
+    {hoverColor ? (
+      <div className='absolute top-0 left-0 z-1 h-full w-full bg-[linear-gradient(27.66deg,var(--card-hover-color),transparent_70.49%)] opacity-0 group-hover:opacity-75' />
+    ) : null}
+  </div>
 ));
 CardImage.displayName = 'CardImage';
 

@@ -2,6 +2,7 @@
 import '@/index.css';
 
 export { ConfigProvider } from '@/ConfigProvider';
+export { Arrow1, Arrow2, Download, ExternalLink } from '@/components/icons/animated-icons';
 export {
   Accordion,
   AccordionContent,
@@ -114,6 +115,7 @@ export {
   FooterCopyrightUnit,
   FooterLogoUnit,
   FooterMainNavUnit,
+  FooterSocialMediaIconUnit,
 } from '@/components/ui/footer';
 export { Grid, GridItem } from '@/components/ui/grid';
 export {
@@ -160,6 +162,16 @@ export {
   useMessageScrollerVisibility,
 } from '@/components/ui/message-scroller';
 export { Modal } from '@/components/ui/modal';
+export {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
 export { Pagination } from '@/components/ui/Pagination';
 export { PageHeader, PageHeaderContent, PageHeaderHead } from '@/components/ui/page-header';
 export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from '@/components/ui/popover';

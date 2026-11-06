@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "3.4.0",
+  "version": "3.4.4",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -23,6 +23,11 @@
       "types": "./dist/Accordion.d.ts",
       "import": "./dist/Accordion.js",
       "require": "./dist/Accordion.cjs"
+    },
+    "./AnimatedIcons": {
+      "types": "./dist/AnimatedIcons.d.ts",
+      "import": "./dist/AnimatedIcons.js",
+      "require": "./dist/AnimatedIcons.cjs"
     },
     "./Attachment": {
       "types": "./dist/Attachment.d.ts",
@@ -208,6 +213,11 @@
       "types": "./dist/Modal.d.ts",
       "import": "./dist/Modal.js",
       "require": "./dist/Modal.cjs"
+    },
+    "./NavigationMenu": {
+      "types": "./dist/NavigationMenu.d.ts",
+      "import": "./dist/NavigationMenu.js",
+      "require": "./dist/NavigationMenu.cjs"
     },
     "./PageHeader": {
       "types": "./dist/PageHeader.d.ts",

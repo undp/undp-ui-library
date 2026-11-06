@@ -23,36 +23,50 @@ function HeaderLogoUnit({
   siteSubName,
   hyperlink,
   logoLocale,
+  siteSubNameUrl,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
   siteName: string;
   siteSubName?: string;
+  siteSubNameUrl?: string;
   hyperlink?: string;
   logoLocale?: 'en' | 'fr' | 'es';
 }) {
   return (
-    <div {...props} className={cn('flex items-center', className)}>
+    <div {...props} className={cn('flex items-center gap-6', className)}>
       <a
         href={hyperlink || './'}
         style={{ textDecoration: 'none' }}
-        className='logo-sub-head flex items-center gap-6'
+        className='logo-sub-head flex items-center'
       >
         <img
           src={`https://cdn.jsdelivr.net/npm/@undp/design-system-assets/images/${logoLocale === 'es' || logoLocale === 'fr' ? 'pnud' : 'undp'}-logo-blue.svg`}
           alt='UNDP Logo'
           className='z-100 h-20.5 w-10 md:h-30.5 md:w-15'
         />
-        <div>
+      </a>
+      <div>
+        <a
+          href={siteSubNameUrl || 'https://www.undp.org/'}
+          style={{ textDecoration: 'none' }}
+          className='logo-sub-head flex items-center gap-6'
+        >
           {siteSubName ? (
             <div className='mx-0 mt-0 mb-[4.8px] inline-block border-b border-b-primary-gray-500 pb-px font-semibold text-content-secondary text-xs uppercase leading-base no-underline'>
               {siteSubName}
             </div>
           ) : null}
+        </a>
+        <a
+          href={hyperlink || './'}
+          style={{ textDecoration: 'none' }}
+          className='logo-sub-head flex items-center gap-6'
+        >
           <div className='m-0 p-0 font-semibold text-base text-content-primary leading-base no-underline lg:text-xl'>
             {siteName}
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   );
 }
@@ -117,7 +131,7 @@ function HeaderMenuUnit({
     <div
       {...props}
       className={cn(
-        'grid grow items-center gap-4 font-medium text-content-primary tracking-[0.42px] md:flex md:gap-8 [&>a:hover]:text-secondary [&>a]:font-bold [&>a]:text-base [&>a]:text-content-primary [&>a]:uppercase [&>a]:no-underline md:[&>a]:font-medium md:[&>a]:text-sm',
+        'grid grow items-center gap-4 font-medium text-content-primary tracking-[0.42px] md:flex md:gap-8 [&>a:hover]:text-content-secondary [&>a]:font-bold [&>a]:text-base [&>a]:text-content-primary [&>a]:uppercase [&>a]:no-underline md:[&>a]:font-medium md:[&>a]:text-sm',
         align === 'end' ? 'md:justify-end' : 'md:justify-center',
         className,
       )}

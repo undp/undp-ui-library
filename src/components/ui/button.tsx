@@ -2,6 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 import type * as React from 'react';
 import { cn } from '@/lib/utils';
+import { Arrow1, Arrow2, Download, ExternalLink } from '../icons/animated-icons';
 
 const buttonVariants = cva(
   'cursor-pointer group/btn m-0! tracking-[0.48px] inline-flex items-center justify-center gap-2 uppercase whitespace-nowrap rounded font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 hover:[&_.button-arrow]:translate-x-[70%] group-hover:[&_.button-arrow]:translate-x-[70%] rtl:hover:[&_.button-arrow]:-translate-x-[70%] rtl:group-hover:[&_.button-arrow]:-translate-x-[70%] disabled:hover:[&_.button-arrow]:translate-x-0 disabled:group-hover:[&_.button-arrow]:translate-x-0',
@@ -206,87 +207,22 @@ function Button({
       {children}
       {icon === 'arrow' ? (
         <div className='button-end-icon ml-1 h-6 w-3.25 rtl:mr-1 rtl:ml-0 rtl:scale-x-[-1]'>
-          <svg
-            width='26'
-            height='24'
-            viewBox='0 0 26 24'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <title>Chevron right icon</title>
-            <g className='translate-x-0 transition-transform duration-200 ease-in-out group-hover/btn:translate-x-1.75 group-hover:translate-x-1.75'>
-              <path d='M1 3 L11 11.5L1 21' stroke='currentColor' stroke-width='2' />
-            </g>
-          </svg>
+          <Arrow1 />
         </div>
       ) : null}
       {icon === 'arrow-2' ? (
         <div className='button-end-icon ml-1 h-6 rtl:mr-1 rtl:ml-0 rtl:scale-x-[-1]'>
-          <svg
-            width='93'
-            height='24'
-            viewBox='0 0 93 24'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <title>Chevron right icon</title>
-            <g className='translate-x-0 transition-transform duration-200 ease-in-out group-hover/btn:translate-x-16.75 group-hover:translate-x-16.75'>
-              <path d='M1 3 L11 11.5L1 21' stroke='currentColor' stroke-width='2' />
-            </g>
-            <g className='scale-x-0 transition-transform duration-200 ease-in-out group-hover/btn:scale-x-100 group-hover:scale-x-100'>
-              <path d='M1 11.5L78 11.5' stroke='currentColor' stroke-width='2' />
-            </g>
-          </svg>
+          <Arrow2 />
         </div>
       ) : null}
       {icon === 'download' ? (
         <div className='button-end-icon ml-1 h-6 w-6 rtl:mr-1 rtl:ml-0'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='24'
-            height='48'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='currentColor'
-            stroke-width='2'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            className={cn('download-icon -mt-3', className)}
-          >
-            <title>Download icon</title>
-            <g className='translate-y-0 transition-transform duration-200 ease-in-out group-hover/btn:-translate-y-2 group-hover:-translate-y-2'>
-              <path d='M12 15V3' />
-              <path d='m7 10 5 5 5-5' />
-            </g>
-            <path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4' />
-          </svg>
+          <Download className='-mt-3' />
         </div>
       ) : null}
       {icon === 'external-link' ? (
         <div className='button-end-icon ml-1 h-6 w-6 rtl:mr-1 rtl:ml-0 rtl:scale-x-[-1]'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='48'
-            height='48'
-            viewBox='0 0 48 48'
-            fill='none'
-            stroke='currentColor'
-            stroke-width='2'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            className={cn('external-link-icon -mt-4.5', className)}
-          >
-            <title>External link icon</title>
-            <g transform='translate(0,16)'>
-              <path d='M16 21V21L2 21V6' />
-              <g transform='translate(-3,3)'>
-                <g className='translate-x-0 translate-y-0 transition-transform duration-200 ease-in-out group-hover/btn:translate-x-1.5 group-hover:translate-x-1.5 group-hover/btn:-translate-y-1.5 group-hover:-translate-y-1.5'>
-                  <path d='m21 3-9 9' />
-                  <path d='M15 3h6v6' />
-                </g>
-              </g>
-            </g>
-          </svg>
+          <ExternalLink className='-mt-4.5' />
         </div>
       ) : null}
     </Comp>
