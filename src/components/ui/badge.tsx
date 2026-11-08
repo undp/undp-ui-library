@@ -4,7 +4,7 @@ import type React from 'react';
 import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
-  'inline-flex items-center px-2.5 py-0.5 font-normal transition-colors focus:outline-hidden',
+  'inline-flex items-center font-normal transition-colors focus:outline-hidden',
   {
     variants: {
       variant: {
@@ -132,6 +132,11 @@ const badgeVariants = cva(
         '2xl': 'rounded-2xl',
         full: 'rounded-full',
       },
+      padding: {
+        base: 'px-2.5 py-0.5',
+        sm: 'px-1.5 py-0.25',
+        lg: 'px-4 py-1.5',
+      },
       size: {
         base: 'text-base',
         sm: 'text-sm',
@@ -145,6 +150,7 @@ const badgeVariants = cva(
       color: 'primary',
       size: 'base',
       rounded: 'full',
+      padding: 'base',
     },
   },
 );
@@ -155,10 +161,14 @@ function Badge({
   variant,
   color,
   size,
+  padding,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof badgeVariants>) {
   return (
-    <div {...props} className={cn(badgeVariants({ variant, rounded, size, color }), className)} />
+    <div
+      {...props}
+      className={cn(badgeVariants({ variant, rounded, padding, size, color }), className)}
+    />
   );
 }
 
