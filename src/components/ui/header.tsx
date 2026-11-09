@@ -1,7 +1,15 @@
-import { Menu, X } from 'lucide-react';
+import { ChevronRight, Menu, X } from 'lucide-react';
 import React from 'react';
 
 import { cn } from '@/lib/utils';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from './navigation-menu';
 
 function Header({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -131,7 +139,7 @@ function HeaderMenuUnit({
     <div
       {...props}
       className={cn(
-        'grid grow items-center gap-4 font-medium text-content-primary tracking-[0.42px] md:flex md:gap-8 [&>a:hover]:text-content-secondary [&>a]:font-bold [&>a]:text-base [&>a]:text-content-primary [&>a]:uppercase [&>a]:no-underline md:[&>a]:font-medium md:[&>a]:text-sm',
+        'grid grow items-center gap-8 font-medium text-content-primary tracking-[0.42px] md:flex md:gap-8 [&>a:hover]:text-content-secondary [&>a]:font-bold [&>a]:text-base [&>a]:text-content-primary [&>a]:uppercase [&>a]:no-underline md:[&>a]:font-medium md:[&>a]:text-sm',
         align === 'end' ? 'md:justify-end' : 'md:justify-center',
         className,
       )}
@@ -152,4 +160,114 @@ function HeaderActions({ className, children, ...props }: React.HTMLAttributes<H
   );
 }
 
-export { Header, HeaderActions, HeaderLogoUnit, HeaderMainNavUnit, HeaderMenuUnit };
+function HeaderMenuDropdown({
+  label,
+  items,
+  classNames,
+  styles,
+  isResponsive = true,
+  showArrowInMobile = true,
+}: {
+  label: string;
+  items: { label: string; href?: string; target?: string }[];
+  classNames?: {
+    triggerClassName?: string;
+    menuClassName?: string;
+    itemClassName?: string;
+  };
+  styles?: {
+    triggerStyles?: React.CSSProperties;
+    menuStyles?: React.CSSProperties;
+    itemStyles?: React.CSSProperties;
+  };
+  isResponsive?: boolean;
+  showArrowInMobile?: boolean;
+}) {
+  return (
+    <>
+      <NavigationMenu viewport={false} className={isResponsive ? 'hidden md:flex' : 'flex'}>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger
+              className={classNames?.triggerClassName}
+              style={styles?.triggerStyles}
+            >
+              {label}
+            </NavigationMenuTrigger>
+            <NavigationMenuContent
+              className={cn('md:w-[320px]', classNames?.menuClassName)}
+              style={styles?.menuStyles}
+            >
+              {items.map((item) => (
+                <NavigationMenuLink
+                  href={item.href || '#'}
+                  target={item.target || '_self'}
+                  key={item.label}
+                  className={classNames?.itemClassName}
+                  style={styles?.itemStyles}
+                >
+                  {item.label}
+                </NavigationMenuLink>
+              ))}
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+      <div className={isResponsive ? 'flex flex-col gap-9 md:hidden' : 'hidden flex-col gap-9'}>
+        <div className='font-bold text-base text-content-primary uppercase no-underline md:font-medium md:text-sm'>
+          {label}
+        </div>
+        {items.map((item) => (
+          <div
+            key={item.label}
+            className='ml-3 rtl:mr-3 [&>a:hover]:text-content-secondary [&>a]:text-content-primary [&>a]:text-sm [&>a]:no-underline'
+          >
+            <a
+              href={item.href || '#'}
+              className='flex items-center gap-1'
+              target={item.target || '_self'}
+            >
+              {item.label}
+              {showArrowInMobile && <ChevronRight className='block text-primary md:hidden' />}
+            </a>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function HeaderMenuLink({
+  children,
+  className,
+  showArrowInMobile = true,
+  href,
+  target,
+  ...props
+}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  showArrowInMobile?: boolean;
+}) {
+  return (
+    <a
+      {...props}
+      href={href || '#'}
+      target={target || '_self'}
+      className={cn(
+        'flex items-center gap-1 font-bold text-base text-content-primary uppercase no-underline hover:text-content-secondary md:font-medium md:text-sm',
+        className,
+      )}
+    >
+      {children} {showArrowInMobile && <ChevronRight className='block text-primary md:hidden' />}
+    </a>
+  );
+}
+
+export {
+  Header,
+  HeaderActions,
+  HeaderLogoUnit,
+  HeaderMainNavUnit,
+  HeaderMenuDropdown,
+  HeaderMenuLink,
+  HeaderMenuUnit,
+};

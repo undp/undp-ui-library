@@ -123,6 +123,8 @@ export {
   HeaderActions,
   HeaderLogoUnit,
   HeaderMainNavUnit,
+  HeaderMenuDropdown,
+  HeaderMenuLink,
   HeaderMenuUnit,
 } from '@/components/ui/header';
 export { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type React from 'react';
-
+import { HeaderMenuDropdown, HeaderMenuLink } from '@/components/ui/header';
 import {
   Button,
   Header,
@@ -25,12 +25,26 @@ const meta: Meta<PagePropsAndCustomArgs> = {
         }`}
       >
         <Header>
-          <HeaderLogoUnit siteName='Data Futures Exchange' siteSubName='UNDP' hyperlink='./' />
+          <HeaderLogoUnit hyperlink='./' siteName='Data Futures Exchange' siteSubName='UNDP' />
           <HeaderMainNavUnit>
             <HeaderMenuUnit>
-              <div>Nav 1</div>
-              <div>Nav 2</div>
-              <div>Nav 3</div>
+              <HeaderMenuLink>Nav 1</HeaderMenuLink>
+              <HeaderMenuLink>Nav 2</HeaderMenuLink>
+              <HeaderMenuLink>Nav 3</HeaderMenuLink>
+              <HeaderMenuDropdown
+                label='Nav 4'
+                items={[
+                  {
+                    label: 'Page 1',
+                  },
+                  {
+                    label: 'Page 2',
+                  },
+                  {
+                    label: 'Page 3',
+                  },
+                ]}
+              />
             </HeaderMenuUnit>
             <HeaderActions>
               <Button>Log in</Button>
