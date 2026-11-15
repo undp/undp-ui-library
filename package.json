@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "3.4.6",
+  "version": "3.4.8",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -223,6 +223,11 @@
       "types": "./dist/PageHeader.d.ts",
       "import": "./dist/PageHeader.js",
       "require": "./dist/PageHeader.cjs"
+    },
+    "./PageSection": {
+      "types": "./dist/PageSection.d.ts",
+      "import": "./dist/PageSection.js",
+      "require": "./dist/PageSection.cjs"
     },
     "./PageWideCard": {
       "types": "./dist/PageWideCard.d.ts",

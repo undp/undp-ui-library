@@ -55,6 +55,7 @@ const entries = {
   Modal: path.resolve(import.meta.dirname, 'src/components/ui/modal.tsx'),
   NavigationMenu: path.resolve(import.meta.dirname, 'src/components/ui/navigation-menu.tsx'),
   PageHeader: path.resolve(import.meta.dirname, 'src/components/ui/page-header.tsx'),
+  PageSection: path.resolve(import.meta.dirname, 'src/components/ui/page-section.tsx'),
   PageWideCard: path.resolve(import.meta.dirname, 'src/components/ui/card-page-wide.tsx'),
   Pagination: path.resolve(import.meta.dirname, 'src/components/ui/Pagination/index.tsx'),
   Popover: path.resolve(import.meta.dirname, 'src/components/ui/popover.tsx'),

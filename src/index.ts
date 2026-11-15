@@ -176,6 +176,7 @@ export {
 } from '@/components/ui/navigation-menu';
 export { Pagination } from '@/components/ui/Pagination';
 export { PageHeader, PageHeaderContent, PageHeaderHead } from '@/components/ui/page-header';
+export { PageSection } from '@/components/ui/page-section';
 export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 export { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 export {
@@ -224,7 +225,20 @@ export { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 export { Textarea } from '@/components/ui/textarea';
 export { Toaster } from '@/components/ui/toaster';
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-export { A, Blockquote, Cite, Code, H1, H2, H3, H4, H5, H6, P } from '@/components/ui/typography';
+export {
+  A,
+  Blockquote,
+  Cite,
+  Code,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Metric,
+  P,
+} from '@/components/ui/typography';
 export {
   VisualizationWidget,
   VisualizationWidgetBody,

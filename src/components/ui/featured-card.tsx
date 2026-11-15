@@ -83,21 +83,59 @@ const featuredCardVariants = cva(
     },
   },
 );
+const featuredCardImageVariants = cva(
+  'group relative isolate flex flex-col items-stretch justify-between bg-cover bg-center transition-all duration-200 before:content-[""] before:absolute before:inset-0 before:-z-10 before:bg-[image:var(--bg-image)] before:bg-cover before:bg-center before:grayscale before:transition-[filter] before:duration-250 hover:before:grayscale-0 hover:text-background [&_button[data-variant=outline],&_button[data-variant=text],&_button[data-variant=link]]:!text-inherit',
+  {
+    variants: {
+      size: {
+        xs: 'w-1/4',
+        sm: 'w-1/3',
+        base: 'w-1/2',
+        lg: 'w-2/3',
+        xl: 'w-3/4',
+        full: 'w-full',
+      },
+    },
+    defaultVariants: {
+      size: 'full',
+    },
+  },
+);
 
 interface FeaturedCardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof featuredCardVariants> {
-  border?: boolean;
+  bgImage?: string;
 }
 
 const FeaturedCard = React.forwardRef<HTMLDivElement, FeaturedCardProps>(
-  ({ className, border = true, size, backgroundColor, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(featuredCardVariants({ size, backgroundColor }), className)}
-      {...props}
-    />
-  ),
+  ({ className, bgImage, size, backgroundColor, children, style, ...props }, ref) =>
+    bgImage ? (
+      <div
+        ref={ref}
+        className={cn(featuredCardImageVariants({ size }), className)}
+        style={
+          {
+            ...style,
+            '--bg-image': `url(${bgImage})`,
+          } as React.CSSProperties
+        }
+        {...props}
+      >
+        <div className='absolute inset-x-0 bottom-0 -z-1 h-full bg-[linear-gradient(180deg,rgba(247,247,247,0.8)_0%,rgba(247,247,247,0.98)_72.62%)] opacity-100 transition-opacity duration-250 ease-in-out group-hover:opacity-0' />
+        <div className='absolute inset-0 -z-1 bg-[linear-gradient(180deg,rgba(20,20,24,0)_0%,rgba(20,20,24,0.7)_30%,rgba(20,20,24,0.9)_100%)] opacity-0 transition-opacity duration-250 ease-in-out group-hover:opacity-100' />
+        {children}
+      </div>
+    ) : (
+      <div
+        ref={ref}
+        className={cn(featuredCardVariants({ size, backgroundColor }), className)}
+        style={style}
+        {...props}
+      >
+        {children}
+      </div>
+    ),
 );
 FeaturedCard.displayName = 'FeaturedCard';
 

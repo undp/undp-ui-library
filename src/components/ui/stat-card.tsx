@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
-import { H2, H4, P } from '@/components/ui/typography';
+import { H4, Metric, P } from '@/components/ui/typography';
 import { cn } from '@/lib/utils';
 
 const cardVariants = cva(
@@ -90,16 +90,16 @@ StatCard.displayName = 'StatCard';
 
 const StatCardValue = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <H2
-    ref={ref}
-    className={cn(
-      'text-left font-heading text-shadow-none text-transparent leading-xs [-webkit-text-stroke:2px_var(--content-primary)] group-hover:text-content-primary rtl:text-right group-hover:[-webkit-text-stroke:0px]',
-      className,
-    )}
-    {...props}
-  />
+  {
+    className?: string;
+    color?: 'default' | 'reverse';
+    hoverColor?: 'default' | 'reverse';
+    children?: React.ReactNode;
+  }
+>(({ className, color = 'default', hoverColor = 'default', children }, ref) => (
+  <Metric ref={ref} className={className} color={color} hoverColor={hoverColor}>
+    {children}
+  </Metric>
 ));
 StatCardValue.displayName = 'StatCardValue';
 

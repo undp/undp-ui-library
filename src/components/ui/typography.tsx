@@ -136,6 +136,59 @@ const H1 = React.forwardRef<
   </h1>
 ));
 
+const metricVariant = cva(
+  'mt-0 mr-0 ml-0 p-0 text-left tracking-[0.05rem] font-bold font-heading text-shadow-none text-transparent [-webkit-text-stroke:2px_var(--outline-color)] hover:text-(--hover-color) group-hover:text-(--hover-color) rtl:text-right group-hover:[-webkit-text-stroke:0px] hover:[-webkit-text-stroke:0px] transition-all duration-100',
+  {
+    variants: {
+      color: {
+        default: '[--outline-color:var(--content-primary)]',
+        reverse: '[--outline-color:var(--content-reverse)]',
+      },
+      hoverColor: {
+        default: '[--hover-color:var(--content-primary)]',
+        reverse: '[--hover-color:var(--content-reverse)]',
+      },
+      size: {
+        base: 'text-h2-xs md:text-h2-sm lg:text-h2',
+        sm: 'text-h3-xs md:text-h3-sm lg:text-h3',
+      },
+      marginBottom: {
+        none: 'mb-0',
+        '2xs': 'mb-1',
+        xs: 'mb-2',
+        sm: 'mb-3',
+        'base-responsive': 'mb-3 md:mb-4',
+        base: 'mb-4',
+        lg: 'mb-5',
+        xl: 'mb-6',
+      },
+    },
+    defaultVariants: {
+      color: 'default',
+      hoverColor: 'default',
+      size: 'base',
+      marginBottom: 'base-responsive',
+    },
+  },
+);
+
+const Metric = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof metricVariant>
+>(({ children, className, color, hoverColor, size, marginBottom, ...props }, ref) => (
+  <h2
+    ref={ref}
+    {...props}
+    className={cn(
+      metricVariant({ color, hoverColor, size, marginBottom }),
+      'leading-xs',
+      className,
+    )}
+  >
+    {children}
+  </h2>
+));
+
 const heading2Variant = cva('mt-0 ml-0 mr-0 p-0 font-body text-h2-xs md:text-h2-sm lg:text-h2', {
   variants: {
     marginBottom: {
@@ -481,4 +534,4 @@ const A = React.forwardRef<
   </a>
 ));
 
-export { A, Blockquote, Cite, Code, H1, H2, H3, H4, H5, H6, P };
+export { A, Blockquote, Cite, Code, H1, H2, H3, H4, H5, H6, Metric, P };
