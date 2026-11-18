@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { forwardRef, type HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
-const pageSectionVariants = cva('mx-auto w-full px-4 py-24 sm:px-12 lg:px-32', {
+const pageSectionVariants = cva('mx-auto w-full px-4 py-24 sm:px-8 lg:px-12 2xl:px-32', {
   variants: {
     backgroundColor: {
       transparent: 'bg-transparent',
@@ -20,6 +20,10 @@ const pageSectionVariants = cva('mx-auto w-full px-4 py-24 sm:px-12 lg:px-32', {
       'surface-2xl': 'bg-surface-2xl text-content-reverse',
       'surface-3xl': 'bg-surface-3xl text-content-reverse',
       'surface-4xl': 'bg-surface-4xl text-content-reverse',
+      primary: 'bg-primary text-content-reverse',
+      secondary: 'bg-secondary text-content-reverse',
+      tertiary: 'bg-tertiary text-content-reverse',
+      quaternary: 'bg-quaternary text-content-reverse',
     },
   },
   defaultVariants: {

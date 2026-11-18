@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "3.4.8",
+  "version": "3.4.9",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -484,9 +484,9 @@
     "shadcn": "^4.23.0",
     "storybook": "^10.4.0",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.2",
-    "vite": "^8.0.13",
-    "vite-plugin-dts": "^5.0.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.8",
+    "vite-plugin-dts": "^5.1.2",
     "vite-plugin-static-copy": "^4.1.1"
   },
   "allowScripts": {

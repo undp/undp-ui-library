@@ -53,3 +53,12 @@ This component library is built using:
 - rc-slider — For slider component.
 - react-select — For multi-select component.
 - React (of course!) (Peer dependency)
+
+### Maintainers
+
+This library is maintained by the UNDP Data team.
+
+### Contact
+
+* **Bugs and feature requests:** please [open an issue](https://github.com/undp/undp-ui-library/issues). This is the fastest way to reach us, and it lets others find the answer too.
+* **Questions about using the library:** check the [documentation](https://react.design.undp.org) first, then open an issue.
