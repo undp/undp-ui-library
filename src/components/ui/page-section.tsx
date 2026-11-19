@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { forwardRef, type HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
-const pageSectionVariants = cva('mx-auto w-full px-4 py-24 sm:px-8 lg:px-12 2xl:px-32', {
+const pageSectionVariants = cva('mx-auto w-full px-4 py-24 sm:px-8 lg:px-12 xl:px-24 2xl:px-32', {
   variants: {
     backgroundColor: {
       transparent: 'bg-transparent',

@@ -1,6 +1,6 @@
 {
   "name": "@undp/design-system-react",
-  "version": "3.4.9",
+  "version": "3.4.11",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -129,6 +129,11 @@
       "import": "./dist/DropdownSelect.js",
       "require": "./dist/DropdownSelect.cjs"
     },
+    "./ErrorState": {
+      "types": "./dist/ErrorState.d.ts",
+      "import": "./dist/ErrorState.js",
+      "require": "./dist/ErrorState.cjs"
+    },
     "./FeaturedCard": {
       "types": "./dist/FeaturedCard.d.ts",
       "import": "./dist/FeaturedCard.js",
@@ -183,6 +188,11 @@
       "types": "./dist/LanguageSwitcher.d.ts",
       "import": "./dist/LanguageSwitcher.js",
       "require": "./dist/LanguageSwitcher.cjs"
+    },
+    "./LazyMount": {
+      "types": "./dist/LazyMount.d.ts",
+      "import": "./dist/LazyMount.js",
+      "require": "./dist/LazyMount.cjs"
     },
     "./List": {
       "types": "./dist/List.d.ts",
@@ -288,6 +298,11 @@
       "types": "./dist/Sidebar.d.ts",
       "import": "./dist/Sidebar.js",
       "require": "./dist/Sidebar.cjs"
+    },
+    "./Skeleton": {
+      "types": "./dist/Skeleton.d.ts",
+      "import": "./dist/Skeleton.js",
+      "require": "./dist/Skeleton.cjs"
     },
     "./SliderUI": {
       "types": "./dist/SliderUI.d.ts",
