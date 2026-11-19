@@ -125,7 +125,7 @@ function DrawerBody({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot='drawer-body'
       className={cn(
-        'pr-3 pl-11 group-data-[vaul-drawer-direction=right]:pr-11 group-data-[vaul-drawer-direction=right]:pl-3',
+        'pr-3 pl-3 group-data-[vaul-drawer-direction=right]:pl-3 md:pl-11 md:group-data-[vaul-drawer-direction=right]:pr-11',
         className,
       )}
       {...props}

@@ -8,33 +8,34 @@ import { cn } from '@/lib/utils';
 const accordionVariants = cva('', {
   variants: {
     variant: {
-      primary: 'bg-surface text-content-primary mb-4 px-4 py-1',
-      secondary:
-        'bg-surface text-content-primary mb-0 px-4 py-1 border-b border-b-stroke last:border-b-0',
-      tertiary: 'bg-transparent text-content-primary mb-0 py-2 px-0 border-b border-b-stroke',
-      quaternary: 'bg-transparent text-content-primary mb-0 py-0 px-0',
+      primary: 'bg-surface text-content-primary mb-4 px-4 py-1 border-b-0',
+      secondary: 'bg-surface text-content-primary mb-0 px-4 py-1 border-b  last:border-b-0',
+      tertiary: 'bg-transparent text-content-primary mb-0 py-2 px-0 border-b',
+      quaternary: 'bg-transparent text-content-primary mb-0 py-0 px-0 border-b-0',
     },
+    reverse: { true: 'border-b-background/70', false: 'border-b-stroke' },
   },
-  defaultVariants: { variant: 'primary' },
+  defaultVariants: { variant: 'primary', reverse: false },
 });
 
 const accordionTitleVariants = cva(
-  'flex flex-1 items-center transition-all text-left text-content-primary [&[data-state=open]>svg]:rotate-180',
+  'flex flex-1 items-center transition-all text-left [&[data-state=open]>svg]:rotate-180',
   {
     variants: {
       variant: {
         primary: 'font-normal text-xl justify-between',
-        secondary: 'uppercase font-normal text-base justify-between',
-        tertiary: 'uppercase font-normal text-2xl justify-between',
-        quaternary: 'uppercase font-bold text-base gap-3',
+        secondary: 'font-normal text-base justify-between',
+        tertiary: 'font-normal text-2xl justify-between',
+        quaternary: 'font-bold text-base gap-3',
       },
+      reverse: { true: 'text-content-reverse', false: 'text-content-primary' },
     },
     defaultVariants: { variant: 'primary' },
   },
 );
 
 const accordionContentVariants = cva(
-  'overflow-hidden text-content-primary text-base data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+  'overflow-hidden text-base data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
   {
     variants: {
       variant: {
@@ -43,8 +44,9 @@ const accordionContentVariants = cva(
         tertiary: 'my-3.5 px-3.5',
         quaternary: 'my-3.5 p-0',
       },
+      reverse: { true: 'text-content-reverse', false: 'text-content-primary' },
     },
-    defaultVariants: { variant: 'primary' },
+    defaultVariants: { variant: 'primary', reverse: false },
   },
 );
 
@@ -55,6 +57,7 @@ const chevronVariants = cva('h-6 w-6 shrink-0 transition-transform duration-200'
       secondary: 'text-secondary',
       tertiary: 'text-tertiary',
       quaternary: 'text-quaternary',
+      background: 'text-background',
       foreground: 'text-foreground',
       surface: 'text-surface',
       error: 'text-error',
@@ -107,7 +110,8 @@ const chevronVariants = cva('h-6 w-6 shrink-0 transition-transform duration-200'
   },
 });
 const AccordionContext = React.createContext<{
-  variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | null | undefined;
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | null;
+  reverse?: boolean | null;
   color: VariantProps<typeof chevronVariants>['color'];
 } | null>(null);
 
@@ -118,9 +122,9 @@ type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.R
 const Accordion = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Root>,
   AccordionProps
->(({ variant, color, children, ...props }, ref) => {
+>(({ variant, color, reverse, children, ...props }, ref) => {
   return (
-    <AccordionContext.Provider value={{ variant, color }}>
+    <AccordionContext.Provider value={{ variant, color, reverse }}>
       <AccordionPrimitive.Root ref={ref} {...props}>
         {children}
       </AccordionPrimitive.Root>
@@ -135,7 +139,10 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const context = React.useContext(AccordionContext);
 
-  const combinedClasses = cn(accordionVariants({ variant: context?.variant }), className);
+  const combinedClasses = cn(
+    accordionVariants({ variant: context?.variant, reverse: context?.reverse }),
+    className,
+  );
   return (
     <AccordionPrimitive.Item {...props} ref={ref} className={cn(combinedClasses, className)} />
   );
@@ -152,7 +159,10 @@ const AccordionTrigger = React.forwardRef<
       <AccordionPrimitive.Trigger
         {...props}
         ref={ref}
-        className={cn(accordionTitleVariants({ variant: context?.variant }), className)}
+        className={cn(
+          accordionTitleVariants({ variant: context?.variant, reverse: context?.reverse }),
+          className,
+        )}
       >
         {context?.variant === 'quaternary' ? (
           <>
@@ -180,7 +190,10 @@ const AccordionContent = React.forwardRef<
     <AccordionPrimitive.Content
       {...props}
       ref={ref}
-      className={cn(accordionContentVariants({ variant: context?.variant }), className)}
+      className={cn(
+        accordionContentVariants({ variant: context?.variant, reverse: context?.reverse }),
+        className,
+      )}
     >
       <div className={className}>{children}</div>
     </AccordionPrimitive.Content>
